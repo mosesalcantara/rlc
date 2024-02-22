@@ -7,7 +7,5 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function register_page() {
-        return view('admin.register');
-    }
+    //
 }
