@@ -1,0 +1,147 @@
+.header {
+    margin-top: 9vh;
+    width: 100%;
+    height: 70vh;
+}
+
+.header-item {
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    color: #000b8c;
+    font-weight: 500;
+    margin-top: 3vh;
+}
+
+.header-item h3 {
+    margin-left: 3vw;
+    border-left: 0.2rem solid #CC9900;
+    padding-left: 1vw;
+}
+
+.search {
+
+}
+
+.search_div {
+    background-color: #FAFAFA;
+    width: 100%;
+    height: 7vh;
+    position: absolute;
+    z-index: 1;
+    border-radius: 1rem;
+    opacity: 97%;
+}
+
+.search_drops select {
+    background-color: #D7D7D7;
+    display: inline;
+    width: 15vw;
+    height: 5.5vh;
+    font-weight: 500;
+    border-radius: 1rem;
+    margin-top: 0.7vh;
+}
+
+.search_drops button {
+    display: inline;
+    width: 4.5vw;
+    height: 5vh;
+    font-weight: 500;
+    border-radius: 1rem;
+    color: white;
+}
+
+.featured {
+    width: 100%;
+    height: 80vh;
+    margin-bottom: 15vh;
+}
+
+.featured h1 {
+    color: #000b8c;
+    padding-top: 5rem;
+    padding-left: 5rem;
+    padding-bottom: 1.3rem;
+}
+
+.featured h4 {
+    color: black;
+    padding-top: 5rem;
+    padding-right: 5rem;
+    padding-left: 1.3rem;
+}
+
+.featured_items {
+
+}
+
+.featured_item {
+    border-radius: 1rem;
+    width: 80vw;
+}
+
+.videos {
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+}
+
+.video {
+    padding-top: 5vh;
+    height: 90%;
+    width: 40%;
+    border-radius: 0.5rem;
+}
+
+.review_div {
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+}
+
+.review_title {
+    padding-top: 10vh;
+}
+
+.review_title img {
+    width: 55%;
+    height: 100%;
+}
+
+.reviews {
+    width: 100%;
+    font-weight: 500;
+}
+
+.review_cont {
+    margin-top: 17vh;
+}
+
+.review {
+    background-color: #2E2E2D;
+    height: 70%;
+    width: 80%;
+    border-radius: 1rem;
+    color: white;
+    padding: 1rem;
+}
+
+.profile_logo img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.profile_details h2 {
+    color: #CC9900;
+    font-size: 1.3rem;
+}
+
+.profile_details h4 {
+    font-size: 1rem;
+}
+
+.review_text {
+    padding-top: 1rem;
+}
