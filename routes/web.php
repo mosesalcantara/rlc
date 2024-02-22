@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Pages\PageController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +25,9 @@ Route::prefix('auth')->group(function () {
     Route::get('/register', [AuthController::class, 'register_page']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::get('/logout', [AuthController::class, 'logout']);
+});
+
+Route::prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index']);
 });
 

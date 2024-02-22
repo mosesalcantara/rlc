@@ -1,7 +1,7 @@
-@extends('sections.links')
-@extends('sections.navbar')
-@extends('sections.footer')
-@extends('sections.scripts')
+@extends('sections.pages.links')
+@extends('sections.pages.navbar')
+@extends('sections.pages.footer')
+@extends('sections.pages.scripts')
 
 <!DOCTYPE html>
 <html lang="en">
