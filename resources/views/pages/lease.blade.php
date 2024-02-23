@@ -1,7 +1,7 @@
-@extends('sections.links')
-@extends('sections.navbar')
-@extends('sections.footer')
-@extends('sections.scripts')
+@extends('sections.pages.links')
+@extends('sections.pages.navbar')
+@extends('sections.pages.footer')
+@extends('sections.pages.scripts')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RLC Residences | Leasing - For Lease</title>
 
-    <link rel="stylesheet" href="{{ asset('css/lease.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/lease.css') }}">
 </head>
-<body style="background-image: url({{ asset('img/main-bg.png') }});">
+<body style="background-image: url({{ asset('img/pages/main-bg.png') }});">
     <div class="container-fluid title_div">
         <div class="row title">
             <div class="col">
@@ -58,12 +58,12 @@
         </div>
     </div>
 
-    <div class="container-fluid categories mt-3">
+    <div class="container-fluid categories mt-3 mb-3">
         <div class="row">
             <div class="col category">
                 <div class="card">
-                    <div class="card-header">
-
+                    <div class="card-header text-center">
+                        <img src="{{ asset('/img/pages/for_lease/residential.png') }}" alt="">
                     </div>
                     <div class="card-body text-center">
                         <h1>Residential</h1>
@@ -73,8 +73,8 @@
             </div>
             <div class="col category">
                 <div class="card">
-                    <div class="card-header">
-
+                    <div class="card-header text-center">
+                        <img src="{{ asset('/img/pages/for_lease/commercial.png') }}" alt="">
                     </div>
                     <div class="card-body text-center">
                         <h1>Commercial</h1>
@@ -84,8 +84,8 @@
             </div>
             <div class="col category">
                 <div class="card">
-                    <div class="card-header">
-
+                    <div class="card-header text-center">
+                        <img src="{{ asset('/img/pages/for_lease/parking.png') }}" alt="">
                     </div>
                     <div class="card-body text-center">
                         <h1>Parking</h1>

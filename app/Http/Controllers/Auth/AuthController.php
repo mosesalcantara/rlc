@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public function index() {
+        Auth::logout();
         return view('auth.index');
     }
 
@@ -20,7 +21,7 @@ class AuthController extends Controller
         if (Hash::check($request->password, $user->password)) {
             Auth::login($user);
             
-            return view('admin.index');
+            return redirect('/admin');
         };
     }
 
@@ -40,8 +41,6 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
-
-        Auth::login($user);
 
         return redirect('/auth');
     }   

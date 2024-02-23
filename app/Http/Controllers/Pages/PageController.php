@@ -4,14 +4,71 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Nav_item;
 
 class PageController extends Controller
 {
     public function index() {
-        return view("pages.index");
+        $nav_items = Nav_item::all()->sortBy('order');
+
+        foreach ($nav_items as $nav_item) {
+            $link = $nav_item->title;
+            $link = strtolower($link);
+
+            if ($link == 'home') {
+                $link = '';
+            }
+            else {
+                $link = str_replace(' ', '-', $link);
+            }
+
+            $nav_item['link'] = $link;
+        }
+
+        return view("pages.index")->with('nav_items', $nav_items);
     }
 
     public function lease() {
-        return view("pages.lease");
+        $nav_items = Nav_item::all()->sortBy('order');
+
+        foreach ($nav_items as $nav_item) {
+            $link = $nav_item->title;
+            $link = strtolower($link);
+
+            if ($link == 'home') {
+                $link = '';
+            }
+            else {
+                $link = str_replace(' ', '-', $link);
+            }
+
+            $nav_item['link'] = $link;
+        }
+
+        return view("pages.lease")->with('nav_items', $nav_items);
+    }
+
+    public function properties() {
+        $nav_items = Nav_item::all()->sortBy('order');
+
+        foreach ($nav_items as $nav_item) {
+            $link = $nav_item->title;
+            $link = strtolower($link);
+
+            if ($link == 'home') {
+                $link = '';
+            }
+            else {
+                $link = str_replace(' ', '-', $link);
+            }
+
+            $nav_item['link'] = $link;
+        }
+
+        return view("pages.properties")->with('nav_items', $nav_items);
+    }
+
+    public function test() {
+        return view('pages.test');
     }
 }

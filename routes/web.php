@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/for-lease', [PageController::class, 'lease']);
+Route::get('/compare-properties', [PageController::class, 'properties']);
+Route::get('/test', [PageController::class, 'test']);
+
 
 Route::prefix('auth')->group(function () {
     Route::get('/', [AuthController::class, 'index']);
@@ -29,5 +32,10 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index']);
+    Route::get('/navbar', [AdminController::class, 'navbar']);
+    Route::post('/navbar/add', [AdminController::class, 'create']);
+    Route::get('/navbar/edit/{id}', [AdminController::class, 'edit']);
+    Route::post('/navbar/edit/{id}', [AdminController::class, 'update']);
+    Route::get('/navbar/delete/{id}', [AdminController::class, 'delete']);
 });
 
