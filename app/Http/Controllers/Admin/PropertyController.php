@@ -56,7 +56,7 @@ class PropertyController extends Controller
                 'name' => $request->name,
                 'location' => $request->location,
                 'description' => $request->description,
-            ]);
+            ]);    
         }
 
         return redirect('/admin/properties');

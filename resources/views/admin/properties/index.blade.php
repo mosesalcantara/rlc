@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        img {
+            width: 5vw;
+            height: 5vh;
+        }
+    </style>
 </head>
 <body>
     <a href="/admin" class="btn btn-primary">Back</a>
@@ -22,7 +29,7 @@
             @if (count($properties) > 0)
                 @foreach ($properties as $property)
                     <tr>
-                        <td><img src="{{  asset('uploads/properties/logo') }}/{{ $property->logo }}" alt=""></td>
+                        <td><img src="{{  asset('uploads/properties/logo/$property->logo') }}" alt=""></td>
                         <td>{{ $property->name }}</td>
                         <td>{{ $property->location }}</td>
                         <td>{{ $property->description }}</td>

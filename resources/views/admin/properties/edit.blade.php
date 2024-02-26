@@ -10,7 +10,7 @@
         @csrf
         <div>
             <label for="">Logo</label>     
-            <input type="file" name="logo">
+            <input type="file" name="logo" value="{{ $property->logo }}">
         </div>
         <div>
             <label for="">Name</label>

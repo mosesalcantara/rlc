@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        img {
+            width: 5vw;
+            height: 5vh;
+        }
+    </style>
 </head>
 <body>
     <a href="/admin" class="btn btn-primary">Back</a>
@@ -23,7 +29,7 @@
                     <tr>
                         <td>{{ $amenity->name }}</td>
                         <td>{{ $amenity->type }}</td>
-                        <td><img src="{{  asset('uploads/amenities/picture') }}/{{ $property->logo }}" alt=""></td>
+                        <td><img src="{{  asset('uploads/amenities/picture') }}/{{ $amenity->picture }}" alt=""></td>
                         <td><a href="/admin/amenities/edit/{{ $amenity->id }}" class="btn btn-primary">Edit</a>
                             <a href="/admin/amenities/delete/{{ $amenity->id }}" class="btn btn-danger" onclick="return confirm('Delete?')">Delete</a>
                         </td>

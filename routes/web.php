@@ -50,7 +50,6 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('admin/properties')->group(function () {
     Route::get('/', [PropertyController::class, 'index']);
-
     Route::get('/add', [PropertyController::class, 'add']);
     Route::post('/add', [PropertyController::class, 'create']);
     Route::get('/edit/{id}', [PropertyController::class, 'edit']);
@@ -60,4 +59,9 @@ Route::prefix('admin/properties')->group(function () {
 
 Route::prefix('admin/amenities')->group(function () {
     Route::get('/', [AmenityController::class, 'index']);
+    Route::get('/add', [AmenityController::class, 'add']);
+    Route::post('/add', [AmenityController::class, 'create']);
+    Route::get('/edit/{id}', [AmenityController::class, 'edit']);
+    Route::post('/edit/{id}', [AmenityController::class, 'update']);
+    Route::get('/delete/{id}', [AmenityController::class, 'delete']);
 });
