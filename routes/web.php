@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\ResidentialUnitController;
 use App\Http\Controllers\Admin\CommercialUnitController;
 use App\Http\Controllers\Admin\ParkingSlotController;
+use App\Http\Controllers\Admin\VideoController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -96,3 +97,11 @@ Route::prefix('admin/parking')->group(function () {
     Route::get('/delete/{id}', [ParkingSlotController::class, 'delete']);
 });
 
+Route::prefix('admin/videos')->group(function () {
+    Route::get('/', [VideoController::class, 'index']);
+    Route::get('/add', [VideoController::class, 'add']);
+    Route::post('/add', [VideoController::class, 'create']);
+    Route::get('/edit/{id}', [VideoController::class, 'edit']);
+    Route::post('/edit/{id}', [VideoController::class, 'update']);
+    Route::get('/delete/{id}', [VideoController::class, 'delete']);
+});
