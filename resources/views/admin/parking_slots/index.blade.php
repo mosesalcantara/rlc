@@ -13,25 +13,21 @@
 </head>
 <body>
     <a href="/admin" class="btn btn-primary">Back</a>
-    <a href="/admin/commercial/add">Add</a>
+    <a href="/admin/parking/add">Add</a>
     <table class="tbl w-100">
         <thead>
             <tr>
-                <th>Retail ID</th>
-                <th>Building</th>
-                <th>Size</th>
+                <th>Rate</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @if (count($c_units) > 0)
-                @foreach ($c_units as $c_unit)
+            @if (count($p_slots) > 0)
+                @foreach ($p_slots as $p_slot)
                     <tr>    
-                        <td>{{ $c_unit->retail_id }}</td>
-                        <td>{{ $c_unit->building }}</td>
-                        <td>{{ $c_unit->size }}</td>
-                        <td><a href="/admin/commercial/edit/{{ $c_unit->id }}" class="btn btn-primary">Edit</a>
-                            <a href="/admin/commercial/delete/{{ $c_unit->id }}" class="btn btn-danger" onclick="return confirm('Delete?')">Delete</a>
+                        <td>{{ $p_slot->rate }}</td>
+                        <td><a href="/admin/parking/edit/{{ $p_slot->id }}" class="btn btn-primary">Edit</a>
+                            <a href="/admin/parking/delete/{{ $p_slot->id }}" class="btn btn-danger" onclick="return confirm('Delete?')">Delete</a>
                         </td>
                     </tr>
                 @endforeach

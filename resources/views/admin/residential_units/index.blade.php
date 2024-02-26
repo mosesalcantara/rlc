@@ -17,8 +17,7 @@
     <table class="tbl w-100">
         <thead>
             <tr>
-                <th>Property</th>
-                <th>Location</th>
+                <th>Unit ID</th>
                 <th>Building</th>
                 <th>Type</th>
                 <th>Area</th>

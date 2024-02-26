@@ -37,7 +37,7 @@
 
         <div>
             <label for="">Monthly Rate</label>     
-            <input type="number" name="rate">
+            <input type="text" name="rate">
         </div>
 
         <div>

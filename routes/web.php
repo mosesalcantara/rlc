@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\ResidentialUnitController;
+use App\Http\Controllers\Admin\CommercialUnitController;
+use App\Http\Controllers\Admin\ParkingSlotController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -74,5 +76,23 @@ Route::prefix('admin/residential')->group(function () {
     Route::get('/edit/{id}', [ResidentialUnitController::class, 'edit']);
     Route::post('/edit/{id}', [ResidentialUnitController::class, 'update']);
     Route::get('/delete/{id}', [ResidentialUnitController::class, 'delete']);
+});
+
+Route::prefix('admin/commercial')->group(function () {
+    Route::get('/', [CommercialUnitController::class, 'index']);
+    Route::get('/add', [CommercialUnitController::class, 'add']);
+    Route::post('/add', [CommercialUnitController::class, 'create']);
+    Route::get('/edit/{id}', [CommercialUnitController::class, 'edit']);
+    Route::post('/edit/{id}', [CommercialUnitController::class, 'update']);
+    Route::get('/delete/{id}', [CommercialUnitController::class, 'delete']);
+});
+
+Route::prefix('admin/parking')->group(function () {
+    Route::get('/', [ParkingSlotController::class, 'index']);
+    Route::get('/add', [ParkingSlotController::class, 'add']);
+    Route::post('/add', [ParkingSlotController::class, 'create']);
+    Route::get('/edit/{id}', [ParkingSlotController::class, 'edit']);
+    Route::post('/edit/{id}', [ParkingSlotController::class, 'update']);
+    Route::get('/delete/{id}', [ParkingSlotController::class, 'delete']);
 });
 

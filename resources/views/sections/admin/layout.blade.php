@@ -126,6 +126,8 @@
                             <a class="collapse-item" href="/admin/properties">Properties</a>
                             <a class="collapse-item" href="/admin/amenities">Amenities</a>
                             <a class="collapse-item" href="/admin/residential">Residential Units</a>
+                            <a class="collapse-item" href="/admin/commercial">Commercial Units</a>
+                            <a class="collapse-item" href="/admin/parking">Parking Slots</a>
                         </div>
                     </div>
                 </li>

@@ -37,7 +37,7 @@
 
         <div>
             <label for="">Monthly Rate</label>     
-            <input type="number" name="rate" value="{{ $r_unit->rate }}">
+            <input type="text" name="rate" value="{{ $r_unit->rate }}">
         </div>
 
         <div>
