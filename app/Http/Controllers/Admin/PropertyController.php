@@ -43,6 +43,7 @@ class PropertyController extends Controller
     }
 
     public function update(Request $request) {
+        var_dump($request->logo);
         $property = Property::find($request->id);
 
         if( $request->hasFile( 'logo' ) ) {

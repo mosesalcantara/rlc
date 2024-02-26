@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\AmenityController;
+use App\Http\Controllers\Admin\ResidentialUnitController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -65,3 +66,8 @@ Route::prefix('admin/amenities')->group(function () {
     Route::post('/edit/{id}', [AmenityController::class, 'update']);
     Route::get('/delete/{id}', [AmenityController::class, 'delete']);
 });
+
+Route::prefix('admin/residential')->group(function () {
+    Route::get('/', [ResidentialUnitController::class, 'index']);
+});
+

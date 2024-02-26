@@ -29,7 +29,7 @@
             @if (count($properties) > 0)
                 @foreach ($properties as $property)
                     <tr>
-                        <td><img src="{{  asset('uploads/properties/logo/$property->logo') }}" alt=""></td>
+                        <td><img src="{{  asset('uploads/properties/logo') }}/{{ $property->logo }}" alt=""></td>
                         <td>{{ $property->name }}</td>
                         <td>{{ $property->location }}</td>
                         <td>{{ $property->description }}</td>
