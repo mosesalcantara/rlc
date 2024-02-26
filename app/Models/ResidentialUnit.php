@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+use App\Models\Property;
 
 class ResidentialUnit extends Model
 {
@@ -15,6 +18,12 @@ class ResidentialUnit extends Model
         'type',
         'area',
         'rate',
-        'status'
+        'status',
+        'property_id',
     ];
+
+    public function properties(): HasMany
+    {
+        return $this->hasMany(Property::class);
+    }
 }

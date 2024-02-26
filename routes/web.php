@@ -69,5 +69,10 @@ Route::prefix('admin/amenities')->group(function () {
 
 Route::prefix('admin/residential')->group(function () {
     Route::get('/', [ResidentialUnitController::class, 'index']);
+    Route::get('/add', [ResidentialUnitController::class, 'add']);
+    Route::post('/add', [ResidentialUnitController::class, 'create']);
+    Route::get('/edit/{id}', [ResidentialUnitController::class, 'edit']);
+    Route::post('/edit/{id}', [ResidentialUnitController::class, 'update']);
+    Route::get('/delete/{id}', [ResidentialUnitController::class, 'delete']);
 });
 
