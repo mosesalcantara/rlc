@@ -1,8 +1,13 @@
 <?php
 
 use App\Http\Controllers\Pages\PageController;
+
 use App\Http\Controllers\Auth\AuthController;
+
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\Admin\AmenityController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +40,7 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index']);
+
     Route::get('/navbar', [AdminController::class, 'navbar']);
     Route::post('/navbar/add', [AdminController::class, 'create']);
     Route::get('/navbar/edit/{id}', [AdminController::class, 'edit']);
@@ -42,3 +48,16 @@ Route::prefix('admin')->group(function () {
     Route::get('/navbar/delete/{id}', [AdminController::class, 'delete']);
 });
 
+Route::prefix('admin/properties')->group(function () {
+    Route::get('/', [PropertyController::class, 'index']);
+
+    Route::get('/add', [PropertyController::class, 'add']);
+    Route::post('/add', [PropertyController::class, 'create']);
+    Route::get('/edit/{id}', [PropertyController::class, 'edit']);
+    Route::post('/edit/{id}', [PropertyController::class, 'update']);
+    Route::get('/delete/{id}', [PropertyController::class, 'delete']);
+});
+
+Route::prefix('admin/amenities')->group(function () {
+    Route::get('/', [AmenityController::class, 'index']);
+});

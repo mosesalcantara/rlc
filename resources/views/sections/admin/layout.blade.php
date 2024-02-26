@@ -115,6 +115,20 @@
                     </div>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEntities"
+                        aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Entities</span>
+                    </a>
+                    <div id="collapseEntities" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="/admin/properties">Properties</a>
+                            <a class="collapse-item" href="/admin/amenities">Amenities</a>
+                        </div>
+                    </div>
+                </li>
+
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
                     <a class="nav-link" href="charts.html">
