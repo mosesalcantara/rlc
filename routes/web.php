@@ -18,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/for-lease', [PageController::class, 'lease']);
+Route::get('/for-lease/category/{category}', [PageController::class, 'category']);
 Route::get('/compare-properties', [PageController::class, 'properties']);
+Route::get('/contact-us', [PageController::class, 'contact']);
+Route::get('/about-us', [PageController::class, 'about']);
 Route::get('/test', [PageController::class, 'test']);
 
 

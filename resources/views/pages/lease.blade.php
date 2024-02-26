@@ -1,18 +1,18 @@
-@extends('sections.pages.links')
-@extends('sections.pages.navbar')
-@extends('sections.pages.footer')
-@extends('sections.pages.scripts')
+@extends('sections.pages.layout')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RLC Residences | Leasing - For Lease</title>
+@section('title', 'For Lease')
+ 
+@section('links')
+    @parent
+@endsection
+
+@section('navbar')
+    @parent
 
     <link rel="stylesheet" href="{{ asset('css/pages/lease.css') }}">
-</head>
-<body style="background-image: url({{ asset('img/pages/main-bg.png') }});">
+@endsection
+ 
+@section('content')
     <div class="container-fluid title_div">
         <div class="row title">
             <div class="col">
@@ -95,6 +95,12 @@
             </div>
         </div>
     </div>
+@endsection
 
-</body>
-</html>
+@section('footer')
+    @parent
+@endsection
+
+@section('scripts')
+    @parent
+@endsection

@@ -48,6 +48,26 @@ class PageController extends Controller
         return view("pages.lease")->with('nav_items', $nav_items);
     }
 
+    public function category(Request $request) {
+        $nav_items = Nav_item::all()->sortBy('order');
+
+        foreach ($nav_items as $nav_item) {
+            $link = $nav_item->title;
+            $link = strtolower($link);
+
+            if ($link == 'home') {
+                $link = '';
+            }
+            else {
+                $link = str_replace(' ', '-', $link);
+            }
+
+            $nav_item['link'] = $link;
+        }
+
+        return view("pages.category")->with('nav_items', $nav_items);
+    }
+
     public function properties() {
         $nav_items = Nav_item::all()->sortBy('order');
 
@@ -66,6 +86,46 @@ class PageController extends Controller
         }
 
         return view("pages.properties")->with('nav_items', $nav_items);
+    }
+
+    public function contact() {
+        $nav_items = Nav_item::all()->sortBy('order');
+
+        foreach ($nav_items as $nav_item) {
+            $link = $nav_item->title;
+            $link = strtolower($link);
+
+            if ($link == 'home') {
+                $link = '';
+            }
+            else {
+                $link = str_replace(' ', '-', $link);
+            }
+
+            $nav_item['link'] = $link;
+        }
+
+        return view("pages.contact")->with('nav_items', $nav_items);
+    }
+
+    public function about() {
+        $nav_items = Nav_item::all()->sortBy('order');
+
+        foreach ($nav_items as $nav_item) {
+            $link = $nav_item->title;
+            $link = strtolower($link);
+
+            if ($link == 'home') {
+                $link = '';
+            }
+            else {
+                $link = str_replace(' ', '-', $link);
+            }
+
+            $nav_item['link'] = $link;
+        }
+
+        return view("pages.about")->with('nav_items', $nav_items);
     }
 
     public function test() {
