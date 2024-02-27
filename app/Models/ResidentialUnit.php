@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 use App\Models\Property;
 
@@ -22,8 +22,8 @@ class ResidentialUnit extends Model
         'property_id',
     ];
 
-    public function properties(): HasMany
+    public function property(): BelongsTo
     {
-        return $this->hasMany(Property::class);
+        return $this->belongsTo(Property::class);
     }
 }

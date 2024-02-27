@@ -12,6 +12,7 @@ class ResidentialUnitController extends Controller
 
     public function index() {
         $r_units = ResidentialUnit::all();
+        // $r_units->property;
         
         return view('admin.residential_units.index')->with('r_units', $r_units);
     }
