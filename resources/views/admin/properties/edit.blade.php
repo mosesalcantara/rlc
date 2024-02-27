@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('sections.admin.layout')
+
+@section('title', 'Dashboard')
+    
+@section('links')
+    @parent
+@endsection
+
+@section('sidebar')
+    @parent
+@endsection
+
+@section('main')
+    @parent
+@endsection
+
+@section('content')
     <form action="/admin/properties/edit/{{ $property->id }}" method="post" enctype="application/x-www-form-urlencoded">
         @csrf
         <div>
@@ -31,5 +40,9 @@
             </button>
         </div>
     </form>
-</body>
-</html>
+@endsection
+
+@section('scripts')
+    @parent
+@endsection
+    
