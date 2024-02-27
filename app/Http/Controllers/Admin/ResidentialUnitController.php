@@ -4,14 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request; 
+
 use App\Models\ResidentialUnit;
+use App\Models\Property;
 
 class ResidentialUnitController extends Controller
 {
 
+    public function test() {
+        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
+
+        return view('admin.residential_units.test')->with('r_units', $r_units);
+    }
+
     public function index() {
         $r_units = ResidentialUnit::crossJoin('properties')->get();
-        
+
+
         return view('admin.residential_units.index')->with('r_units', $r_units);
     }
 

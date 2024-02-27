@@ -78,6 +78,8 @@ Route::prefix('admin/residential')->group(function () {
     Route::get('/edit/{id}', [ResidentialUnitController::class, 'edit']);
     Route::post('/edit/{id}', [ResidentialUnitController::class, 'update']);
     Route::get('/delete/{id}', [ResidentialUnitController::class, 'delete']);
+
+    Route::get('/test', [ResidentialUnitController::class, 'test']);
 });
 
 Route::prefix('admin/commercial')->group(function () {
