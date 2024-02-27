@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    @foreach ($r_units as $r_unit) 
-        {{ $r_unit }}
+    @foreach ($r_unit as $item)
+        {{  $item['id'] }}
     @endforeach
 </body>
 </html>

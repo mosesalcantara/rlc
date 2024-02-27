@@ -11,23 +11,23 @@ use App\Models\Property;
 class ResidentialUnitController extends Controller
 {
 
-    public function test() {
-        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
+    public function test() {        
+        $r_unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', 4)->get();
 
-        return view('admin.residential_units.test')->with('r_units', $r_units);
+        return view('admin.residential_units.test')->with('r_unit', $r_unit);
     }
 
     public function index() {
-        $r_units = ResidentialUnit::crossJoin('properties')->get();
+        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
 
 
         return view('admin.residential_units.index')->with('r_units', $r_units);
     }
 
     public function add() {
-        $r_units = ResidentialUnit::crossJoin('properties')->get();
+        $properties = Property::all();
 
-        return view('admin.residential_units.add')->with('r_units', $r_units);
+        return view('admin.residential_units.add')->with('properties', $properties);
     }
 
     public function create(Request $request) {
@@ -45,9 +45,15 @@ class ResidentialUnitController extends Controller
     }
 
     public function edit(Request $request) {
-        $r_unit = ResidentialUnit::find($request->id);
+        $r_unit = Property::leftJoin('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->id)->get();
+        $properties = Property::all();
 
-        return view('admin.residential_units.edit')->with("r_unit", $r_unit);
+        $data = [
+            'r_unit' => $r_unit,
+            'properties' => $properties,
+        ];
+
+        return view('admin.residential_units.edit')->with("data", $data);
     }
 
     public function update(Request $request) {

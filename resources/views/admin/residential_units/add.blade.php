@@ -12,9 +12,9 @@
         <div>
             <label for="">Property</label>     
             <select name="property_id">
-                @if (count($r_units) > 0)
-                @foreach ($r_units as $r_unit)
-                    <option value="{{ $r_unit->property_id }}">{{ $r_unit->name }}</option>
+                @if (count($properties) > 0)
+                @foreach ($properties as $property)
+                    <option value="{{ $property->id }}">{{ $property->name }}</option>
                 @endforeach
                 @endif
             </select>
@@ -43,7 +43,7 @@
 
         <div>
             <label for="">Area</label>     
-            <input type="number" name="area">
+            <input type="text" name="area">
         </div>
 
         <div>

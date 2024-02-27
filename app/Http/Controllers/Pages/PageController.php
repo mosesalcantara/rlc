@@ -4,11 +4,31 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Nav_item;
 use App\Models\ResidentialUnit;
+use App\Models\Property;
 
 class PageController extends Controller
 {
+
+    public function test() {
+        $snapshots = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->get();
+        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
+        // foreach ($r_units as $r_unit) {
+        //     $r_unit['picture'] = '1708999227.jpg';
+        // }
+
+        $data = [
+            'snapshots' => $snapshots,
+            'r_units' => $r_units,
+        ];
+
+        return view("pages.test")->with('data', $data);
+        // return view("pages.test")->with('r_units', $r_units);
+    }
+
     public function index() {
         $nav_items = Nav_item::all()->sortBy('order');
 
@@ -66,18 +86,7 @@ class PageController extends Controller
             $nav_item['link'] = $link;
         }
 
-        $snapshots = ResidentialUnit::crossJoin('snapshots')->select('snapshots.picture')->get();
-        $snapshot_arr = [];
-        foreach ($snapshots as $snapshot) {
-            array_push($snapshot_arr, $snapshot['picture']);
-        }
-
-        $r_units = ResidentialUnit::crossJoin('properties')->get();
-        $index = 0;
-        foreach ($r_units as $r_unit) {
-            $r_unit['picture'] = $snapshot_arr[$index];
-            ++$index;
-        }
+        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->get();
 
         $data = [
             'nav_items' => $nav_items,
@@ -85,6 +94,10 @@ class PageController extends Controller
         ];
 
         return view("pages.category")->with('data', $data);
+    }
+
+    public function unit() {
+        return view('pages.unit');
     }
 
     public function properties() {
@@ -145,9 +158,5 @@ class PageController extends Controller
         }
 
         return view("pages.about")->with('nav_items', $nav_items);
-    }
-
-    public function test() {
-        return view('pages.test');
     }
 }

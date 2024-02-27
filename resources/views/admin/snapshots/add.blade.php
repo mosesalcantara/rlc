@@ -16,7 +16,13 @@
 
         <div>
             <label for="">Residential Unit</label>     
-            <input type="text" name="residential_unit_id">
+            <select name="residential_unit_id">
+                @if (count($r_units) > 0)
+                @foreach ($r_units as $r_unit)
+                    <option value="{{ $r_unit->id }}">{{ $r_unit->unit_id }}</option>
+                @endforeach
+                @endif
+            </select>
         </div>
 
         <div>

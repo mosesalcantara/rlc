@@ -31,7 +31,6 @@
         <tbody>
             @if (count($r_units) > 0)
                 @foreach ($r_units as $r_unit)
-                    {{ $r_unit }}
                     <tr>    
                         <td>{{ $r_unit->name }}</td>
                         <td>{{ $r_unit->location }}</td>

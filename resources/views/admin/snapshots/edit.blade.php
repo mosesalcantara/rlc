@@ -6,16 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/admin/snapshots/edit/{{ $snapshot->id }}" method="post" enctype="application/x-www-form-urlencoded">
+    @foreach ($data['snapshot'] as $item)
+    <form action="/admin/snapshots/edit/{{ $item['id'] }}" method="post" enctype="application/x-www-form-urlencoded">
         @csrf
         <div>
             <label for="">Picture</label>     
-            <input type="file" name="picture" value="{{ $snapshot->picture }}">
+            <input type="file" name="picture" value="{{ $item['picture'] }}">
         </div>
 
         <div>
             <label for="">Residential Unit</label>     
-            <input type="text" name="residential_unit_id" value="{{ $snapshot->residential_unit_id }}">
+            <select name="residential_unit_id">
+                @foreach ($data['r_units'] as $r_unit)
+                    <option value="{{ $r_unit->id }}" {{ $r_unit->id == $item['residential_unit_id'] ? "selected" : "" }}>{{ $r_unit->unit_id }}</option>
+                @endforeach
+            </select>
         </div>
 
         <div>
@@ -25,5 +30,6 @@
             </button>
         </div>
     </form>
+    @endforeach
 </body>
 </html>
