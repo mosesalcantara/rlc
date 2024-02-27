@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+@extends('sections.admin.layout')
 
-    <style>
-        img {
-            width: 5vw;
-            height: 5vh;
-        }
-    </style>
-</head>
-<body>
+@section('title', 'Dashboard')
+    
+@section('links')
+    @parent
+@endsection
+
+@section('sidebar')
+    @parent
+@endsection
+
+@section('main')
+    @parent
+@endsection
+
+@section('content')
     <a href="/admin" class="btn btn-primary">Back</a>
     <a href="/admin/properties/add">Add</a>
     <table class="tbl w-100">
@@ -41,5 +43,9 @@
             @endif
         </tbody>
     </table>
-</body>
-</html>
+@endsection
+
+@section('scripts')
+    @parent
+@endsection
+    
