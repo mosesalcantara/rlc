@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Nav_item;
+use App\Models\ResidentialUnit;
 
 class PageController extends Controller
 {
@@ -65,7 +66,25 @@ class PageController extends Controller
             $nav_item['link'] = $link;
         }
 
-        return view("pages.category")->with('nav_items', $nav_items);
+        $snapshots = ResidentialUnit::crossJoin('snapshots')->select('snapshots.picture')->get();
+        $snapshot_arr = [];
+        foreach ($snapshots as $snapshot) {
+            array_push($snapshot_arr, $snapshot['picture']);
+        }
+
+        $r_units = ResidentialUnit::crossJoin('properties')->get();
+        $index = 0;
+        foreach ($r_units as $r_unit) {
+            $r_unit['picture'] = $snapshot_arr[$index];
+            ++$index;
+        }
+
+        $data = [
+            'nav_items' => $nav_items,
+            'r_units' => $r_units,
+        ];
+
+        return view("pages.category")->with('data', $data);
     }
 
     public function properties() {

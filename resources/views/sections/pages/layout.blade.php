@@ -20,13 +20,21 @@
         
                 <div class="collapse navbar-collapse justify-content-end nav-items">
                     <ul class="navbar-nav">
-                        @if (count($nav_items) > 0)
-                            @foreach ($nav_items as $nav_item)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/{{ $nav_item->link }}">{{ $nav_item->title }}</a>
-                                </li>
-                            @endforeach
-                        @endif
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/for-lease">For Lease</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/compare-properties">Compare Properties</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact-us">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about-us">About Us</a>
+                        </li>
                     </ul>
                 </div>
             </div>

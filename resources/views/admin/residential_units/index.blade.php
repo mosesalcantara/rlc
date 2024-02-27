@@ -31,8 +31,10 @@
         <tbody>
             @if (count($r_units) > 0)
                 @foreach ($r_units as $r_unit)
+                    {{ $r_unit }}
                     <tr>    
-                        {{  $r_unit }}
+                        <td>{{ $r_unit->name }}</td>
+                        <td>{{ $r_unit->location }}</td>
                         <td>{{ $r_unit->unit_id }}</td>
                         <td>{{ $r_unit->building }}</td>
                         <td>{{ $r_unit->type }}</td>

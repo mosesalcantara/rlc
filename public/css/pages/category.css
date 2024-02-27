@@ -1,0 +1,77 @@
+.title_div {
+    margin-top: 10vh;
+    color: #000b8c;
+}
+
+.title {
+    width: 100%;
+} 
+
+.title-text {
+    margin-left: 3vw;
+    border-left: 0.2rem solid #CC9900;
+    padding-left: 0.3vw;
+}
+
+.search_div {
+    margin: 3vh 0;
+    background-color: #FAFAFA;
+    width: 100%;
+    height: 7vh;
+    border-radius: 1rem;
+}
+
+.search_drops select {
+    background-color: #D7D7D7;
+    display: inline;
+    width: 15vw;
+    height: 5.5vh;
+    font-weight: 500;
+    border-radius: 1rem;
+    margin-top: 0.7vh;
+}
+
+.search_drops button {
+    display: inline;
+    width: 4.5vw;
+    height: 5vh;
+    font-weight: 500;
+    border-radius: 1rem;
+    color: white;
+}
+
+.units {
+    width: auto;
+    margin-bottom: 3vh;
+}
+
+.unit .card {
+    border-radius: 1rem;
+}
+
+.picture img {
+    width: 80%;
+    height: 40vh;
+    background-size: cover;
+    border-radius: 1rem;
+}
+
+.details {
+    margin: 1rem;
+    color: #000b8c;
+}
+
+
+.details i {
+    display: inline;
+    color: #CC9900;
+}
+
+.details h4 {
+    display: inline;
+    color: black;
+}
+
+.table {
+    margin-top: 2vh;
+}

@@ -4,12 +4,12 @@
  
 @section('links')
     @parent
+
+    <link rel="stylesheet" href="{{ asset('css/pages/lease.css') }}">
 @endsection
 
 @section('navbar')
     @parent
-
-    <link rel="stylesheet" href="{{ asset('css/pages/lease.css') }}">
 @endsection
  
 @section('content')
@@ -65,9 +65,9 @@
                     <div class="card-header text-center">
                         <img src="{{ asset('/img/pages/for_lease/residential.png') }}" alt="">
                     </div>
-                    <div class="card-body text-center">
+                    <div class="card-body text-center category-item">
                         <h1>Residential</h1>
-                        <i class="fa-solid fa-circle-chevron-right fa-2x"></i>
+                        <a href="/for-lease/category/residential" class="fa-solid fa-circle-chevron-right fa-2x"></a>
                     </div>
                 </div>
             </div>

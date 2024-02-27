@@ -9,16 +9,16 @@ use App\Models\ResidentialUnit;
 class ResidentialUnitController extends Controller
 {
 
-
     public function index() {
-        $r_units = ResidentialUnit::all();
-        // $r_units->property;
+        $r_units = ResidentialUnit::crossJoin('properties')->get();
         
         return view('admin.residential_units.index')->with('r_units', $r_units);
     }
 
     public function add() {
-        return view('admin.residential_units.add');
+        $r_units = ResidentialUnit::crossJoin('properties')->get();
+
+        return view('admin.residential_units.add')->with('r_units', $r_units);
     }
 
     public function create(Request $request) {
@@ -29,6 +29,7 @@ class ResidentialUnitController extends Controller
         $r_unit->area = $request->area;
         $r_unit->rate = $request->rate;
         $r_unit->status = $request->status;
+        $r_unit->property_id = $request->property_id;
         $r_unit->save();
 
         return redirect('/admin/residential');
@@ -36,6 +37,7 @@ class ResidentialUnitController extends Controller
 
     public function edit(Request $request) {
         $r_unit = ResidentialUnit::find($request->id);
+
         return view('admin.residential_units.edit')->with("r_unit", $r_unit);
     }
 
@@ -49,6 +51,7 @@ class ResidentialUnitController extends Controller
             'area' => $request->area,
             'rate' => $request->rate,
             'status' => $request->status,
+            'property_id' => $request->property_id,
         ]);
 
         return redirect('/admin/residential');

@@ -10,6 +10,17 @@
     <form action="/admin/residential/add" method="post" enctype="multipart/form-data">
         @csrf   
         <div>
+            <label for="">Property</label>     
+            <select name="property_id">
+                @if (count($r_units) > 0)
+                @foreach ($r_units as $r_unit)
+                    <option value="{{ $r_unit->property_id }}">{{ $r_unit->name }}</option>
+                @endforeach
+                @endif
+            </select>
+        </div>
+        
+        <div>
             <label for="">Unit ID</label>     
             <input type="text" name="unit_id">
         </div>
@@ -22,11 +33,11 @@
         <div>
             <label for="">Unit Type</label>     
             <select name="type">
-                <option value="1br">1 Bedroom</option>
-                <option value="2br">2 Bedrooms</option>
-                <option value="3br">3 Bedrooms</option>
-                <option value="ph">Penthouse</option>
-                <option value="studio">Studio</option>
+                <option value="1 BR">1 Bedroom</option>
+                <option value="2 BR">2 Bedrooms</option>
+                <option value="3 BR">3 Bedrooms</option>
+                <option value="PH">Penthouse</option>
+                <option value="Studio">Studio</option>
             </select>
         </div>
 

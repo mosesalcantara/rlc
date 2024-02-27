@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ResidentialUnitController;
 use App\Http\Controllers\Admin\CommercialUnitController;
 use App\Http\Controllers\Admin\ParkingSlotController;
 use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\SnapshotController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -104,4 +105,13 @@ Route::prefix('admin/videos')->group(function () {
     Route::get('/edit/{id}', [VideoController::class, 'edit']);
     Route::post('/edit/{id}', [VideoController::class, 'update']);
     Route::get('/delete/{id}', [VideoController::class, 'delete']);
+});
+
+Route::prefix('admin/snapshots')->group(function () {
+    Route::get('/', [SnapshotController::class, 'index']);
+    Route::get('/add', [SnapshotController::class, 'add']);
+    Route::post('/add', [SnapshotController::class, 'create']);
+    Route::get('/edit/{id}', [SnapshotController::class, 'edit']);
+    Route::post('/edit/{id}', [SnapshotController::class, 'update']);
+    Route::get('/delete/{id}', [SnapshotController::class, 'delete']);
 });
