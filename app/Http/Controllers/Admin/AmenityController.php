@@ -9,9 +9,17 @@ use App\Models\Amenity;
 class AmenityController extends Controller
 {
     public function index() {
-        $amenities = Amenity::all();
+        return view('admin.amenities.index');
+    }
+
+    public function get_all() {
+        $records = Amenity::all();
         
-        return view('admin.amenities.index')->with('amenities', $amenities);
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
     }
 
     public function add() {
@@ -22,10 +30,10 @@ class AmenityController extends Controller
         $amenity = new Amenity;
 
         if( $request->hasFile( 'picture' ) ) {
-            $file = $request->file('picture');
+            $file = $request->picture;
             $filename = time() . '.'.$file->clientExtension();
             $destination = 'uploads/amenities/picture';
-            $file->move( $destination, $filename );
+            $file->move($destination, $filename);
         }
 
         $amenity->name = $request->name;
@@ -33,19 +41,23 @@ class AmenityController extends Controller
         $amenity->picture = $filename;
         $amenity->save();
 
-        return redirect('/admin/amenities');
+        return response(['msg' => 'Added Amenity']);
     }
 
     public function edit(Request $request) {
-        $amenity = Amenity::find($request->id);
-        return view('admin.amenities.edit')->with("amenity", $amenity);
+        $record = Amenity::find($request->upd_id);
+        $data = [
+            'record' => $record,
+        ];
+
+        return response()->json($data);
     }
 
     public function update(Request $request) {
-        $amenity = Amenity::find($request->id);
+        $amenity = Amenity::find($request->upd_id);
 
         if( $request->hasFile( 'picture' ) ) {
-            $file = $request->file('picture');
+            $file = $request->picture;
             $filename = time() . '.'.$file->clientExtension();
             $destination = 'uploads/amenities/picture';
             $file->move($destination, $filename );
@@ -55,16 +67,21 @@ class AmenityController extends Controller
                 'type' => $request->type,
                 'picture' => $filename,
             ]);
-
+        }
+        else {
+            $amenity->update([
+                'name' => $request->name,
+                'type' => $request->type,
+            ]);
         }
 
-        return redirect('/admin/amenities');
+        return response(['msg' => 'Updated Amenity']);
     }
 
     public function delete(Request $request) {
-        $amenity = Amenity::find($request->id);
+        $amenity = Amenity::find($request->del_id);
         $amenity->delete();
         
-        return redirect('/admin/amenities');
+        return response(['msg' => 'Deleted Amenity']);
     }
 }

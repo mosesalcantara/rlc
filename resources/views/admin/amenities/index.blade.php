@@ -5,7 +5,7 @@
 @section('links')
     @parent
 
-    <link rel="stylesheet" href="{{ asset('css/admin/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/crud.css') }}">
 @endsection
 
 @section('sidebar')
@@ -23,7 +23,7 @@
                 <h1 class="h3 mb-0 text-dark">Amenities</h1>
             </div>
             <div clas="col">
-                <button type="button" class="btn btn-primary mb-3" onclick="window.location='/admin/amenities/add'">
+                <button type="button" class="btn btn-primary mb-3" data-bs-target="#addModal" data-bs-toggle="modal">
                     <i class="fa-solid fa-plus"></i>
                     Add Amenity
                 </button>
@@ -31,32 +31,111 @@
         </div>
     </div>
 
-    <div class="container tbl_div">
-        <table class="table table-hover w-100" id="tbl_records">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Picture</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (count($amenities) > 0)
-                    @foreach ($amenities as $amenity)
-                        <tr>
-                            <td>{{ $amenity->name }}</td>
-                            <td>{{ $amenity->type }}</td>
-                            <td><img src="{{  asset('uploads/amenities/picture') }}/{{ $amenity->picture }}" alt=""></td>
-                            <td><a href="/admin/amenities/edit/{{ $amenity->id }}" class="fa-solid fa-pen" title="Edit"></i></a>
-                                <a href="/admin/amenities/delete/{{ $amenity->id }}" class="fa-solid fa-trash" title="Delete" onclick="return confirm('Delete?')"></a>
-                            </td>
-                        </tr>
-                    @endforeach
-                @endif
-            </tbody>
-        </table>
+    <div class="container" id="tbl_div">
+
     </div>
+
+    <div class="container">
+        <div class="modal" tabindex="-1" id="addModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add Amenity</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/admin/amenities/add" method="post" enctype="multipart/form-data" id="addForm">
+                        <div class="form-floating mb-3">
+                            <input type="text" name="name" class="form-control">
+                            <label for="">Name</label>     
+                        </div>
+                
+                        <div class="mb-3">  
+                            <label for="" class="form-label">Type</label>  
+                            <select name="type" class="form-select">
+                                <option value="Indoor">Indoor</option>
+                                <option value="Outdoor">Outdoor</option>
+                            </select>
+                        </div>
+                
+                        <div class="mb-3">
+                            <label for="" class="form-label">Picture</label>     
+                            <input type="file" name="picture" class="form-control">
+                        </div>
+                
+                </div>
+                <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Add">
+                    </form>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="container">
+        <div class="modal" tabindex="-1" id="updModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Update Amenity</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/admin/amenities/update" method="post" enctype="multipart/form-data" id="updForm">
+                        <div class="form-floating mb-3">
+                            <input type="text" name="name" id="name" class="form-control">
+                            <label for="">Name</label>     
+                        </div>
+                
+                        <div class="mb-3">  
+                            <label for="" class="form-label">Type</label>  
+                            <select name="type" id="type" class="form-select">
+                                <option value="Indoor">Indoor</option>
+                                <option value="Outdoor">Outdoor</option>
+                            </select>
+                        </div>
+                
+                        <div class="mb-3">
+                            <label for="" class="form-label">Picture</label>     
+                            <input type="file" name="picture"  id="picture" class="form-control">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                        <input type="hidden" value="0" name="upd_id" id="upd_id">
+                        <input type="submit" class="btn btn-primary" value="Update">
+                    </form>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="container">
+        <div class="modal" tabindex="-1" id="delModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Delete Amenity</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Are you sure you want to delete this Amenity?</h5>
+                </div>
+                <div class="modal-footer">
+                    <form action="/admin/amenities/delete/" method="POST" id="delForm">
+                        <input type="hidden" value="0" id="del_id" name="del_id">
+                        <input type="submit" class="btn btn-primary" value="Yes" style="cursor:pointer;">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                    </form>    
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
 @endsection
 
 @section('scripts')

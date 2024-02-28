@@ -65,11 +65,11 @@ Route::prefix('admin/properties')->group(function () {
 
 Route::prefix('admin/amenities')->group(function () {
     Route::get('/', [AmenityController::class, 'index']);
-    Route::get('/add', [AmenityController::class, 'add']);
+    Route::post('/', [AmenityController::class, 'get_all']);
     Route::post('/add', [AmenityController::class, 'create']);
-    Route::get('/edit/{id}', [AmenityController::class, 'edit']);
-    Route::post('/edit/{id}', [AmenityController::class, 'update']);
-    Route::get('/delete/{id}', [AmenityController::class, 'delete']);
+    Route::post('/edit', [AmenityController::class, 'edit']);
+    Route::post('/update', [AmenityController::class, 'update']);
+    Route::post('/delete', [AmenityController::class, 'delete']);
 });
 
 Route::prefix('admin/residential')->group(function () {
