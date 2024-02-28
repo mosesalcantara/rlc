@@ -56,11 +56,11 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('admin/properties')->group(function () {
     Route::get('/', [PropertyController::class, 'index']);
-    Route::get('/add', [PropertyController::class, 'add']);
+    Route::post('/', [PropertyController::class, 'get_all']);
     Route::post('/add', [PropertyController::class, 'create']);
-    Route::get('/edit/{id}', [PropertyController::class, 'edit']);
-    Route::post('/edit/{id}', [PropertyController::class, 'update']);
-    Route::get('/delete/{id}', [PropertyController::class, 'delete']);
+    Route::post('/edit', [PropertyController::class, 'edit']);
+    Route::post('/update', [PropertyController::class, 'update']);
+    Route::post('/delete', [PropertyController::class, 'delete']);
 });
 
 Route::prefix('admin/amenities')->group(function () {
@@ -85,29 +85,29 @@ Route::prefix('admin/residential')->group(function () {
 
 Route::prefix('admin/commercial')->group(function () {
     Route::get('/', [CommercialUnitController::class, 'index']);
-    Route::get('/add', [CommercialUnitController::class, 'add']);
+    Route::post('/', [CommercialUnitController::class, 'get_all']);
     Route::post('/add', [CommercialUnitController::class, 'create']);
-    Route::get('/edit/{id}', [CommercialUnitController::class, 'edit']);
-    Route::post('/edit/{id}', [CommercialUnitController::class, 'update']);
-    Route::get('/delete/{id}', [CommercialUnitController::class, 'delete']);
+    Route::post('/edit', [CommercialUnitController::class, 'edit']);
+    Route::post('/update', [CommercialUnitController::class, 'update']);
+    Route::post('/delete', [CommercialUnitController::class, 'delete']);
 });
 
 Route::prefix('admin/parking')->group(function () {
     Route::get('/', [ParkingSlotController::class, 'index']);
-    Route::get('/add', [ParkingSlotController::class, 'add']);
+    Route::post('/', [ParkingSlotController::class, 'get_all']);
     Route::post('/add', [ParkingSlotController::class, 'create']);
-    Route::get('/edit/{id}', [ParkingSlotController::class, 'edit']);
-    Route::post('/edit/{id}', [ParkingSlotController::class, 'update']);
-    Route::get('/delete/{id}', [ParkingSlotController::class, 'delete']);
+    Route::post('/edit', [ParkingSlotController::class, 'edit']);
+    Route::post('/update', [ParkingSlotController::class, 'update']);
+    Route::post('/delete', [ParkingSlotController::class, 'delete']);
 });
 
 Route::prefix('admin/videos')->group(function () {
     Route::get('/', [VideoController::class, 'index']);
-    Route::get('/add', [VideoController::class, 'add']);
+    Route::post('/', [VideoController::class, 'get_all']);
     Route::post('/add', [VideoController::class, 'create']);
-    Route::get('/edit/{id}', [VideoController::class, 'edit']);
-    Route::post('/edit/{id}', [VideoController::class, 'update']);
-    Route::get('/delete/{id}', [VideoController::class, 'delete']);
+    Route::post('/edit', [VideoController::class, 'edit']);
+    Route::post('/update', [VideoController::class, 'update']);
+    Route::post('/delete', [VideoController::class, 'delete']);
 });
 
 Route::prefix('admin/snapshots')->group(function () {

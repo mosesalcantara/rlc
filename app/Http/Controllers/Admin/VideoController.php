@@ -9,42 +9,50 @@ use App\Models\Video;
 class VideoController extends Controller
 {
     public function index() {
-        $videos = Video::all();
-        
-        return view('admin.videos.index')->with('videos', $videos);
+        return view('admin.videos.index');
     }
 
-    public function add() {
-        return view('admin.videos.add');
+    public function get_all() {
+        $records = Video::all();
+        
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
     }
 
     public function create(Request $request) {
-        $video = new Video;
-        $video->code = $request->code;
-        $video->save();
+        $record = new Video;
+        $record->code = $request->code;
+        $record->save();
 
-        return redirect('/admin/videos');
+        return response(['msg' => 'Added Parking Slot']);
     }
 
     public function edit(Request $request) {
-        $video = Video::find($request->id);
-        return view('admin.videos.edit')->with("video", $video);
+        $record = Video::find($request->upd_id);
+        $data = [
+            'record' => $record,
+        ];
+
+        return response()->json($data);
     }
 
     public function update(Request $request) {
-        $video = Video::find($request->id);
+        $record = Video::find($request->upd_id);
 
-        $video->update([
+        $record->update([
             'code' => $request->code,
         ]);
 
-        return redirect('/admin/videos');
+        return response(['msg' => 'Updated Video']);
     }
 
     public function delete(Request $request) {
-        $video = Video::find($request->id);
-        $video->delete();
+        $record = Video::find($request->del_id);
+        $record->delete();
         
-        return redirect('/admin/videos');
+        return response(['msg' => 'Deleted Video']);
     }
 }

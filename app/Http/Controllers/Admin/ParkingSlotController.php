@@ -8,43 +8,51 @@ use App\Models\ParkingSlot;
 
 class ParkingSlotController extends Controller
 {
-    public function index() {
-        $p_slots = ParkingSlot::all();
-        
-        return view('admin.parking_slots.index')->with('p_slots', $p_slots);
+    public function index() {        
+        return view('admin.parking_slots.index');
     }
 
-    public function add() {
-        return view('admin.parking_slots.add');
+    public function get_all() {
+        $records = ParkingSlot::all();
+        
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
     }
 
     public function create(Request $request) {
-        $p_slot = new ParkingSlot;
-        $p_slot->rate = $request->rate;
-        $p_slot->save();
+        $record = new ParkingSlot;
+        $record->rate = $request->rate;
+        $record->save();
 
-        return redirect('/admin/parking');
+        return response(['msg' => 'Added Parking Slot']);
     }
 
     public function edit(Request $request) {
-        $p_slot = ParkingSlot::find($request->id);
-        return view('admin.parking_slots.edit')->with("p_slot", $p_slot);
+        $record = ParkingSlot::find($request->upd_id);
+        $data = [
+            'record' => $record,
+        ];
+
+        return response()->json($data);
     }
 
     public function update(Request $request) {
-        $p_slot = ParkingSlot::find($request->id);
+        $record = ParkingSlot::find($request->upd_id);
 
-        $p_slot->update([
+        $record->update([
             'rate' => $request->rate,
         ]);
 
-        return redirect('/admin/parking');
+        return response(['msg' => 'Updated Parking Slot']);
     }
 
     public function delete(Request $request) {
-        $p_slot = ParkingSlot::find($request->id);
-        $p_slot->delete();
+        $record = ParkingSlot::find($request->del_id);
+        $record->delete();
         
-        return redirect('/admin/parking');
+        return response(['msg' => 'Deleted Parking Slot']);
     }
 }

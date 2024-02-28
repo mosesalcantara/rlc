@@ -8,42 +8,49 @@ use App\Models\Property;
 
 class PropertyController extends Controller
 {
-    public function index() {
-        $properties = Property::all();
+    public function index() {        
+        return view('admin.properties.index');
+    }
+
+    public function get_all() {
+        $records = Property::all();
         
-        return view('admin.properties.index')->with('properties', $properties);
-    }
+        $data = [
+            'records' => $records,
+        ];
 
-    public function add() {
-        return view('admin.properties.add');
+        return response()->json($data);
     }
-
     public function create(Request $request) {
-        $property = new Property;
+        $record = new Property;
 
-        if( $request->hasFile( 'logo' ) ) {
-            $file = $request->file('logo');
+        if( $request->hasFile('logo') ) {
+            $file = $request->logo;
             $filename = time() . '.'.$file->clientExtension();
             $destination = 'uploads/properties/logo';
             $file->move( $destination, $filename );
         }
 
-        $property->logo = $filename;
-        $property->name = $request->name;
-        $property->location = $request->location;
-        $property->description = $request->description;
-        $property->save();
+        $record->logo = $filename;
+        $record->name = $request->name;
+        $record->location = $request->location;
+        $record->description = $request->description;
+        $record->save();
 
-        return redirect('/admin/properties');
+        return response(['msg' => 'Added Property']);
     }
 
     public function edit(Request $request) {
-        $property = Property::find($request->id);
-        return view('admin.properties.edit')->with("property", $property);
+        $record = Property::find($request->upd_id);
+        $data = [
+            'record' => $record,
+        ];
+
+        return response()->json($data);
     }
 
     public function update(Request $request) {
-        $property = Property::find($request->id);
+        $record = Property::find($request->upd_id);
 
         if( $request->hasFile( 'logo' ) ) {
             $file = $request->file('logo');
@@ -51,21 +58,28 @@ class PropertyController extends Controller
             $destination = 'uploads/properties/logo';
             $file->move($destination, $filename );
 
-            $property->update([
+            $record->update([
                 'logo' => $filename,
                 'name' => $request->name,
                 'location' => $request->location,
                 'description' => $request->description,
             ]);    
         }
+        else {
+            $record->update([
+                'name' => $request->name,
+                'location' => $request->location,
+                'description' => $request->description,
+            ]);  
+        }
 
-        return redirect('/admin/properties');
+        return response(['msg' => 'Updated Property']);
     }
 
     public function delete(Request $request) {
-        $property = Property::find($request->id);
-        $property->delete();
+        $record = Property::find($request->del_id);
+        $record->delete();
         
-        return redirect('/admin/properties');
+        return response(['msg' => 'Deleted Property']);
     }
 }

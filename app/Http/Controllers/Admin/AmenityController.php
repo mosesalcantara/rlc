@@ -22,24 +22,20 @@ class AmenityController extends Controller
         return response()->json($data);
     }
 
-    public function add() {
-        return view('admin.amenities.add');
-    }
-
     public function create(Request $request) {
-        $amenity = new Amenity;
+        $record = new Amenity;
 
-        if( $request->hasFile( 'picture' ) ) {
+        if( $request->hasFile('picture') ) {
             $file = $request->picture;
             $filename = time() . '.'.$file->clientExtension();
             $destination = 'uploads/amenities/picture';
             $file->move($destination, $filename);
         }
 
-        $amenity->name = $request->name;
-        $amenity->type = $request->type;
-        $amenity->picture = $filename;
-        $amenity->save();
+        $record->name = $request->name;
+        $record->type = $request->type;
+        $record->picture = $filename;
+        $record->save();
 
         return response(['msg' => 'Added Amenity']);
     }
@@ -54,7 +50,7 @@ class AmenityController extends Controller
     }
 
     public function update(Request $request) {
-        $amenity = Amenity::find($request->upd_id);
+        $record = Amenity::find($request->upd_id);
 
         if( $request->hasFile( 'picture' ) ) {
             $file = $request->picture;
@@ -62,14 +58,14 @@ class AmenityController extends Controller
             $destination = 'uploads/amenities/picture';
             $file->move($destination, $filename );
 
-            $amenity->update([
+            $record->update([
                 'name' => $request->name,
                 'type' => $request->type,
                 'picture' => $filename,
             ]);
         }
         else {
-            $amenity->update([
+            $record->update([
                 'name' => $request->name,
                 'type' => $request->type,
             ]);
@@ -79,8 +75,8 @@ class AmenityController extends Controller
     }
 
     public function delete(Request $request) {
-        $amenity = Amenity::find($request->del_id);
-        $amenity->delete();
+        $record = Amenity::find($request->del_id);
+        $record->delete();
         
         return response(['msg' => 'Deleted Amenity']);
     }

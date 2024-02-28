@@ -8,11 +8,9 @@ $(document).ready( function () {
     $('#addForm').submit(function(e) {
         e.preventDefault()
         $.ajax({
-          url: "/admin/amenities/add/",
+          url: "/admin/videos/add/",
           method: 'POST',
-          data: new FormData(this),
-          contentType: false,
-          processData: false,
+          data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
             get_all()
@@ -29,10 +27,8 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/amenities/update/",
-          data: new FormData(this),
-          contentType: false,
-          processData: false,
+          url: "/admin/videos/update/",
+          data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
             get_all()
@@ -49,7 +45,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/amenities/delete/",
+          url: "/admin/videos/delete/",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -70,7 +66,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/amenities/",
+        url: "/admin/videos/",
         success: function (res) {
             var records = res.records
 
@@ -79,9 +75,7 @@ function get_all() {
 
             var thead = $('<thead>')
             var thr = $('<tr>')
-            thr.append($('<th>').text('Name'))
-            thr.append($('<th>').text('Type'))
-            thr.append($('<th>').text('Picture'))
+            thr.append($('<th>').text('Code'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
             tbl.append(thead)
@@ -89,13 +83,7 @@ function get_all() {
             var tbody = $('<tbody>')
             $.each(records, function(row, field) {
                 var tr = $('<tr>')
-                tr.append($('<td>').text(field.name))
-                tr.append($('<td>').text(field.type))
-                var img = $('<img>')
-                img.attr({
-                    'src' : `/uploads/amenities/picture/${field.picture}`,
-                })
-                tr.append(img)
+                tr.append($('<td>').text(field.code))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
@@ -145,17 +133,11 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/amenities/edit/',
+      url:'/admin/videos/edit/',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record
-        $('#name').val(record.name)
-        if (record.type == 'Indoor'){
-            $('#type').val('Indoor')
-        }
-        else{
-            $('#type').val('Outdoor')
-        }
+        $('#code').val(record.code)
       }
     })
   }

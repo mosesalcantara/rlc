@@ -99,7 +99,7 @@
                 
                         <div class="mb-3">
                             <label for="" class="form-label">Picture</label>     
-                            <input type="file" name="picture"  id="picture" class="form-control">
+                            <input type="file" name="picture" id="picture" class="form-control">
                         </div>
                 </div>
                 <div class="modal-footer">

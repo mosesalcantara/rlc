@@ -14,41 +14,51 @@ class CommercialUnitController extends Controller
         return view('admin.commercial_units.index')->with('c_units', $c_units);
     }
 
-    public function add() {
-        return view('admin.commercial_units.add');
+    public function get_all() {
+        $records = CommercialUnit::all();
+        
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
     }
 
     public function create(Request $request) {
-        $c_unit = new CommercialUnit;
-        $c_unit->retail_id = $request->retail_id;
-        $c_unit->building = $request->building;
-        $c_unit->size = $request->size;
-        $c_unit->save();
+        $record = new CommercialUnit;
+        $record->retail_id = $request->retail_id;
+        $record->building = $request->building;
+        $record->size = $request->size;
+        $record->save();
 
-        return redirect('/admin/commercial');
+        return response(['msg' => 'Added Commercial Unit']);
     }
 
     public function edit(Request $request) {
-        $c_unit = CommercialUnit::find($request->id);
-        return view('admin.commercial_units.edit')->with("c_unit", $c_unit);
+        $record = CommercialUnit::find($request->upd_id);
+        $data = [
+            'record' => $record,
+        ];
+
+        return response()->json($data);
     }
 
     public function update(Request $request) {
-        $c_unit = CommercialUnit::find($request->id);
+        $record = CommercialUnit::find($request->upd_id);
 
-        $c_unit->update([
+        $record->update([
             'retail_id' => $request->retail_id,
             'building' => $request->building,
             'size' => $request->size,
         ]);
 
-        return redirect('/admin/commercial');
+        return response(['msg' => 'Updated Commercial Unit']);
     }
 
     public function delete(Request $request) {
-        $c_unit = CommercialUnit::find($request->id);
-        $c_unit->delete();
+        $record = CommercialUnit::find($request->del_id);
+        $record->delete();
         
-        return redirect('/admin/commercial');
+        return response(['msg' => 'Deleted Commercial Unit']);
     }
 }
