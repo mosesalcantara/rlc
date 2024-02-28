@@ -18,46 +18,57 @@ class ResidentialUnitController extends Controller
     }
 
     public function index() {
-        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
-
-
-        return view('admin.residential_units.index')->with('r_units', $r_units);
+        return view('admin.residential_units.index');
     }
 
-    public function add() {
-        $properties = Property::all();
+    public function get_all() {
+        $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
+        
+        $data = [
+            'records' => $records,
+        ];
 
-        return view('admin.residential_units.add')->with('properties', $properties);
+        return response()->json($data);
+    }
+
+    public function get_related() {
+        $records = Property::all();
+        
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
     }
 
     public function create(Request $request) {
-        $r_unit = new ResidentialUnit;
-        $r_unit->unit_id = $request->unit_id;
-        $r_unit->building = $request->building;
-        $r_unit->type = $request->type;
-        $r_unit->area = $request->area;
-        $r_unit->rate = $request->rate;
-        $r_unit->status = $request->status;
-        $r_unit->property_id = $request->property_id;
-        $r_unit->save();
+        $record = new ResidentialUnit;
+        $record->unit_id = $request->unit_id;
+        $record->building = $request->building;
+        $record->type = $request->type;
+        $record->area = $request->area;
+        $record->rate = $request->rate;
+        $record->status = $request->status;
+        $record->property_id = $request->property_id;
+        $record->save();
 
-        return redirect('/admin/residential');
+        return response(['msg' => 'Added Residential Unit']);
     }
 
     public function edit(Request $request) {
-        $r_unit = Property::leftJoin('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->id)->get();
-        $properties = Property::all();
+        $record = Property::leftJoin('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->upd_id)->get();
+        $records = Property::all();
 
         $data = [
-            'r_unit' => $r_unit,
-            'properties' => $properties,
+            'record' => $record,
+            'records' => $records,
         ];
 
-        return view('admin.residential_units.edit')->with("data", $data);
+        return response()->json($data);
     }
 
     public function update(Request $request) {
-        $r_unit = ResidentialUnit::find($request->id);
+        $r_unit = ResidentialUnit::find($request->upd_id);
 
         $r_unit->update([
             'unit_id' => $request->unit_id,
@@ -74,9 +85,9 @@ class ResidentialUnitController extends Controller
 
 
     public function delete(Request $request) {
-        $r_unit = ResidentialUnit::find($request->id);
-        $r_unit->delete();
+        $record = ResidentialUnit::find($request->del_id);
+        $record->delete();
         
-        return redirect('/admin/residential');
+        return response(['msg' => 'Deleted Residential Unit']);
     }
 }

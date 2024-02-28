@@ -5,14 +5,34 @@ $(document).ready( function () {
         }
     });
 
+    $('#addModal').on('show.bs.modal', function(e) {
+        $.ajax({
+            url: "/admin/residential/get-related/",
+            method: 'POST',
+            success: function (res) {
+                var records = res.records
+                $.each(records, function(row, field) {
+                    var option = $('<option>').text(field.name).val(field.id)
+                    $('#add_property_id').append(option)
+                })
+            },
+            error: function (xhr, status, error) {
+
+            },
+          })    
+    })
+
+    $('#addModal').on('hide.bs.modal', function(e) {
+        $('#add_property_id').empty()
+    })
+
     $('#addForm').submit(function(e) {
         e.preventDefault()
+        console.log($(this).serialize())
         $.ajax({
-          url: "/admin/amenities/add/",
+          url: "/admin/residential/add/",
           method: 'POST',
-          data: new FormData(this),
-          contentType: false,
-          processData: false,
+          data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
             get_all()
@@ -25,11 +45,15 @@ $(document).ready( function () {
         })    
     })   
 
+    $('#updModal').on('hide.bs.modal', function(e) {
+        $('#upd_property_id').empty()
+    })
+
     $('#updForm').submit(function(e) {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/amenities/update/",
+          url: "/admin/residential/update/",
           data: new FormData(this),
           contentType: false,
           processData: false,
@@ -49,7 +73,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/amenities/delete/",
+          url: "/admin/residential/delete/",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -70,7 +94,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/amenities/",
+        url: "/admin/residential/",
         success: function (res) {
             var records = res.records
 
@@ -79,9 +103,14 @@ function get_all() {
 
             var thead = $('<thead>')
             var thr = $('<tr>')
-            thr.append($('<th>').text('Name'))
+            thr.append($('<th>').text('Property'))
+            thr.append($('<th>').text('Location'))
+            thr.append($('<th>').text('Unit ID'))
+            thr.append($('<th>').text('Building'))
             thr.append($('<th>').text('Type'))
-            thr.append($('<th>').text('Picture'))
+            thr.append($('<th>').text('Area'))
+            thr.append($('<th>').text('Rate'))
+            thr.append($('<th>').text('Status'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
             tbl.append(thead)
@@ -90,12 +119,13 @@ function get_all() {
             $.each(records, function(row, field) {
                 var tr = $('<tr>')
                 tr.append($('<td>').text(field.name))
+                tr.append($('<td>').text(field.location))
+                tr.append($('<td>').text(field.unit_id))
+                tr.append($('<td>').text(field.building))
                 tr.append($('<td>').text(field.type))
-                var img = $('<img>')
-                img.attr({
-                    'src' : `/uploads/amenities/picture/${field.picture}`,
-                })
-                tr.append(img)
+                tr.append($('<td>').text(field.area))
+                tr.append($('<td>').text(field.rate))
+                tr.append($('<td>').text(field.status))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
@@ -145,20 +175,29 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/amenities/edit/',
+      url:'/admin/residential/edit/',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record
-        $('#name').val(record.name)
-        if (record.type == 'Indoor'){
-            $('#type').val('Indoor')
-        }
-        else{
-            $('#type').val('Outdoor')
-        }
+        var records = res.records
+        console.log(record)
+        console.log(records)
+
+        $('#unit_id').val(record.unit_id)
+        $('#area').val(record.area)
+        $('#rate').val(record.rate)
+
+        $.each(records, function(row, field) {
+            var option = $('<option>').text(field.name).val(field.id)
+            $('#upd_property_id').append(option)
+
+            if (record.property_id == field.id){
+                $('#upd_property_id').val(record.property_id)
+            }
+        })
       }
     })
-  }
+}
 
 function get_del_id(id){
     $('#del_id').val(parseInt(id))

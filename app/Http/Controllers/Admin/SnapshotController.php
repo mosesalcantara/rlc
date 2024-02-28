@@ -24,7 +24,7 @@ class SnapshotController extends Controller
         return response()->json($data);
     }
 
-    public function get_units() {
+    public function get_related() {
         $records = ResidentialUnit::all();
         
         $data = [

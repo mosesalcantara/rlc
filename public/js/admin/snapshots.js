@@ -7,7 +7,7 @@ $(document).ready( function () {
 
     $('#addModal').on('show.bs.modal', function(e) {
         $.ajax({
-            url: "/admin/snapshots/get-units/",
+            url: "/admin/snapshots/get-related/",
             method: 'POST',
             success: function (res) {
                 var records = res.records
@@ -20,6 +20,10 @@ $(document).ready( function () {
 
             },
           })    
+    })
+
+    $('#addModal').on('hide.bs.modal', function(e) {
+        $('#add_residential_unit_id').empty()
     })
 
     $('#addForm').submit(function(e) {
@@ -169,8 +173,7 @@ function get_upd_id(id){
       success: function(res) {
         var record = res.record
         var records = res.records
-        console.log(record)
-        console.log(records)
+
         $.each(records, function(row, field) {
             var option = $('<option>').text(field.unit_id).val(field.id)
             $('#upd_residential_unit_id').append(option)

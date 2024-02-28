@@ -75,6 +75,7 @@ Route::prefix('admin/amenities')->group(function () {
 Route::prefix('admin/residential')->group(function () {
     Route::get('/', [ResidentialUnitController::class, 'index']);
     Route::post('/', [ResidentialUnitController::class, 'get_all']);
+    Route::post('/get-related', [ResidentialUnitController::class, 'get_related']);
     Route::post('/add', [ResidentialUnitController::class, 'create']);
     Route::post('/edit', [ResidentialUnitController::class, 'edit']);
     Route::post('/update', [ResidentialUnitController::class, 'update']);
@@ -113,7 +114,7 @@ Route::prefix('admin/videos')->group(function () {
 Route::prefix('admin/snapshots')->group(function () {
     Route::get('/', [SnapshotController::class, 'index']);
     Route::post('/', [SnapshotController::class, 'get_all']);
-    Route::post('/get-units', [SnapshotController::class, 'get_units']);
+    Route::post('/get-related', [SnapshotController::class, 'get_related']);
     Route::post('/add', [SnapshotController::class, 'create']);
     Route::post('/edit', [SnapshotController::class, 'edit']);
     Route::post('/update', [SnapshotController::class, 'update']);

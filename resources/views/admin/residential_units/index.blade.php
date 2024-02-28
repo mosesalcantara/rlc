@@ -46,12 +46,38 @@
                 <div class="modal-body">
                     <form action="/admin/residential/add" method="post" enctype="multipart/form-data" id="addForm">         
                         <div class="mb-3">
-                            <label for="" class="form-label">Picture</label>     
-                            <input type="file" name="picture" class="form-control">
+                            <label for="" class="form-label">Property</label>  
+                            <select name="property_id" id="add_property_id" class="form-select"></select>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="unit_id" class="form-control">
+                            <label for="">Unit ID</label>     
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Residential Unit</label>  
-                            <select name="residential_unit_id" id="add_residential_unit_id" class="form-select"></select>
+                            <label for="" class="form-label">Unit Type</label>     
+                            <select name="type" class="form-select">
+                                <option value="1 BR">1 Bedroom</option>
+                                <option value="2 BR">2 Bedrooms</option>
+                                <option value="3 BR">3 Bedrooms</option>
+                                <option value="PH">Penthouse</option>
+                                <option value="Studio">Studio</option>
+                            </select>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="area" class="form-control">
+                            <label for="">Area</label>     
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="rate" class="form-control">
+                            <label for="">Monthly Rate</label>     
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Unit Status</label>     
+                            <select name="status" class="form-select">
+                                <option value="Not Furnished">Not Furnished</option>
+                                <option value="Semi Furnished">Semi Furnished</option>
+                                <option value="Fully Furnished">Fully Furnished</option>
+                            </select>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -75,12 +101,38 @@
                 <div class="modal-body">
                     <form action="/admin/residential/update" method="post" enctype="multipart/form-data" id="updForm">
                         <div class="mb-3">
-                            <label for="" class="form-label">Picture</label>     
-                            <input type="file" name="picture" class="form-control">
+                            <label for="" class="form-label">Property</label>  
+                            <select name="property_id" id="upd_property_id" class="form-select"></select>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="unit_id" id="unit_id" class="form-control">
+                            <label for="">Unit ID</label>     
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Residential Unit</label>  
-                            <select name="residential_unit_id" id="upd_residential_unit_id" class="form-select"></select>
+                            <label for="" class="form-label">Unit Type</label>     
+                            <select name="type" id="type" class="form-select">
+                                <option value="1 BR">1 Bedroom</option>
+                                <option value="2 BR">2 Bedrooms</option>
+                                <option value="3 BR">3 Bedrooms</option>
+                                <option value="PH">Penthouse</option>
+                                <option value="Studio">Studio</option>
+                            </select>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="area" id="area" class="form-control">
+                            <label for="">Area</label>     
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="rate" id="rate" class="form-control">
+                            <label for="">Monthly Rate</label>     
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Unit Status</label>     
+                            <select name="status" id="status" class="form-select">
+                                <option value="Not Furnished">Not Furnished</option>
+                                <option value="Semi Furnished">Semi Furnished</option>
+                                <option value="Fully Furnished">Fully Furnished</option>
+                            </select>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -117,42 +169,6 @@
         </div>
     </div>
 
-    <a href="/admin" class="btn btn-primary">Back</a>
-    <a href="/admin/residential/add">Add</a>
-    <table class="tbl w-100">
-        <thead>
-            <tr>
-                <th>Property</th>
-                <th>Location</th>
-                <th>Unit ID</th>
-                <th>Building</th>
-                <th>Type</th>
-                <th>Area</th>
-                <th>Rate</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (count($r_units) > 0)
-                @foreach ($r_units as $r_unit)
-                    <tr>    
-                        <td>{{ $r_unit->name }}</td>
-                        <td>{{ $r_unit->location }}</td>
-                        <td>{{ $r_unit->unit_id }}</td>
-                        <td>{{ $r_unit->building }}</td>
-                        <td>{{ $r_unit->type }}</td>
-                        <td>{{ $r_unit->area }}</td>
-                        <td>{{ $r_unit->rate }}</td>
-                        <td>{{ $r_unit->status }}</td>
-                        <td><a href="/admin/residential/edit/{{ $r_unit->id }}" class="btn btn-primary">Edit</a>
-                            <a href="/admin/residential/delete/{{ $r_unit->id }}" class="btn btn-danger" onclick="return confirm('Delete?')">Delete</a>
-                        </td>
-                    </tr>
-                @endforeach
-            @endif
-        </tbody>
-    </table>
 @endsection
 
 @section('scripts')
