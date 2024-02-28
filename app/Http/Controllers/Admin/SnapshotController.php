@@ -11,69 +11,85 @@ use App\Models\ResidentialUnit;
 class SnapshotController extends Controller
 {
     public function index() {
-        $snapshots = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->get();
-        
-        return view('admin.snapshots.index')->with('snapshots', $snapshots);
+        return view('admin.snapshots.index');
     }
 
-    public function add() {
-        $r_units = ResidentialUnit::all();
+    public function get_all() {
+        $records = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->get();
+        
+        $data = [
+            'records' => $records,
+        ];
 
-        return view('admin.snapshots.add')->with('r_units', $r_units);
+        return response()->json($data);
+    }
+
+    public function get_units() {
+        $records = ResidentialUnit::all();
+        
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
     }
 
     public function create(Request $request) {
-        $snapshot = new Snapshot;
+        $record = new Snapshot;
 
         if( $request->hasFile( 'picture' ) ) {
-            $file = $request->file('picture');
+            $file = $request->picture;
             $filename = time() . '.'.$file->clientExtension();
             $destination = 'uploads/residential_units/snapshots';
             $file->move( $destination, $filename );
         }
 
-        $snapshot->picture = $filename;
-        $snapshot->residential_unit_id = $request->residential_unit_id;
-        $snapshot->save();
+        $record->picture = $filename;
+        $record->residential_unit_id = $request->residential_unit_id;
+        $record->save();
 
-        return redirect('/admin/snapshots');
+        return response(['msg' => 'Added Snapshot']);
     }
 
     public function edit(Request $request) {
-        $snapshot = ResidentialUnit::leftJoin('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->where('snapshots.id', $request->id)->get();
-        $r_units = ResidentialUnit::all();
+        $record = ResidentialUnit::leftJoin('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->where('snapshots.id', $request->upd_id)->get();
+        $records = ResidentialUnit::all();
 
         $data = [
-            'snapshot' => $snapshot,
-            'r_units' => $r_units,
+            'record' => $record,
+            'records' => $records,
         ];
 
-        return view('admin.snapshots.edit')->with("data", $data);
+        return response()->json($data);
     }
 
     public function update(Request $request) {
-        $snapshot = Snapshot::find($request->id);
+        $record = Snapshot::find($request->upd_id);
 
-        if( $request->hasFile( 'picture' ) ) {
-            $file = $request->file('picture');
+        if( $request->hasFile('picture') ) {
+            $file = $request->picture;
             $filename = time() . '.'.$file->clientExtension();
-            $destination = 'uploads/amenities/picture';
+            $destination = 'uploads/residential_units/snapshots';
             $file->move($destination, $filename );
 
-            $snapshot->update([
+            $record->update([
                 'picture' => $filename,
                 'residential_unit_id' => $request->residential_unit_id,
             ]);
-
+        }
+        else {
+            $record->update([
+                'residential_unit_id' => $request->residential_unit_id,
+            ]);
         }
 
-        return redirect('/admin/snapshots');
+        return response(['msg' => 'Updated Snapshot']);
     }
 
     public function delete(Request $request) {
-        $snapshot = Snapshot::find($request->id);
-        $snapshot->delete();
+        $record = Snapshot::find($request->del_id);
+        $record->delete();
         
-        return redirect('/admin/snapshots');
+        return response(['msg' => 'Deleted Snapshot']);
     }
 }
