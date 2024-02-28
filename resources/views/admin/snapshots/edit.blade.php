@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('sections.admin.layout')
+
+@section('title', 'Dashboard')
+    
+@section('links')
+    @parent
+@endsection
+
+@section('sidebar')
+    @parent
+@endsection
+
+@section('main')
+    @parent
+@endsection
+
+@section('content')
     @foreach ($data['snapshot'] as $item)
     <form action="/admin/snapshots/edit/{{ $item['id'] }}" method="post" enctype="application/x-www-form-urlencoded">
         @csrf
@@ -31,5 +40,9 @@
         </div>
     </form>
     @endforeach
-</body>
-</html>
+@endsection
+
+@section('scripts')
+    @parent
+@endsection
+    

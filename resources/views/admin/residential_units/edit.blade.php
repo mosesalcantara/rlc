@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('sections.admin.layout')
+
+@section('title', 'Dashboard')
+    
+@section('links')
+    @parent
+@endsection
+
+@section('sidebar')
+    @parent
+@endsection
+
+@section('main')
+    @parent
+@endsection
+
+@section('content')
     <a href="/admin/residential" class="btn btn-primary">Back</a>
     @foreach ($data['r_unit'] as $item)
     <form action="/admin/residential/edit/{{ $item['id'] }}" method="post" enctype="multipart/form-data">
@@ -63,6 +72,10 @@
             <input type="submit" value="Update" class="btn btn-primary">
         </div>
     </form>
-    @endforeach
-</body>
-</html>
+@endforeach
+@endsection
+
+@section('scripts')
+    @parent
+@endsection
+    

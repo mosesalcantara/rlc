@@ -27,8 +27,8 @@
         <div>
             <label for="">Type</label>     
             <select name="type">
-                <option value="indoor">Indoor</option>
-                <option value="outdoor">Outdoor</option>
+                <option value="Indoor">Indoor</option>
+                <option value="Outdoor">Outdoor</option>
             </select>
         </div>
 

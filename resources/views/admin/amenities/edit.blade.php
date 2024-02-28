@@ -32,8 +32,8 @@
             </select>
             @else
             <select name="type">
-                <option value="indoor" selected>Indoor</option>
-                <option value="outdoor" selected>Outdoor</option>
+                <option value="Indoor" selected>Indoor</option>
+                <option value="Outdoor" selected>Outdoor</option>
             </select>
             @endif
         </div>
