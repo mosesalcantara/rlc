@@ -103,10 +103,6 @@
         </div>
     </div>
 
-    @foreach ($data['reviews'] as $review)
-    {{ $review }}
-@endforeach
-
     <div class="container-fluid">
         <div class="row videos text-center align-items-center" style="background-image: url({{ asset('img/pages/home/video-bg.png') }})">
             @foreach ($data['videos'] as $video)
@@ -124,7 +120,7 @@
             </div>
 
             <div class="col reviews">
-                <div id="review_carousel" class="carousel slide carousel-fade text-center">
+                <div id="review_carousel" class="carousel slide carousel-fade text-center" data-bs-ride='carousel'>
                     <div class="carousel-inner">
 
                     <div class="carousel-item active">
@@ -139,7 +135,7 @@
                                         <div class="col profile_details text-start">
                                             <h2>{{ $first->fullname }}</h2>
                                             <h4>{{ $first->name }}</h4>
-                                            <h4>{{ \Carbon\Carbon::parse($first->reviewed_on)->toFormattedDateString() }}</h4>
+                                            <h4>{{ \Carbon\Carbon::parse($first->reviewed_on)->format('F d, Y') }}</h4>
                                         </div>
                                     </div>
                                     <div class="row review_text text-start">
