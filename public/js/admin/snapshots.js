@@ -178,11 +178,8 @@ function get_upd_id(id){
         $.each(records, function(row, field) {
             var option = $('<option>').text(field.unit_id).val(field.id)
             $('#upd_residential_unit_id').append(option)
-
-            if (record.resedential_unit_id == field.id){
-                $('#upd_residential_unit_id').val(record.resedential_unit_id)
-            }
         })
+        $('#upd_residential_unit_id').val(record.residential_unit_id)
       }
     })
 }

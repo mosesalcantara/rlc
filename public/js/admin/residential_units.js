@@ -179,19 +179,18 @@ function get_upd_id(id){
         var record = res.record
         var records = res.records
 
-        $('#unit_id').val(record.unit_id)
-        $('#building').val(record.building)
-        $('#area').val(record.area)
-        $('#rate').val(record.rate)
-
         $.each(records, function(row, field) {
             var option = $('<option>').text(field.name).val(field.id)
             $('#upd_property_id').append(option)
-
-            if (record.property_id == field.id){
-                $('#upd_property_id').val(record.property_id)
-            }
         })
+
+        $('#upd_property_id').val(record.property_id)
+        $('#unit_id').val(record.unit_id)
+        $('#building').val(record.building)
+        $('#type').val(record.type)
+        $('#area').val(record.area)
+        $('#rate').val(record.rate)
+        $('#status').val(record.status)
       }
     })
 }

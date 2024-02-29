@@ -152,12 +152,7 @@ function get_upd_id(id){
       success: function(res) {
         var record = res.record
         $('#name').val(record.name)
-        if (record.type == 'Indoor'){
-            $('#type').val('Indoor')
-        }
-        else{
-            $('#type').val('Outdoor')
-        }
+        $('#type').val(record.type)
       }
     })
   }
