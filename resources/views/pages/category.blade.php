@@ -57,17 +57,17 @@
 
     <div class="container-fluid units">
         <div class="row">
-            @if (count($data['r_units']) > 0)
-            @foreach ($data['r_units'] as $r_unit)
+            @if (count($data['records']) > 0)
+            @foreach ($data['records'] as $record)
                 <div class="col-4 unit">
                     <div class="card">
                         <div class="card-header picture text-center">
-                            <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $r_unit->picture }}" alt="">
+                            <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $record->picture }}" alt="">
                         </div>
                         <div class="card-body details">
-                            <h3>{{ $r_unit->name }}</h3>
+                            <h3>{{ $record->name }}</h3>
                             <i class="fa-solid fa-location-dot fa-2x"></i>
-                            <h4>{{ $r_unit->location }}</h4>
+                            <h4>{{ $record->location }}</h4>
                             <div class="row table">
                                 <div class="col">
                                     <h6>Unit ID</h6>
@@ -76,10 +76,10 @@
                                     <h6>Area</h6>
                                 </div>
                                 <div class="col text-dark">
-                                    <h6>{{ $r_unit->unit_id }}</h6>
-                                    <h6>{{ $r_unit->type }}</h6>
-                                    <h6>PHP {{ $r_unit->rate }} / mo</h6>
-                                    <h6>{{ $r_unit->area }} SQM</h6>
+                                    <h6>{{ $record->unit_id }}</h6>
+                                    <h6>{{ $record->type }}</h6>
+                                    <h6>PHP {{ $record->rate }} / mo</h6>
+                                    <h6>{{ $record->area }} SQM</h6>
                                 </div>
                             </div>
                         </div>

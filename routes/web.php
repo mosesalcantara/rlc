@@ -46,12 +46,6 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index']);
-
-    Route::get('/navbar', [AdminController::class, 'navbar']);
-    Route::post('/navbar/add', [AdminController::class, 'create']);
-    Route::get('/navbar/edit/{id}', [AdminController::class, 'edit']);
-    Route::post('/navbar/edit/{id}', [AdminController::class, 'update']);
-    Route::get('/navbar/delete/{id}', [AdminController::class, 'delete']);
 });
 
 Route::prefix('admin/properties')->group(function () {
@@ -119,4 +113,8 @@ Route::prefix('admin/snapshots')->group(function () {
     Route::post('/edit', [SnapshotController::class, 'edit']);
     Route::post('/update', [SnapshotController::class, 'update']);
     Route::post('/delete', [SnapshotController::class, 'delete']);
+});
+
+Route::prefix('admin/snapshots')->group(function () {
+
 });

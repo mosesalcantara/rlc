@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\Nav_item;
+use App\Models\Video;
 use App\Models\ResidentialUnit;
 use App\Models\Property;
 
@@ -30,67 +30,24 @@ class PageController extends Controller
     }
 
     public function index() {
-        $nav_items = Nav_item::all()->sortBy('order');
+        $videos = Video::all()->sortByDesc('updated_at')->take(2);
 
-        foreach ($nav_items as $nav_item) {
-            $link = $nav_item->title;
-            $link = strtolower($link);
+        $data = [
+            'videos' => $videos,
+        ];
 
-            if ($link == 'home') {
-                $link = '';
-            }
-            else {
-                $link = str_replace(' ', '-', $link);
-            }
-
-            $nav_item['link'] = $link;
-        }
-
-        return view("pages.index")->with('nav_items', $nav_items);
+        return view("pages.index")->with('data', $data);
     }
 
     public function lease() {
-        $nav_items = Nav_item::all()->sortBy('order');
-
-        foreach ($nav_items as $nav_item) {
-            $link = $nav_item->title;
-            $link = strtolower($link);
-
-            if ($link == 'home') {
-                $link = '';
-            }
-            else {
-                $link = str_replace(' ', '-', $link);
-            }
-
-            $nav_item['link'] = $link;
-        }
-
-        return view("pages.lease")->with('nav_items', $nav_items);
+        return view("pages.lease");
     }
 
     public function category(Request $request) {
-        $nav_items = Nav_item::all()->sortBy('order');
-
-        foreach ($nav_items as $nav_item) {
-            $link = $nav_item->title;
-            $link = strtolower($link);
-
-            if ($link == 'home') {
-                $link = '';
-            }
-            else {
-                $link = str_replace(' ', '-', $link);
-            }
-
-            $nav_item['link'] = $link;
-        }
-
-        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->get();
+        $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->get();
 
         $data = [
-            'nav_items' => $nav_items,
-            'r_units' => $r_units,
+            'records' => $records,
         ];
 
         return view("pages.category")->with('data', $data);
@@ -101,62 +58,14 @@ class PageController extends Controller
     }
 
     public function properties() {
-        $nav_items = Nav_item::all()->sortBy('order');
-
-        foreach ($nav_items as $nav_item) {
-            $link = $nav_item->title;
-            $link = strtolower($link);
-
-            if ($link == 'home') {
-                $link = '';
-            }
-            else {
-                $link = str_replace(' ', '-', $link);
-            }
-
-            $nav_item['link'] = $link;
-        }
-
-        return view("pages.properties")->with('nav_items', $nav_items);
+        return view("pages.properties");
     }
 
     public function contact() {
-        $nav_items = Nav_item::all()->sortBy('order');
-
-        foreach ($nav_items as $nav_item) {
-            $link = $nav_item->title;
-            $link = strtolower($link);
-
-            if ($link == 'home') {
-                $link = '';
-            }
-            else {
-                $link = str_replace(' ', '-', $link);
-            }
-
-            $nav_item['link'] = $link;
-        }
-
-        return view("pages.contact")->with('nav_items', $nav_items);
+        return view("pages.contact");
     }
 
     public function about() {
-        $nav_items = Nav_item::all()->sortBy('order');
-
-        foreach ($nav_items as $nav_item) {
-            $link = $nav_item->title;
-            $link = strtolower($link);
-
-            if ($link == 'home') {
-                $link = '';
-            }
-            else {
-                $link = str_replace(' ', '-', $link);
-            }
-
-            $nav_item['link'] = $link;
-        }
-
-        return view("pages.about")->with('nav_items', $nav_items);
+        return view("pages.about");
     }
 }

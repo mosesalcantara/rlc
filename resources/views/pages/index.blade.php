@@ -104,10 +104,12 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row videos">
-            <div class="col embded-responsive text-center" style="background-image: url({{ asset('img/pages/home/video-bg.png') }})">
-                <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/ZirLYPANv1c" allowfullscreen></iframe>
+        <div class="row videos text-center align-items-center" style="background-image: url({{ asset('img/pages/home/video-bg.png') }})">
+            @foreach ($data['videos'] as $video)
+            <div class="col video">
+                <iframe src="https://www.youtube.com/embed/{{ $video['code'] }}/"></iframe>
             </div>
+            @endforeach
         </div>
     </div>
 

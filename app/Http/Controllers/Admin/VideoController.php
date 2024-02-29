@@ -27,7 +27,7 @@ class VideoController extends Controller
         $record->code = $request->code;
         $record->save();
 
-        return response(['msg' => 'Added Parking Slot']);
+        return response(['msg' => 'Added Video']);
     }
 
     public function edit(Request $request) {
