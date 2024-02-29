@@ -12,7 +12,8 @@ use App\Http\Controllers\Admin\CommercialUnitController;
 use App\Http\Controllers\Admin\ParkingSlotController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\SnapshotController;
-use App\Models\Snapshot;
+use App\Http\Controllers\Admin\ReviewController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -115,6 +116,12 @@ Route::prefix('admin/snapshots')->group(function () {
     Route::post('/delete', [SnapshotController::class, 'delete']);
 });
 
-Route::prefix('admin/snapshots')->group(function () {
-
+Route::prefix('admin/reviews')->group(function () {
+    Route::get('/', [ReviewController::class, 'index']);
+    Route::post('/', [ReviewController::class, 'get_all']);
+    Route::post('/get-related', [ReviewController::class, 'get_related']);
+    Route::post('/add', [ReviewController::class, 'create']);
+    Route::post('/edit', [ReviewController::class, 'edit']);
+    Route::post('/update', [ReviewController::class, 'update']);
+    Route::post('/delete', [ReviewController::class, 'delete']);
 });

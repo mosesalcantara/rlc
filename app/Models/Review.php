@@ -20,4 +20,8 @@ class Review extends Model
         'reviewed_on',
         'review',
     ];
+
+    protected $casts = [
+        'reviewed_on' => 'date',
+    ];
 }
