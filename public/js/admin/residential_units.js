@@ -54,9 +54,7 @@ $(document).ready( function () {
         $.ajax({
           type: 'POST',
           url: "/admin/residential/update/",
-          data: new FormData(this),
-          contentType: false,
-          processData: false,
+          data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
             get_all()
@@ -180,10 +178,9 @@ function get_upd_id(id){
       success: function(res) {
         var record = res.record
         var records = res.records
-        console.log(record)
-        console.log(records)
 
         $('#unit_id').val(record.unit_id)
+        $('#building').val(record.building)
         $('#area').val(record.area)
         $('#rate').val(record.rate)
 

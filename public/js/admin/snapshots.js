@@ -113,11 +113,13 @@ function get_all() {
             var tbody = $('<tbody>')
             $.each(records, function(row, field) {
                 var tr = $('<tr>')
+                var td_img = $('<td>')
                 var img = $('<img>')
                 img.attr({
                     'src' : `/uploads/residential_units/snapshots/${field.picture}`,
                 })
-                tr.append(img)
+                td_img.append(img)
+                tr.append(td_img)
                 tr.append($('<td>').text(field.unit_id))
 
                 var td_action = $('<td>')
@@ -173,7 +175,6 @@ function get_upd_id(id){
       success: function(res) {
         var record = res.record
         var records = res.records
-
         $.each(records, function(row, field) {
             var option = $('<option>').text(field.unit_id).val(field.id)
             $('#upd_residential_unit_id').append(option)

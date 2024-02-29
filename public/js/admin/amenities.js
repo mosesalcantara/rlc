@@ -91,11 +91,13 @@ function get_all() {
                 var tr = $('<tr>')
                 tr.append($('<td>').text(field.name))
                 tr.append($('<td>').text(field.type))
+                var td_img = $('<td>')
                 var img = $('<img>')
                 img.attr({
                     'src' : `/uploads/amenities/picture/${field.picture}`,
                 })
-                tr.append(img)
+                td_img.append(img)
+                tr.append(td_img)
 
                 var td_action = $('<td>')
                 tr.append(td_action)

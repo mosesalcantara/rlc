@@ -53,6 +53,10 @@
                             <input type="text" name="unit_id" class="form-control">
                             <label for="">Unit ID</label>     
                         </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="building" class="form-control">
+                            <label for="">Building</label>     
+                        </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Unit Type</label>     
                             <select name="type" class="form-select">
@@ -107,6 +111,10 @@
                         <div class="form-floating mb-3">
                             <input type="text" name="unit_id" id="unit_id" class="form-control">
                             <label for="">Unit ID</label>     
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="building" id="building" class="form-control">
+                            <label for="">Building</label>     
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Unit Type</label>     

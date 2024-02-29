@@ -57,6 +57,7 @@ class ResidentialUnitController extends Controller
 
     public function edit(Request $request) {
         $record = Property::leftJoin('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->upd_id)->get();
+        $record = $record[0];
         $records = Property::all();
 
         $data = [
@@ -80,7 +81,7 @@ class ResidentialUnitController extends Controller
             'property_id' => $request->property_id,
         ]);
 
-        return redirect('/admin/residential');
+        return response(['msg' => 'Updated Residential Unit']);
     }
 
 
