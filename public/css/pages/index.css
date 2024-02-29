@@ -98,19 +98,13 @@
     border-radius: 0.5rem;
 }
 
-.review_div {
-    width: 100%;
-    background-size: cover;
-    padding: 5vw 5vh;
+.reviews_div {
+    padding: 5rem;
 }
 
-.review_title {
-    
-}
-
-.review_title img {
-    width: 55%;
-    height: 90%;
+.reviews_title img {
+    width: 50%;
+    height: 100%;
 }
 
 .reviews {
@@ -118,21 +112,18 @@
     font-weight: 500;
 }
 
-.review_cont {
-
-}
-
 .review {
     background-color: #2E2E2D;
     border-radius: 1rem;
     color: white;
-    padding: 1rem;
+    padding: 1.5rem;
+    width: 100%;
+    height: 37vh;
 }
 
 .profile_logo img {
     width: 90%;
 }
-
 
 .profile_details h2 {
     color: #CC9900;

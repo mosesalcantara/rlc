@@ -125,7 +125,10 @@ function get_all() {
                 tr.append(td_img)
                 tr.append($('<td>').text(field.fullname))
                 tr.append($('<td>').text(field.name))
-                tr.append($('<td>').text(field.reviewed_on))
+                var reviewed_on = field.reviewed_on
+                reviewed_on = new Date(reviewed_on)
+                reviewed_on = reviewed_on.toLocaleString('default', {month: 'long', day: 'numeric', year: 'numeric'});
+                tr.append($('<td>').text(reviewed_on))
                 tr.append($('<td>').text(field.review))
 
                 var td_action = $('<td>')

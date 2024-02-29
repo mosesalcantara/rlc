@@ -15,27 +15,17 @@ class PageController extends Controller
 {
 
     public function test() {
-        $snapshots = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->get();
-        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
-        // foreach ($r_units as $r_unit) {
-        //     $r_unit['picture'] = '1708999227.jpg';
-        // }
-
-        $data = [
-            'snapshots' => $snapshots,
-            'r_units' => $r_units,
-        ];
-
-        return view("pages.test")->with('data', $data);
-        // return view("pages.test")->with('r_units', $r_units);
+        return view("pages.test");
     }
 
     public function index() {
         $videos = Video::all()->sortByDesc('updated_at')->take(2);
-        $reviews = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->orderBy('reviews.updated_at', 'desc')->limit(1)->get();
+        $first = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->orderBy('reviews.updated_at', 'desc')->limit(1)->get();
+        $reviews = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->orderBy('reviews.updated_at', 'desc')->limit(10)->whereNot('reviews.id', $first[0]['id'])->get();
 
         $data = [
             'videos' => $videos,
+            'first' => $first,
             'reviews' => $reviews,
         ];
 

@@ -103,6 +103,10 @@
         </div>
     </div>
 
+    @foreach ($data['reviews'] as $review)
+    {{ $review }}
+@endforeach
+
     <div class="container-fluid">
         <div class="row videos text-center align-items-center" style="background-image: url({{ asset('img/pages/home/video-bg.png') }})">
             @foreach ($data['videos'] as $video)
@@ -113,36 +117,78 @@
         </div>
     </div>
 
-    <div class="container-fluid review_div" style="background-image: url({{ asset('img/pages/home/review-bg.png') }})">
+    <div class="container-fluid reviews_div" style="background-image: url({{ asset('img/pages/home/review-bg.png') }})">
         <div class="row">
-            <div class="col-5 review_title text-center">
+            <div class="col reviews_title d-flex align-items-center">
                 <img src="{{  asset('img/pages/home/review-label-pc.png') }}" alt="">
             </div>
+
             <div class="col reviews">
-                <div class="container review_cont">
-                    @foreach ($data['reviews'] as $review)
-                    <div class="row review">
-                        <div class="col">
-                            <div class="row profile">
-                                <div class="col-2 profile_logo">
-                                    <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $review->picture }}" alt="">
-                                </div>
-                                <div class="col profile_details">
-                                    <h2>{{ $review->fullname }}</h2>
-                                    <h4>{{ $review->name }}</h4>
-                                    <h4>{{ $review->reviewed_on }}</h4>
+                <div id="review_carousel" class="carousel slide carousel-fade text-center">
+                    <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        @foreach ($data['first'] as $first)
+                        <div class="container review_cont">
+                            <div class="row review">
+                                <div class="col">
+                                    <div class="row profile">
+                                        <div class="col-2 profile_logo">
+                                            <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $first->picture }}" alt="">
+                                        </div>
+                                        <div class="col profile_details text-start">
+                                            <h2>{{ $first->fullname }}</h2>
+                                            <h4>{{ $first->name }}</h4>
+                                            <h4>{{ \Carbon\Carbon::parse($first->reviewed_on)->toFormattedDateString() }}</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row review_text text-start">
+                                        <p>
+                                            {{ $first->review }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row review_text">
-                                <p>
-                                    {{ $review->review }}
-                                </p>
+                        </div>
+                        @endforeach
+                    </div>
+
+                    @foreach ($data['reviews'] as $review)
+                    <div class="carousel-item">
+                        <div class="container review_cont">
+                            <div class="row review">
+                                <div class="col">
+                                    <div class="row profile">
+                                        <div class="col-2 profile_logo">
+                                            <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $review->picture }}" alt="">
+                                        </div>
+                                        <div class="col profile_details text-start">
+                                            <h2>{{ $review->fullname }}</h2>
+                                            <h4>{{ $review->name }}</h4>
+                                            <h4>{{ \Carbon\Carbon::parse($review->reviewed_on)->toFormattedDateString()}}</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row review_text text-start">
+                                        <p>
+                                            {{ $review->review }}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     @endforeach
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#review_carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#review_carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                
             </div>
         </div>
     </div>
