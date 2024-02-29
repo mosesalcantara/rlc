@@ -120,27 +120,27 @@
             </div>
             <div class="col reviews">
                 <div class="container review_cont">
+                    @foreach ($data['reviews'] as $review)
                     <div class="row review">
                         <div class="col">
                             <div class="row profile">
                                 <div class="col-2 profile_logo">
-                                    <img src="{{  asset('img/pages/home/profile.png') }}" alt="">
+                                    <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $review->picture }}" alt="">
                                 </div>
                                 <div class="col profile_details">
-                                    <h2>JC Ibanez</h2>
-                                    <h4>Escalades South Metro</h4>
-                                    <h4>August 2018 to present</h4>
+                                    <h2>{{ $review->fullname }}</h2>
+                                    <h4>{{ $review->name }}</h4>
+                                    <h4>{{ $review->reviewed_on }}</h4>
                                 </div>
                             </div>
                             <div class="row review_text">
                                 <p>
-                                    The property has complete amenities and ambience of the place is natural and serene.
-                                    It's a great place for anyone who is looking for a family or solo home to live in.
-                                    Rental rates are also cost-effective and it's also a plus for us that the property is pet-friendly.
+                                    {{ $review->review }}
                                 </p>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 
             </div>

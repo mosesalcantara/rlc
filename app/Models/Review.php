@@ -9,10 +9,6 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $attributes = [
-        'picture' => 'profile_pic.png'
-    ];
-
     protected $fillable = [
         'picture',
         'fullname',

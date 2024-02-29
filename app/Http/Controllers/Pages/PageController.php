@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Video;
+use App\Models\Review;
 use App\Models\ResidentialUnit;
 use App\Models\Property;
 
@@ -31,9 +32,11 @@ class PageController extends Controller
 
     public function index() {
         $videos = Video::all()->sortByDesc('updated_at')->take(2);
+        $reviews = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->orderBy('reviews.updated_at', 'desc')->limit(1)->get();
 
         $data = [
             'videos' => $videos,
+            'reviews' => $reviews,
         ];
 
         return view("pages.index")->with('data', $data);

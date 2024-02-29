@@ -62,69 +62,69 @@ $(document).ready( function () {
 });
 
 function get_all() {
-    $('#tbl_div').empty()
+  $('#tbl_div').empty()
 
-    $.ajax({
-        type: 'POST',
-        url: "/admin/videos/",
-        success: function (res) {
-            var records = res.records
+  $.ajax({
+      type: 'POST',
+      url: "/admin/videos/",
+      success: function (res) {
+          var records = res.records
 
-            var tbl = $('<table>').addClass('table table-hover w-100')
-            tbl.attr('id', 'tbl_records')
+          var tbl = $('<table>').addClass('table table-hover w-100')
+          tbl.attr('id', 'tbl_records')
 
-            var thead = $('<thead>')
-            var thr = $('<tr>')
-            thr.append($('<th>').text('Code'))
-            thr.append($('<th>').text('Action'))
-            thead.append(thr)
-            tbl.append(thead)
+          var thead = $('<thead>')
+          var thr = $('<tr>')
+          thr.append($('<th>').text('Code'))
+          thr.append($('<th>').text('Action'))
+          thead.append(thr)
+          tbl.append(thead)
 
-            var tbody = $('<tbody>')
-            $.each(records, function(row, field) {
-                var tr = $('<tr>')
-                tr.append($('<td>').text(field.code))
+          var tbody = $('<tbody>')
+          $.each(records, function(row, field) {
+              var tr = $('<tr>')
+              tr.append($('<td>').text(field.code))
 
-                var td_action = $('<td>')
-                tr.append(td_action)
+              var td_action = $('<td>')
+              tr.append(td_action)
 
-                var i_edit = $('<i>')
-                i_edit.attr({
-                    'class' : 'fa fa-pencil mr-2',
-                    'title' : "Edit",
-                    'onclick' : `get_upd_id(${field.id})`,
-                    'data-bs-toggle' : "modal",
-                    'data-bs-target' : "#updModal",
-                })
-                i_edit.css({
-                    'cursor' : 'pointer',
-                })
-                td_action.append(i_edit)
+              var i_edit = $('<i>')
+              i_edit.attr({
+                  'class' : 'fa fa-pencil mr-2',
+                  'title' : "Edit",
+                  'onclick' : `get_upd_id(${field.id})`,
+                  'data-bs-toggle' : "modal",
+                  'data-bs-target' : "#updModal",
+              })
+              i_edit.css({
+                  'cursor' : 'pointer',
+              })
+              td_action.append(i_edit)
 
-                var i_delete = $('<i>')
-                i_delete.attr({
-                    'class' : 'fa fa-trash',
-                    'title' : "Delete",
-                    'onclick' : `get_del_id(${field.id})`,
-                    'data-bs-toggle' : "modal",
-                    'data-bs-target' : "#delModal",
-                })
-                i_delete.css({
-                    'cursor' : 'pointer',
-                })
-                td_action.append(i_delete)
+              var i_delete = $('<i>')
+              i_delete.attr({
+                  'class' : 'fa fa-trash',
+                  'title' : "Delete",
+                  'onclick' : `get_del_id(${field.id})`,
+                  'data-bs-toggle' : "modal",
+                  'data-bs-target' : "#delModal",
+              })
+              i_delete.css({
+                  'cursor' : 'pointer',
+              })
+              td_action.append(i_delete)
 
-                tbody.append(tr)
-            });
+              tbody.append(tr)
+          });
 
-            tbl.append(tbody)
-            $('#tbl_div').append(tbl)
-            $('#tbl_records').DataTable();
-        },
-        error: function(res) {
+          tbl.append(tbody)
+          $('#tbl_div').append(tbl)
+          $('#tbl_records').DataTable();
+      },
+      error: function(res) {
 
-        }
-    })
+      }
+  })
 }
 
 function get_upd_id(id){

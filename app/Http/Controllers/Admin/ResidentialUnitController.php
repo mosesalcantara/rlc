@@ -69,9 +69,9 @@ class ResidentialUnitController extends Controller
     }
 
     public function update(Request $request) {
-        $r_unit = ResidentialUnit::find($request->upd_id);
+        $record = ResidentialUnit::find($request->upd_id);
 
-        $r_unit->update([
+        $record->update([
             'unit_id' => $request->unit_id,
             'building' => $request->building,
             'type' => $request->type,

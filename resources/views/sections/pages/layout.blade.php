@@ -48,11 +48,11 @@
             <div class="row footer_links">
                 <div class="col">
                     <h3>Quick Links</h3>
-                    <a href="">Home</a>
-                    <a href="">For Lease</a>
-                    <a href="">Compare Properties</a>
-                    <a href="">Contact Us</a>
-                    <a href="">About Us</a>
+                    <a href="/">Home</a>
+                    <a href="/for-lease">For Lease</a>
+                    <a href="/compare-properties">Compare Properties</a>
+                    <a href="/contact-us">Contact Us</a>
+                    <a href="/about-us">About Us</a>
                 </div>
                 <div class="col">
                     <h3>RLC Residences</h3>

@@ -14,6 +14,16 @@ class ReviewController extends Controller
         return view('admin.reviews.index');
     }
 
+    public function get_all() {
+        $records = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->get();
+        
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
+    }
+
     public function get_related() {
         $records = Property::all();
         
@@ -26,14 +36,13 @@ class ReviewController extends Controller
 
     public function create(Request $request) {
         $record = new Review;
-
         if( $request->hasFile('picture') ) {
             $file = $request->picture;
             $filename = time() . '.'.$file->clientExtension();
             $destination = 'uploads/reviews/profile_pics';
             $file->move($destination, $filename);
 
-            $record->picture = $request->filename;
+            $record->picture = $filename;
         }
         else {
             $record->picture = 'profile_pic.png';
@@ -46,5 +55,54 @@ class ReviewController extends Controller
         $record->save();
 
         return response(['msg' => 'Added Review']);
+    }
+
+    public function edit(Request $request) {
+        $record = Property::leftjoin('reviews', 'properties.id', '=', 'reviews.property_id')->where('reviews.id', $request->upd_id)->get();
+        $record = $record[0];
+        $records = Property::all();
+
+        $data = [
+            'record' => $record,
+            'records' => $records,
+        ];
+
+        return response()->json($data);
+    }
+
+    public function update(Request $request) {
+        $record = Review::find($request->upd_id);
+        if( $request->hasFile('picture') ) {
+            $file = $request->picture;
+            $filename = time() . '.'.$file->clientExtension();
+            $destination = 'uploads/reviews/profile_pics';
+            $file->move($destination, $filename);
+
+            $record->update([
+                'picture' => $filename,
+                'fullname' => $request->fullname,
+                'property_id' => $request->property_id,
+                'reviewed_on' => $request->reviewed_on,
+                'review' => $request->review,
+            ]);
+        }
+        else {
+            $record->update([
+                'picture' => 'profile_pic.png',
+                'fullname' => $request->fullname,
+                'property_id' => $request->property_id,
+                'reviewed_on' => $request->reviewed_on,
+                'review' => $request->review,
+            ]);
+        }
+
+        return response(['msg' => 'Updated Review']);
+    }
+
+    public function delete(Request $request) {
+        $record = Review::find($request->del_id);
+        $record->delete();
+        
+        return response(['msg' => 'Deleted Review']);
     }
 }

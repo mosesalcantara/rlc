@@ -20,7 +20,7 @@
             <div class="col mb-3">
                 <h1 class="h3 mb-0 text-dark">Videos</h1>
             </div>
-            <div clas="col">
+            <div class="col d-flex justify-content-end">
                 <button type="button" class="btn btn-primary mb-3" data-bs-target="#addModal" data-bs-toggle="modal">
                     <i class="fa-solid fa-plus"></i>
                     Add Video
