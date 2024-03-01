@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ParkingSlotController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\SnapshotController;
 use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\PictureController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -124,4 +125,14 @@ Route::prefix('admin/reviews')->group(function () {
     Route::post('/edit', [ReviewController::class, 'edit']);
     Route::post('/update', [ReviewController::class, 'update']);
     Route::post('/delete', [ReviewController::class, 'delete']);
+});
+
+Route::prefix('admin/pictures')->group(function () {
+    Route::get('/', [PictureController::class, 'index']);
+    Route::post('/', [PictureController::class, 'get_all']);
+    Route::post('/get-related', [PictureController::class, 'get_related']);
+    Route::post('/add', [PictureController::class, 'create']);
+    Route::post('/edit', [PictureController::class, 'edit']);
+    Route::post('/update', [PictureController::class, 'update']);
+    Route::post('/delete', [PictureController::class, 'delete']);
 });

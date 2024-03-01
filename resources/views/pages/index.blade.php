@@ -86,25 +86,26 @@
                         <div class="card flip-card featured_item">
                             <div class="card-front">
                                 <div class="card-body">
-                                    <img src="{{ asset('img/pages/home/featured-1.jpg') }}" alt="">
+                                    <img src="{{ asset('uploads/properties/pictures') }}/{{ $data['first_property']->picture }}" alt="">
                                 </div>
                             </div>
                             <div class="card-back">
                                 <div class="row">
                                     <div class="col-6 snapshot">
-                                        <img src="{{ asset('uploads/residential_units/snapshots/1708999227.jpg') }}" alt="">
+                                        <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $data['first_property_snapshot']->picture }}" alt="">
                                     </div>
                                     <div class='col'>
                                         <div class="card-body">
-                                            <h2>Axis Residences</h2>
-                                            <p>
-                                                Axis Residences offers an ideal living experience with its strategic location, providing easy access.
-                                                With its incredible finishes, amenities, and proximity to essential facilities, Axis Residences is the perfect place.
-                                            </p>
+                                            <h2>{{ $data['first_property']->name }}</h2>
+                                            <p>{{ $data['first_property']->description }}</p>
 
-                                            <h4>Mandaluyong City</h4>
-                                            <h4>Studio, 2BR, PH</h4>
-                                            <h4>PHP 18,000.00 - 70,000.00 / mo</h4>
+                                            <h4>{{ $data['first_property']->location }}</h4>
+                                            <h4>
+                                                @foreach ($data['first_property_types'] as $type)
+                                                    {{ $type->type }}
+                                                @endforeach
+                                            </h4>
+                                            <h4>PHP {{ number_format($data['first_property_min'], 2) }} - {{ number_format($data['first_property_max'], 2) }} / mo</h4>
                                         </div>
                                     </div>
                                 </div>
