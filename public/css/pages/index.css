@@ -93,8 +93,8 @@
 }
 
 .video iframe {
-    width: 95%;
-    height: 45vh;
+    width: 45%;
+    height: 50vh;
     border-radius: 0.5rem;
 }
 

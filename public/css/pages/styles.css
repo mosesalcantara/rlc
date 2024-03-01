@@ -8,6 +8,7 @@ body {
 .navbar-brand img {
     width: 3vw;
     height: 4vh;
+    margin-left: 3vw;
 }
 
 div.nav-items {
@@ -20,7 +21,7 @@ li.nav-item {
 
 a.nav-link {
     color: #000b8c;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     padding: .7rem 0;
 }

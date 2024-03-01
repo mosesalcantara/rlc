@@ -20,13 +20,13 @@ class PageController extends Controller
 
     public function index() {
         $videos = Video::all()->sortByDesc('updated_at')->take(2);
-        $first = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->orderBy('reviews.updated_at', 'desc')->limit(1)->get();
-        $reviews = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->orderBy('reviews.updated_at', 'desc')->limit(10)->whereNot('reviews.id', $first[0]['id'])->get();
+        $reviews = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->orderBy('reviews.updated_at', 'desc')->limit(10)->get();
 
         $data = [
-            'videos' => $videos,
-            'first' => $first,
-            'reviews' => $reviews,
+            'first_video' => $videos[0],
+            'videos' => $videos->slice(1),
+            'first_review' => $reviews[0],
+            'reviews' => $reviews->slice(1),
         ];
 
         return view("pages.index")->with('data', $data);

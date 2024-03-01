@@ -105,11 +105,33 @@
 
     <div class="container-fluid">
         <div class="row videos text-center align-items-center" style="background-image: url({{ asset('img/pages/home/video-bg.png') }})">
-            @foreach ($data['videos'] as $video)
-            <div class="col video">
-                <iframe src="https://www.youtube.com/embed/{{ $video['code'] }}/"></iframe>
+            <div id="video_carousel" class="carousel slide carousel-fade text-center" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="col video">
+                        <iframe src="https://www.youtube.com/embed/{{ $data['first_video']->code }}/"></iframe>
+                    </div>
+                </div>
+
+                @foreach ($data['videos'] as $video)
+                <div class="carousel-item">
+                    <div class="col video">
+                        <iframe src="https://www.youtube.com/embed/{{ $video->code }}/"></iframe>
+                    </div>
+                </div>
+                @endforeach
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#video_carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#video_carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            @endforeach
         </div>
     </div>
 
@@ -124,29 +146,27 @@
                     <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                        @foreach ($data['first'] as $first)
                         <div class="container review_cont">
                             <div class="row review">
                                 <div class="col">
                                     <div class="row profile">
                                         <div class="col-2 profile_logo">
-                                            <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $first->picture }}" alt="">
+                                            <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $data['first_review']->picture }}" alt="">
                                         </div>
                                         <div class="col profile_details text-start">
-                                            <h2>{{ $first->fullname }}</h2>
-                                            <h4>{{ $first->name }}</h4>
-                                            <h4>{{ \Carbon\Carbon::parse($first->reviewed_on)->format('F d, Y') }}</h4>
+                                            <h2>{{ $data['first_review']->fullname }}</h2>
+                                            <h4>{{ $data['first_review']->name }}</h4>
+                                            <h4>{{ \Carbon\Carbon::parse($data['first_review']->reviewed_on)->format('F d, Y') }}</h4>
                                         </div>
                                     </div>
                                     <div class="row review_text text-start">
                                         <p>
-                                            {{ $first->review }}
+                                            {{ $data['first_review']->review }}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
                     </div>
 
                     @foreach ($data['reviews'] as $review)
@@ -165,9 +185,7 @@
                                         </div>
                                     </div>
                                     <div class="row review_text text-start">
-                                        <p>
-                                            {{ $review->review }}
-                                        </p>
+                                        <p>{{ $review->review }}</p>
                                     </div>
                                 </div>
                             </div>

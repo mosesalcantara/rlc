@@ -13,7 +13,7 @@
 <body style="background-image: url({{ asset('img/pages/main-bg.png') }});">
     @section('navbar')
         <nav class="navbar navbar-expand-lg bg-body-tertiary p-3 fixed-top">
-            <div class="container-fluid">
+            <div class="container-fluid navbar_div">
                 <a href="#" class="navbar-brand">
                     <img src="{{ asset('img/pages/logo.png') }}" alt="">
                 </a>
