@@ -16,12 +16,18 @@
     background-size: cover;
     color: #000b8c;
     font-weight: 500;
-    margin-top: 3vh;
+    padding-top: 1.5rem; 
+    cursor: pointer;
+}
+
+.header_item:hover {
+    background-color: #D5AD56;
+    opacity: 90%;
 }
 
 .header_item h3 {
     margin-left: 3vw;
-    border-left: 0.2rem solid #CC9900;
+    border-left: 0.2rem solid #FF9900;
     padding-left: 1vw;
 }
 
@@ -105,8 +111,7 @@
 }
 
 .picture img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
 }
 
 .property_info {

@@ -90,7 +90,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col picture">
-                                            <img src="{{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }}" alt="">
+                                            <img class="img-fluid" src="{{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }}" alt="">
                                         </div>
                                     </div>
                                 </div>
