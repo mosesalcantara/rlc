@@ -65,7 +65,7 @@
                     <div class="card-header text-center">
                         <img src="{{ asset('/img/pages/for_lease/residential.png') }}" alt="">
                     </div>
-                    <div class="card-body text-center category-item">
+                    <div class="card-body text-center category_item">
                         <h1>Residential</h1>
                         <a href="/for-lease/category/residential" class="fa-solid fa-circle-chevron-right fa-2x"></a>
                     </div>

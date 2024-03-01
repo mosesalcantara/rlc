@@ -4,13 +4,13 @@
     height: 70vh;
 }
 
-.shape-bg {
+.shape_bg {
     height: 100%;
     background-repeat: no-repeat;
     background-position: 0 17vh;
 }
 
-.header-item {
+.header_item {
     width: 100%;
     height: 70vh;
     background-size: cover;
@@ -19,7 +19,7 @@
     margin-top: 3vh;
 }
 
-.header-item h3 {
+.header_item h3 {
     margin-left: 3vw;
     border-left: 0.2rem solid #CC9900;
     padding-left: 1vw;
@@ -56,7 +56,6 @@
 
 .featured {
     width: 100%;
-    height: auto;
     padding: 5rem;
 }
 
@@ -70,39 +69,68 @@
 
 .featured_item {
     border-radius: 1rem;
-    height: 70vh;
+    width: 60vw;
+    height: 65vh;
 }
 
 #img_carousel {
     margin: 1.3vh 5vw 1.3vh;
 }
 
-
-.flip-card > div {
+.flip_card > div {
     backface-visibility: hidden;
     transition: transform 300ms;
     transition-timing-function: linear;
 }
 
-.card-front {
+.card_front {
     transform: rotateY(0deg);
 }
 
-.card-back {
+.card_back {
     transform: rotateY(180deg);
     position: absolute;
 }
 
-.flip-card:hover .card-front {
+.flip_card:hover .card_front {
     transform: rotateY(-180deg);
 }
 
-.flip-card:hover .card-back {
+.flip_card:hover .card_back {
     transform: rotateY(0deg);
+}
+
+.picture {
+
+}
+
+.picture img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.property_info {
+    padding: 3rem;
 }
 
 .snapshot img {
     width: 100%;
+}
+
+.details h3 {
+    color: #000b8c;
+}
+
+.details p {
+    text-align: justify;
+}
+
+.detail i {
+    color: #CC9900;
+}
+
+.detail h5 {
+    display: inline;
 }
 
 .videos {

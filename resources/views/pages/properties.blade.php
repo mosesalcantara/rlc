@@ -15,7 +15,7 @@
 @section('content')
     <div class="container-fluid header" style="background-image: url({{ asset('img/pages/properties/property-header.png') }})">
         <div class="row">
-            <div class="col-4 header-item">
+            <div class="col-4 header_item">
                 <h1>Compare<br> Our Properties</h1>
             </div>
         </div>
@@ -23,7 +23,7 @@
 
     <div class="container-fluid band" style="background-image: url({{ asset('img/pages/properties/gray-band.png') }})">
         <div class="row">
-            <div class="col band-item">
+            <div class="col band_item">
                 <h1>Choose up to three properties and see<br>which one fits you best.</h1>
                 <p>Looking to learn more about properties? <a href="">Talk to us</a></p>
             </div>
@@ -48,7 +48,7 @@
 
     <div class="container-fluid compare">
         <div class="row">
-            <div class="col compare-item">
+            <div class="col compare_item">
                 <h4>Property Type</h4> 
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="" id="">
@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col compare-item">
+            <div class="col compare_item">
                 <h4>Rental Rate</h4>
                 <input type="range" class="form-range" id=""> 
                 
@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col compare-item">
+            <div class="col compare_item">
                 <h4>Unit Types</h4>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="">
@@ -121,7 +121,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col compare-item">
+            <div class="col compare_item">
                 <h4>Unit Area (sqm)</h4>
                 <input type="range" class="form-range" id=""> 
                 
@@ -142,7 +142,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col compare-item">
+            <div class="col compare_item">
                 <h4>Unit Status</h4>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="">
@@ -165,7 +165,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col compare-btn">
+            <div class="col compare_btn">
                 <button class="btn">Filter Now</button>
             </div>
         </div>

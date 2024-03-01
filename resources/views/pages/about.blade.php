@@ -40,13 +40,13 @@
                 <h4 class="mb-3">Discover what RLC Residences has to offer through its tagline</h4>
                 <div class="acronym">
                     <h2>Raise</h2>
-                    <h2 class="center-h2">Live</h2>
+                    <h2 class="center_h2">Live</h2>
                     <h2>Connect</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col acronym-item">
+            <div class="col acronym_item">
                 <h4>Raise</h4>
                 <p>
                     'Raise' is about helping homeowners raise their game by providing beautiful and well-designed living spaces that they can proudly call theirs.
@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col acronym-item">
+            <div class="col acronym_item">
                 <h4>Live</h4>
                 <p>
                     RLC Residences strives to continuously empower its homeowners to 'Live' and design their best life by integrating their lifestyles in every corner of the development.
@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col acronym-item">
+            <div class="col acronym_item">
                 <h4>Connect</h4>
                 <p>
                     More than anything, everyone values connection to people and places that matter.
@@ -87,7 +87,7 @@
             <div class="col embded-responsive text-center" >
                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/rsSbXE4Nf94" allowfullscreen></iframe>
             </div>
-            <div class="col brand_story-text">
+            <div class="col brand_story_text">
                 <h2>Our Brand Story</h2>
                 <p>
                     As your partner in making your aspirations a reality, we uphold our commitment to delivering projects that raise your standard of living, empowers you to live your best life, and encourage you to nurture meaningful connections.

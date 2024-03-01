@@ -15,10 +15,10 @@
 @section('content')
     <div class="container-fluid header">
         <div class="row">
-            <div class="col-3 header-item">
+            <div class="col-3 header_item">
                 <h1>Let's<br>Connect</h1>
             </div>
-            <div class="col header-pic" style="background-image: url({{ asset('img/pages/contact/contact-header.png') }})">
+            <div class="col header_pic" style="background-image: url({{ asset('img/pages/contact/contact-header.png') }})">
 
             </div>
         </div>
@@ -26,13 +26,13 @@
 
     <div class="container-fluid contact">
         <div class="row">
-            <div class="col contact-header">
+            <div class="col contact_header">
                 <h1>Got questions?</h1>
                 <h1>We'd love to help you out.</h1>
 
                 <h3>Unlock leasing oppurtunities at RLC Residences!</h3>
             </div>
-            <div class="col contact-form">
+            <div class="col contact_form">
                 <form action="">
                     <div class="row">
                         <div class="col">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <button class="btn btn-warning form-btn">Get In Touch</button>
+                            <button class="btn btn-warning form_btn">Get In Touch</button>
                         </div>
                     </div>
                 </form>

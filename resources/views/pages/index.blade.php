@@ -14,20 +14,20 @@
  
 @section('content')
     <div class="container-fluid header" style="background-image: url({{ asset('img/pages/home/header-bg.png') }})">
-        <div class="row gx-0 shape-bg" style="background-image: url({{ asset('img/pages/home/shape.png') }})">
+        <div class="row gx-0 shape_bg" style="background-image: url({{ asset('img/pages/home/shape.png') }})">
             <div class="col">
-                <div class="header-item" style="background-image: url({{ asset('img/pages/home/family.png') }})">
+                <div class="header_item" style="background-image: url({{ asset('img/pages/home/family.png') }})">
                     <h3>Register My Unit</h3>
                     <!-- <img src="{{ asset('img/pages/home/left-flare.png') }}" alt=""> -->
                 </div>
             </div>
             <div class="col">
-                <div class="header-item" style="background-image: url({{ asset('img/pages/home/building.png') }})">
+                <div class="header_item" style="background-image: url({{ asset('img/pages/home/building.png') }})">
                     <h3>Check Available Units</h3>
                 </div>
             </div>
             <div class="col">
-                <div class="header-item" style="background-image: url({{ asset('img/pages/home/agent.png') }})">
+                <div class="header_item" style="background-image: url({{ asset('img/pages/home/agent.png') }})">
                     <h3>Connect With Us</h3>
                     <!-- <img src="{{ asset('img/pages/home/right-flare.png') }}" alt=""> -->
                 </div>
@@ -82,36 +82,51 @@
             <div class="col">
                 <div id="img_carousel" class="carousel slide carousel-fade">
                     <div class="carousel-inner">
-                    <div class="carousel-item active d-flex justify-content-center">
-                        <div class="card flip-card featured_item">
-                            <div class="card-front">
+
+                    @foreach ($data['properties'] as $property)
+                    <div class="carousel-item property_carousel_item d-flex justify-content-center">
+                        <div class="card flip_card featured_item d-flex justify-content-center align-items-center">
+                            <div class="card_front">
                                 <div class="card-body">
-                                    <img src="{{ asset('uploads/properties/pictures') }}/{{ $data['first_property']->picture }}" alt="">
+                                    <div class="row">
+                                        <div class="col picture">
+                                            <img src="{{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }}" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card-back">
-                                <div class="row">
-                                    <div class="col-6 snapshot">
-                                        <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $data['first_property_snapshot']->picture }}" alt="">
+                            <div class="card_back">
+                                <div class="row property_info">
+                                    <div class="col-7 snapshot">
+                                        <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
                                     </div>
                                     <div class='col'>
-                                        <div class="card-body">
-                                            <h2>{{ $data['first_property']->name }}</h2>
-                                            <p>{{ $data['first_property']->description }}</p>
+                                        <div class="card-body details">
+                                            <h3>{{ $property['name'] }}</h3>
+                                            <p>{{ $property['description'] }}</p>
 
-                                            <h4>{{ $data['first_property']->location }}</h4>
-                                            <h4>
-                                                @foreach ($data['first_property_types'] as $type)
-                                                    {{ $type->type }}
-                                                @endforeach
-                                            </h4>
-                                            <h4>PHP {{ number_format($data['first_property_min'], 2) }} - {{ number_format($data['first_property_max'], 2) }} / mo</h4>
+                                            <div class="detail">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                                <h5>{{ $property['location'] }}</h5>
+                                            </div>
+
+                                            <div class="detail">
+                                                <i class="fa-solid fa-building"></i>
+                                                <h5>{{ $property['types'] }}</h5>
+                                            </div>
+
+                                            <div class="detail">
+                                                <i class="fa-solid fa-user"></i>
+                                                <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
+
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#img_carousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -131,14 +146,8 @@
             <div id="video_carousel" class="carousel slide carousel-fade text-center">
                 <div class="carousel-inner">
 
-                <div class="carousel-item active">
-                    <div class="col video">
-                        <iframe src="https://www.youtube.com/embed/{{ $data['first_video']->code }}/"></iframe>
-                    </div>
-                </div>
-
                 @foreach ($data['videos'] as $video)
-                <div class="carousel-item">
+                <div class="carousel-item video_carousel_item">
                     <div class="col video">
                         <iframe src="https://www.youtube.com/embed/{{ $video->code }}/"></iframe>
                     </div>
@@ -168,32 +177,8 @@
                 <div id="review_carousel" class="carousel slide carousel-fade text-center">
                     <div class="carousel-inner">
 
-                    <div class="carousel-item active">
-                        <div class="container review_cont">
-                            <div class="row review">
-                                <div class="col">
-                                    <div class="row profile">
-                                        <div class="col-2 profile_logo">
-                                            <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $data['first_review']->picture }}" alt="">
-                                        </div>
-                                        <div class="col profile_details text-start">
-                                            <h2>{{ $data['first_review']->fullname }}</h2>
-                                            <h4>{{ $data['first_review']->name }}</h4>
-                                            <h4>{{ \Carbon\Carbon::parse($data['first_review']->reviewed_on)->format('F d, Y') }}</h4>
-                                        </div>
-                                    </div>
-                                    <div class="row review_text text-start">
-                                        <p>
-                                            {{ $data['first_review']->review }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     @foreach ($data['reviews'] as $review)
-                    <div class="carousel-item">
+                    <div class="carousel-item review_carousel_item">
                         <div class="container review_cont">
                             <div class="row review">
                                 <div class="col">
@@ -237,4 +222,6 @@
 
 @section('scripts')
     @parent
+
+    <script src="{{ asset('js/pages/index.js') }}"></script>
 @endsection

@@ -16,7 +16,7 @@
     <div class="container-fluid title_div">
         <div class="row title">
             <div class="col">
-                <h1 class="title-text">Residential Units For You</h1>
+                <h1 class="title_text">Residential Units For You</h1>
             </div>
         </div>
     </div>

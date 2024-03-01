@@ -7,7 +7,7 @@
     justify-content: center;
 }
 
-.header-item h1 {
+.header_item h1 {
     margin-top: 30vh;
     font-size: 3rem;
     margin-left: 3vw;
@@ -23,16 +23,16 @@
     font-weight: 500;
 }
 
-.band-item {
+.band_item {
     margin-top: 7vh;
     margin-left: 5vw;
 }
 
-.band-item p {
+.band_item p {
     margin-top: 3vh;
 }
 
-.band-item a {
+.band_item a {
     color: #CC9900;
 }
 
@@ -63,7 +63,7 @@
     margin-top: 5vh;
 }
 
-.compare-item {
+.compare_item {
     border-top: 0.2rem solid #CC9900;
     margin-top: 2vh;
     margin-left: 1vw;
@@ -74,7 +74,7 @@
     color: black;
 }
 
-.compare-btn button {
+.compare_btn button {
     margin-top: 3vh;
     width: 100%;
     color: #000b8c;
