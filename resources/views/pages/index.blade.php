@@ -79,33 +79,55 @@
             </div>
         </div>
         <div class="row featured_items">
-            <div id="img_carousel" class="carousel slide carousel-fade text-center" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/pages/home/featured-1.jpg') }}" class="featured_item" alt="">
+            <div class="col">
+                <div id="img_carousel" class="carousel slide carousel-fade">
+                    <div class="carousel-inner">
+                    <div class="carousel-item active d-flex justify-content-center">
+                        <div class="card flip-card featured_item">
+                            <div class="card-front">
+                                <div class="card-body">
+                                    <img src="{{ asset('img/pages/home/featured-1.jpg') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="row">
+                                    <div class="col-6 snapshot">
+                                        <img src="{{ asset('uploads/residential_units/snapshots/1708999227.jpg') }}" alt="">
+                                    </div>
+                                    <div class='col'>
+                                        <div class="card-body">
+                                            <h2>Axis Residences</h2>
+                                            <p>
+                                                Axis Residences offers an ideal living experience with its strategic location, providing easy access.
+                                                With its incredible finishes, amenities, and proximity to essential facilities, Axis Residences is the perfect place.
+                                            </p>
+
+                                            <h4>Mandaluyong City</h4>
+                                            <h4>Studio, 2BR, PH</h4>
+                                            <h4>PHP 18,000.00 - 70,000.00 / mo</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#img_carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#img_carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('img/pages/home/featured-2.jpg') }}" class="featured_item" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('img/pages/home/featured-3.jpg') }}" class="featured_item" alt="">
-                </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#img_carousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#img_carousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
     </div>
 
     <div class="container-fluid">
         <div class="row videos text-center align-items-center" style="background-image: url({{ asset('img/pages/home/video-bg.png') }})">
-            <div id="video_carousel" class="carousel slide carousel-fade text-center" data-bs-ride="carousel">
+            <div id="video_carousel" class="carousel slide carousel-fade text-center">
                 <div class="carousel-inner">
 
                 <div class="carousel-item active">
@@ -142,7 +164,7 @@
             </div>
 
             <div class="col reviews">
-                <div id="review_carousel" class="carousel slide carousel-fade text-center" data-bs-ride='carousel'>
+                <div id="review_carousel" class="carousel slide carousel-fade text-center">
                     <div class="carousel-inner">
 
                     <div class="carousel-item active">

@@ -11,15 +11,15 @@ body {
     margin-left: 3vw;
 }
 
-div.nav-items {
+.nav-items {
     padding-right: 5vw;
 }
 
-li.nav-item {
+.nav-item {
     margin-right: 7vw;
 }
 
-a.nav-link {
+.nav-link {
     color: #000b8c;
     font-size: 1.2rem;
     font-weight: 500;
