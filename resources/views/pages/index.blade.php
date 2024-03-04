@@ -18,7 +18,7 @@
             <div class="col">
                 <div class="header_item" style="background-image: url({{ asset('img/pages/home/family.png') }})">
                     <h3>Register My Unit</h3>
-                    <!-- <img src="{{ asset('img/pages/home/left-flare.png') }}" alt=""> -->
+                    {{-- <!-- <img src="{{ asset('img/pages/home/left-flare.png') }}" alt=""> --> --}}
                 </div>
             </div>
             <div class="col">
@@ -85,38 +85,44 @@
 
                     @foreach ($data['properties'] as $property)
                     <div class="carousel-item property_carousel_item d-flex justify-content-center">
-                        <div class="card flip_card featured_item d-flex justify-content-center align-items-center">
+                        <div class="card featured_item d-flex justify-content-center align-items-center">
                             <div class="card_front">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col picture">
-                                            <img class="img-fluid" src="{{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }}" alt="">
+                                        <div class="col picture d-flex align-items-end justify-content-center" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }})">
+                                            <i class="fa-solid fa-circle-chevron-right fa-4x front_switch"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card_back">
                                 <div class="row property_info">
-                                    <div class="col-7 snapshot">
+
+                                    <div class="col-7 snapshot d-flex justify-content-center align-items-center">
                                         <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
                                     </div>
-                                    <div class='col'>
+
+                                    <div class='col d-flex align-items-center'>
                                         <div class="card-body details">
+                                            <div class="d-flex justify-content-end">
+                                                <i class="fa-solid fa-circle-chevron-left fa-3x back_switch"></i>
+                                            </div>
+
                                             <h3>{{ $property['name'] }}</h3>
                                             <p>{{ $property['description'] }}</p>
 
                                             <div class="detail">
-                                                <i class="fa-solid fa-location-dot"></i>
+                                                <i class="fa-solid fa-location-dot fa-2x"></i>
                                                 <h5>{{ $property['location'] }}</h5>
                                             </div>
 
                                             <div class="detail">
-                                                <i class="fa-solid fa-building"></i>
+                                                <i class="fa-solid fa-building fa-2x"></i>
                                                 <h5>{{ $property['types'] }}</h5>
                                             </div>
 
                                             <div class="detail">
-                                                <i class="fa-solid fa-user"></i>
+                                                <i class="fa-solid fa-user fa-2x"></i>
                                                 <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
                                             </div>
                                         </div>
