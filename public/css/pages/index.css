@@ -28,7 +28,6 @@
 }
 
 .search {
-    background-color: transparent;
     width: 100%;
     z-index: 1;
     border-radius: 1rem;
@@ -73,7 +72,7 @@
 
 .card_front div {
     border-radius: 1rem;
-    height: 65vh;
+    height: 75vh;
     background-size: cover;
 }
 
@@ -126,6 +125,12 @@
     margin: 1rem;
 }
 
+.img_carousel_controls i {
+    color: #CC9900;
+    cursor: pointer;
+    margin: 1rem;
+}
+
 .videos {
     height: auto;
     padding: 2.5rem;
@@ -137,13 +142,27 @@
     border-radius: 0.5rem;
 }
 
+.video_carousel_controls i {
+    color: white;
+    cursor: pointer;
+    margin-top: 3rem;
+    margin-right: 2rem;
+}
+
 .reviews_div {
     padding: 5rem;
 }
 
 .reviews_title img {
-    width: 50%;
+    width: 85%;
     height: 100%;
+}
+
+.review_carousel_controls i {
+    color: white;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    margin-right: 1.5rem;
 }
 
 .reviews {
@@ -176,3 +195,4 @@
 .review_text {
     padding-top: 1rem;
 }
+

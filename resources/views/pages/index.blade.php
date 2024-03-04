@@ -92,9 +92,9 @@
                                 </div>
                             </div>
                             <div class="card_back">
-                                <div class="row h-100">
+                                <div class="row">
 
-                                    <div class="col snapshot d-flex align-items-center justify-content-center">
+                                    <div class="col snapshot d-flex align-items-center justify-content-center mr-3">
                                         <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
                                     </div>
 
@@ -128,14 +128,11 @@
                     @endforeach
 
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#img_carousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#img_carousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                    </button>
+
+                    <div class="img_carousel_controls d-flex justify-content-center">
+                        <i class="fa-solid fa-chevron-left fa-3x" data-bs-target="#img_carousel" data-bs-slide="prev"></i>
+                        <i class="fa-solid fa-chevron-right fa-3x" data-bs-target="#img_carousel" data-bs-slide="next"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -155,14 +152,10 @@
                 @endforeach
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#video_carousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#video_carousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-                </button>
+                <div class="video_carousel_controls justify-content-center">
+                    <i class="fa-solid fa-circle-chevron-left fa-4x" data-bs-target="#video_carousel" data-bs-slide="prev"></i>
+                    <i class="fa-solid fa-circle-chevron-right fa-4x" data-bs-target="#video_carousel" data-bs-slide="next"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -170,7 +163,13 @@
     <div class="container-fluid reviews_div" style="background-image: url({{ asset('img/pages/home/review-bg.png') }})">
         <div class="row">
             <div class="col reviews_title d-flex align-items-center">
-                <img src="{{  asset('img/pages/home/review-label-pc.png') }}" alt="">
+                <div class="row">
+                    <img src="{{  asset('img/pages/home/review-label-pc.png') }}" alt="">
+                    <div class="review_carousel_controls justify-content-center">
+                        <i class="fa-solid fa-chevron-left fa-2x" data-bs-target="#review_carousel" data-bs-slide="prev"></i>
+                        <i class="fa-solid fa-chevron-right fa-2x" data-bs-target="#review_carousel" data-bs-slide="next"></i>
+                    </div>
+                </div>
             </div>
 
             <div class="col reviews">
@@ -202,14 +201,6 @@
                     @endforeach
 
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#review_carousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#review_carousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
         </div>

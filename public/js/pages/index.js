@@ -13,7 +13,7 @@ $(document).ready( function () {
 
     $( ".back_switch" ).on( "click", function() {
         var back = $(this).parents()
-        back = $(back[2])
+        back = $(back[3])
         back.css({'z-index': '-1'})
         var front = back.prev()
         front.css({'z-index': '0'})
