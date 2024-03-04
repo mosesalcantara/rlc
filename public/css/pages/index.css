@@ -21,13 +21,13 @@
 }
 
 .header_item:hover {
-    background-color: #D5AD56;
+    background-color: #E3AD56;
     opacity: 90%;
 }
 
 .header_item h3 {
     margin-left: 3vw;
-    border-left: 0.2rem solid #FF9900;
+    border-left: 0.2rem solid #CC9900;
     padding-left: 1vw;
 }
 
