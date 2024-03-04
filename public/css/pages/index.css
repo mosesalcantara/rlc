@@ -2,15 +2,16 @@
     margin-top: 9vh;
     width: 100%;
     height: 70vh;
-}
-
-.shape_bg {
-    height: 100%;
     background-repeat: no-repeat;
     background-position: 0 17vh;
 }
 
-.header_item {
+.header_item:hover {
+    background-color: #E3AD56;
+    opacity: 90%;
+}
+
+.header_item div {
     width: 100%;
     height: 70vh;
     background-size: cover;
@@ -20,28 +21,22 @@
     cursor: pointer;
 }
 
-.header_item:hover {
-    background-color: #E3AD56;
-    opacity: 90%;
-}
-
-.header_item h3 {
+.header_item div h3 {
     margin-left: 3vw;
     border-left: 0.2rem solid #CC9900;
     padding-left: 1vw;
 }
 
-.search_div {
-    background-color: #FAFAFA;
+.search {
+    background-color: transparent;
     width: 100%;
-    height: 7vh;
-    position: absolute;
     z-index: 1;
     border-radius: 1rem;
     opacity: 97%;
+    padding: 0.3rem;
 }
 
-.search_drops select {
+.search select {
     background-color: #D7D7D7;
     display: inline;
     width: 15vw;
@@ -51,7 +46,7 @@
     margin-top: 0.7vh;
 }
 
-.search_drops button {
+.search button {
     display: inline;
     width: 4.5vw;
     height: 5vh;
@@ -61,22 +56,11 @@
 }
 
 .featured {
-    width: 100%;
-    padding: 5rem;
+    padding: 2rem 5rem 2rem;
 }
 
 .featured h1 {
     color: #000b8c;
-}
-
-.featured h4 {
-    color: black;
-}
-
-.featured_item {
-    border-radius: 1rem;
-    width: 100%;
-    height: 65vh;
 }
 
 #img_carousel {
@@ -85,7 +69,12 @@
 
 .card_front {
     z-index: 0;
-    width: 100%;
+}
+
+.card_front div {
+    border-radius: 1rem;
+    height: 65vh;
+    background-size: cover;
 }
 
 .front_switch, .back_switch {
@@ -96,6 +85,7 @@
 
 .back_switch {
     color: black;
+    margin: 0;
 }
 
 .card_back {
@@ -103,23 +93,17 @@
     position: absolute;
 }
 
-.picture {
-    height: 65vh;
-    border-radius: 1rem;
-    background-repeat: no-repeat
-}
-
-.property_info {
-    padding: 3rem;
+.snapshot {
+    margin-top: 10vh;
 }
 
 .snapshot img {
-    width: 36vw;
-    height: 67vh;
+    width: 30vw;
+    height: 30vh;
 }
 
 .details {
-    margin-left: 1vw;
+    padding: 3rem;
 }
 
 .details h3 {
@@ -131,12 +115,12 @@
     font-size: 1.3rem;
 }
 
-.detail i {
+.details i {
     color: #CC9900;
     margin-bottom: 1rem;
 }
 
-.detail h5 {
+.details h5 {
     display: inline;
     font-size: 1.3rem;
     margin: 1rem;

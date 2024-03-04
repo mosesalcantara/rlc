@@ -5,8 +5,7 @@ $(document).ready( function () {
 
     $( ".front_switch" ).on( "click", function() {
         var front = $(this).parents()
-        front = $(front[3])
-        console.log(front)
+        front = $(front[1])
         front.css({'z-index': '-1'})
         var back = front.next()
         back.css({'z-index': '0'})
@@ -14,7 +13,7 @@ $(document).ready( function () {
 
     $( ".back_switch" ).on( "click", function() {
         var back = $(this).parents()
-        back = $(back[4])
+        back = $(back[2])
         back.css({'z-index': '-1'})
         var front = back.prev()
         front.css({'z-index': '0'})

@@ -67,7 +67,7 @@
                     </div>
                     <div class="card-body text-center category_item">
                         <h1>Residential</h1>
-                        <a href="/for-lease/category/residential" class="fa-solid fa-circle-chevron-right fa-2x"></a>
+                        <a href="/for-lease/category/residential" class="fa-solid fa-circle-chevron-right fa-4x"></a>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="card-body text-center">
                         <h1>Commercial</h1>
-                        <i class="fa-solid fa-circle-chevron-right fa-2x"></i>
+                        <i class="fa-solid fa-circle-chevron-right fa-4x"></i>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="card-body text-center">
                         <h1>Parking</h1>
-                        <i class="fa-solid fa-circle-chevron-right fa-2x"></i>
+                        <i class="fa-solid fa-circle-chevron-right fa-4x"></i>
                     </div>
                 </div>
             </div>

@@ -70,11 +70,29 @@ class PageController extends Controller
         return view("pages.lease");
     }
 
-    public function category(Request $request) {
-        $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->get();
+    public function category() {
+        $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
+        $r_units = [];
+
+        foreach ($records as $r_unit) {
+            $details = [
+                'snapshot' => '',
+                'name' => $r_unit['name'],
+                'location' => $r_unit['location'],
+                'unit_id' => $r_unit['unit_id'],
+                'type' => $r_unit['type'],
+                'rate' => $r_unit['rate'],
+                'area' => $r_unit['area'],
+            ];
+
+            $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
+                        ->where('residential_units.id', $r_unit['id'])->get();
+            $details['snapshot'] = $record[0]->picture;
+            array_push($r_units, $details);
+        }
 
         $data = [
-            'records' => $records,
+            'r_units' => $r_units,
         ];
 
         return view("pages.category")->with('data', $data);

@@ -13,21 +13,21 @@
 @endsection
  
 @section('content')
-    <div class="container-fluid header" style="background-image: url({{ asset('img/pages/home/header-bg.png') }})">
-        <div class="row gx-0 shape_bg" style="background-image: url({{ asset('img/pages/home/shape.png') }})">
-            <div class="col">
-                <div class="header_item" style="background-image: url({{ asset('img/pages/home/family.png') }})">
+    <div class="container-fluid" style="background-image: url({{ asset('img/pages/home/header-bg.png') }})">
+        <div class="row gx-0 header" style="background-image: url({{ asset('img/pages/home/shape.png') }})">
+            <div class="col header_item">
+                <div style="background-image: url({{ asset('img/pages/home/family.png') }})">
                     <h3>Register My Unit</h3>
                     {{-- <!-- <img src="{{ asset('img/pages/home/left-flare.png') }}" alt=""> --> --}}
                 </div>
             </div>
-            <div class="col">
-                <div class="header_item" style="background-image: url({{ asset('img/pages/home/building.png') }})">
+            <div class="col header_item">
+                <div style="background-image: url({{ asset('img/pages/home/building.png') }})">
                     <h3>Check Available Units</h3>
                 </div>
             </div>
-            <div class="col">
-                <div class="header_item" style="background-image: url({{ asset('img/pages/home/agent.png') }})">
+            <div class="col header_item">
+                <div style="background-image: url({{ asset('img/pages/home/agent.png') }})">
                     <h3>Connect With Us</h3>
                     <!-- <img src="{{ asset('img/pages/home/right-flare.png') }}" alt=""> -->
                 </div>
@@ -35,9 +35,9 @@
         </div>
     </div>
 
-    <div class="container-fluid search">
-        <div class="row search_div">
-            <div class="col search_drops text-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center search">
                 <select name="" id="" class="form-select">
                     <option value="" selected>Property Type</option>
                     <option value="">Residential</option>
@@ -78,53 +78,47 @@
                 <h4>Explored our wide selection of projects to know more.</h4>
             </div>
         </div>
-        <div class="row featured_items">
+        <div class="row">
             <div class="col">
                 <div id="img_carousel" class="carousel slide carousel-fade">
                     <div class="carousel-inner">
 
                     @foreach ($data['properties'] as $property)
-                    <div class="carousel-item property_carousel_item d-flex justify-content-center">
-                        <div class="card featured_item d-flex justify-content-center align-items-center">
+                    <div class="carousel-item property_carousel_item">
+                        <div class="card">
                             <div class="card_front">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col picture d-flex align-items-end justify-content-center" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }})">
-                                            <i class="fa-solid fa-circle-chevron-right fa-4x front_switch"></i>
-                                        </div>
-                                    </div>
+                                <div class="d-flex justify-content-center align-items-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }})">
+                                    <i class="fa-solid fa-circle-chevron-right fa-4x front_switch"></i>
                                 </div>
                             </div>
                             <div class="card_back">
-                                <div class="row property_info">
+                                <div class="row h-100">
 
-                                    <div class="col-7 snapshot d-flex justify-content-center align-items-center">
+                                    <div class="col snapshot d-flex align-items-center justify-content-center">
                                         <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
                                     </div>
 
-                                    <div class='col d-flex align-items-center'>
-                                        <div class="card-body details">
-                                            <div class="d-flex justify-content-end">
-                                                <i class="fa-solid fa-circle-chevron-left fa-3x back_switch"></i>
-                                            </div>
+                                    <div class='col details align-items-center'>
+                                        <div class="d-flex justify-content-end">
+                                            <i class="fa-solid fa-circle-chevron-left fa-3x back_switch text-info"></i>
+                                        </div>
 
-                                            <h3>{{ $property['name'] }}</h3>
-                                            <p>{{ $property['description'] }}</p>
+                                        <h3>{{ $property['name'] }}</h3>
+                                        <p>{{ $property['description'] }}</p>
 
-                                            <div class="detail">
-                                                <i class="fa-solid fa-location-dot fa-2x"></i>
-                                                <h5>{{ $property['location'] }}</h5>
-                                            </div>
+                                        <div>
+                                            <i class="fa-solid fa-location-dot fa-2x"></i>
+                                            <h5>{{ $property['location'] }}</h5>
+                                        </div>
 
-                                            <div class="detail">
-                                                <i class="fa-solid fa-building fa-2x"></i>
-                                                <h5>{{ $property['types'] }}</h5>
-                                            </div>
+                                        <div>
+                                            <i class="fa-solid fa-building fa-2x"></i>
+                                            <h5>{{ $property['types'] }}</h5>
+                                        </div>
 
-                                            <div class="detail">
-                                                <i class="fa-solid fa-user fa-2x"></i>
-                                                <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
-                                            </div>
+                                        <div>
+                                            <i class="fa-solid fa-user fa-2x"></i>
+                                            <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
                                         </div>
                                     </div>
                                 </div>
