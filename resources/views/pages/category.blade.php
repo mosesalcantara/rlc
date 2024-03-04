@@ -59,7 +59,7 @@
         <div class="row">
             @if (count($data['r_units']) > 0)
             @foreach ($data['r_units'] as $r_unit)
-                <div class="col-4 unit">
+                <div class="col-lg-4 unit">
                     <div class="card">
                         <div class="card-header picture text-center">
                             <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $r_unit['snapshot'] }}" alt="">

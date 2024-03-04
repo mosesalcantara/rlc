@@ -91,10 +91,10 @@
                                     <i class="fa-solid fa-circle-chevron-right fa-4x front_switch"></i>
                                 </div>
                             </div>
-                            <div class="card_back">
+                            <div class="container-fluid card_back">
                                 <div class="row">
 
-                                    <div class="col snapshot d-flex align-items-center justify-content-center mr-3">
+                                    <div class="col snapshot">
                                         <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
                                     </div>
 
@@ -130,8 +130,8 @@
                     </div>
 
                     <div class="img_carousel_controls d-flex justify-content-center">
-                        <i class="fa-solid fa-chevron-left fa-3x" data-bs-target="#img_carousel" data-bs-slide="prev"></i>
-                        <i class="fa-solid fa-chevron-right fa-3x" data-bs-target="#img_carousel" data-bs-slide="next"></i>
+                        <i class="fa-solid fa-chevron-left fa-2x" data-bs-target="#img_carousel" data-bs-slide="prev"></i>
+                        <i class="fa-solid fa-chevron-right fa-2x" data-bs-target="#img_carousel" data-bs-slide="next"></i>
                     </div>
                 </div>
             </div>
