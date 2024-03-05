@@ -33,6 +33,15 @@
     font-size: 3rem;
 }
 
+.acronym_1, .acronym_3 {
+    padding-left: 5vw;
+}
+
+.acronym_2 {
+    padding-right: 5vw;
+}
+
+
 .acronym_item h4 {
     color: #CC9900;
 }
@@ -45,14 +54,6 @@
 .acronym_item img {
     width: 20vw;
     height: 40vh;
-}
-
-.acronym_1, .acronym_3 {
-    padding-left: 5vw;
-}
-
-.acronym_2 {
-    padding-right: 5vw;
 }
 
 .brand_story {

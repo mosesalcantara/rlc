@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 use App\Models\Video;
-use App\Models\Review;
 use App\Models\ResidentialUnit;
 use App\Models\Property;
+use App\Models\AboutItem;
 
 class PageController extends Controller
 {
@@ -112,6 +111,11 @@ class PageController extends Controller
     }
 
     public function about() {
-        return view("pages.about");
+        $articles = AboutItem::join('articles', 'about_items.id', '=', 'articles.about_item_id')->orderBy('about_items.id')->limit(3)->get();
+    
+        $data = [
+            'articles' => $articles,
+        ];
+        return view("pages.about")->with('data', $data);
     }
 }
