@@ -87,7 +87,7 @@ Route::prefix('admin/residential')->group(function () {
 Route::prefix('admin/commercial')->group(function () {
     Route::get('/', [CommercialUnitController::class, 'index']);
     Route::post('/', [CommercialUnitController::class, 'get_all']);
-    Route::post('/get-related', [ResidentialUnitController::class, 'get_related']);
+    Route::post('/get-related', [CommercialUnitController::class, 'get_related']);
     Route::post('/add', [CommercialUnitController::class, 'create']);
     Route::post('/edit', [CommercialUnitController::class, 'edit']);
     Route::post('/update', [CommercialUnitController::class, 'update']);
@@ -97,6 +97,7 @@ Route::prefix('admin/commercial')->group(function () {
 Route::prefix('admin/parking')->group(function () {
     Route::get('/', [ParkingSlotController::class, 'index']);
     Route::post('/', [ParkingSlotController::class, 'get_all']);
+    Route::post('/get-related', [ParkingSlotController::class, 'get_related']);
     Route::post('/add', [ParkingSlotController::class, 'create']);
     Route::post('/edit', [ParkingSlotController::class, 'edit']);
     Route::post('/update', [ParkingSlotController::class, 'update']);

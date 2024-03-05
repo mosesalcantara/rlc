@@ -5,14 +5,33 @@ $(document).ready( function () {
         }
     });
 
+    $('#addModal').on('show.bs.modal', function(e) {
+      $.ajax({
+          url: "/admin/parking/get-related/",
+          method: 'POST',
+          success: function (res) {
+              var records = res.records
+              $.each(records, function(row, field) {
+                  var option = $('<option>').text(field.name).val(field.id)
+                  $('#add_property_id').append(option)
+              })
+          },
+          error: function (xhr, status, error) {
+
+          },
+        })    
+    })
+
+    $('#addModal').on('hide.bs.modal', function(e) {
+        $('#add_property_id').empty()
+    })
+
     $('#addForm').submit(function(e) {
         e.preventDefault()
         $.ajax({
           url: "/admin/parking/add/",
           method: 'POST',
-          data: new FormData(this),
-          contentType: false,
-          processData: false,
+          data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
             get_all()
@@ -25,14 +44,16 @@ $(document).ready( function () {
         })    
     })   
 
+    $('#updModal').on('hide.bs.modal', function(e) {
+      $('#upd_property_id').empty()
+    })
+
     $('#updForm').submit(function(e) {
         e.preventDefault()
         $.ajax({
           type: 'POST',
           url: "/admin/parking/update/",
-          data: new FormData(this),
-          contentType: false,
-          processData: false,
+          data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
             get_all()
@@ -79,6 +100,9 @@ function get_all() {
 
             var thead = $('<thead>')
             var thr = $('<tr>')
+            thr.append($('<th>').text('Property'))
+            thr.append($('<th>').text('Floor'))
+            thr.append($('<th>').text('Slot'))
             thr.append($('<th>').text('Rate'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
@@ -87,6 +111,9 @@ function get_all() {
             var tbody = $('<tbody>')
             $.each(records, function(row, field) {
                 var tr = $('<tr>')
+                tr.append($('<td>').text(field.name))
+                tr.append($('<td>').text(field.floor))
+                tr.append($('<td>').text(field.slot))
                 tr.append($('<td>').text(field.rate))
 
                 var td_action = $('<td>')
@@ -141,6 +168,17 @@ function get_upd_id(id){
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record
+        var records = res.records
+
+        $.each(records, function(row, field) {
+            var option = $('<option>').text(field.name).val(field.id)
+            $('#upd_property_id').append(option)
+        })
+
+        
+        $('#upd_property_id').val(record.property_id)
+        $('#floor').val(record.floor)
+        $('#slot').val(record.slot)
         $('#rate').val(record.rate)
       }
     })

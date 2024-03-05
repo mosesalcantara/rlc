@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\ParkingSlot;
+use App\Models\Property;
 
 class ParkingSlotController extends Controller
 {
@@ -13,7 +15,17 @@ class ParkingSlotController extends Controller
     }
 
     public function get_all() {
-        $records = ParkingSlot::all();
+        $records = Property::join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->get();
+        
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
+    }
+
+    public function get_related() {
+        $records = Property::all();
         
         $data = [
             'records' => $records,
@@ -24,16 +36,24 @@ class ParkingSlotController extends Controller
 
     public function create(Request $request) {
         $record = new ParkingSlot;
+
+        $record->floor = $request->floor;
+        $record->slot = $request->slot;
         $record->rate = $request->rate;
+        $record->property_id = $request->property_id;
         $record->save();
 
         return response(['msg' => 'Added Parking Slot']);
     }
 
     public function edit(Request $request) {
-        $record = ParkingSlot::find($request->upd_id);
+        $record = Property::leftJoin('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where('parking_slots.id', $request->upd_id)->get();
+        $record = $record[0];
+        $records = Property::all();
+
         $data = [
             'record' => $record,
+            'records' => $records,
         ];
 
         return response()->json($data);
@@ -43,7 +63,10 @@ class ParkingSlotController extends Controller
         $record = ParkingSlot::find($request->upd_id);
 
         $record->update([
+            'floor' => $request->floor,
+            'slot' => $request->slot,
             'rate' => $request->rate,
+            'property_id' => $request->property_id,
         ]);
 
         return response(['msg' => 'Updated Parking Slot']);

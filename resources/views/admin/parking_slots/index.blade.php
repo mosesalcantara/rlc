@@ -43,6 +43,21 @@
                 </div>
                 <div class="modal-body">
                     <form action="/admin/parking/add" method="post" enctype="multipart/form-data" id="addForm">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Property</label>  
+                            <select name="property_id" id="add_property_id" class="form-select"></select>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="floor" class="form-control">
+                            <label for="">Floor</label>     
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Single / Tandem Slot</label>  
+                            <select name="slot" class="form-select">
+                                <option value="Single Slot">Single Slot</option>
+                                <option value="Tandem Slot">Tandem Slot</option>
+                            </select>
+                        </div>
                         <div class="form-floating mb-3">
                             <input type="text" name="rate" class="form-control">
                             <label for="">Rate</label>     
@@ -68,8 +83,23 @@
                 </div>
                 <div class="modal-body">
                     <form action="/admin/parking/update" method="post" enctype="multipart/form-data" id="updForm">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Property</label>  
+                            <select name="property_id" id="upd_property_id" class="form-select"></select>
+                        </div>
                         <div class="form-floating mb-3">
-                            <input type="text" name="rate" id="rate" class="form-control">
+                            <input type="text" name="floor" id='floor' class="form-control">
+                            <label for="">Floor</label>     
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Single / Tandem Slot</label>  
+                            <select name="slot" id='slot' class="form-select">
+                                <option value="Single Slot">Single Slot</option>
+                                <option value="Tandem Slot">Tandem Slot</option>
+                            </select>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="rate" id='rate' class="form-control">
                             <label for="">Rate</label>     
                         </div>
                 </div>

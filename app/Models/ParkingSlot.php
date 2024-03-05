@@ -10,6 +10,9 @@ class ParkingSlot extends Model
     use HasFactory;
 
     protected $fillable = [
+        'floor',
+        'slot',
         'rate',
+        'property_id',
     ];
 }
