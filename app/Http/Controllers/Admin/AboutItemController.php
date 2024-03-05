@@ -43,7 +43,7 @@ class AboutItemController extends Controller
         $record->video_description = $request->video_description;
         $record->save();
 
-        return response(['msg' => 'Added About Item']);
+        return response(['msg' => 'Added About Us Item']);
     }
 
     public function edit(Request $request) {
@@ -90,7 +90,7 @@ class AboutItemController extends Controller
 
 
 
-        return response(['msg' => 'Updated About Item']);
+        return response(['msg' => 'Updated About Us Item']);
     }
 
 
@@ -98,6 +98,6 @@ class AboutItemController extends Controller
         $record = AboutItem::find($request->del_id);
         $record->delete();
         
-        return response(['msg' => 'Deleted About Item']);
+        return response(['msg' => 'Deleted About Us Item']);
     }
 }

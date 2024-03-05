@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col mb-3">
-                <h1 class="h3 mb-0 text-dark">About Us Items</h1>
+                <h1 class="h3 mb-0 text-dark">Contact Us Items</h1>
             </div>
             <div class="col d-flex justify-content-end">
                 <button type="button" class="btn btn-primary mb-3" data-bs-target="#addModal" data-bs-toggle="modal">
@@ -40,11 +40,11 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title">Add About Us Item</h5>
+                <h5 class="modal-title">Add Contact Us Items</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/admin/about/add" method="post" enctype="multipart/form-data" id="addForm">         
+                    <form action="/admin/contact/add" method="post" enctype="multipart/form-data" id="addForm">         
                         <div class="form-floating mb-3">
                             <input type="text" name="heading_title" class="form-control">
                             <label for="">Heading Title</label>     
@@ -53,29 +53,17 @@
                             <label for="" class="form-label">Heading Image</label>     
                             <input type="file" name="heading_image" class="form-control">
                         </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Description</label>     
-                            <textarea class="form-control" name="description" cols="30" rows="5"></textarea>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="title" class="form-control">
+                            <label for="">Title</label>     
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" name="tagline_title" class="form-control">
-                            <label for="">Tagline Title</label>     
+                            <input type="text" name="subtitle" class="form-control">
+                            <label for="">Subtitle</label>     
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" name="tagline" class="form-control">
-                            <label for="">Tagline</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="video_code" class="form-control">
-                            <label for="">Video Code</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="video_title" class="form-control">
-                            <label for="">Video Title</label>     
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Video Description</label>     
-                            <textarea class="form-control" name="video_description" cols="30" rows="5"></textarea>
+                            <input type="email" name="email" class="form-control">
+                            <label for="">Email</label>     
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -93,42 +81,30 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title">Update About Us Item</h5>
+                <h5 class="modal-title">Update Residential Unit</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/admin/about/update" method="post" enctype="multipart/form-data" id="updForm">
+                    <form action="/admin/residential/update" method="post" enctype="multipart/form-data" id="updForm">
                         <div class="form-floating mb-3">
-                            <input type="text" name="heading_title" id="heading_title" class="form-control">
+                            <input type="text" name="heading_title" id='heading_title' class="form-control">
                             <label for="">Heading Title</label>     
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Heading Image</label>     
                             <input type="file" name="heading_image" id='heading_image' class="form-control">
                         </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Description</label>     
-                            <textarea class="form-control" name="description" id='description' cols="30" rows="5"></textarea>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="title" id='title' class="form-control">
+                            <label for="">Title</label>     
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" name="tagline_title" id='tagline_title' class="form-control">
-                            <label for="">Tagline Title</label>     
+                            <input type="text" name="subtitle" id='subtitle' class="form-control">
+                            <label for="">Subtitle</label>     
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" name="tagline" id='tagline' class="form-control">
-                            <label for="">Tagline</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="video_code" id='video_code' class="form-control">
-                            <label for="">Video Code</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="video_title" id='video_title' class="form-control">
-                            <label for="">Video Title</label>     
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Video Description</label>     
-                            <textarea class="form-control" name="video_description" id='video_description' cols="30" rows="5"></textarea>
+                            <input type="email" name="email" id='email' class="form-control">
+                            <label for="">Email</label>     
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -147,14 +123,14 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title">Delete About Us Item</h5>
+                <h5 class="modal-title">Delete Contact Us Item</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5>Are you sure you want to delete this About Us Item?</h5>
+                    <h5>Are you sure you want to delete this Contact Us Item?</h5>
                 </div>
                 <div class="modal-footer">
-                    <form action="/admin/about/delete/" method="POST" id="delForm">
+                    <form action="/admin/contact/delete/" method="POST" id="delForm">
                         <input type="hidden" value="0" id="del_id" name="del_id">
                         <input type="submit" class="btn btn-primary" value="Yes" style="cursor:pointer;">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
@@ -170,6 +146,6 @@
 @section('scripts')
     @parent
 
-    <script src="{{ asset('js/admin/about_items.js') }}"></script>
+    <script src="{{ asset('js/admin/contact_items.js') }}"></script>
 @endsection
     

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Video;
 use App\Models\ResidentialUnit;
 use App\Models\Property;
+use App\Models\ContactItem;
 use App\Models\AboutItem;
 
 class PageController extends Controller
@@ -70,7 +71,7 @@ class PageController extends Controller
         return view("pages.lease");
     }
 
-    public function category() {
+    public function residential_units() {
         $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
         $r_units = [];
 
@@ -95,7 +96,7 @@ class PageController extends Controller
             'r_units' => $r_units,
         ];
 
-        return view("pages.category")->with('data', $data);
+        return view("pages.residential_units")->with('data', $data);
     }
 
     public function unit() {
@@ -107,7 +108,12 @@ class PageController extends Controller
     }
 
     public function contact() {
-        return view("pages.contact");
+        $contact_items = ContactItem::all()->sortByDesc('updated_at')->take(1);
+
+        $data = [
+            'contact_items' => $contact_items[0],
+        ];
+        return view("pages.contact")->with('data', $data);
     }
 
     public function about() {

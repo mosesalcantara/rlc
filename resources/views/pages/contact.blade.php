@@ -16,9 +16,9 @@
     <div class="container-fluid header">
         <div class="row">
             <div class="col-3 header_item">
-                <h1>Let's<br>Connect</h1>
+                <h1>{{ $data['contact_items']['heading_title'] }}</h1>
             </div>
-            <div class="col header_pic" style="background-image: url({{ asset('img/pages/contact/contact-header.png') }})">
+            <div class="col header_pic" style="background-image: url({{ asset('uploads/contact_items/heading_images') }}/{{ $data['contact_items']['heading_image'] }})">
 
             </div>
         </div>
@@ -27,10 +27,9 @@
     <div class="container-fluid contact">
         <div class="row">
             <div class="col contact_header">
-                <h1>Got questions?</h1>
-                <h1>We'd love to help you out.</h1>
+                <h1>{{ $data['contact_items']['title'] }}</h1>
 
-                <h3>Unlock leasing oppurtunities at RLC Residences!</h3>
+                <h3>{{ $data['contact_items']['subtitle'] }}</h3>
             </div>
             <div class="col contact_form">
                 <form action="">
@@ -39,6 +38,10 @@
                             <label for="" class="form-label">Inquiry Type*</label>
                             <select class="form-select" name="" id="">
                                 <option value="" selected>--Select--</option>
+                                <option value="">Residential</option>
+                                <option value="">Commercial</option>
+                                <option value="">Parking</option>
+                                <option value="">Unit Registration for RLC Residences Homeowners</option>
                             </select>
                         </div>
                     </div>

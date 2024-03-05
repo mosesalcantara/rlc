@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\Admin\AboutItemController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\ContactItemController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/for-lease', [PageController::class, 'lease']);
-Route::get('/for-lease/category/{category}', [PageController::class, 'category']);
+Route::get('/for-lease/category/residential_units', [PageController::class, 'residential_units']);
 Route::get('/unit', [PageController::class, 'unit']);
 Route::get('/compare-properties', [PageController::class, 'properties']);
 Route::get('/contact-us', [PageController::class, 'contact']);
@@ -156,4 +157,13 @@ Route::prefix('admin/articles')->group(function () {
     Route::post('/edit', [ArticleController::class, 'edit']);
     Route::post('/update', [ArticleController::class, 'update']);
     Route::post('/delete', [ArticleController::class, 'delete']);
+});
+
+Route::prefix('admin/contact')->group(function () {
+    Route::get('/', [ContactItemController::class, 'index']);
+    Route::post('/', [ContactItemController::class, 'get_all']);
+    Route::post('/add', [ContactItemController::class, 'create']);
+    Route::post('/edit', [ContactItemController::class, 'edit']);
+    Route::post('/update', [ContactItemController::class, 'update']);
+    Route::post('/delete', [ContactItemController::class, 'delete']);
 });

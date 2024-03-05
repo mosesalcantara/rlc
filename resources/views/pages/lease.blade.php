@@ -67,7 +67,7 @@
                     </div>
                     <div class="card-body text-center category_item">
                         <h1>Residential</h1>
-                        <a href="/for-lease/category/residential" class="fa-solid fa-circle-chevron-right fa-4x"></a>
+                        <a href="/for-lease/category/residential_units" class="fa-solid fa-circle-chevron-right fa-4x"></a>
                     </div>
                 </div>
             </div>

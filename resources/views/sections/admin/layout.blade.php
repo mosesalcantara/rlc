@@ -113,6 +113,8 @@
                             <h6 class="collapse-header">Home Page:</h6>
                             <a class="collapse-item" href="/admin/videos">Videos</a>
                             <a class="collapse-item" href="/admin/reviews">Reviews</a>
+                            <h6 class="collapse-header">Contact Us Page:</h6>
+                            <a class="collapse-item" href="/admin/contact">Items</a>
                             <h6 class="collapse-header">About Us Page:</h6>
                             <a class="collapse-item" href="/admin/about">Items</a>
                             <a class="collapse-item" href="/admin/articles">Articles</a>

@@ -8,7 +8,7 @@ $(document).ready( function () {
     $('#addForm').submit(function(e) {
         e.preventDefault()
         $.ajax({
-          url: "/admin/about/add/",
+          url: "/admin/contact/add/",
           method: 'POST',
           data: new FormData(this),
           contentType: false,
@@ -29,7 +29,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/about/update/",
+          url: "/admin/contact/update/",
           data: new FormData(this),
           contentType: false,
           processData: false,
@@ -39,7 +39,7 @@ $(document).ready( function () {
             $(`#updForm`).trigger('reset')
             $(`#updModal`).modal('hide')
           },
-          error: function (xhr, status, error) {
+          error: function (res) {
 
           },
         })    
@@ -49,7 +49,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/about/delete/",
+          url: "/admin/contact/delete/",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -70,7 +70,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/about/",
+        url: "/admin/contact/",
         success: function (res) {
             var records = res.records
 
@@ -81,12 +81,9 @@ function get_all() {
             var thr = $('<tr>')
             thr.append($('<th>').text('Heading Title'))
             thr.append($('<th>').text('Heading Image'))
-            thr.append($('<th>').text('Description'))
-            thr.append($('<th>').text('Tagline Title'))
-            thr.append($('<th>').text('Tagline'))
-            thr.append($('<th>').text('Video Code'))
-            thr.append($('<th>').text('Video Title'))
-            thr.append($('<th>').text('Video Description'))
+            thr.append($('<th>').text('Title'))
+            thr.append($('<th>').text('Subtitle'))
+            thr.append($('<th>').text('Email'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
             tbl.append(thead)
@@ -98,16 +95,13 @@ function get_all() {
                 var td_img = $('<td>')
                 var img = $('<img>')
                 img.attr({
-                    'src' : `/uploads/about_items/heading_images/${field.heading_image}`,
+                    'src' : `/uploads/contact_items/heading_images/${field.heading_image}`,
                 })
                 td_img.append(img)
                 tr.append(td_img)
-                tr.append($('<td>').text(field.description))
-                tr.append($('<td>').text(field.tagline_title))
-                tr.append($('<td>').text(field.tagline))
-                tr.append($('<td>').text(field.video_code))
-                tr.append($('<td>').text(field.video_title))
-                tr.append($('<td>').text(field.video_description))
+                tr.append($('<td>').text(field.title))
+                tr.append($('<td>').text(field.subtitle))
+                tr.append($('<td>').text(field.email))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
@@ -157,18 +151,15 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/about/edit/',
+      url:'/admin/contact/edit/',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record
 
         $('#heading_title').val(record.heading_title)
-        $('#description').val(record.description)
-        $('#tagline_title').val(record.tagline_title)
-        $('#tagline').val(record.tagline)
-        $('#video_code').val(record.video_code)
-        $('#video_title').val(record.video_title)
-        $('#video_description').val(record.video_description)
+        $('#title').val(record.title)
+        $('#subtitle').val(record.subtitle)
+        $('#email').val(record.email)
       }
     })
 }

@@ -41,7 +41,7 @@ $(document).ready( function () {
             $(`#addModal`).modal('hide')
           },
           error: function (xhr, status, error) {
-            console.log(xhr)
+
           },
         })    
     })   
