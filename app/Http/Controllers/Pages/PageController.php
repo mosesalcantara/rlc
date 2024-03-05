@@ -25,6 +25,7 @@ class PageController extends Controller
         foreach ($records as $property) {
             $details = [
                 'picture' => $property['picture'],
+                'logo' => $property['logo'],
                 'name' => $property['name'],
                 'description' => $property['description'],
                 'location' => $property['location'],

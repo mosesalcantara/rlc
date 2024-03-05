@@ -18,7 +18,6 @@
             <div class="col header_item">
                 <div style="background-image: url({{ asset('img/pages/home/family.png') }})">
                     <h3>Register My Unit</h3>
-                    {{-- <!-- <img src="{{ asset('img/pages/home/left-flare.png') }}" alt=""> --> --}}
                 </div>
             </div>
             <div class="col header_item">
@@ -29,7 +28,6 @@
             <div class="col header_item">
                 <div style="background-image: url({{ asset('img/pages/home/agent.png') }})">
                     <h3>Connect With Us</h3>
-                    <!-- <img src="{{ asset('img/pages/home/right-flare.png') }}" alt=""> -->
                 </div>
             </div>
         </div>
@@ -88,17 +86,18 @@
                         <div class="card">
                             <div class="card_front">
                                 <div class="d-flex justify-content-center align-items-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }})">
+                                    <img class="logo" src="{{ asset('uploads/properties/logos') }}/{{ $property['logo'] }}" alt="">
                                     <i class="fa-solid fa-circle-chevron-right fa-4x front_switch"></i>
                                 </div>
                             </div>
-                            <div class="container-fluid card_back">
+                            <div class="card_back">
                                 <div class="row">
 
                                     <div class="col snapshot">
                                         <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
                                     </div>
 
-                                    <div class='col details align-items-center'>
+                                    <div class='col details'>
                                         <div class="d-flex justify-content-end">
                                             <i class="fa-solid fa-circle-chevron-left fa-3x back_switch text-info"></i>
                                         </div>

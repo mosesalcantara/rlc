@@ -93,7 +93,7 @@ function get_all() {
                 var td_img = $('<td>')
                 var img = $('<img>')
                 img.attr({
-                    'src' : `/uploads/properties/logo/${field.logo}`,
+                    'src' : `/uploads/properties/logos/${field.logo}`,
                 })
                 td_img.append(img)
                 tr.append(td_img)

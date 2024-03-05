@@ -76,6 +76,11 @@
     background-size: cover;
 }
 
+.logo {
+    width: 30%;
+    height: 35%;
+}
+
 .front_switch, .back_switch {
     cursor: pointer;
     color: white;
