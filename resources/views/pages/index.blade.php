@@ -86,7 +86,7 @@
                         <div class="card">
                             <div class="card_front">
                                 <div class="d-flex justify-content-center align-items-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }})">
-                                    <img class="logo" src="{{ asset('uploads/properties/logos') }}/{{ $property['logo'] }}" alt="">
+                                    {{-- <img class="logo" src="{{ asset('uploads/properties/logos') }}/{{ $property['logo'] }}" alt=""> --}}
                                     <i class="fa-solid fa-circle-chevron-right fa-4x front_switch"></i>
                                 </div>
                             </div>

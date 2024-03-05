@@ -23,7 +23,7 @@
 
     <div class="container-fluid about">
         <div class="row">
-            <div class="col">
+            <div class="col description">
                 <p>
                     Robinsons Land Corporation, a subsidiary of JG Summit Holdings, has been improving the lives of Filipinos for over 40 years.
                     Their success stems from understanding and adapting to the constantly emerging residential trends across their various developments.
@@ -38,32 +38,38 @@
         <div class="row">
             <div class="col text-center tagline">
                 <h4 class="mb-3">Discover what RLC Residences has to offer through its tagline</h4>
-                <img src="{{ asset('img/pages/about/tagline.png') }}" alt="">
+                {{-- <img src="{{ asset('img/pages/about/tagline.png') }}" alt=""> --}}
+                <h1>Raise Live Connect</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col acronym_item">
+            <div class="col acronym_item acronym_1">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-9">
                         <h4>Raise</h4>
                         <p>
                             'Raise' is about helping homeowners raise their game by providing beautiful and well-designed living spaces that they can proudly call theirs.
                             RLC Residences ensures this exciting possibility by partnering with world-class designers to bring to life developments showcasing iconic features such as grand lobbies and home spaces with high ceilings equipped with upgraded deliverables where residents can happily live the lifestyle that they deserve.
                         </p>
                     </div>
-                    <div class="col">
+                    <div class="col d-flex justify-content-end">
                         <img src="{{ asset('img/pages/about/raise-image.png') }}" alt="">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col acronym_item">
+            <div class="col">
+                <img src="{{ asset('img/pages/about/shape-1.png') }}" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col acronym_item acronym_2">
                 <div class="row">
                     <div class="col">
                         <img src="{{ asset('img/pages/about/live-image.png') }}" alt="">
                     </div>
-                    <div class="col-8">
+                    <div class="col-9">
                         <h4>Live</h4>
                         <p>
                             RLC Residences strives to continuously empower its homeowners to 'Live' and design their best life by integrating their lifestyles in every corner of the development.
@@ -77,9 +83,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col acronym_item">
+            <div class="col">
+                <img src="{{ asset('img/pages/about/shape-2.png') }}" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col acronym_item acronym_3">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-9">
                         <h4>Connect</h4>
                         <p>
                             More than anything, everyone values connection to people and places that matter.
@@ -90,7 +101,7 @@
                             All these translate to being at the center of opportunities so they can achieve their goals in life.
                         </p>
                     </div>
-                    <div class="col">
+                    <div class="col d-flex justify-content-end">
                         <img src="{{ asset('img/pages/about/connect-image.png') }}" alt="">
                     </div>
                 </div>
@@ -105,7 +116,7 @@
             <div class="col embded-responsive d-flex align-items-center justify-content-center">
                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/rsSbXE4Nf94" allowfullscreen></iframe>
             </div>
-            <div class="col brand_story_text d-flex justify-content-center align-items-center">
+            <div class="col description">
                 <h2>Our Brand Story</h2>
                 <p>
                     As your partner in making your aspirations a reality, we uphold our commitment to delivering projects that raise your standard of living, empowers you to live your best life, and encourage you to nurture meaningful connections.

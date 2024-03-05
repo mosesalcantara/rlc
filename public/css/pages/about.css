@@ -4,7 +4,7 @@
     font-weight: 500;
 }
 
-.header .col h1 {
+.header h1 {
     margin-top: 30vh;
     font-size: 3rem;
     margin-left: 3vw;
@@ -13,32 +13,24 @@
 }
 
 .about {
-    background: linear-gradient(180deg, rgba(185,185,185,1) 30%, rgba(86,86,86,1) 50%, rgba(54,54,54,1) 80%);
+    background: linear-gradient(180deg, rgba(185,185,185,1) 25%, rgba(86,86,86,1) 50%, rgba(54,54,54,1) 80%);
     height: auto;
     color: black;
     font-size: 1.5rem;
 }
 
-.about .row .col {
-    margin: 2rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+.about .row {
+    padding-bottom: 1.5vh;
 }
 
-.acronym h2 {
-    display: inline;
-    padding: 1rem;
+.description {
+    padding: 3vh 5vw 0 5vw;
+    text-align: justify;
+}
+
+.tagline h1 {
     color: white;
-
-}
-
-.center_h2 {
-    border-left: 0.2rem solid #CC9900;
-    border-right: 0.2rem solid #CC9900;
-}
-
-.acronym_item {
-    margin-bottom: 3vh;
+    font-size: 3rem;
 }
 
 .acronym_item h4 {
@@ -47,11 +39,20 @@
 
 .acronym_item p {
     color: white;
+    text-align: justify;
 }
 
 .acronym_item img {
     width: 20vw;
     height: 40vh;
+}
+
+.acronym_1, .acronym_3 {
+    padding-left: 5vw;
+}
+
+.acronym_2 {
+    padding-right: 5vw;
 }
 
 .brand_story {
@@ -68,6 +69,15 @@
     border-radius: 0.5rem;
 }
 
-.brand_story_text h2 {
+.brand_story .description {
+    margin-top: 25vh;
+}
+
+.brand_story h2 {
     color: white;
 }
+
+.brand_story p {
+    font-size: 1.3rem;
+}
+
