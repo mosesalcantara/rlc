@@ -113,6 +113,9 @@
                             <h6 class="collapse-header">Home Page:</h6>
                             <a class="collapse-item" href="/admin/videos">Videos</a>
                             <a class="collapse-item" href="/admin/reviews">Reviews</a>
+                            <h6 class="collapse-header">About Us Page:</h6>
+                            <a class="collapse-item" href="/admin/about">Items</a>
+                            <a class="collapse-item" href="/admin/articles">Articles</a>
                             <h6 class="collapse-header">Other Pages:</h6>
                             <a class="collapse-item" href="404.html">404 Page</a>
                             <a class="collapse-item" href="blank.html">Blank Page</a>

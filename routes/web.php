@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\SnapshotController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\PictureController;
+use App\Http\Controllers\Admin\AboutItemController;
+use App\Http\Controllers\Admin\ArticleController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -135,4 +137,23 @@ Route::prefix('admin/pictures')->group(function () {
     Route::post('/edit', [PictureController::class, 'edit']);
     Route::post('/update', [PictureController::class, 'update']);
     Route::post('/delete', [PictureController::class, 'delete']);
+});
+
+Route::prefix('admin/about')->group(function () {
+    Route::get('/', [AboutItemController::class, 'index']);
+    Route::post('/', [AboutItemController::class, 'get_all']);
+    Route::post('/add', [AboutItemController::class, 'create']);
+    Route::post('/edit', [AboutItemController::class, 'edit']);
+    Route::post('/update', [AboutItemController::class, 'update']);
+    Route::post('/delete', [AboutItemController::class, 'delete']);
+});
+
+Route::prefix('admin/articles')->group(function () {
+    Route::get('/', [ArticleController::class, 'index']);
+    Route::post('/', [ArticleController::class, 'get_all']);
+    Route::post('/get-related', [ArticleController::class, 'get_related']);
+    Route::post('/add', [ArticleController::class, 'create']);
+    Route::post('/edit', [ArticleController::class, 'edit']);
+    Route::post('/update', [ArticleController::class, 'update']);
+    Route::post('/delete', [ArticleController::class, 'delete']);
 });
