@@ -76,9 +76,9 @@
                     <div class="card-header text-center">
                         <img src="{{ asset('/img/pages/for_lease/commercial.png') }}" alt="">
                     </div>
-                    <div class="card-body text-center">
+                    <div class="card-body text-center category_item">
                         <h1>Commercial</h1>
-                        <i class="fa-solid fa-circle-chevron-right fa-4x"></i>
+                        <a href="/for-lease/category/commercial_units" class="fa-solid fa-circle-chevron-right fa-4x"></a>
                     </div>
                 </div>
             </div>

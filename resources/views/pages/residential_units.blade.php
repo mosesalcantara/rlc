@@ -5,7 +5,7 @@
 @section('links')
     @parent
 
-    <link rel="stylesheet" href="{{ asset('css/pages/category.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/residential_units.css') }}">
 @endsection
 
 @section('navbar')
@@ -13,17 +13,17 @@
 @endsection
  
 @section('content')
-    <div class="container-fluid title_div">
-        <div class="row title">
-            <div class="col">
-                <h1 class="title_text">Residential Units For You</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col title">
+                <h1>Residential Units For You</h1>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid search_container">
-        <div class="row search_div mt-3">
-            <div class="col search_drops text-center">
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col search text-center">
                 <select name="" id="" class="form-select">
                     <option value="" selected>Property Type</option>
                     <option value="">Residential</option>
@@ -55,8 +55,8 @@
         </div>
     </div>
 
-    <div class="container-fluid units">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row  units">
             @if (count($data['r_units']) > 0)
             @foreach ($data['r_units'] as $r_unit)
                 <div class="col-lg-4 unit">

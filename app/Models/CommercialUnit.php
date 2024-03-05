@@ -13,5 +13,6 @@ class CommercialUnit extends Model
         'retail_id',
         'building',
         'size',
+        'property_id',
     ];
 }

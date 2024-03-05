@@ -43,7 +43,10 @@
                 </div>
                 <div class="modal-body">
                     <form action="/admin/commercial/add" method="post" id="addForm">
-                        @csrf   
+                        <div class="mb-3">
+                            <label for="" class="form-label">Property</label>  
+                            <select name="property_id" id="add_property_id" class="form-select"></select>
+                        </div>
                         <div class="form-floating mb-3">  
                             <input type="text" name="retail_id" class="form-control">
                             <label for="">Retail ID</label>   
@@ -79,7 +82,10 @@
                 </div>
                 <div class="modal-body">
                     <form action="/admin/commercial/update" method="post" id="updForm">
-                        @csrf   
+                        <div class="mb-3">
+                            <label for="" class="form-label">Property</label>  
+                            <select name="property_id" id="upd_property_id" class="form-select"></select>
+                        </div>
                         <div class="form-floating mb-3">  
                             <input type="text" name="retail_id" id="retail_id" class="form-control">
                             <label for="">Retail ID</label>   

@@ -99,6 +99,33 @@ class PageController extends Controller
         return view("pages.residential_units")->with('data', $data);
     }
 
+    public function commercial_units() {
+        $records = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->get();
+        $c_units = [];
+
+        foreach ($records as $c_unit) {
+            $details = [
+                'picture' => '',
+                'name' => $c_unit['name'],
+                'location' => $c_unit['location'],
+                'retail_id' => $c_unit['retail_id'],
+                'building' => $c_unit['building'],
+                'size' => $c_unit['size'],
+            ];
+
+            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                        ->where('properties.id', $c_unit['property_id'])->get();
+            $details['picture'] = $record[0]->picture;
+            array_push($c_units, $details);
+        }
+
+        $data = [
+            'c_units' => $c_units,
+        ];
+
+        return view("pages.commercial_units")->with('data', $data);
+    }
+
     public function unit() {
         return view('pages.unit');
     }

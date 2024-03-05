@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index']);
 Route::get('/for-lease', [PageController::class, 'lease']);
 Route::get('/for-lease/category/residential_units', [PageController::class, 'residential_units']);
+Route::get('/for-lease/category/commercial_units', [PageController::class, 'commercial_units']);
 Route::get('/unit', [PageController::class, 'unit']);
 Route::get('/compare-properties', [PageController::class, 'properties']);
 Route::get('/contact-us', [PageController::class, 'contact']);
@@ -86,6 +87,7 @@ Route::prefix('admin/residential')->group(function () {
 Route::prefix('admin/commercial')->group(function () {
     Route::get('/', [CommercialUnitController::class, 'index']);
     Route::post('/', [CommercialUnitController::class, 'get_all']);
+    Route::post('/get-related', [ResidentialUnitController::class, 'get_related']);
     Route::post('/add', [CommercialUnitController::class, 'create']);
     Route::post('/edit', [CommercialUnitController::class, 'edit']);
     Route::post('/update', [CommercialUnitController::class, 'update']);
