@@ -45,6 +45,11 @@
                 </div>
                 <div class="modal-body">
                     <form action="/admin/amenities/add" method="post" enctype="multipart/form-data" id="addForm">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Property</label>  
+                            <select name="property_id" id="add_property_id" class="form-select"></select>
+                        </div>
+
                         <div class="form-floating mb-3">
                             <input type="text" name="name" class="form-control">
                             <label for="">Name</label>     
@@ -84,6 +89,11 @@
                 </div>
                 <div class="modal-body">
                     <form action="/admin/amenities/update" method="post" enctype="multipart/form-data" id="updForm">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Property</label>  
+                            <select name="property_id" id="upd_property_id" class="form-select"></select>
+                        </div>
+
                         <div class="form-floating mb-3">
                             <input type="text" name="name" id="name" class="form-control">
                             <label for="">Name</label>     

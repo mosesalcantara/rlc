@@ -13,5 +13,6 @@ class Amenity extends Model
         'name',
         'type',
         'picture',
+        'property_id',
     ];
 }

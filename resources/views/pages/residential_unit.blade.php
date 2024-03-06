@@ -130,7 +130,7 @@
         <div class="row">
             <div class="col amenities">
                 <div class="row">
-                    <h1>Amenity Gallery</h1>
+                    <h1>AMENITY GALLERY</h1>
                 </div>
             </div>
         </div>

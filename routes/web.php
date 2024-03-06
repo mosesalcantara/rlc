@@ -74,6 +74,7 @@ Route::prefix('admin/properties')->group(function () {
 Route::prefix('admin/amenities')->group(function () {
     Route::get('/', [AmenityController::class, 'index']);
     Route::post('/', [AmenityController::class, 'get_all']);
+    Route::post('/get-related', [AmenityController::class, 'get_related']);
     Route::post('/add', [AmenityController::class, 'create']);
     Route::post('/edit', [AmenityController::class, 'edit']);
     Route::post('/update', [AmenityController::class, 'update']);

@@ -128,4 +128,10 @@
     background-color: #DBAF27;
     height: 50vh;
     margin-top: 1.5rem;
+    padding: 1rem 7rem 1rem;
+}
+
+.amenities h1 {
+    font-size: 2.7rem;
+    margin-bottom: 2rem;
 }

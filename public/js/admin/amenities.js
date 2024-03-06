@@ -5,6 +5,28 @@ $(document).ready( function () {
         }
     });
 
+    $('#addModal').on('show.bs.modal', function(e) {
+      $.ajax({
+          url: "/admin/amenities/get-related/",
+          method: 'POST',
+          success: function (res) {
+              var records = res.records
+              $.each(records, function(row, field) {
+                  var option = $('<option>').text(field.name).val(field.id)
+                  $('#add_property_id').append(option)
+              })
+          },
+          error: function (xhr, status, error) {
+
+          },
+        })    
+  })
+
+    $('#addModal').on('hide.bs.modal', function(e) {
+        $('#add_property_id').empty()
+    })
+
+
     $('#addForm').submit(function(e) {
         e.preventDefault()
         $.ajax({
@@ -24,6 +46,10 @@ $(document).ready( function () {
           },
         })    
     })   
+
+    $('#updModal').on('hide.bs.modal', function(e) {
+      $('#upd_property_id').empty()
+    })
 
     $('#updForm').submit(function(e) {
         e.preventDefault()
@@ -79,6 +105,7 @@ function get_all() {
 
             var thead = $('<thead>')
             var thr = $('<tr>')
+            thr.append($('<th>').text('Property'))
             thr.append($('<th>').text('Name'))
             thr.append($('<th>').text('Type'))
             thr.append($('<th>').text('Picture'))
@@ -89,12 +116,13 @@ function get_all() {
             var tbody = $('<tbody>')
             $.each(records, function(row, field) {
                 var tr = $('<tr>')
+                tr.append($('<td>').text(field.property))
                 tr.append($('<td>').text(field.name))
                 tr.append($('<td>').text(field.type))
                 var td_img = $('<td>')
                 var img = $('<img>')
                 img.attr({
-                    'src' : `/uploads/amenities/picture/${field.picture}`,
+                    'src' : `/uploads/amenities/pictures/${field.picture}`,
                 })
                 td_img.append(img)
                 tr.append(td_img)
@@ -151,6 +179,14 @@ function get_upd_id(id){
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record
+        var records = res.records
+
+        $.each(records, function(row, field) {
+          var option = $('<option>').text(field.name).val(field.id)
+          $('#upd_property_id').append(option)
+        })
+
+        $('#upd_property_id').val(record.property_id)
         $('#name').val(record.name)
         $('#type').val(record.type)
       }
