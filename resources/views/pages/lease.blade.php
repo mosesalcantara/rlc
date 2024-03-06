@@ -25,8 +25,8 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row search_div mt-3">
-            <div class="col search_drops text-center">
+        <div class="row mt-3">
+            <div class="col search text-center">
                 <select name="" id="" class="form-select">
                     <option value="" selected>Property Type</option>
                     <option value="">Residential</option>
@@ -58,13 +58,11 @@
         </div>
     </div>
 
-    <div class="container-fluid categories mt-3 mb-3">
-        <div class="row">
+    <div class="container-fluid mt-3 mb-3">
+        <div class="row categories">
             <div class="col category">
                 <div class="card">
-                    <div class="card-header text-center">
-                        <img src="{{ asset('/img/pages/for_lease/residential.png') }}" alt="">
-                    </div>
+                    <img class='card-img-top' src="{{ asset('/img/pages/for_lease/residential.png') }}" alt="">
                     <div class="card-body text-center">
                         <h1>Residential</h1>
                         <a href="/for-lease/category/residential_units" class="fa-solid fa-circle-chevron-right fa-4x"></a>
@@ -73,9 +71,7 @@
             </div>
             <div class="col category">
                 <div class="card">
-                    <div class="card-header text-center">
-                        <img src="{{ asset('/img/pages/for_lease/commercial.png') }}" alt="">
-                    </div>
+                    <img class="card-img-top" src="{{ asset('/img/pages/for_lease/commercial.png') }}" alt="">
                     <div class="card-body text-center">
                         <h1>Commercial</h1>
                         <a href="/for-lease/category/commercial_units" class="fa-solid fa-circle-chevron-right fa-4x"></a>
@@ -84,9 +80,7 @@
             </div>
             <div class="col category">
                 <div class="card">
-                    <div class="card-header text-center">
-                        <img src="{{ asset('/img/pages/for_lease/parking.png') }}" alt="">
-                    </div>
+                    <img class='card-img-top' src="{{ asset('/img/pages/for_lease/parking.png') }}" alt="">
                     <div class="card-body text-center">
                         <h1>Parking</h1>
                         <a href="/for-lease/category/parking_slots" class="fa-solid fa-circle-chevron-right fa-4x"></a>
