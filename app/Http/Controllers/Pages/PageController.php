@@ -72,24 +72,12 @@ class PageController extends Controller
     }
 
     public function residential_units() {
-        $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
-        $r_units = [];
+        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
 
-        foreach ($records as $r_unit) {
-            $details = [
-                'snapshot' => '',
-                'name' => $r_unit['name'],
-                'location' => $r_unit['location'],
-                'unit_id' => $r_unit['unit_id'],
-                'type' => $r_unit['type'],
-                'rate' => $r_unit['rate'],
-                'area' => $r_unit['area'],
-            ];
-
+        foreach ($r_units as $r_unit) {
             $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
                         ->where('residential_units.id', $r_unit['id'])->get();
-            $details['snapshot'] = $record[0]->picture;
-            array_push($r_units, $details);
+            $r_unit['snapshot'] = $record[0]->picture;
         }
 
         $data = [
@@ -100,23 +88,12 @@ class PageController extends Controller
     }
 
     public function commercial_units() {
-        $records = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->get();
-        $c_units = [];
+        $c_units = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->get();
 
-        foreach ($records as $c_unit) {
-            $details = [
-                'picture' => '',
-                'name' => $c_unit['name'],
-                'location' => $c_unit['location'],
-                'retail_id' => $c_unit['retail_id'],
-                'building' => $c_unit['building'],
-                'size' => $c_unit['size'],
-            ];
-
+        foreach ($c_units as $c_unit) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.id', $c_unit['property_id'])->get();
-            $details['picture'] = $record[0]->picture;
-            array_push($c_units, $details);
+            $c_unit['picture'] = $record[0]->picture;
         }
 
         $data = [
@@ -124,6 +101,23 @@ class PageController extends Controller
         ];
 
         return view("pages.commercial_units")->with('data', $data);
+    }
+
+    public function parking_slots() {
+        $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
+                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupBy('properties.id')->get();
+
+        foreach ($slots as $slot) {
+            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                        ->where('properties.id', $slot['id'])->get();
+            $slot['picture'] = $record[0]->picture;
+        }
+
+        $data = [
+            'slots' => $slots,
+        ];
+
+        return view("pages.parking_slots")->with('data', $data);
     }
 
     public function unit() {

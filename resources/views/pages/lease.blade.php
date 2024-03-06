@@ -65,7 +65,7 @@
                     <div class="card-header text-center">
                         <img src="{{ asset('/img/pages/for_lease/residential.png') }}" alt="">
                     </div>
-                    <div class="card-body text-center category_item">
+                    <div class="card-body text-center">
                         <h1>Residential</h1>
                         <a href="/for-lease/category/residential_units" class="fa-solid fa-circle-chevron-right fa-4x"></a>
                     </div>
@@ -76,7 +76,7 @@
                     <div class="card-header text-center">
                         <img src="{{ asset('/img/pages/for_lease/commercial.png') }}" alt="">
                     </div>
-                    <div class="card-body text-center category_item">
+                    <div class="card-body text-center">
                         <h1>Commercial</h1>
                         <a href="/for-lease/category/commercial_units" class="fa-solid fa-circle-chevron-right fa-4x"></a>
                     </div>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="card-body text-center">
                         <h1>Parking</h1>
-                        <i class="fa-solid fa-circle-chevron-right fa-4x"></i>
+                        <a href="/for-lease/category/parking_slots" class="fa-solid fa-circle-chevron-right fa-4x"></a>
                     </div>
                 </div>
             </div>
