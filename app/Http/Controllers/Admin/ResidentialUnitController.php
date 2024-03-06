@@ -56,7 +56,7 @@ class ResidentialUnitController extends Controller
     }
 
     public function edit(Request $request) {
-        $record = Property::leftJoin('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->upd_id)->get();
+        $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->upd_id)->get();
         $record = $record[0];
         $records = Property::all();
 

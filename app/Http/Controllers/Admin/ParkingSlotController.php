@@ -47,7 +47,7 @@ class ParkingSlotController extends Controller
     }
 
     public function edit(Request $request) {
-        $record = Property::leftJoin('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where('parking_slots.id', $request->upd_id)->get();
+        $record = Property::join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where('parking_slots.id', $request->upd_id)->get();
         $record = $record[0];
         $records = Property::all();
 

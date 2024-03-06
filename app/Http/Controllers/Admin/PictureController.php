@@ -51,7 +51,7 @@ class PictureController extends Controller
     }
 
     public function edit(Request $request) {
-        $record = Property::leftjoin('pictures', 'properties.id', '=', 'pictures.property_id')->where('pictures.id', $request->upd_id)->get();
+        $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')->where('pictures.id', $request->upd_id)->get();
         $record = $record[0];
         $records = Property::all();
 

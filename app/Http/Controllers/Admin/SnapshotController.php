@@ -52,7 +52,7 @@ class SnapshotController extends Controller
     }
 
     public function edit(Request $request) {
-        $record = ResidentialUnit::leftJoin('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->where('snapshots.id', $request->upd_id)->get();
+        $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')->where('snapshots.id', $request->upd_id)->get();
         $record = $record[0];
         $records = ResidentialUnit::all();
 

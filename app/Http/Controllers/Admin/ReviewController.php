@@ -58,7 +58,7 @@ class ReviewController extends Controller
     }
 
     public function edit(Request $request) {
-        $record = Property::leftjoin('reviews', 'properties.id', '=', 'reviews.property_id')->where('reviews.id', $request->upd_id)->get();
+        $record = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->where('reviews.id', $request->upd_id)->get();
         $record = $record[0];
         $records = Property::all();
 

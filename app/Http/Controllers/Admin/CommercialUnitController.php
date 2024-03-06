@@ -46,7 +46,7 @@ class CommercialUnitController extends Controller
     }
 
     public function edit(Request $request) {
-        $record = Property::leftJoin('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('commercial_units.id', $request->upd_id)->get();
+        $record = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('commercial_units.id', $request->upd_id)->get();
         $record = $record[0];
         $records = Property::all();
 

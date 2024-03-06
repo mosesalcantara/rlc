@@ -54,7 +54,7 @@ class ArticleController extends Controller
     }
 
     public function edit(Request $request) {
-        $record = AboutItem::leftJoin('articles', 'about_items.id', '=', 'articles.about_item_id')->where('articles.id', $request->upd_id)->get();
+        $record = AboutItem::join('articles', 'about_items.id', '=', 'articles.about_item_id')->where('articles.id', $request->upd_id)->get();
         $record = $record[0];
         $records = AboutItem::all();
 
