@@ -61,9 +61,7 @@
             @foreach ($data['c_units'] as $c_unit)
                 <div class="col-lg-4 unit">
                     <div class="card">
-                        <div class="card-header picture text-center">
-                            <img src="{{ asset('uploads/properties/pictures') }}/{{ $c_unit['picture'] }}" alt="">
-                        </div>
+                        <img class='card-img-top' src="{{ asset('uploads/properties/pictures') }}/{{ $c_unit['picture'] }}" alt="">
                         <div class="card-body details">
                             <h3>{{ $c_unit['name'] }}</h3>
                             <i class="fa-solid fa-location-dot fa-2x"></i>

@@ -61,9 +61,7 @@
             @foreach ($data['slots'] as $slot)
                 <div class="col-lg-4 unit">
                     <div class="card">
-                        <div class="card-header picture text-center">
-                            <img src="{{ asset('uploads/properties/pictures') }}/{{ $slot['picture'] }}" alt="">
-                        </div>
+                        <img class="card-img-top" src="{{ asset('uploads/properties/pictures') }}/{{ $slot['picture'] }}" alt="">
                         <div class="card-body details">
                             <h3>{{ $slot['name'] }}</h3>
                             <i class="fa-solid fa-location-dot fa-2x"></i>

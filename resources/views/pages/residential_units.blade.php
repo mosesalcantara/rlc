@@ -56,14 +56,12 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row  units">
+        <div class="row units">
             @if (count($data['r_units']) > 0)
             @foreach ($data['r_units'] as $r_unit)
                 <div class="col-lg-4 unit">
                     <div class="card">
-                        <div class="card-header picture text-center">
-                            <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $r_unit['snapshot'] }}" alt="">
-                        </div>
+                        <img class='card-img-top' src="{{ asset('uploads/residential_units/snapshots') }}/{{ $r_unit['snapshot'] }}" alt="">
                         <div class="card-body details">
                             <h3>{{ $r_unit['name'] }}</h3>
                             <i class="fa-solid fa-location-dot fa-2x"></i>
