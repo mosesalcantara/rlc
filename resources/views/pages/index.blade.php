@@ -15,17 +15,17 @@
 @section('content')
     <div class="container-fluid" style="background-image: url({{ asset('img/pages/home/header-bg.png') }})">
         <div class="row gx-0 header" style="background-image: url({{ asset('img/pages/home/shape.png') }})">
-            <div class="col header_item">
+            <div class="col">
                 <div style="background-image: url({{ asset('img/pages/home/family.png') }})">
                     <h3>Register My Unit</h3>
                 </div>
             </div>
-            <div class="col header_item">
+            <div class="col">
                 <div style="background-image: url({{ asset('img/pages/home/building.png') }})">
                     <h3>Check Available Units</h3>
                 </div>
             </div>
-            <div class="col header_item">
+            <div class="col">
                 <div style="background-image: url({{ asset('img/pages/home/agent.png') }})">
                     <h3>Connect With Us</h3>
                 </div>
@@ -78,7 +78,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <div id="img_carousel" class="carousel slide carousel-fade">
+                <div id="images_carousel" class="carousel slide">
                     <div class="carousel-inner">
 
                     @foreach ($data['properties'] as $property)
@@ -128,9 +128,9 @@
 
                     </div>
 
-                    <div class="img_carousel_controls d-flex justify-content-center">
-                        <i class="fa-solid fa-chevron-left fa-2x" data-bs-target="#img_carousel" data-bs-slide="prev"></i>
-                        <i class="fa-solid fa-chevron-right fa-2x" data-bs-target="#img_carousel" data-bs-slide="next"></i>
+                    <div class="images_carousel_controls d-flex justify-content-center">
+                        <i class="fa-solid fa-chevron-left fa-2x" data-bs-target="#images_carousel" data-bs-slide="prev"></i>
+                        <i class="fa-solid fa-chevron-right fa-2x" data-bs-target="#images_carousel" data-bs-slide="next"></i>
                     </div>
                 </div>
             </div>
@@ -139,12 +139,12 @@
 
     <div class="container-fluid">
         <div class="row videos text-center align-items-center" style="background-image: url({{ asset('img/pages/home/video-bg.png') }})">
-            <div id="video_carousel" class="carousel slide carousel-fade text-center">
+            <div id="video_carousel" class="carousel slide text-center">
                 <div class="carousel-inner">
 
                 @foreach ($data['videos'] as $video)
                 <div class="carousel-item video_carousel_item">
-                    <div class="col video">
+                    <div class="col">
                         <iframe src="https://www.youtube.com/embed/{{ $video->code }}/"></iframe>
                     </div>
                 </div>
@@ -159,8 +159,8 @@
         </div>
     </div>
 
-    <div class="container-fluid reviews_div" style="background-image: url({{ asset('img/pages/home/review-bg.png') }})">
-        <div class="row">
+    <div class="container-fluid" style="background-image: url({{ asset('img/pages/home/review-bg.png') }})">
+        <div class="row reviews_div">
             <div class="col reviews_title d-flex align-items-center">
                 <div class="row">
                     <img src="{{  asset('img/pages/home/review-label-pc.png') }}" alt="">
@@ -172,19 +172,19 @@
             </div>
 
             <div class="col reviews">
-                <div id="review_carousel" class="carousel slide carousel-fade text-center">
+                <div id="review_carousel" class="carousel slide text-center">
                     <div class="carousel-inner">
 
                     @foreach ($data['reviews'] as $review)
                     <div class="carousel-item review_carousel_item">
-                        <div class="container review_cont">
+                        <div class="container">
                             <div class="row review">
                                 <div class="col">
                                     <div class="row profile">
-                                        <div class="col-2 profile_logo">
+                                        <div class="col-2">
                                             <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $review->picture }}" alt="">
                                         </div>
-                                        <div class="col profile_details text-start">
+                                        <div class="col text-start">
                                             <h2>{{ $review->fullname }}</h2>
                                             <h4>{{ $review->name }}</h4>
                                             <h4>{{ \Carbon\Carbon::parse($review->reviewed_on)->toFormattedDateString()}}</h4>

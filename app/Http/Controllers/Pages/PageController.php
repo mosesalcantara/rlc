@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Property;
 use App\Models\Video;
 use App\Models\ResidentialUnit;
-use App\Models\Property;
+use App\Models\Snapshot;
 use App\Models\ContactItem;
 use App\Models\AboutItem;
 
@@ -108,6 +109,15 @@ class PageController extends Controller
         $r_unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->join('pictures', 'properties.id', '=', 'pictures.property_id')
                     ->where('residential_units.id', $request->id)->get();
         $r_unit = $r_unit[0];
+
+
+        $records = Snapshot::all()->where('residential_unit_id', $request->id);
+        $snapshots = [];
+        
+        foreach ($records as $snapshot) {
+            array_push($snapshots, $snapshot['picture']);
+        }
+        $r_unit['snapshots'] = $snapshots;
 
         $data = [
             'r_unit' => $r_unit,

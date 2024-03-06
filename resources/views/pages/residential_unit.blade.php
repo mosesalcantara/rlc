@@ -63,22 +63,22 @@
 
                     <div class="row details">
                         <div class="col text-center">
-                            <i class="fa-solid fa-house fa-1x"></i>
+                            <i class="fa-solid fa-house fa-xl"></i>
                             <h6>UNIT TYPE</h6>
                             <h6 class="text-dark">{{ $data['r_unit']['type'] }}</h6>
                         </div>
                         <div class="col text-center">
-                            <i class="fa-regular fa-square"></i>
+                            <i class="fa-regular fa-square fa-xl"></i>
                             <h6>AREA</h6>
-                            <h6 class="text-dark">{{ $data['r_unit']['area'] }} SQM</h6>
+                            <h6 class="text-dark">{{ number_format($data['r_unit']['area'], 2) }} SQM</h6>
                         </div>
                         <div class="col text-center">
-                            <i class="fa-solid fa-piggy-bank"></i>
+                            <i class="fa-solid fa-piggy-bank fa-xl"></i>
                             <h6>MONTHLY RATE</h6>
                             <h6 class="text-dark">PHP {{ number_format($data['r_unit']['rate'], 2) }}</h6>
                         </div>
                         <div class="col text-center">
-                            <i class="fa-solid fa-key"></i>
+                            <i class="fa-solid fa-key fa-xl"></i>
                             <h6>UNIT STATUS</h6>
                             <h6 class="text-dark">{{ $data['r_unit']['status'] }}</h6>
                         </div>
@@ -97,7 +97,31 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col snapshots">
-                <h1>Residential Snapshots</h1>
+                <div class="row">
+                    <h1>Residential Snapshots</h1>
+                </div>
+
+                <div class="row">
+                    <div class='col-1 d-flex align-items-center'>
+                        <i class="fa-solid fa-circle-chevron-left fa-4x" data-bs-target="#snaps_carousel" data-bs-slide="prev"></i>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <div id="snaps_carousel" class="carousel slide">
+                            <div class="carousel-inner">
+        
+                            @foreach ($data['r_unit']['snapshots'] as $snapshot)
+                            <div class="carousel-item snaps_carousel_item">
+                                <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $snapshot }}" alt="">
+                            </div>
+                            @endforeach
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1 d-flex align-items-center">
+                        <i class="fa-solid fa-circle-chevron-right fa-4x" data-bs-target="#snaps_carousel" data-bs-slide="next"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -105,7 +129,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col amenities">
-                <h1>Amenity Gallery</h1>
+                <div class="row">
+                    <h1>Amenity Gallery</h1>
+                </div>
             </div>
         </div>
     </div>
@@ -117,4 +143,6 @@
 
 @section('scripts')
     @parent
+
+    <script src="{{ asset('js/pages/residential_unit.js') }}"></script>
 @endsection
