@@ -126,12 +126,37 @@
 .amenities {
     color: white;
     background-color: #DBAF27;
-    height: 50vh;
+    height: auto;
     margin-top: 1.5rem;
-    padding: 1rem 7rem 1rem;
+    padding: 1rem 7rem 2rem;
 }
 
 .amenities h1 {
     font-size: 2.7rem;
     margin-bottom: 2rem;
+}
+
+.amenities i {
+    cursor: pointer;
+}
+
+.amenities img {
+    width: 35vw;
+    height: 40vh;
+    border-radius: 0.7rem;
+}
+
+.amenity {
+    position: relative;
+}
+
+.name {
+    background-color: #2A36B9;
+    padding: 1rem;
+    border-radius: 0.7rem;
+    width: 70%;
+    position: absolute;
+    top: 91%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

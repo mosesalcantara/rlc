@@ -78,7 +78,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <div id="images_carousel" class="carousel slide">
+                <div id="properties_carousel" class="carousel slide">
                     <div class="carousel-inner">
 
                     @foreach ($data['properties'] as $property)
@@ -128,9 +128,9 @@
 
                     </div>
 
-                    <div class="images_carousel_controls d-flex justify-content-center">
-                        <i class="fa-solid fa-chevron-left fa-2x" data-bs-target="#images_carousel" data-bs-slide="prev"></i>
-                        <i class="fa-solid fa-chevron-right fa-2x" data-bs-target="#images_carousel" data-bs-slide="next"></i>
+                    <div class="carousel_controls d-flex justify-content-center">
+                        <i class="fa-solid fa-chevron-left fa-2x" data-bs-target="#properties_carousel" data-bs-slide="prev"></i>
+                        <i class="fa-solid fa-chevron-right fa-2x" data-bs-target="#properties_carousel" data-bs-slide="next"></i>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
 
     <div class="container-fluid">
         <div class="row videos text-center align-items-center" style="background-image: url({{ asset('img/pages/home/video-bg.png') }})">
-            <div id="video_carousel" class="carousel slide text-center">
+            <div id="videos_carousel" class="carousel slide text-center">
                 <div class="carousel-inner">
 
                 @foreach ($data['videos'] as $video)
@@ -151,28 +151,28 @@
                 @endforeach
                 </div>
 
-                <div class="video_carousel_controls justify-content-center">
-                    <i class="fa-solid fa-circle-chevron-left fa-4x" data-bs-target="#video_carousel" data-bs-slide="prev"></i>
-                    <i class="fa-solid fa-circle-chevron-right fa-4x" data-bs-target="#video_carousel" data-bs-slide="next"></i>
+                <div class="justify-content-center">
+                    <i class="fa-solid fa-circle-chevron-left fa-4x" data-bs-target="#videos_carousel" data-bs-slide="prev"></i>
+                    <i class="fa-solid fa-circle-chevron-right fa-4x" data-bs-target="#videos_carousel" data-bs-slide="next"></i>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="container-fluid" style="background-image: url({{ asset('img/pages/home/review-bg.png') }})">
-        <div class="row reviews_div">
+        <div class="row reviews">
             <div class="col reviews_title d-flex align-items-center">
                 <div class="row">
                     <img src="{{  asset('img/pages/home/review-label-pc.png') }}" alt="">
                     <div class="review_carousel_controls justify-content-center">
-                        <i class="fa-solid fa-chevron-left fa-2x" data-bs-target="#review_carousel" data-bs-slide="prev"></i>
-                        <i class="fa-solid fa-chevron-right fa-2x" data-bs-target="#review_carousel" data-bs-slide="next"></i>
+                        <i class="fa-solid fa-chevron-left fa-2x" data-bs-target="#reviews_carousel" data-bs-slide="prev"></i>
+                        <i class="fa-solid fa-chevron-right fa-2x" data-bs-target="#reviews_carousel" data-bs-slide="next"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="col reviews">
-                <div id="review_carousel" class="carousel slide text-center">
+            <div class="col">
+                <div id="reviews_carousel" class="carousel slide text-center">
                     <div class="carousel-inner">
 
                     @foreach ($data['reviews'] as $review)
@@ -186,8 +186,8 @@
                                         </div>
                                         <div class="col text-start">
                                             <h2>{{ $review->fullname }}</h2>
-                                            <h4>{{ $review->name }}</h4>
-                                            <h4>{{ \Carbon\Carbon::parse($review->reviewed_on)->toFormattedDateString()}}</h4>
+                                            <h6>{{ $review->name }}</h6>
+                                            <h6>{{ \Carbon\Carbon::parse($review->reviewed_on)->toFormattedDateString()}}</h6>
                                         </div>
                                     </div>
                                     <div class="row review_text text-start">

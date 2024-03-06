@@ -113,11 +113,18 @@ class PageController extends Controller
 
         $records = Snapshot::all()->where('residential_unit_id', $request->id);
         $snapshots = [];
-        
         foreach ($records as $snapshot) {
             array_push($snapshots, $snapshot['picture']);
         }
         $r_unit['snapshots'] = $snapshots;
+
+        $records = Property::select('amenities.id', 'amenities.name', 'amenities.type', 'amenities.picture')
+                    ->join('amenities', 'properties.id', '=', 'amenities.property_id')->where('properties.id', $r_unit['property_id'])->get();
+        $amenities = [];
+        foreach ($records as $amenity) {
+            array_push($amenities, $amenity);
+        }
+        $r_unit['amenities'] = $amenities;
 
         $data = [
             'r_unit' => $r_unit,

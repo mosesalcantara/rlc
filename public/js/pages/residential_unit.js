@@ -1,3 +1,4 @@
 $(document).ready( function () {
-    $('.snaps_carousel_item').first().addClass('active')
+    $('.snapshot_carousel_item').first().addClass('active')
+    $('.amenity_carousel_item').first().addClass('active')
 })

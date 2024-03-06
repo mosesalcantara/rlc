@@ -62,7 +62,7 @@
     color: #000b8c;
 }
 
-#images_carousel {
+#properties_carousel {
     margin: 2vh 5vw 2vh;
 }
 
@@ -121,7 +121,7 @@
     margin: 1rem;
 }
 
-.images_carousel_controls i {
+.carousel_controls i {
     color: #CC9900;
     cursor: pointer;
     margin-top: 1rem;
@@ -139,14 +139,14 @@
     border-radius: 0.5rem;
 }
 
-.video_carousel_controls i {
+.videos i {
     color: white;
     cursor: pointer;
     margin-top: 3rem;
     margin-right: 2rem;
 }
 
-.reviews_div {
+.reviews {
     padding: 5rem;
 }
 
@@ -155,7 +155,7 @@
     height: 100%;
 }
 
-.review_carousel_controls i {
+.reviews i {
     color: white;
     cursor: pointer;
     margin-top: 1.5rem;
@@ -178,10 +178,6 @@
 .profile h2 {
     color: #CC9900;
     font-size: 1.3rem;
-}
-
-.profile h4 {
-    font-size: 1rem;
 }
 
 .review_text {

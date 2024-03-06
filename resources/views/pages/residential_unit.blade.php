@@ -103,14 +103,14 @@
 
                 <div class="row">
                     <div class='col-1 d-flex align-items-center'>
-                        <i class="fa-solid fa-circle-chevron-left fa-4x" data-bs-target="#snaps_carousel" data-bs-slide="prev"></i>
+                        <i class="fa-solid fa-circle-chevron-left fa-4x" data-bs-target="#snapshots_carousel" data-bs-slide="prev"></i>
                     </div>
                     <div class="col d-flex justify-content-center">
-                        <div id="snaps_carousel" class="carousel slide">
+                        <div id="snapshots_carousel" class="carousel slide">
                             <div class="carousel-inner">
         
                             @foreach ($data['r_unit']['snapshots'] as $snapshot)
-                            <div class="carousel-item snaps_carousel_item">
+                            <div class="carousel-item snapshot_carousel_item">
                                 <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $snapshot }}" alt="">
                             </div>
                             @endforeach
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <div class="col-1 d-flex align-items-center">
-                        <i class="fa-solid fa-circle-chevron-right fa-4x" data-bs-target="#snaps_carousel" data-bs-slide="next"></i>
+                        <i class="fa-solid fa-circle-chevron-right fa-4x" data-bs-target="#snapshots_carousel" data-bs-slide="next"></i>
                     </div>
                 </div>
             </div>
@@ -131,6 +131,33 @@
             <div class="col amenities">
                 <div class="row">
                     <h1>AMENITY GALLERY</h1>
+                </div>
+
+                <div class="row">
+                    <div class='col-1 d-flex align-items-center'>
+                        <i class="fa-solid fa-circle-chevron-left fa-4x" data-bs-target="#amenities_carousel" data-bs-slide="prev"></i>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <div id="amenities_carousel" class="carousel slide">
+                            <div class="carousel-inner">
+
+                            @foreach ($data['r_unit']['amenities'] as $amenity)
+                            <div class="carousel-item amenity_carousel_item">
+                                <div class="amenity">
+                                    <img src="{{ asset('uploads/amenities/pictures') }}/{{ $amenity['picture'] }}" alt="">
+                                    <div class="name">
+                                        <h4>{{ $amenity['name'] }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1 d-flex align-items-center">
+                        <i class="fa-solid fa-circle-chevron-right fa-4x" data-bs-target="#amenities_carousel" data-bs-slide="next"></i>
+                    </div>
                 </div>
             </div>
         </div>
