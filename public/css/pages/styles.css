@@ -5,7 +5,7 @@ body {
     color: #000b8c;
 }
 
-.navbar-brand img {
+.navbar img {
     width: 3vw;
     height: 4vh;
     margin-left: 3vw;
@@ -19,9 +19,9 @@ body {
     margin-right: 7vw;
 }
 
-.nav-link {
+.nav-item a {
     color: #000b8c;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
     padding: .7rem 0;
 }
@@ -31,11 +31,11 @@ body {
     font-weight: 500;
 }
 
-.footer_links .col h3 {
+.footer h3 {
     color: #000b8c;
 }
 
-.footer_links .col a {
+.footer a {
     text-decoration: none;
     color: black;
     display: block;
@@ -55,11 +55,11 @@ body {
     display: inline;
 }
 
-.icons {
+.contact_us div {
     margin-top: 5vh;
 }
 
-.icons i {
+.contact_us i {
     color: #000b8c;
     margin-right: 1vw;
 }

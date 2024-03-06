@@ -1,27 +1,22 @@
-.title_div {
+.title {
     margin-top: 10vh;
     color: #000b8c;
-}
-
-.title {
-    width: 100%;
 } 
 
-.title_text {
+.title h1 {
     margin-left: 3vw;
     border-left: 0.2rem solid #CC9900;
     padding-left: 0.3vw;
 }
 
-.search_div {
+.search {
     margin: 3vh 0;
-    background-color: #FAFAFA;
     width: 100%;
     height: 7vh;
     border-radius: 1rem;
 }
 
-.search_drops select {
+.search select {
     background-color: #D7D7D7;
     display: inline;
     width: 15vw;
@@ -31,7 +26,7 @@
     margin-top: 0.7vh;
 }
 
-.search_drops button {
+.search button {
     display: inline;
     width: 4.5vw;
     height: 5vh;
@@ -65,11 +60,11 @@
     margin: 3vh 0;
 }
 
-.button button {
+.details button {
     color: white;
 }
 
-.picture img {
+.unit img {
     width: 33vw;
     height: 50vh;
     background-size: cover;

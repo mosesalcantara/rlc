@@ -104,8 +104,13 @@ class PageController extends Controller
         return view("pages.parking_slots")->with('data', $data);
     }
 
-    public function unit() {
-        return view('pages.unit');
+    public function residential_unit(Request $request) {
+        $r_unit = ResidentialUnit::find($request->id);
+
+        $data = [
+            'r_unit' => $r_unit,
+        ];
+        return view('pages.residential_unit')->with('data', $data);
     }
 
     public function properties() {

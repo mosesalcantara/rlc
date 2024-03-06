@@ -45,7 +45,7 @@
 
     @section('footer')
         <div class="container-fluid footer px-5">
-            <div class="row footer_links">
+            <div class="row">
                 <div class="col">
                     <h3>Quick Links</h3>
                     <a href="/">Home</a>
@@ -87,7 +87,7 @@
                     <input type="email" class="form-control" placeholder="Enter your email address">
                     <button class="btn btn-warning text-light">Subscribe Now</button>
 
-                    <div class="icons">
+                    <div>
                         <i class="fa-brands fa-facebook-f fa-2x"></i>
                         <i class="fa-brands fa-x-twitter fa-2x"></i>
                         <i class="fa-brands fa-instagram fa-2x"></i>
