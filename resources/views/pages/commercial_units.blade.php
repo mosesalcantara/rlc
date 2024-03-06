@@ -77,6 +77,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <a class="btn btn-warning" href="/for-lease/category/commercial_units/{{ $c_unit['id'] }}">VIEW RETAIL</a>
+                        </div>
                     </div>
                 </div>
             @endforeach

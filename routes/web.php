@@ -40,6 +40,8 @@ Route::get('/for-lease/category/commercial_units', [PageController::class, 'comm
 Route::get('/for-lease/category/parking_slots', [PageController::class, 'parking_slots']);
 
 Route::get('/for-lease/category/residential_units/{id}', [PageController::class, 'residential_unit']);
+Route::get('/for-lease/category/commercial_units/{id}', [PageController::class, 'commercial_unit']);
+Route::get('/for-lease/category/parking_slots/{id}', [PageController::class, 'parking_slot']);
 
 Route::get('/compare-properties', [PageController::class, 'properties']);
 

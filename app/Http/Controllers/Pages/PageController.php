@@ -132,6 +132,21 @@ class PageController extends Controller
         return view('pages.residential_unit')->with('data', $data);
     }
 
+    public function commercial_unit(Request $request) {
+        $c_unit = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->join('pictures', 'properties.id', '=', 'pictures.property_id')
+                    ->where('commercial_units.id', $request->id)->get();
+        $c_unit = $c_unit[0];
+
+        $data = [
+            'c_unit' => $c_unit,
+        ];
+        return view('pages.commercial_unit')->with('data', $data);
+    }
+
+    public function parking_slot(Request $request) {
+        return view('pages.parking_slot');
+    }
+
     public function properties() {
         return view("pages.properties");
     }

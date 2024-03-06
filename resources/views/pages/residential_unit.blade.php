@@ -145,9 +145,9 @@
                             <div class="carousel-item amenity_carousel_item">
                                 <div class="amenity">
                                     <img src="{{ asset('uploads/amenities/pictures') }}/{{ $amenity['picture'] }}" alt="">
-                                    <div class="name">
+                                    {{-- <div class="name">
                                         <h4>{{ $amenity['name'] }}</h4>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             @endforeach

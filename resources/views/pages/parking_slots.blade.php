@@ -75,6 +75,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <a class="btn btn-warning" href="/for-lease/category/parking_slots/{{ $slot['id'] }}">View Details</a>
+                        </div>
                     </div>
                 </div>
             @endforeach
