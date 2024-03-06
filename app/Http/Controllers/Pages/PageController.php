@@ -19,40 +19,24 @@ class PageController extends Controller
     }
 
     public function index() {
-        $records = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')->limit(5)->get();
-        $properties = [];
+        $properties = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')->limit(5)->get();
 
-        foreach ($records as $property) {
-            $details = [
-                'picture' => $property['picture'],
-                'logo' => $property['logo'],
-                'name' => $property['name'],
-                'description' => $property['description'],
-                'location' => $property['location'],
-                'snapshot' => '',
-                'types' => '',
-                'min' => '',
-                'max' => '',
-            ];
-            
+        foreach ($properties as $property) {
             $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
                         ->where('residential_units.property_id', $property['property_id'])->get();
-            $details['snapshot'] = $record[0]->picture;
+            $property['snapshot'] = $record[0]->picture;
 
             $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where('properties.id', $property['property_id'])->get();
             $types = '';
-
             foreach ($record as $item) {
                 $types .= ' ' . $item['type'];
             }
-            $details['types'] = $types;
+            $property['types'] = $types;
 
             $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $property['property_id'])->min('residential_units.rate');
-            $details['min'] = $min;
+            $property['min'] = $min;
             $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $property['property_id'])->max('residential_units.rate');
-            $details['max'] = $max;
-
-            array_push($properties, $details);
+            $property['max'] = $max;
         }
 
         $videos = Video::all()->sortByDesc('updated_at')->take(2);
