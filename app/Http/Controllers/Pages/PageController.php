@@ -105,7 +105,9 @@ class PageController extends Controller
     }
 
     public function residential_unit(Request $request) {
-        $r_unit = ResidentialUnit::find($request->id);
+        $r_unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->join('pictures', 'properties.id', '=', 'pictures.property_id')
+                    ->where('residential_units.id', $request->id)->get();
+        $r_unit = $r_unit[0];
 
         $data = [
             'r_unit' => $r_unit,

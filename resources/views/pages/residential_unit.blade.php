@@ -13,7 +13,7 @@
 @endsection
  
 @section('content')
-    <div class="container-fluid title_div">
+    <div class="container-fluid">
         <div class="row">
             <div class="col title">
                 <h1>Residential Units For You</h1>
@@ -21,15 +21,9 @@
         </div>
     </div>
 
-    <div class="container-fluid search_container">
+    <div class="container-fluid">
         <div class="row mt-3">
-            <div class="col search text-center">
-                <select name="" id="" class="form-select">
-                    <option value="" selected>Property Type</option>
-                    <option value="">Residential</option>
-                    <option value="">Commercial</option>
-                    <option value="">Parking</option>
-                </select>
+            <div class="col search">
                 <select name="" id="" class="form-select">
                     <option value="" selected>Location</option>
                     <option value="">Mandaluyong City</option>
@@ -55,25 +49,47 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row unit">
-            <div class="col details">
-                <h3>Axis Residences</h3>
-                <i class="fa-solid fa-location-dot fa-2x"></i>
-                <h4>Mandaluyong City</h4>
+            <div class="col info">
+                <div class="top">
+                    <h3>{{ $data['r_unit']['name'] }}</h3>
+                    <i class="fa-solid fa-location-dot fa-xl"></i>
+                    <h4>{{ $data['r_unit']['location'] }}</h4>
+                </div>
                 <div>
-                    <h6>Unit ID: AXR01</h6>
-                    <h6>Building: Tower A</h6>
-                    <h6>Unit Type: Studio</h6>
-                    <h6>Monthly Rate:PHP 25,000.00</h6>
-                    <h6>Unit Status: Fully Furnished</h6>
+                    <h6>Unit ID: {{ $data['r_unit']['unit_id'] }}</h6>
+                    <h6>Building: {{ $data['r_unit']['building'] }}</h6>
+
+                    <div class="row details">
+                        <div class="col text-center">
+                            <i class="fa-solid fa-house fa-1x"></i>
+                            <h6>UNIT TYPE</h6>
+                            <h6 class="text-dark">{{ $data['r_unit']['type'] }}</h6>
+                        </div>
+                        <div class="col text-center">
+                            <i class="fa-regular fa-square"></i>
+                            <h6>AREA</h6>
+                            <h6 class="text-dark">{{ $data['r_unit']['area'] }} SQM</h6>
+                        </div>
+                        <div class="col text-center">
+                            <i class="fa-solid fa-piggy-bank"></i>
+                            <h6>MONTHLY RATE</h6>
+                            <h6 class="text-dark">PHP {{ number_format($data['r_unit']['rate'], 2) }}</h6>
+                        </div>
+                        <div class="col text-center">
+                            <i class="fa-solid fa-key"></i>
+                            <h6>UNIT STATUS</h6>
+                            <h6 class="text-dark">{{ $data['r_unit']['status'] }}</h6>
+                        </div>
+                    </div>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-warning">View Project Details</button>
                 </div>
             </div>
-            <div class="col">
-                <img src="{{ asset('uploads/properties/pictures/1709259926.jpg') }}" alt="">
+            <div class="col picture text-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $data['r_unit']['picture'] }})">
+                <img src="{{ asset('uploads/properties/logos/') }}/{{ $data['r_unit']['logo'] }}" alt="">
             </div>
         </div>
     </div>

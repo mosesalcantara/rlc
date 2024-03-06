@@ -25,12 +25,6 @@
         <div class="row mt-3">
             <div class="col search text-center">
                 <select name="" id="" class="form-select">
-                    <option value="" selected>Property Type</option>
-                    <option value="">Residential</option>
-                    <option value="">Commercial</option>
-                    <option value="">Parking</option>
-                </select>
-                <select name="" id="" class="form-select">
                     <option value="" selected>Location</option>
                     <option value="">Mandaluyong City</option>
                     <option value="">Muntinlupa City</option>
@@ -76,7 +70,7 @@
                                 <div class="col text-dark">
                                     <h6>{{ $r_unit['unit_id'] }}</h6>
                                     <h6>{{ $r_unit['type'] }}</h6>
-                                    <h6>PHP {{ $r_unit['rate'] }} / mo</h6>
+                                    <h6>PHP {{ number_format($r_unit['rate'], 2) }} / mo</h6>
                                     <h6>{{ $r_unit['area'] }} SQM</h6>
                                 </div>
                             </div>

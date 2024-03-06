@@ -119,9 +119,9 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Unit Type</label>     
                             <select name="type" id="type" class="form-select">
-                                <option value="1 BR">1 Bedroom</option>
-                                <option value="2 BR">2 Bedrooms</option>
-                                <option value="3 BR">3 Bedrooms</option>
+                                <option value="1BR">1 Bedroom</option>
+                                <option value="2BR">2 Bedrooms</option>
+                                <option value="3BR">3 Bedrooms</option>
                                 <option value="PH">Penthouse</option>
                                 <option value="Studio">Studio</option>
                             </select>
