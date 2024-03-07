@@ -134,6 +134,7 @@
                     <div id="collapseEntities" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="/admin/properties">Properties</a>
+                            <a class="collapse-item" href="/admin/buildings">Buildings</a>
                             <a class="collapse-item" href="/admin/pictures">Pictures</a>
                             <a class="collapse-item" href="/admin/amenities">Amenities</a>
                             <a class="collapse-item" href="/admin/residential">Residential Units</a>

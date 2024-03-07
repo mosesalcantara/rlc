@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 
 use App\Models\ResidentialUnit;
 use App\Models\Property;
+use App\Models\Building;
 
 class ResidentialUnitController extends Controller
 {
 
     public function test() {        
         $r_unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', 4)->get();
-
+        
         return view('admin.residential_units.test')->with('r_unit', $r_unit);
     }
 
@@ -22,7 +23,23 @@ class ResidentialUnitController extends Controller
     }
 
     public function get_all() {
-        $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
+        $records = Property::select('residential_units.id', 'unit_id', 'type', 'area', 'rate', 'status', 'building_id', 'properties.name as property', 'properties.location as location')
+                    ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
+        
+        foreach ($records as $r_unit) {
+            $record = Building::where('id', $r_unit['building_id'])->get();
+            $r_unit['building'] = $record[0]['name'];
+        }
+
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
+    }
+
+    public function related_properties() {
+        $records = Property::all();
         
         $data = [
             'records' => $records,
@@ -31,9 +48,9 @@ class ResidentialUnitController extends Controller
         return response()->json($data);
     }
 
-    public function get_related() {
-        $records = Property::all();
-        
+    public function related_buildings(Request $request) {
+        $records = Property::join('buildings', 'properties.id', '=', 'buildings.property_id')->where('properties.id', $request->property_id)->get();
+
         $data = [
             'records' => $records,
         ];
@@ -44,20 +61,26 @@ class ResidentialUnitController extends Controller
     public function create(Request $request) {
         $record = new ResidentialUnit;
         $record->unit_id = $request->unit_id;
-        $record->building = $request->building;
         $record->type = $request->type;
         $record->area = $request->area;
         $record->rate = $request->rate;
         $record->status = $request->status;
         $record->property_id = $request->property_id;
+        $record->building_id = $request->building_id;
         $record->save();
 
         return response(['msg' => 'Added Residential Unit']);
     }
 
     public function edit(Request $request) {
-        $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->upd_id)->get();
+        $record = Property::select('residential_units.id', 'unit_id', 'type', 'area', 'rate', 'status', 'building_id', 'property_id', 'properties.name as property', 'properties.location as location')
+                    ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')
+                    ->where('residential_units.id', $request->upd_id)->get();
         $record = $record[0];
+
+        $building = Building::where('id', $record['building_id'])->get();
+        $record['building'] = $building[0]['name'];
+
         $records = Property::all();
 
         $data = [
@@ -73,12 +96,12 @@ class ResidentialUnitController extends Controller
 
         $record->update([
             'unit_id' => $request->unit_id,
-            'building' => $request->building,
             'type' => $request->type,
             'area' => $request->area,
             'rate' => $request->rate,
             'status' => $request->status,
             'property_id' => $request->property_id,
+            'building_id' => $request->building_id,
         ]);
 
         return response(['msg' => 'Updated Residential Unit']);

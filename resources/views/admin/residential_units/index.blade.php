@@ -53,16 +53,16 @@
                             <input type="text" name="unit_id" class="form-control">
                             <label for="">Unit ID</label>     
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="building" class="form-control">
-                            <label for="">Building</label>     
+                        <div class="mb-3">
+                            <label for="" class="form-label">Building</label>  
+                            <select name="building_id" id="add_building_id" class="form-select"></select>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Unit Type</label>     
                             <select name="type" class="form-select">
-                                <option value="1 BR">1 Bedroom</option>
-                                <option value="2 BR">2 Bedrooms</option>
-                                <option value="3 BR">3 Bedrooms</option>
+                                <option value="1BR">1 Bedroom</option>
+                                <option value="2BR">2 Bedrooms</option>
+                                <option value="3BR">3 Bedrooms</option>
                                 <option value="PH">Penthouse</option>
                                 <option value="Studio">Studio</option>
                             </select>
@@ -112,9 +112,9 @@
                             <input type="text" name="unit_id" id="unit_id" class="form-control">
                             <label for="">Unit ID</label>     
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="building" id="building" class="form-control">
-                            <label for="">Building</label>     
+                        <div class="mb-3">
+                            <label for="" class="form-label">Building</label>  
+                            <select name="building_id" id="upd_building_id" class="form-select"></select>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Unit Type</label>     

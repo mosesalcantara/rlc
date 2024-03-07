@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\Admin\BuildingController;
 use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\ResidentialUnitController;
 use App\Http\Controllers\Admin\CommercialUnitController;
@@ -73,6 +74,16 @@ Route::prefix('admin/properties')->group(function () {
     Route::post('/delete', [PropertyController::class, 'delete']);
 });
 
+Route::prefix('admin/buildings')->group(function () {
+    Route::get('/', [BuildingController::class, 'index']);
+    Route::post('/', [BuildingController::class, 'get_all']);
+    Route::post('/get-related', [BuildingController::class, 'get_related']);
+    Route::post('/add', [BuildingController::class, 'create']);
+    Route::post('/edit', [BuildingController::class, 'edit']);
+    Route::post('/update', [BuildingController::class, 'update']);
+    Route::post('/delete', [BuildingController::class, 'delete']);
+});
+
 Route::prefix('admin/amenities')->group(function () {
     Route::get('/', [AmenityController::class, 'index']);
     Route::post('/', [AmenityController::class, 'get_all']);
@@ -86,7 +97,8 @@ Route::prefix('admin/amenities')->group(function () {
 Route::prefix('admin/residential')->group(function () {
     Route::get('/', [ResidentialUnitController::class, 'index']);
     Route::post('/', [ResidentialUnitController::class, 'get_all']);
-    Route::post('/get-related', [ResidentialUnitController::class, 'get_related']);
+    Route::post('/related-properties', [ResidentialUnitController::class, 'related_properties']);
+    Route::post('/related-buildings', [ResidentialUnitController::class, 'related_buildings']);
     Route::post('/add', [ResidentialUnitController::class, 'create']);
     Route::post('/edit', [ResidentialUnitController::class, 'edit']);
     Route::post('/update', [ResidentialUnitController::class, 'update']);

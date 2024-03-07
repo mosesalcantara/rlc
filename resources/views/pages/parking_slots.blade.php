@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer border-0">
                             <a class="btn btn-warning" href="/for-lease/category/parking_slots/{{ $slot['id'] }}">View Details</a>
                         </div>
                     </div>
