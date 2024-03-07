@@ -1,6 +1,4 @@
-$(document).ready( function () {
-    var building_id = ''
-    
+$(document).ready( function () {    
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -16,8 +14,8 @@ $(document).ready( function () {
                 $.each(records, function(row, field) {
                     var option = $('<option>').text(field.name).val(field.id)
                     $('#add_property_id').append(option)
-                    $('#add_property_id').val('')
                 })
+                $('#add_property_id').val('')
             },
             error: function (xhr, status, error) {
 
@@ -27,13 +25,12 @@ $(document).ready( function () {
 
     $("#add_property_id").on( "change", function() {
         $('#add_building_id').empty()
-        var property_id = $('#add_property_id').val()
 
         $.ajax({
             url: "/admin/residential/related-buildings",
             method: 'POST',
             data: { 
-                'property_id': property_id,
+                'property_id': $('#add_property_id').val(),
             },
             success: function (res) {
                 var records = res.records
@@ -87,6 +84,7 @@ $(document).ready( function () {
                     var option = $('<option>').text(field.name).val(field.id)
                     $('#upd_building_id').append(option)
                 })
+
             },
             error: function (xhr, status, error) {
                 console.log(xhr)
@@ -227,7 +225,6 @@ function get_upd_id(id){
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record
-        console.log(record.building_id)
         var records = res.records
 
         $.each(records, function(row, field) {
@@ -237,32 +234,26 @@ function get_upd_id(id){
 
         $('#upd_property_id').val(record.property_id)
 
-        $('#upd_building_id').empty()
-        var property_id = $('#upd_property_id').val()
-
         $.ajax({
             url: "/admin/residential/related-buildings",
             method: 'POST',
             data: { 
-                'property_id': property_id,
+                'property_id': $('#upd_property_id').val(),
             },
             success: function (res) {
-                var records1 = res.records
-                $.each(records1, function(row, field) {
+                var records = res.records
+                $.each(records, function(row, field) {
                     var option = $('<option>').text(field.name).val(field.id)
                     $('#upd_building_id').append(option)
                 })
 
-                console.log($('#upd_building_id').val())
-                $('#upd_building_id').val(7)
-                console.log($('#upd_building_id').val())
+                $('#upd_building_id').val(record.building_id)
             },
             error: function (xhr, status, error) {
                 console.log(xhr)
             },
         })    
-        $('#upd_building_id').val(record.building_id)
-        console.log($('#upd_building_id').val())
+
         $('#unit_id').val(record.unit_id)
         $('#building').val(record.building)
         $('#type').val(record.type)

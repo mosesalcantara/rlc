@@ -7,7 +7,7 @@ $(document).ready( function () {
 
     $('#addModal').on('show.bs.modal', function(e) {
       $.ajax({
-          url: "/admin/commercial/get-related/",
+          url: "/admin/commercial/related-properties/",
           method: 'POST',
           success: function (res) {
               var records = res.records
@@ -15,6 +15,7 @@ $(document).ready( function () {
                   var option = $('<option>').text(field.name).val(field.id)
                   $('#add_property_id').append(option)
               })
+              $('#add_property_id').val('')
           },
           error: function (xhr, status, error) {
 
@@ -22,8 +23,31 @@ $(document).ready( function () {
         })    
     })
 
+    $("#add_property_id").on( "change", function() {
+      $('#add_building_id').empty()
+
+      $.ajax({
+          url: "/admin/commercial/related-buildings",
+          method: 'POST',
+          data: { 
+              'property_id': $('#add_property_id').val(),
+          },
+          success: function (res) {
+              var records = res.records
+              $.each(records, function(row, field) {
+                  var option = $('<option>').text(field.name).val(field.id)
+                  $('#add_building_id').append(option)
+              })
+          },
+          error: function (xhr, status, error) {
+
+          },
+      })    
+    });
+
     $('#addModal').on('hide.bs.modal', function(e) {
         $('#add_property_id').empty()
+        $('#add_building_id').empty()
     })
 
     $('#addForm').submit(function(e) {
@@ -42,10 +66,35 @@ $(document).ready( function () {
 
           },
         })    
-    })   
+    })  
+    
+    $("#upd_property_id").on( "change", function() {
+      $('#upd_building_id').empty()
+      var property_id = $('#upd_property_id').val()
+
+      $.ajax({
+          url: "/admin/commercial/related-buildings",
+          method: 'POST',
+          data: { 
+              'property_id': property_id,
+          },
+          success: function (res) {
+              var records = res.records
+              $.each(records, function(row, field) {
+                  var option = $('<option>').text(field.name).val(field.id)
+                  $('#upd_building_id').append(option)
+              })
+
+          },
+          error: function (xhr, status, error) {
+              console.log(xhr)
+          },
+      })    
+  });
 
     $('#updModal').on('hide.bs.modal', function(e) {
       $('#upd_property_id').empty()
+      $('#upd_building_id').empty()
     })
 
     $('#updForm').submit(function(e) {
@@ -112,7 +161,7 @@ function get_all() {
             var tbody = $('<tbody>')
             $.each(records, function(row, field) {
                 var tr = $('<tr>')
-                tr.append($('<td>').text(field.name))
+                tr.append($('<td>').text(field.property))
                 tr.append($('<td>').text(field.location))
                 tr.append($('<td>').text(field.retail_id))
                 tr.append($('<td>').text(field.building))
@@ -178,8 +227,28 @@ function get_upd_id(id){
         })
 
         $('#upd_property_id').val(record.property_id)
+
+        $.ajax({
+          url: "/admin/commercial/related-buildings",
+          method: 'POST',
+          data: { 
+              'property_id': $('#upd_property_id').val(),
+          },
+          success: function (res) {
+              var records = res.records
+              $.each(records, function(row, field) {
+                  var option = $('<option>').text(field.name).val(field.id)
+                  $('#upd_building_id').append(option)
+              })
+
+              $('#upd_building_id').val(record.building_id)
+          },
+          error: function (xhr, status, error) {
+              console.log(xhr)
+          },
+      })    
+
         $('#retail_id').val(record.retail_id)
-        $('#building').val(record.building)
         $('#size').val(record.size)
       }
     })

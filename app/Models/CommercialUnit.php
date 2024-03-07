@@ -11,8 +11,8 @@ class CommercialUnit extends Model
 
     protected $fillable = [
         'retail_id',
-        'building',
         'size',
         'property_id',
+        'building_id',
     ];
 }

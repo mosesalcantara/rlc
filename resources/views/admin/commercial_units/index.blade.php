@@ -52,9 +52,9 @@
                             <label for="">Retail ID</label>   
                         </div>
                 
-                        <div class="form-floating mb-3"> 
-                            <input type="text" name="building" class="form-control">
-                            <label for="">Building</label>    
+                        <div class="mb-3">
+                            <label for="" class="form-label">Building</label>  
+                            <select name="building_id" id="add_building_id" class="form-select"></select>
                         </div>
                 
                         <div class="form-floating mb-3">  
@@ -91,9 +91,9 @@
                             <label for="">Retail ID</label>   
                         </div>
                 
-                        <div class="form-floating mb-3"> 
-                            <input type="text" name="building" id="building" class="form-control">
-                            <label for="">Building</label>    
+                        <div class="mb-3">
+                            <label for="" class="form-label">Building</label>  
+                            <select name="building_id" id="upd_building_id" class="form-select"></select>
                         </div>
                 
                         <div class="form-floating mb-3">  

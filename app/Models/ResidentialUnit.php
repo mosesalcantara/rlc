@@ -16,12 +16,12 @@ class ResidentialUnit extends Model
 
     protected $fillable = [
         'unit_id',
-        'building',
         'type',
         'area',
         'rate',
         'status',
         'property_id',
+        'building_id',
     ];
 
     public function property(): BelongsTo

@@ -110,7 +110,8 @@ Route::prefix('admin/residential')->group(function () {
 Route::prefix('admin/commercial')->group(function () {
     Route::get('/', [CommercialUnitController::class, 'index']);
     Route::post('/', [CommercialUnitController::class, 'get_all']);
-    Route::post('/get-related', [CommercialUnitController::class, 'get_related']);
+    Route::post('/related-properties', [CommercialUnitController::class, 'related_properties']);
+    Route::post('/related-buildings', [CommercialUnitController::class, 'related_buildings']);
     Route::post('/add', [CommercialUnitController::class, 'create']);
     Route::post('/edit', [CommercialUnitController::class, 'edit']);
     Route::post('/update', [CommercialUnitController::class, 'update']);
