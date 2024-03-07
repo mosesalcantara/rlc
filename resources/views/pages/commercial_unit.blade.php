@@ -71,6 +71,38 @@
             </div>
         </div>
     </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col floor_plan">
+                <div class="row">
+                    <h1>Floor Plan</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row d-flex justify-content-center">
+                            <img src="{{ asset('uploads/buildings/floor_plans/') }}/{{ $data['c_unit']['floor_plan'] }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row d-flex justify-content-center text-center tbl_measurements">
+                            <table class="table">
+                                <tbody>
+                                    @foreach ($data['measurements'] as $measurement)
+                                    <tr>
+                                        <td><h6>{{ $measurement['retail_id'] }}</h6></td>
+                                        <td><h6>{{ $measurement['size'] }} sqm</h6></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('footer')
@@ -79,6 +111,4 @@
 
 @section('scripts')
     @parent
-
-    <script src="{{ asset('js/pages/residential_unit.js') }}"></script>
 @endsection

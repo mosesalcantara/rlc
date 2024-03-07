@@ -81,3 +81,27 @@
     margin: 3rem 0 0;
     width: 25%;
 }
+
+.floor_plan {
+    color: #000b8c;
+    background-color: white;
+    margin-top: 1.5rem;
+    padding: 1rem 7rem 2rem;
+}
+
+.floor_plan h1 {
+    font-size: 2.7rem;
+    margin-bottom: 2rem;
+}
+
+.tbl_measurements table {
+    width: 55%;
+}
+
+.tbl_measurements td {
+    border-bottom: 0.2rem solid #CC9900;
+}
+
+.tbl_measurements h6 {
+    font-size: 0.85rem;
+}

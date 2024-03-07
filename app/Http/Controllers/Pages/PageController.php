@@ -147,15 +147,33 @@ class PageController extends Controller
 
         $record = Building::where('id', $c_unit['building_id'])->get();
         $c_unit['building'] = $record[0]['name'];
+        $c_unit['floor_plan'] = $record[0]['floor_plan'];
+
+        $measurements = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->get();
 
         $data = [
             'c_unit' => $c_unit,
+            'measurements' => $measurements,
         ];
         return view('pages.commercial_unit')->with('data', $data);
     }
 
     public function parking_slot(Request $request) {
-        return view('pages.parking_slot');
+        $property = Property::selectRaw('properties.id, properties.name, properties.location, properties.logo, Min(parking_slots.rate) as min, Max(parking_slots.rate) as max')
+                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupBy('properties.id')->where('properties.id', $request->id)->get();
+        $property = $property[0];
+
+        $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                    ->where('properties.id', $property['id'])->get();
+        $property['picture'] = $record[0]->picture;
+
+        $slots = Property::join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where('properties.id', $property['id'])->get();
+
+        $data = [
+            'property' => $property,
+            'slots' => $slots,
+        ];
+        return view('pages.parking_slot')->with('data', $data);
     }
 
     public function properties() {

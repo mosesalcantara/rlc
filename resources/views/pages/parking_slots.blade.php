@@ -64,10 +64,10 @@
                         <img class="card-img-top" src="{{ asset('uploads/properties/pictures') }}/{{ $slot['picture'] }}" alt="">
                         <div class="card-body details">
                             <h3>{{ $slot['name'] }}</h3>
-                            <i class="fa-solid fa-location-dot fa-2x"></i>
+                            <i class="fa-solid fa-location-dot fa-xl"></i>
                             <h4>{{ $slot['location'] }}</h4>
                             <div class="row table">
-                                <div class="col">
+                                <div class="col-2">
                                     <h6>Rate</h6>
                                 </div>
                                 <div class="col text-dark">

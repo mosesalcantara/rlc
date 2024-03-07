@@ -58,10 +58,10 @@
                         <img class='card-img-top' src="{{ asset('uploads/residential_units/snapshots') }}/{{ $r_unit['snapshot'] }}" alt="">
                         <div class="card-body details">
                             <h3>{{ $r_unit['name'] }}</h3>
-                            <i class="fa-solid fa-location-dot fa-2x"></i>
+                            <i class="fa-solid fa-location-dot fa-xl"></i>
                             <h4>{{ $r_unit['location'] }}</h4>
                             <div class="row table">
-                                <div class="col">
+                                <div class="col-4">
                                     <h6>Unit ID</h6>
                                     <h6>Unit Type</h6>
                                     <h6>Rental Rate</h6>

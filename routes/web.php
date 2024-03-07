@@ -196,5 +196,3 @@ Route::prefix('admin/articles')->group(function () {
     Route::post('/update', [ArticleController::class, 'update']);
     Route::post('/delete', [ArticleController::class, 'delete']);
 });
-
-

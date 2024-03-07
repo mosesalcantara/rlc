@@ -64,10 +64,10 @@
                         <img class='card-img-top' src="{{ asset('uploads/properties/pictures') }}/{{ $c_unit['picture'] }}" alt="">
                         <div class="card-body details">
                             <h3>{{ $c_unit['name'] }}</h3>
-                            <i class="fa-solid fa-location-dot fa-2x"></i>
+                            <i class="fa-solid fa-location-dot fa-xl"></i>
                             <h4>{{ $c_unit['location'] }}</h4>
                             <div class="row table">
-                                <div class="col">
+                                <div class="col-4">
                                     <h6>Retail ID</h6>
                                     <h6>Area</h6>
                                 </div>
