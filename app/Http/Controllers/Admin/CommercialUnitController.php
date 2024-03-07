@@ -63,17 +63,6 @@ class CommercialUnitController extends Controller
     }
 
     public function edit(Request $request) {
-        // $record = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('commercial_units.id', $request->upd_id)->get();
-        // $record = $record[0];
-        // $records = Property::all();
-
-        // $data = [
-        //     'record' => $record,
-        //     'records' => $records,
-        // ];
-
-        // return response()->json($data);
-
         $record = Property::select('commercial_units.id', 'retail_id', 'size', 'building_id', 'property_id', 'properties.name as property', 'properties.location as location')
                     ->join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')
                     ->where('commercial_units.id', $request->upd_id)->get();
@@ -82,11 +71,13 @@ class CommercialUnitController extends Controller
         $building = Building::where('id', $record['building_id'])->get();
         $record['building'] = $building[0]['name'];
 
-        $records = Property::all();
+        $properties = Property::all();
+        $buildings = Property::join('buildings', 'properties.id', '=', 'buildings.property_id')->where('properties.id', $record['property_id'])->get();
 
         $data = [
             'record' => $record,
-            'records' => $records,
+            'properties' => $properties,
+            'buildings' => $buildings,
         ];
 
         return response()->json($data);

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Property;
+use App\Models\Building;
 use App\Models\Video;
 use App\Models\ResidentialUnit;
 use App\Models\Snapshot;
@@ -79,6 +80,9 @@ class PageController extends Controller
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.id', $c_unit['property_id'])->get();
             $c_unit['picture'] = $record[0]->picture;
+
+            $record = Building::where('id', $c_unit['building_id'])->get();
+            $c_unit['building'] = $record[0]['name'];
         }
 
         $data = [
@@ -110,9 +114,12 @@ class PageController extends Controller
                     ->where('residential_units.id', $request->id)->get();
         $r_unit = $r_unit[0];
 
+        $record = Building::where('id', $r_unit['building_id'])->get();
+        $r_unit['building'] = $record[0]['name'];
 
         $records = Snapshot::all()->where('residential_unit_id', $request->id);
         $snapshots = [];
+
         foreach ($records as $snapshot) {
             array_push($snapshots, $snapshot['picture']);
         }
@@ -121,6 +128,7 @@ class PageController extends Controller
         $records = Property::select('amenities.id', 'amenities.name', 'amenities.type', 'amenities.picture')
                     ->join('amenities', 'properties.id', '=', 'amenities.property_id')->where('properties.id', $r_unit['property_id'])->get();
         $amenities = [];
+        
         foreach ($records as $amenity) {
             array_push($amenities, $amenity);
         }
@@ -136,6 +144,9 @@ class PageController extends Controller
         $c_unit = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->join('pictures', 'properties.id', '=', 'pictures.property_id')
                     ->where('commercial_units.id', $request->id)->get();
         $c_unit = $c_unit[0];
+
+        $record = Building::where('id', $c_unit['building_id'])->get();
+        $c_unit['building'] = $record[0]['name'];
 
         $data = [
             'c_unit' => $c_unit,

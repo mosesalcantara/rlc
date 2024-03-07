@@ -219,34 +219,21 @@ function get_upd_id(id){
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record
-        var records = res.records
+        var properties = res.properties
+        var buildings = res.buildings
 
-        $.each(records, function(row, field) {
+        $.each(properties, function(row, field) {
             var option = $('<option>').text(field.name).val(field.id)
             $('#upd_property_id').append(option)
         })
-
         $('#upd_property_id').val(record.property_id)
 
-        $.ajax({
-          url: "/admin/commercial/related-buildings",
-          method: 'POST',
-          data: { 
-              'property_id': $('#upd_property_id').val(),
-          },
-          success: function (res) {
-              var records = res.records
-              $.each(records, function(row, field) {
-                  var option = $('<option>').text(field.name).val(field.id)
-                  $('#upd_building_id').append(option)
-              })
-
-              $('#upd_building_id').val(record.building_id)
-          },
-          error: function (xhr, status, error) {
-              console.log(xhr)
-          },
-      })    
+        
+        $.each(buildings, function(row, field) {
+            var option = $('<option>').text(field.name).val(field.id)
+            $('#upd_building_id').append(option)
+        })
+        $('#upd_building_id').val(record.building_id)
 
         $('#retail_id').val(record.retail_id)
         $('#size').val(record.size)

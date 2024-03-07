@@ -81,11 +81,13 @@ class ResidentialUnitController extends Controller
         $building = Building::where('id', $record['building_id'])->get();
         $record['building'] = $building[0]['name'];
 
-        $records = Property::all();
+        $properties = Property::all();
+        $buildings = Property::join('buildings', 'properties.id', '=', 'buildings.property_id')->where('properties.id', $record['property_id'])->get();
 
         $data = [
             'record' => $record,
-            'records' => $records,
+            'properties' => $properties,
+            'buildings' => $buildings,
         ];
 
         return response()->json($data);
