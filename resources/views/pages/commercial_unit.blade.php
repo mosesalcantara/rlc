@@ -87,7 +87,7 @@
                     </div>
                     <div class="col">
                         <div class="row d-flex justify-content-center text-center tbl_measurements">
-                            <table class="table">
+                            <table class="table table-sm">
                                 <tbody>
                                     @foreach ($data['measurements'] as $measurement)
                                     <tr>

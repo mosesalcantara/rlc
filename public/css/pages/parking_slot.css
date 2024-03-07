@@ -33,7 +33,6 @@
 .unit {
     background-color: white;
     border-radius: 1rem;
-    height: 70vh;
     margin: 0.5rem 5rem 1.5rem;
 }
 
@@ -64,7 +63,7 @@
 }
 
 .info h6 {
-    margin-top: 1.5rem;
+    margin: 1.5rem 0 1.5rem;
     color: #000b8c;
 }
 
@@ -72,10 +71,21 @@
     color: black;
 }
 
+.requirements {
+    overflow-y: scroll;
+    height: 50vh;
+    padding-left: 2.5vw;
+}
+
+.requirements h5 {
+    color: #000b8c;
+}
+
 .info button {
     color: white;
     padding: 0.75rem;
     border-radius: 0.7rem;
+    margin: 1.5rem 0 1.5rem;
 }
 
 .picture {
@@ -97,8 +107,7 @@
 
 .rates h6 {
     color: black;
-    margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
+    margin: 1.5rem 0 2.5rem;
 }
 
 .tbl_slots th, .tbl_slots td {
