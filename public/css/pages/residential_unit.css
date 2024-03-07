@@ -86,7 +86,7 @@
     line-height: normal;
 }
 
-.info button {
+.info a {
     color: white;
     padding: 0.75rem;
     border-radius: 0.7rem;

@@ -63,7 +63,7 @@
                     <h6>Size: {{ $data['c_unit']['size'] }}</h6>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-warning">View Project Details</button>
+                    <a class="btn btn-warning" href='/for-lease/property/{{ $data['c_unit']['property_id'] }}'>View Project Details</a>
                 </div>
             </div>
             <div class="col picture text-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $data['c_unit']['picture'] }})">

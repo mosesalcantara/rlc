@@ -87,7 +87,7 @@
                     </ul>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-warning">View Project Details</button>
+                    <a class="btn btn-warning" href='/for-lease/property/{{ $data['property']['id'] }}'>View Project Details</a>
                 </div>
             </div>
             <div class="col picture text-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $data['property']['picture'] }})">

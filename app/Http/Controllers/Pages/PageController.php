@@ -176,6 +176,15 @@ class PageController extends Controller
         return view('pages.parking_slot')->with('data', $data);
     }
 
+    public function property(Request $request) {
+        $property = Property::find($request->id);
+
+        $data = [
+            'property' => $property,
+        ];
+        return view('pages.property')->with('data', $data);
+    }
+
     public function properties() {
         return view("pages.properties");
     }
