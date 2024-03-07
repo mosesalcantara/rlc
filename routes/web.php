@@ -5,16 +5,16 @@ use App\Http\Controllers\Pages\PageController;
 use App\Http\Controllers\Auth\AuthController;
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\BuildingController;
+use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\ResidentialUnitController;
+use App\Http\Controllers\Admin\SnapshotController;
 use App\Http\Controllers\Admin\CommercialUnitController;
 use App\Http\Controllers\Admin\ParkingSlotController;
-use App\Http\Controllers\Admin\VideoController;
-use App\Http\Controllers\Admin\SnapshotController;
-use App\Http\Controllers\Admin\ReviewController;
-use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\Admin\AboutItemController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ContactItemController;
@@ -65,6 +65,26 @@ Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index']);
 });
 
+Route::prefix('admin/videos')->group(function () {
+    Route::get('/', [VideoController::class, 'index']);
+    Route::post('/', [VideoController::class, 'get_all']);
+    Route::post('/add', [VideoController::class, 'create']);
+    Route::post('/edit', [VideoController::class, 'edit']);
+    Route::post('/update', [VideoController::class, 'update']);
+    Route::post('/delete', [VideoController::class, 'delete']);
+});
+
+
+Route::prefix('admin/reviews')->group(function () {
+    Route::get('/', [ReviewController::class, 'index']);
+    Route::post('/', [ReviewController::class, 'get_all']);
+    Route::post('/get-related', [ReviewController::class, 'get_related']);
+    Route::post('/add', [ReviewController::class, 'create']);
+    Route::post('/edit', [ReviewController::class, 'edit']);
+    Route::post('/update', [ReviewController::class, 'update']);
+    Route::post('/delete', [ReviewController::class, 'delete']);
+});
+
 Route::prefix('admin/properties')->group(function () {
     Route::get('/', [PropertyController::class, 'index']);
     Route::post('/', [PropertyController::class, 'get_all']);
@@ -82,6 +102,16 @@ Route::prefix('admin/buildings')->group(function () {
     Route::post('/edit', [BuildingController::class, 'edit']);
     Route::post('/update', [BuildingController::class, 'update']);
     Route::post('/delete', [BuildingController::class, 'delete']);
+});
+
+Route::prefix('admin/pictures')->group(function () {
+    Route::get('/', [PictureController::class, 'index']);
+    Route::post('/', [PictureController::class, 'get_all']);
+    Route::post('/get-related', [PictureController::class, 'get_related']);
+    Route::post('/add', [PictureController::class, 'create']);
+    Route::post('/edit', [PictureController::class, 'edit']);
+    Route::post('/update', [PictureController::class, 'update']);
+    Route::post('/delete', [PictureController::class, 'delete']);
 });
 
 Route::prefix('admin/amenities')->group(function () {
@@ -107,6 +137,16 @@ Route::prefix('admin/residential')->group(function () {
     Route::get('/test', [ResidentialUnitController::class, 'test']);
 });
 
+Route::prefix('admin/snapshots')->group(function () {
+    Route::get('/', [SnapshotController::class, 'index']);
+    Route::post('/', [SnapshotController::class, 'get_all']);
+    Route::post('/get-related', [SnapshotController::class, 'get_related']);
+    Route::post('/add', [SnapshotController::class, 'create']);
+    Route::post('/edit', [SnapshotController::class, 'edit']);
+    Route::post('/update', [SnapshotController::class, 'update']);
+    Route::post('/delete', [SnapshotController::class, 'delete']);
+});
+
 Route::prefix('admin/commercial')->group(function () {
     Route::get('/', [CommercialUnitController::class, 'index']);
     Route::post('/', [CommercialUnitController::class, 'get_all']);
@@ -128,44 +168,15 @@ Route::prefix('admin/parking')->group(function () {
     Route::post('/delete', [ParkingSlotController::class, 'delete']);
 });
 
-Route::prefix('admin/videos')->group(function () {
-    Route::get('/', [VideoController::class, 'index']);
-    Route::post('/', [VideoController::class, 'get_all']);
-    Route::post('/add', [VideoController::class, 'create']);
-    Route::post('/edit', [VideoController::class, 'edit']);
-    Route::post('/update', [VideoController::class, 'update']);
-    Route::post('/delete', [VideoController::class, 'delete']);
+Route::prefix('admin/contact')->group(function () {
+    Route::get('/', [ContactItemController::class, 'index']);
+    Route::post('/', [ContactItemController::class, 'get_all']);
+    Route::post('/add', [ContactItemController::class, 'create']);
+    Route::post('/edit', [ContactItemController::class, 'edit']);
+    Route::post('/update', [ContactItemController::class, 'update']);
+    Route::post('/delete', [ContactItemController::class, 'delete']);
 });
 
-Route::prefix('admin/snapshots')->group(function () {
-    Route::get('/', [SnapshotController::class, 'index']);
-    Route::post('/', [SnapshotController::class, 'get_all']);
-    Route::post('/get-related', [SnapshotController::class, 'get_related']);
-    Route::post('/add', [SnapshotController::class, 'create']);
-    Route::post('/edit', [SnapshotController::class, 'edit']);
-    Route::post('/update', [SnapshotController::class, 'update']);
-    Route::post('/delete', [SnapshotController::class, 'delete']);
-});
-
-Route::prefix('admin/reviews')->group(function () {
-    Route::get('/', [ReviewController::class, 'index']);
-    Route::post('/', [ReviewController::class, 'get_all']);
-    Route::post('/get-related', [ReviewController::class, 'get_related']);
-    Route::post('/add', [ReviewController::class, 'create']);
-    Route::post('/edit', [ReviewController::class, 'edit']);
-    Route::post('/update', [ReviewController::class, 'update']);
-    Route::post('/delete', [ReviewController::class, 'delete']);
-});
-
-Route::prefix('admin/pictures')->group(function () {
-    Route::get('/', [PictureController::class, 'index']);
-    Route::post('/', [PictureController::class, 'get_all']);
-    Route::post('/get-related', [PictureController::class, 'get_related']);
-    Route::post('/add', [PictureController::class, 'create']);
-    Route::post('/edit', [PictureController::class, 'edit']);
-    Route::post('/update', [PictureController::class, 'update']);
-    Route::post('/delete', [PictureController::class, 'delete']);
-});
 
 Route::prefix('admin/about')->group(function () {
     Route::get('/', [AboutItemController::class, 'index']);
@@ -186,11 +197,4 @@ Route::prefix('admin/articles')->group(function () {
     Route::post('/delete', [ArticleController::class, 'delete']);
 });
 
-Route::prefix('admin/contact')->group(function () {
-    Route::get('/', [ContactItemController::class, 'index']);
-    Route::post('/', [ContactItemController::class, 'get_all']);
-    Route::post('/add', [ContactItemController::class, 'create']);
-    Route::post('/edit', [ContactItemController::class, 'edit']);
-    Route::post('/update', [ContactItemController::class, 'update']);
-    Route::post('/delete', [ContactItemController::class, 'delete']);
-});
+

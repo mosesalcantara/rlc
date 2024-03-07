@@ -133,6 +133,7 @@
                     </a>
                     <div id="collapseEntities" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="/admin/videos">Videos</a>
                             <a class="collapse-item" href="/admin/properties">Properties</a>
                             <a class="collapse-item" href="/admin/buildings">Buildings</a>
                             <a class="collapse-item" href="/admin/pictures">Pictures</a>
@@ -141,7 +142,6 @@
                             <a class="collapse-item" href="/admin/snapshots">Snapshots</a>
                             <a class="collapse-item" href="/admin/commercial">Commercial Units</a>
                             <a class="collapse-item" href="/admin/parking">Parking Slots</a>
-                            <a class="collapse-item" href="/admin/videos">Videos</a>
                         </div>
                     </div>
                 </li>

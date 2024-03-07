@@ -11,13 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('measurements', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->double('area', 10, 2);
-            $table->foreignId('building_id');
-            $table->timestamps();
-        });
+        Schema::dropIfExists('measurements');
     }
 
     /**
@@ -25,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('measurements');
+        //
     }
 };
