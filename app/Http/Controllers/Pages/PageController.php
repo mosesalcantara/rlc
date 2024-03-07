@@ -177,10 +177,11 @@ class PageController extends Controller
     }
 
     public function property(Request $request) {
-        $property = Property::find($request->id);
+        $pictures = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                        ->where('properties.id', $request->id)->get();
 
         $data = [
-            'property' => $property,
+            'pictures' => $pictures,
         ];
         return view('pages.property')->with('data', $data);
     }
