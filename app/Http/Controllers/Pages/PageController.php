@@ -170,6 +170,19 @@ class PageController extends Controller
                     ->where('properties.id', $property['id'])->get();
         $property['picture'] = $record[0]->picture;
 
+        $records = Property::join('terms', 'properties.id', '=', 'terms.property_id')->where('properties.id', $property['id'])->orderBy('category')->get();
+        $terms = [
+            'Lease Term' => [],
+            'Payment Term' => [],
+            'Mode of Payment' => [],
+            'Documents' => [],
+            'Important Notice' => [],
+        ];
+        foreach ($records as $record) {
+            array_push($terms[$record['category']], $record['description']);
+        }
+        $property['terms'] = $terms;
+
         $slots = Property::join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where('properties.id', $property['id'])->get();
 
         $data = [

@@ -60,31 +60,14 @@
                 </div>
                 <div class="requirements">
                     <h4>PARKING LEASE REQUIREMENTS & GUIDELINES</h4>
-                    <h5>Lease Term</h5>
+                    @foreach ($data['property']['terms'] as $category => $terms)
+                    <h5>{{ $category }}</h5>
                     <ul>
-                        <li>Minimum of six (6) months lease term</li>
-                        <li>Maximum of one (1) year lease term</li>
-                        <li>Renewal is subject to parking slot availability</li>
+                        @foreach ($terms as $term)
+                        <li>{{ $term }}</li>
+                        @endforeach
                     </ul>
-                    <h5>Payment Term</h5>
-                    <ul>
-                        <li>One (1) month advance rent + one (1) month security deposit</li>
-                    </ul>
-                    <h5>Mode of Payment</h5>
-                    <ul>
-                        <li>Postdated checks for the entire lease term</li>
-                    </ul>
-                    <h5>Documents</h5>
-                    <ul>
-                        <li>Accomplished Lessee Data Form</li>
-                        <li>ORCR of the vehicle/s</li>
-                        <li>Two (2) government issued IDs (Driver's License included)</li>
-                    </ul>
-                    <h5>Important Notice</h5>
-                    <ul>
-                        <li>Lessee must be a resident of the condominium property</li>
-                        <li>RFID / car pass must be processed by the tenant through Property Management Office (PMO) on the commencement of the Lease Contract</li>
-                    </ul>
+                    @endforeach
                 </div>
                 <div class="text-center">
                     <a class="btn btn-warning" href='/for-lease/property/{{ $data['property']['id'] }}'>View Project Details</a>
