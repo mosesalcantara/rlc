@@ -142,6 +142,7 @@
                             <a class="collapse-item" href="/admin/snapshots">Snapshots</a>
                             <a class="collapse-item" href="/admin/commercial">Commercial Units</a>
                             <a class="collapse-item" href="/admin/parking">Parking Slots</a>
+                            <a class="collapse-item" href="/admin/terms">Terms</a>
                         </div>
                     </div>
                 </li>

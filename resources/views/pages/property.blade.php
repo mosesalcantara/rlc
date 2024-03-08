@@ -23,7 +23,7 @@
                             <div class="picture" style="background-image: url({{ asset('uploads/properties/pictures') }}//{{ $picture }});"> 
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="logo text-center">
+                                        <div class="logo d-flex justify-content-center align-items-center">
                                             <img src="{{ asset('uploads/properties/logos') }}/{{ $data['property']['logo'] }}" alt="">
                                         </div>
                                     </div>

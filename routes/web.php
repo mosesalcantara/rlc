@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ResidentialUnitController;
 use App\Http\Controllers\Admin\SnapshotController;
 use App\Http\Controllers\Admin\CommercialUnitController;
 use App\Http\Controllers\Admin\ParkingSlotController;
+use App\Http\Controllers\Admin\TermController;
 use App\Http\Controllers\Admin\AboutItemController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ContactItemController;
@@ -168,6 +169,16 @@ Route::prefix('admin/parking')->group(function () {
     Route::post('/edit', [ParkingSlotController::class, 'edit']);
     Route::post('/update', [ParkingSlotController::class, 'update']);
     Route::post('/delete', [ParkingSlotController::class, 'delete']);
+});
+
+Route::prefix('admin/terms')->group(function () {
+    Route::get('/', [TermController::class, 'index']);
+    Route::post('/', [TermController::class, 'get_all']);
+    Route::post('/get-related', [TermController::class, 'get_related']);
+    Route::post('/add', [TermController::class, 'create']);
+    Route::post('/edit', [TermController::class, 'edit']);
+    Route::post('/update', [TermController::class, 'update']);
+    Route::post('/delete', [TermController::class, 'delete']);
 });
 
 Route::prefix('admin/contact')->group(function () {

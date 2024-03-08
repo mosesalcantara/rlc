@@ -10,11 +10,12 @@
     opacity: 70%;
     background-color: white;
     border-radius: 0.7rem;
+    height: 20vh; 
+    width: 30vw;
 }
 
 .logo img {
-    width: 50%;
-    padding: 3rem 0 2.5rem;
+    width: 45%;
 }
 
 .about {
@@ -115,6 +116,10 @@
     margin-top: 0.2rem;
 }
 
+.btn {
+    pointer-events: none;
+}
+
 .amenities {
     margin: 3rem 0 1rem;
     padding: 0 7rem 0;
@@ -149,7 +154,6 @@
     padding-top: 1vw;
 }
 
-
 .modal-content {
     height: 80vh;
     width: 50vw;
@@ -164,8 +168,8 @@
 }
 
 #amenity_picture {
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 100%;
+    height: 100%;
 }
 
 

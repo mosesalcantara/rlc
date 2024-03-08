@@ -8,8 +8,6 @@ $(document).ready( function () {
         $('#amenity_name').text(name)
         $('#amenity_picture').attr({
             'src': `/uploads/amenities/pictures/${picture}`,
-            'width': '100%',
-            'height': '100%',
         })
     });
 })
