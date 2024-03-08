@@ -21,27 +21,30 @@ class PageController extends Controller
     }
 
     public function index() {
-        $properties = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')->limit(5)->get();
+        $properties = Property::limit(5)->get();
 
         foreach ($properties as $property) {
+            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')->where('properties.id', $property['id'])->limit(1)->get();
+            $property['picture'] = $record[0]->picture;
+
             $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
-                        ->where('residential_units.property_id', $property['property_id'])->get();
+                        ->where('residential_units.property_id', $property['id'])->get();
             $property['snapshot'] = $record[0]->picture;
 
-            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where('properties.id', $property['property_id'])->get();
+            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where('properties.id', $property['id'])->get();
             $types = '';
             foreach ($record as $item) {
                 $types .= ' ' . $item['type'];
             }
             $property['types'] = $types;
 
-            $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $property['property_id'])->min('residential_units.rate');
+            $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $property['id'])->min('residential_units.rate');
             $property['min'] = $min;
-            $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $property['property_id'])->max('residential_units.rate');
+            $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $property['id'])->max('residential_units.rate');
             $property['max'] = $max;
         }
 
-        $videos = Video::all()->sortByDesc('updated_at')->take(2);
+        $videos = Video::all()->sortByDesc('updated_at')->take(3);
         $reviews = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->orderBy('reviews.updated_at', 'desc')->limit(10)->get();
 
         $data = [
@@ -177,11 +180,47 @@ class PageController extends Controller
     }
 
     public function property(Request $request) {
-        $pictures = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
-                        ->where('properties.id', $request->id)->get();
+        $property = Property::where('id', $request->id)->get();
+        $property = $property[0];
+
+        $records = Property::select('pictures.picture')->join('pictures', 'properties.id', '=', 'pictures.property_id')
+                    ->where('properties.id', $request->id)->get();
+        $pictures = [];
+        foreach ($records as $record) {
+            array_push($pictures, $record->picture);
+        }
+        $property['pictures'] = $pictures;
+
+        $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where('properties.id', $request->id)->get();
+        $types = '';
+        foreach ($record as $item) {
+            $types .= ' ' . $item['type'];
+        }
+        $property['types'] = $types;
+
+        $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $request->id)->min('residential_units.rate');
+        $property['min'] = $min;
+        $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $request->id)->max('residential_units.rate');
+        $property['max'] = $max;
+
+        $records = Property::select('amenities.id', 'amenities.name', 'amenities.type', 'amenities.picture')
+                    ->join('amenities', 'properties.id', '=', 'amenities.property_id')->where('properties.id', $request->id)->get();
+        $indoor = [];
+        $outdoor = [];
+
+        foreach ($records as $amenity) {
+            if ($amenity->type == 'Indoor') {
+                array_push($indoor, $amenity);
+            }
+            else {
+                array_push($outdoor, $amenity);
+            }
+        }
+        $property['indoor'] = $indoor;
+        $property['outdoor'] = $outdoor;
 
         $data = [
-            'pictures' => $pictures,
+            'property' => $property,
         ];
         return view('pages.property')->with('data', $data);
     }
@@ -200,9 +239,12 @@ class PageController extends Controller
     }
 
     public function about() {
+        $about = AboutItem::all()->sortByDesc('updated_at')->take(1);
+        $about = $about[0];
         $articles = AboutItem::join('articles', 'about_items.id', '=', 'articles.about_item_id')->orderBy('about_items.id')->limit(3)->get();
     
         $data = [
+            'about' => $about,
             'articles' => $articles,
         ];
         return view("pages.about")->with('data', $data);

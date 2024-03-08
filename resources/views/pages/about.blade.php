@@ -14,9 +14,9 @@
  
 @section('content')
     <div class="container-fluid">
-        <div class="row header" style="background-image: url({{ asset('uploads/about_items/heading_images') }}/{{ $data['articles'][0]['heading_image'] }})">
+        <div class="row header" style="background-image: url({{ asset('uploads/about_items/heading_images') }}/{{ $data['about']['heading_image'] }})">
             <div class="col">
-                <h1>{{ $data['articles'][0]['heading_title'] }}</h1>
+                <h1>{{ $data['about']['heading_title'] }}</h1>
             </div>
         </div>
     </div>
@@ -24,13 +24,13 @@
     <div class="container-fluid about">
         <div class="row">
             <div class="col description">
-                <p>{{ $data['articles'][0]['description'] }}</p>
+                <p>{{ $data['about']['description'] }}</p>
             </div>
         </div>
         <div class="row">
             <div class="col text-center tagline">
-                <h4 class="mb-3">{{ $data['articles'][0]['tagline_title'] }}</h4>
-                <h1>{{ $data['articles'][0]['tagline'] }}</h1>
+                <h4 class="mb-3">{{ $data['about']['tagline_title'] }}</h4>
+                <h1>{{ $data['about']['tagline'] }}</h1>
             </div>
         </div>
         <div class="row">
@@ -89,11 +89,11 @@
     <div class="container-fluid" style="background-image: url({{ asset('img/pages/home/video-bg.png') }})">
         <div class="row brand_story">
             <div class="col embded-responsive d-flex align-items-center justify-content-center">
-                <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/{{ $data['articles'][0]['video_code'] }}" allowfullscreen></iframe>
+                <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/{{ $data['about']['video_code'] }}" allowfullscreen></iframe>
             </div>
             <div class="col description">
-                <h2>{{ $data['articles'][0]['video_title'] }}</h2>
-                <p>{{ $data['articles'][0]['video_description'] }}</p>
+                <h2>{{ $data['about']['video_title'] }}</h2>
+                <p>{{ $data['about']['video_description'] }}</p>
             </div>
         </div>
     </div>
