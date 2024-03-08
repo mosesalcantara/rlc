@@ -16,7 +16,7 @@
     <div class="container-fluid header" style="background-image: url({{ asset('img/pages/properties/property-header.png') }})">
         <div class="row">
             <div class="col-4 header_item">
-                <h1>Compare<br> Our Properties</h1>
+                <h1>Compare<br>Our Properties</h1>
             </div>
         </div>
     </div>
@@ -33,13 +33,13 @@
     <div class="container-fluid">
         <div class="row search_div mt-3">
             <div class="col search_drops text-center">
-                <select name="" id="" class="form-select">
+                <select name="property_1" class="form-select">
                     <option value="" selected>Select Property</option>
                 </select>
-                <select name="" id="" class="form-select">
+                <select name="property_2" class="form-select">
                     <option value="" selected>Select Property</option>
                 </select>
-                <select name="" id="" class="form-select">
+                <select name="property_3" class="form-select">
                     <option value="" selected>Select Property</option>
                 </select>
             </div>
@@ -47,128 +47,130 @@
     </div>
 
     <div class="container-fluid compare">
-        <div class="row">
-            <div class="col compare_item">
-                <h4>Property Type</h4> 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="" id="">
-                    <label class="form-check-label" for="">
-                        Residential
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="" id="">
-                    <label class="form-check-label" for="">
-                        Commercial
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col compare_item">
-                <h4>Rental Rate</h4>
-                <input type="range" class="form-range" id=""> 
-                
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-3">
-                            <input type="text" id="" name='' class="form-control form-control-lg" />
-                            <label class="form-label" for="">From PHP</label>
-                        </div>
+        <form action="">
+            <div class="row">
+                <div class="col compare_item">
+                    <h4>Property Type</h4> 
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="property_type" id="residential" value='Residential' checked>
+                        <label class="form-check-label" for="residential">
+                            Residential
+                        </label>
                     </div>
-                    <div class="col">
-                        <div class="form-floating">
-                            <input type="text" id="" name='' class="form-control form-control-lg" />
-                            <label class="form-label" for="">To PHP</label>
-                        </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="property_type" id="commercial" value='Commercial'>
+                        <label class="form-check-label" for="commercial">
+                            Commercial
+                        </label>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col compare_item">
-                <h4>Unit Types</h4>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="">
-                      1BR
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="">
-                      2BR
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="">
-                      3BR
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="">
-                      PH
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="">
-                      Studio
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col compare_item">
-                <h4>Unit Area (sqm)</h4>
-                <input type="range" class="form-range" id=""> 
-                
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-3">
-                            <input type="text" id="" name='' class="form-control form-control-lg" />
-                            <label class="form-label" for="">MIN</label>
+            <div class="row">
+                <div class="col compare_item">
+                    <h4>Rental Rate</h4>
+                    <input type="range" class="form-range" id=""> 
+                    
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" id="" name='' class="form-control form-control-lg" />
+                                <label class="form-label" for="">From PHP</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-floating">
-                            <input type="text" id="" name='' class="form-control form-control-lg" />
-                            <label class="form-label" for="">MAX</label>
+                        <div class="col">
+                            <div class="form-floating">
+                                <input type="text" id="" name='' class="form-control form-control-lg" />
+                                <label class="form-label" for="">To PHP</label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col compare_item">
-                <h4>Unit Status</h4>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="">
-                      Fully Furnished
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="">
-                      Semi-Furnished
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="">
-                      Unfurnished
-                    </label>
+            <div class="row">
+                <div class="col compare_item">
+                    <h4>Unit Types</h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="">
+                          1BR
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="">
+                          2BR
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="">
+                          3BR
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="">
+                          PH
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="">
+                          Studio
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col compare_btn">
-                <button class="btn">Filter Now</button>
+            <div class="row">
+                <div class="col compare_item">
+                    <h4>Unit Area (sqm)</h4>
+                    <input type="range" class="form-range" id=""> 
+                    
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" id="" name='' class="form-control form-control-lg" />
+                                <label class="form-label" for="">MIN</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating">
+                                <input type="text" id="" name='' class="form-control form-control-lg" />
+                                <label class="form-label" for="">MAX</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col compare_item">
+                    <h4>Unit Status</h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="">
+                          Fully Furnished
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="">
+                          Semi-Furnished
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="">
+                          Unfurnished
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col compare_btn">
+                    <button class="btn">Filter Now</button>
+                </div>
+            </div>
+        </form>
     </div>
 @endsection
 
@@ -178,4 +180,6 @@
 
 @section('scripts')
     @parent
+
+    <script src="{{ asset('js/pages/properties.js') }}"></script>
 @endsection

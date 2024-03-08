@@ -106,17 +106,17 @@
                                         <p>{{ $property['description'] }}</p>
 
                                         <div>
-                                            <i class="fa-solid fa-location-dot fa-2x"></i>
+                                            <i class="fa-solid fa-location-dot fa-xl"></i>
                                             <h5>{{ $property['location'] }}</h5>
                                         </div>
 
                                         <div>
-                                            <i class="fa-solid fa-building fa-2x"></i>
+                                            <i class="fa-solid fa-building fa-xl"></i>
                                             <h5>{{ $property['types'] }}</h5>
                                         </div>
 
                                         <div>
-                                            <i class="fa-solid fa-user fa-2x"></i>
+                                            <i class="fa-solid fa-user fa-xl"></i>
                                             <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
                                         </div>
                                     </div>

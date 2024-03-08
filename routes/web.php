@@ -48,6 +48,7 @@ Route::get('/for-lease/category/parking_slots/{id}', [PageController::class, 'pa
 Route::get('/for-lease/property/{id}', [PageController::class, 'property']);
 
 Route::get('/compare-properties', [PageController::class, 'properties']);
+Route::post('/get-residential-units', [PageController::class, 'get_residential_units']);
 
 Route::get('/contact-us', [PageController::class, 'contact']);
 

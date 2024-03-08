@@ -242,6 +242,30 @@ class PageController extends Controller
         return view("pages.properties");
     }
 
+    public function get_residential_units() {
+        $records = Property::selectRaw('properties.name, properties.location, Count(residential_units.id) As residential_units')
+                        ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->groupByRaw('properties.name, properties.location')->havingRaw('Count(residential_units.id) > 0')->get();
+        $locations = Property::select('location')->distinct('location')->get();
+        $properties = [];
+
+        foreach ($locations as $location) {
+            $properties[$location['location']] = [];
+        }
+
+        foreach ($records as $record) {
+            array_push($properties[$record['location']], $record['name']);
+        }
+
+        $data = [
+            'properties' => $properties,
+        ];
+        return response()->json($data);
+    }
+
+    public function get_commercial_units() {
+        
+    }
+
     public function contact() {
         $contact_items = ContactItem::all()->sortByDesc('updated_at')->take(1);
 
