@@ -51,6 +51,8 @@ Route::get('/compare-properties', [PageController::class, 'properties']);
 Route::post('/get-residential-units', [PageController::class, 'get_residential_units']);
 Route::post('/get-commercial-units', [PageController::class, 'get_commercial_units']);
 Route::post('/compare-properties', [PageController::class, 'compare_properties']);
+Route::post('/compare-residential-units', [PageController::class, 'compare_residential_units']);
+Route::post('/compare-commercial-units', [PageController::class, 'compare_commercial_units']);
 
 Route::get('/contact-us', [PageController::class, 'contact']);
 

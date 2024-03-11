@@ -82,21 +82,75 @@ $(document).ready( function () {
 
     $('#property_form').submit(function(e) {
         e.preventDefault()
+
         $.ajax({
           type: 'POST',
           url: "/compare-properties",
           data: {
             'form_data': $(this).serialize(),
             'selected_properties': selected_properties,
-          }
-          ,
+          },
           success: function (res) {
-            console.log(res)
+            var properties = res.properties
+            var properties_div = $('.properties')
+
+            for (property of properties) {
+                var property_div = $('<div>').addClass('col')
+
+                var property_picture = $('<div>').addClass('property_picture')
+                var name = $('<h5>').html(property.name)
+                property_picture.append(name)
+                property_div.append(property_picture)
+    
+                var details = $('<div>').addClass('details')
+
+                var title = $('<h5>').html('Property Type')
+                var data = $('<h6>').html()
+                details.append(title, data)
+    
+                var title = $('<h5>').html('Rental Rate')
+                var data = $('<h6>').html(`${property.min_rate} - ${property.max_rate}`)
+                details.append(title, data)
+    
+                var title = $('<h5>').html('Unit Type')
+                var data = $('<h6>').html(property.types)
+                details.append(title, data)
+    
+                var title = $('<h5>').html('Unit Area (sqm)')
+                var data = $('<h6>').html(`${property.min_area} - ${property.max_area}`)
+                details.append(title, data)
+    
+                var title = $('<h5>').html('Unit Status')
+                var data = $('<h6>').html(property.statuses)
+                details.append(title, data)
+    
+                var title = $('<h5>').html('Location')
+                var data = $('<h6>').html(property.location)
+                details.append(title, data)
+
+                property_div.append(details)
+                properties_div.append(property_div)
+            }
           },
           error: function (xhr, status, error) {
 
           },
-        })    
+        })   
+        
+        $.ajax({
+            type: 'POST',
+            url: "/compare-residential-units",
+            data: {
+              'form_data': $(this).serialize(),
+              'selected_properties': selected_properties,
+            },
+            success: function (res) {
+              console.log(res)
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr)
+            },
+        })   
     })  
 
 })

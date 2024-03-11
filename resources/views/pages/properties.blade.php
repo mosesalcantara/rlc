@@ -174,6 +174,51 @@
                     </div>
                 </form>
             </div>
+            <div class="col">
+                <div class="row properties">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="row residential_units">
+            <div class="col">
+                <div class="row">
+                    <h5>Axis Residences (10) results</h5>
+                </div>
+                <div class="row">
+                    <div class="col-3 unit">
+                        <div class="card">
+                            <div class="card-header">
+                                <img class="snapshot" src="{{ asset('uploads/properties/pictures/1709259926.jpg') }}" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h6>Mandaluyong City</h6>
+                                <h6>Axis Residences</h6>
+                                <div class="row">
+                                    <div class="col">
+                                        <h6>Unit ID</h6>
+                                        <h6>Property Type</h6>
+                                        <h6>Monthly Rate</h6>
+                                        <h6>Unit Type</h6>
+                                        <h6>Unit Area</h6>
+                                        <h6>Unit Status</h6>
+                                    </div>
+                                    <div class="col">
+                                        <h6>AXRO1</h6>
+                                        <h6>Residential</h6>
+                                        <h6>PHP 25,000.00</h6>
+                                        <h6>Studio</h6>
+                                        <h6>23.76 sqm</h6>
+                                        <h6>Fully Furnished</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
