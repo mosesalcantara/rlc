@@ -33,144 +33,148 @@
     <div class="container-fluid">
         <div class="row search_div mt-3">
             <div class="col search_drops text-center">
-                <select name="property_1" class="form-select">
-                    <option value="" selected>Select Property</option>
-                </select>
-                <select name="property_2" class="form-select">
-                    <option value="" selected>Select Property</option>
-                </select>
-                <select name="property_3" class="form-select">
-                    <option value="" selected>Select Property</option>
-                </select>
+                <div class="row">
+                    <div class="col">
+                        <div class="dropdown" id='property_1'>
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Select Property
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="dropdown" id='property_2'>
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Select Property
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="dropdown" id='property_3'>
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Select Property
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid compare">
-        <form action="">
-            <div class="row">
-                <div class="col compare_item">
-                    <h4>Property Type</h4> 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="property_type" id="residential" value='Residential' checked>
-                        <label class="form-check-label" for="residential">
-                            Residential
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="property_type" id="commercial" value='Commercial'>
-                        <label class="form-check-label" for="commercial">
-                            Commercial
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col compare_item">
-                    <h4>Rental Rate</h4>
-                    <input type="range" class="form-range" id=""> 
-                    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 compare">
+                <form action="/compare-properties" method="POST" id='property_form'>
                     <div class="row">
-                        <div class="col">
-                            <div class="form-floating mb-3">
-                                <input type="text" id="" name='' class="form-control form-control-lg" />
-                                <label class="form-label" for="">From PHP</label>
+                        <div class="col compare_item">
+                            <h4>Property Type</h4> 
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="property_type" id="residential" value='Residential'>
+                                <label class="form-check-label" for="residential">Residential</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="property_type" id="commercial" value='Commercial'>
+                                <label class="form-check-label" for="commercial">Commercial</label>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-floating">
-                                <input type="text" id="" name='' class="form-control form-control-lg" />
-                                <label class="form-label" for="">To PHP</label>
-                            </div>
-                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col compare_item">
-                    <h4>Unit Types</h4>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        <label class="form-check-label" for="">
-                          1BR
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        <label class="form-check-label" for="">
-                          2BR
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        <label class="form-check-label" for="">
-                          3BR
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        <label class="form-check-label" for="">
-                          PH
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        <label class="form-check-label" for="">
-                          Studio
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col compare_item">
-                    <h4>Unit Area (sqm)</h4>
-                    <input type="range" class="form-range" id=""> 
-                    
                     <div class="row">
-                        <div class="col">
-                            <div class="form-floating mb-3">
-                                <input type="text" id="" name='' class="form-control form-control-lg" />
-                                <label class="form-label" for="">MIN</label>
+                        <div class="col compare_item">
+                            <h4>Rental Rate</h4>
+                            <input type="range" class="form-range" id=""> 
+                            
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="min_rate" name='min_rate' class="form-control form-control-lg" />
+                                        <label class="form-label" for="">From PHP</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="text" id="max_rate" name='max_rate' class="form-control form-control-lg" />
+                                        <label class="form-label" for="">To PHP</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-floating">
-                                <input type="text" id="" name='' class="form-control form-control-lg" />
-                                <label class="form-label" for="">MAX</label>
+                    </div>
+                    <div class="row">
+                        <div class="col compare_item">
+                            <h4>Unit Types</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name='type' value="1BR" id="br1">
+                                <label class="form-check-label" for="">1BR</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="2BR" name='type' id="br2">
+                                <label class="form-check-label" for="">2BR</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="3BR" name='type' id="br3">
+                                <label class="form-check-label" for="">3BR</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="PH" name='type' id="ph">
+                                <label class="form-check-label" for="">PH</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Studio" name='type' id="studio">
+                                <label class="form-check-label" for="">Studio</label>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col compare_item">
-                    <h4>Unit Status</h4>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        <label class="form-check-label" for="">
-                          Fully Furnished
-                        </label>
+                    <div class="row">
+                        <div class="col compare_item">
+                            <h4>Unit Area (sqm)</h4>
+                            <input type="range" class="form-range" id=""> 
+                            
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="min_area" name='min_area' class="form-control form-control-lg" />
+                                        <label class="form-label" for="">MIN</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="text" id="max_area" name='max_area' class="form-control form-control-lg" />
+                                        <label class="form-label" for="">MAX</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        <label class="form-check-label" for="">
-                          Semi-Furnished
-                        </label>
+                    <div class="row">
+                        <div class="col compare_item">
+                            <h4>Unit Status</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Fully Furnished" name='status' id="fully_furnished">
+                                <label class="form-check-label" for="">
+                                  Fully Furnished
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Semi Furnished" name='status' id="semi_furnished">
+                                <label class="form-check-label" for="">
+                                  Semi-Furnished
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Unfurnished" name='status' id="unfurnished">
+                                <label class="form-check-label" for="">
+                                  Unfurnished
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        <label class="form-check-label" for="">
-                          Unfurnished
-                        </label>
+                    <div class="row">
+                        <div class="col compare_btn">
+                            <input class='btn' type="submit" value='Filter Now'>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
-            <div class="row">
-                <div class="col compare_btn">
-                    <button class="btn">Filter Now</button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 @endsection
 
@@ -181,5 +185,6 @@
 @section('scripts')
     @parent
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/pages/properties.js') }}"></script>
 @endsection
