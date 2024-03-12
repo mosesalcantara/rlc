@@ -346,20 +346,31 @@ class PageController extends Controller
 
     public function compare_residential_units(Request $request) {
         $selected_properties = $request['selected_properties'];
-        $units = [];
+        $properties = [];
 
         foreach ($selected_properties as $property) {
+            $details = [];
+
+            $details['name'] = $property;
+
+            $record = Property::selectRaw('properties.name, Count(residential_units.id) As residential_units')
+                        ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')
+                        ->where('properties.name', $property)->groupByRaw('properties.name')->get();
+            $details['count'] = $record[0]['residential_units'];
+
             $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.name', $property)->get();
             foreach ($records as $record) {
                 $snapshot = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
                                 ->where('residential_units.id', $record['id'])->get();
                 $record['snapshot'] = $snapshot[0]->picture;
             }
-            array_push($units, $records);
+            $details['units'] = $records;
+
+            array_push($properties, $details);
         }
 
         $data = [
-            'units' => $units,
+            'properties' => $properties,
         ];
         return response()->json($data);
     }
