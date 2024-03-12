@@ -204,8 +204,13 @@ $(document).ready( function () {
 
                         details_row.append(fields_col, values_col)
                         card_body.append(details_row)
-                        card.append(card_body)
 
+                        var a = $('<a>').addClass('btn btn-warning').attr({
+                            'href': `/for-lease/category/residential_units/${r_unit.id}`
+                        }).html('VIEW UNIT')
+                        card_body.append(a)
+
+                        card.append(card_body)
                         unit_col.append(card)
                         row.append(unit_col)
                     }
