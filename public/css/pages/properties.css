@@ -116,8 +116,13 @@
     margin-bottom: 3rem;
 }
 
+.card {
+    width: 27vw;
+}
+
 .snapshot {
     border-radius: 0.7rem;
+    height: 35vh;
 }
 
 .card-body {

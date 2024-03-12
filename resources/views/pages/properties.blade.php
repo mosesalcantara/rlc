@@ -102,23 +102,23 @@
                         <div class="col compare_item">
                             <h4>Unit Types</h4>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name='type' value="1BR" id="br1">
+                                <input class="form-check-input" type="checkbox" name='br1' id="br1">
                                 <label class="form-check-label" for="">1BR</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="2BR" name='type' id="br2">
+                                <input class="form-check-input" type="checkbox" name='br2' id="br2">
                                 <label class="form-check-label" for="">2BR</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="3BR" name='type' id="br3">
+                                <input class="form-check-input" type="checkbox" name='br3' id="br3">
                                 <label class="form-check-label" for="">3BR</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="PH" name='type' id="ph">
+                                <input class="form-check-input" type="checkbox" name='ph' id="ph">
                                 <label class="form-check-label" for="">PH</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Studio" name='type' id="studio">
+                                <input class="form-check-input" type="checkbox" name='studio' id="studio">
                                 <label class="form-check-label" for="">Studio</label>
                             </div>
                         </div>
@@ -148,22 +148,16 @@
                         <div class="col compare_item">
                             <h4>Unit Status</h4>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Fully Furnished" name='status' id="fully_furnished">
-                                <label class="form-check-label" for="">
-                                  Fully Furnished
-                                </label>
+                                <input class="form-check-input" type="checkbox" name='fully_furnished' id="fully_furnished">
+                                <label class="form-check-label" for="">Fully Furnished</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Semi Furnished" name='status' id="semi_furnished">
-                                <label class="form-check-label" for="">
-                                  Semi-Furnished
-                                </label>
+                                <input class="form-check-input" type="checkbox" name='semi_furnished' id="semi_furnished">
+                                <label class="form-check-label" for="">Semi-Furnished</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Unfurnished" name='status' id="unfurnished">
-                                <label class="form-check-label" for="">
-                                  Unfurnished
-                                </label>
+                                <input class="form-check-input" type="checkbox" name='unfurnished' id="unfurnished">
+                                <label class="form-check-label" for="">Unfurnished</label>
                             </div>
                         </div>
                     </div>

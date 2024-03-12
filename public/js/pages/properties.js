@@ -26,7 +26,7 @@ $(document).ready( function () {
                         li.append(h5)
                         ul.append(li)
 
-                        for (property of value) {
+                        for (var property of value) {
                             var li = $('<li>')
                             var h6 = $('<h6>')
                             h6.html(property)
@@ -62,7 +62,7 @@ $(document).ready( function () {
                         li.append(h5)
                         ul.append(li)
 
-                        for (property of value) {
+                        for (var property of value) {
                             var li = $('<li>')
                             var h6 = $('<h6>')
                             h6.html(property)
@@ -83,14 +83,69 @@ $(document).ready( function () {
     $('#property_form').submit(function(e) {
         e.preventDefault()
 
+        var form_types = ['#br1', '#br2', '#br3', '#ph', '#studio']
+        var types = []
+
+        for (var form_type of form_types) {
+            if ($(form_type).prop('checked') == true) {
+                if (form_type == '#br1') {
+                    form_type = '1BR'
+                }
+                else if (form_type == '#br2') {
+                    form_type = '2BR'
+                }
+                else if (form_type == '#br3') {
+                    form_type = '3BR'
+                }
+                else if (form_type == '#ph') {
+                    form_type = 'PH'
+                }
+                else if (form_type == '#studio') {
+                    form_type = 'Studio'
+                }
+                types.push(form_type)
+            }
+        }
+
+        var form_statuses = ['#fully_furnished', '#semi_furnished', '#unfurnished']
+        var statuses = []
+
+        for (var form_status of form_statuses) {
+            if ($(form_status).prop('checked') == true) {
+                if (form_status == '#fully_furnished') {
+                    form_status = 'Fully Furnished'
+                }
+                else if (form_status == '#semi_furnished') {
+                    form_status = 'Semi-furnished'
+                }
+                else if (form_status == '#unfurnished') {
+                    form_status = 'Unfurnished'
+                }
+                statuses.push(form_status)
+            }
+        }
+
+        var data = {
+            'selected_properties': selected_properties,
+            'property_type': $('input[name=property_type]').val(),
+            'min_rate': $('#min_rate').val(),
+            'max_rate': $('#max_rate').val(),
+            'types': types,
+            'min_area': $('#min_area').val(),
+            'max_area': $('#max_area').val(),
+            'statuses': statuses,
+        }
+
+        // console.log(data)
+
         $.ajax({
           type: 'POST',
           url: "/compare-properties",
           data: {
-            'form_data': $(this).serialize(),
             'selected_properties': selected_properties,
           },
           success: function (res) {
+            // console.log(res)
             var properties = res.properties
             var properties_div = $('.properties')
             let money = new Intl.NumberFormat('fil-PH', {
@@ -99,7 +154,7 @@ $(document).ready( function () {
                 currency: 'PHP',
             });
 
-            for (property of properties) {
+            for (var property of properties) {
                 var property_div = $('<div>').addClass('col-4 property')
 
                 var property_data = {
@@ -132,18 +187,16 @@ $(document).ready( function () {
             }
           },
           error: function (xhr, status, error) {
-
+            console.log(xhr)
           },
         })   
         
         $.ajax({
             type: 'POST',
             url: "/compare-residential-units",
-            data: {
-              'form_data': $(this).serialize(),
-              'selected_properties': selected_properties,
-            },
+            data: data,
             success: function (res) {
+                // console.log(res)
                 var properties = res.properties
                 var r_units_container = $('.residential_units_container')
                 let money = new Intl.NumberFormat('fil-PH', {
@@ -152,7 +205,7 @@ $(document).ready( function () {
                     currency: 'PHP',
                 });
 
-                for (property of properties) {
+                for (var property of properties) {
                     var r_units_div = $('<div>').addClass('residential_units_div row')
                     var col = $('<div>').addClass('col')
                     var row = $('<div>').addClass('row')
@@ -163,7 +216,7 @@ $(document).ready( function () {
                     r_units_div.append(col)
 
                     var row = $('<div>').addClass('row')
-                    for (r_unit of property['units']) {
+                    for (var r_unit of property['units']) {
                         var unit_data = {
                             'Unit ID': r_unit.unit_id,
                             'Property Type': 'Residential',
@@ -173,7 +226,7 @@ $(document).ready( function () {
                             'Unit Status': r_unit.status,
                         }
 
-                        var unit_col = $('<div>').addClass('col-3 unit')
+                        var unit_col = $('<div>').addClass('col-4 unit')
 
                         var card = $('<div>').addClass('card')
                         var img = $('<img>').addClass('card-img-top snapshot').attr({

@@ -290,6 +290,7 @@ class PageController extends Controller
     public function compare_properties(Request $request) {
         $selected_properties = $request['selected_properties'];
         $properties = [];
+
         foreach ($selected_properties as $property) {
             $details = [];
 
@@ -297,7 +298,6 @@ class PageController extends Controller
                         ->where('properties.name', $property)->get();
             $details['picture'] = $record[0]['picture'];
             $details['location'] = $record[0]['location'];
-            
             $details['name'] = $property;
 
             $property_types = '';
@@ -345,20 +345,30 @@ class PageController extends Controller
     }
 
     public function compare_residential_units(Request $request) {
-        $selected_properties = $request['selected_properties'];
+        $request_data = $request->all();
+        $selected_properties = $request_data['selected_properties'];
         $properties = [];
 
         foreach ($selected_properties as $property) {
+            $where = [
+                ['residential_units.rate', '>=', $request_data['min_rate']],
+                ['residential_units.rate', '<=', $request_data['max_rate']],
+                ['residential_units.area', '>=', $request_data['min_area']],
+                ['residential_units.area', '<=', $request_data['max_area']],
+                ['properties.name', $property],
+            ];
+
             $details = [];
 
             $details['name'] = $property;
 
             $record = Property::selectRaw('properties.name, Count(residential_units.id) As residential_units')
                         ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')
-                        ->where('properties.name', $property)->groupByRaw('properties.name')->get();
+                        ->where($where)->whereIn('type', $request_data['types'])->whereIn('status', $request_data['statuses'])->groupByRaw('properties.name')->get();
             $details['count'] = $record[0]['residential_units'];
 
-            $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.name', $property)->get();
+            $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')
+                        ->where($where)->whereIn('type', $request_data['types'])->whereIn('status', $request_data['statuses'])->get();
             foreach ($records as $record) {
                 $snapshot = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
                                 ->where('residential_units.id', $record['id'])->get();
@@ -371,6 +381,7 @@ class PageController extends Controller
 
         $data = [
             'properties' => $properties,
+            'request_data' => $request_data,
         ];
         return response()->json($data);
     }

@@ -78,8 +78,8 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Unit Status</label>     
                             <select name="status" class="form-select">
-                                <option value="Not Furnished">Not Furnished</option>
-                                <option value="Semi Furnished">Semi Furnished</option>
+                                <option value="Unfurnished">Unfurnished</option>
+                                <option value="Semi-furnished">Semi-furnished</option>
                                 <option value="Fully Furnished">Fully Furnished</option>
                             </select>
                         </div>
@@ -137,8 +137,8 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Unit Status</label>     
                             <select name="status" id="status" class="form-select">
-                                <option value="Not Furnished">Not Furnished</option>
-                                <option value="Semi Furnished">Semi Furnished</option>
+                                <option value="Unfurnished">Unfurnished</option>
+                                <option value="Semi-furnished">Semi-furnished</option>
                                 <option value="Fully Furnished">Fully Furnished</option>
                             </select>
                         </div>
