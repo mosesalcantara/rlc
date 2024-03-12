@@ -93,9 +93,23 @@ $(document).ready( function () {
           success: function (res) {
             var properties = res.properties
             var properties_div = $('.properties')
+            let money = new Intl.NumberFormat('fil-PH', {
+                style: 'currency',
+                currencyDisplay: 'code',
+                currency: 'PHP',
+            });
 
             for (property of properties) {
                 var property_div = $('<div>').addClass('col-4 property')
+
+                var property_data = {
+                    'Property Type': 'Residential',
+                    'Rentail Rate': `${money.format(property.min_rate)} - ${money.format(property.max_rate)} / mo.`,
+                    'Unit Type': property.types,
+                    'Unit Area (sqm)': `${property.min_area} - ${property.max_area} sqm`,
+                    'Unit Status': property.statuses,
+                    'Location': property.location,
+                }
 
                 var property_picture = $('<div>').addClass('picture d-flex justify-content-center align-items-end')
                 property_picture.css({
@@ -107,34 +121,11 @@ $(document).ready( function () {
     
                 var details = $('<div>').addClass('details')
 
-                var title = $('<h5>').html('Property Type')
-                var data = $('<h6>').html('Residential')
-                details.append(title, data)
-    
-                var title = $('<h5>').html('Rental Rate')
-                let money = new Intl.NumberFormat('fil-PH', {
-                    style: 'currency',
-                    currencyDisplay: 'code',
-                    currency: 'PHP',
-                });
-                var data = $('<h6>').html(`${money.format(property.min_rate)} - ${money.format(property.max_rate)} / mo.`)
-                details.append(title, data)
-    
-                var title = $('<h5>').html('Unit Type')
-                var data = $('<h6>').html(property.types)
-                details.append(title, data)
-    
-                var title = $('<h5>').html('Unit Area (sqm)')
-                var data = $('<h6>').html(`${property.min_area} - ${property.max_area} sqm`)
-                details.append(title, data)
-    
-                var title = $('<h5>').html('Unit Status')
-                var data = $('<h6>').html(property.statuses)
-                details.append(title, data)
-    
-                var title = $('<h5>').html('Location')
-                var data = $('<h6>').html(property.location)
-                details.append(title, data)
+                $.each(property_data, function(key, value) {
+                    var title = $('<h5>').html(key)
+                    var data = $('<h6>').html(value)
+                    details.append(title, data)
+                })   
 
                 property_div.append(details)
                 properties_div.append(property_div)
@@ -153,9 +144,13 @@ $(document).ready( function () {
               'selected_properties': selected_properties,
             },
             success: function (res) {
-                console.log(res)
                 var properties = res.properties
                 var r_units_container = $('.residential_units_container')
+                let money = new Intl.NumberFormat('fil-PH', {
+                    style: 'currency',
+                    currencyDisplay: 'code',
+                    currency: 'PHP',
+                });
 
                 for (property of properties) {
                     var r_units_div = $('<div>').addClass('residential_units_div row')
@@ -169,7 +164,14 @@ $(document).ready( function () {
 
                     var row = $('<div>').addClass('row')
                     for (r_unit of property['units']) {
-                        console.log(r_unit)
+                        var unit_data = {
+                            'Unit ID': r_unit.unit_id,
+                            'Property Type': 'Residential',
+                            'Monthly Rate': money.format(r_unit.rate),
+                            'Unit Type': r_unit.type,
+                            'Unit Area (sqm)': `${r_unit.area} sqm`,
+                            'Unit Status': r_unit.status,
+                        }
 
                         var unit_col = $('<div>').addClass('col-3 unit')
 
@@ -191,49 +193,16 @@ $(document).ready( function () {
 
                         var details_row = $('<div>').addClass('row')
                         var fields_col = $('<div>').addClass('col fields')
-
-                        var field = $('<h6>').html('Unit ID')
-                        fields_col.append(field)
-
-                        var field = $('<h6>').html('Property Type')
-                        fields_col.append(field)
-
-                        var field = $('<h6>').html('Monthly Rate')
-                        fields_col.append(field)
-
-                        var field = $('<h6>').html('Unit Type')
-                        fields_col.append(field)
-
-                        var field = $('<h6>').html('Unit Area')
-                        fields_col.append(field)
-
-                        var field = $('<h6>').html('Unit Status')
-                        fields_col.append(field)
-
-                        details_row.append(fields_col)
-
                         var values_col = $('<div>').addClass('col')
 
-                        var value = $('<h6>').html(r_unit.unit_id)
-                        values_col.append(value)
+                        $.each(unit_data, function(key, value) {
+                            var field = $('<h6>').html(key)
+                            var value = $('<h6>').html(value)
+                            fields_col.append(field)
+                            values_col.append(value)
+                        })   
 
-                        var value = $('<h6>').html('Residential')
-                        values_col.append(value)
-
-                        var value = $('<h6>').html(r_unit.rate)
-                        values_col.append(value)
-
-                        var value = $('<h6>').html(r_unit.type)
-                        values_col.append(value)
-
-                        var value = $('<h6>').html(r_unit.area)
-                        values_col.append(value)
-
-                        var value = $('<h6>').html(r_unit.status)
-                        values_col.append(value)
-
-                        details_row.append(values_col)
-
+                        details_row.append(fields_col, values_col)
                         card_body.append(details_row)
                         card.append(card_body)
 
