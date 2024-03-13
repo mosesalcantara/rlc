@@ -50,7 +50,8 @@ Route::get('/for-lease/property/{id}', [PageController::class, 'property']);
 Route::get('/compare-properties', [PageController::class, 'properties']);
 Route::post('/get-residential-units', [PageController::class, 'get_residential_units']);
 Route::post('/get-commercial-units', [PageController::class, 'get_commercial_units']);
-Route::post('/compare-properties', [PageController::class, 'compare_properties']);
+Route::post('/compare-residential-properties', [PageController::class, 'compare_residential_properties']);
+Route::post('/compare-commercial-properties', [PageController::class, 'compare_commercial_properties']);
 Route::post('/compare-residential-units', [PageController::class, 'compare_residential_units']);
 Route::post('/compare-commercial-units', [PageController::class, 'compare_commercial_units']);
 

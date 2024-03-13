@@ -65,7 +65,7 @@
             <div class="col-2 compare">
                 <form action="/compare-properties" method="POST" id='property_form'>
                     <div class="row">
-                        <div class="col compare_item">
+                        <div class="col compare_item filter_property_type">
                             <h4>Property Type</h4> 
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="property_type" id="residential" value='Residential'>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col compare_item">
+                        <div class="col compare_item filter_rate">
                             <h4>Rental Rate</h4>
                             <input type="range" class="form-range" id=""> 
                             
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col compare_item">
+                        <div class="col compare_item filter_unit_type">
                             <h4>Unit Types</h4>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name='br1' id="br1">
@@ -124,7 +124,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col compare_item">
+                        <div class="col compare_item filter_area">
                             <h4>Unit Area (sqm)</h4>
                             <input type="range" class="form-range" id=""> 
                             
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col compare_item">
+                        <div class="col compare_item filter_status">
                             <h4>Unit Status</h4>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name='fully_furnished' id="fully_furnished">
@@ -176,9 +176,10 @@
         </div>
     </div>
 
-    <div class="container-fluid residential_units_container">
+    <div class="container-fluid units_container">
 
     </div>
+
 @endsection
 
 @section('footer')

@@ -15,11 +15,6 @@ use App\Models\AboutItem;
 
 class PageController extends Controller
 {
-
-    public function test() {
-        return view("pages.test");
-    }
-
     public function index() {
         $properties = Property::limit(5)->get();
 
@@ -287,7 +282,7 @@ class PageController extends Controller
         return response()->json($data);
     }
 
-    public function compare_properties(Request $request) {
+    public function compare_residential_properties(Request $request) {
         $selected_properties = $request['selected_properties'];
         $properties = [];
 
@@ -344,6 +339,30 @@ class PageController extends Controller
         return response()->json($data);
     }
 
+    public function compare_commercial_properties(Request $request) {
+        $selected_properties = $request['selected_properties'];
+        $properties = [];
+
+        foreach ($selected_properties as $property) {
+            $details = [];
+            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                        ->where('properties.name', $property)->get();
+            $details['picture'] = $record[0]['picture'];
+            $details['location'] = $record[0]['location'];
+            $details['name'] = $property;
+
+            $details['min_area'] = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('properties.name', $property)->min('commercial_units.size');
+            $details['max_area'] = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('properties.name', $property)->max('commercial_units.size');
+
+            array_push($properties, $details);
+        }
+
+        $data = [
+            'properties' => $properties,
+        ];
+        return response()->json($data);
+    } 
+
     public function compare_residential_units(Request $request) {
         $request_data = $request->all();
         $selected_properties = $request_data['selected_properties'];
@@ -381,17 +400,32 @@ class PageController extends Controller
 
         $data = [
             'properties' => $properties,
-            'request_data' => $request_data,
         ];
         return response()->json($data);
     }
 
     public function compare_commercial_units(Request $request) {
-        $selected_properties = $request['selected_properties'];
-        $units = [];
+        $request_data = $request->all();
+        $selected_properties = $request_data['selected_properties'];
+        $properties = [];
 
         foreach ($selected_properties as $property) {
-            $records = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('properties.name', $property)->get();
+            $where = [
+                ['properties.name', $property],
+                ['commercial_units.size', '>=', $request_data['min_area']],
+                ['commercial_units.size', '<=', $request_data['max_area']],
+            ];
+
+            $details = [];
+
+            $details['name'] = $property;
+
+            $record = Property::selectRaw('properties.name, Count(commercial_units.id) As commercial_units')
+                        ->join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')
+                        ->where($where)->groupByRaw('properties.name')->get();
+            $details['count'] = $record[0]['commercial_units'];
+
+            $records = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where($where)->get();
             foreach ($records as $record) {
                 $picture = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                             ->where('properties.id', $record['property_id'])->get();
@@ -400,11 +434,13 @@ class PageController extends Controller
                 $building = Building::where('id', $record['building_id'])->get();
                 $record['building'] = $building[0]['name'];
             }
-            array_push($units, $records);
+            $details['units'] = $records;
+
+            array_push($properties, $details);
         }
 
         $data = [
-            'units' => $units,
+            'properties' => $properties,
         ];
         return response()->json($data);
     }

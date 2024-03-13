@@ -60,12 +60,12 @@
     color: #000b8c;
     font-weight: 500;
     margin-right: 1rem;
+    height: auto;
 }
 
 .compare_item {
     border-top: 0.2rem solid #CC9900;
     margin: 2vh 1vw 0 1vw;
-
 }
 
 .form-check-label {
@@ -103,15 +103,15 @@
     font-weight: 400;
 }
 
-.residential_units_container {
+.units_container {
     padding: 1rem 6.5rem 1rem;
 }
 
-.residential_units_div {
+.units_div {
     margin: 0 0 1.5rem;
 }
 
-.residential_units_div h5 {
+.units_div h5 {
     color: #000b8c;
     margin-bottom: 3rem;
 }
