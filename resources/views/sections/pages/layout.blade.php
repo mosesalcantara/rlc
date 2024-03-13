@@ -22,19 +22,19 @@
                 <div class="collapse navbar-collapse justify-content-end nav-items">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">Home</a>
+                            <a class="nav-link {{ Request::url() == url('/') ? 'active' : '' }}" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/for-lease">For Lease</a>
+                            <a class="nav-link {{ Request::url() == url('/for-lease') ? 'active' : '' }}" href="/for-lease">For Lease</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/compare-properties">Compare Properties</a>
+                            <a class="nav-link {{ Request::url() == url('/compare-properties') ? 'active' : '' }}" href="/compare-properties">Compare Properties</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/contact-us">Contact Us</a>
+                            <a class="nav-link {{ Request::url() == url('/contact-us') ? 'active' : '' }}" href="/contact-us">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about-us">About Us</a>
+                            <a class="nav-link {{ Request::url() == url('/about-us') ? 'active' : '' }}" href="/about-us">About Us</a>
                         </li>
                     </ul>
                 </div>

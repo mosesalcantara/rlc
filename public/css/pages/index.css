@@ -169,6 +169,7 @@
     padding: 1.5rem;
     height: 37vh;
     font-weight: 500;
+    margin-right: 0.5rem;
 }
 
 .profile img {
@@ -182,4 +183,8 @@
 
 .review_text {
     padding-top: 1rem;
+}
+
+.review_text p {
+    text-align: justify;
 }
