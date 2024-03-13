@@ -39,9 +39,10 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="/admin">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard</span></a>
+                        <span>Dashboard</span>
+                    </a>
                 </li>
 
                 <!-- Divider -->
@@ -72,28 +73,6 @@
                         </div>
                     </div>
                 </li>
-
-                {{-- <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEntities"
-                        aria-expanded="true" aria-controls="collapsePages">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Entities</span>
-                    </a>
-                    <div id="collapseEntities" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="/admin/videos">Videos</a>
-                            <a class="collapse-item" href="/admin/properties">Properties</a>
-                            <a class="collapse-item" href="/admin/buildings">Buildings</a>
-                            <a class="collapse-item" href="/admin/pictures">Pictures</a>
-                            <a class="collapse-item" href="/admin/amenities">Amenities</a>
-                            <a class="collapse-item" href="/admin/residential">Residential Units</a>
-                            <a class="collapse-item" href="/admin/snapshots">Snapshots</a>
-                            <a class="collapse-item" href="/admin/commercial">Commercial Units</a>
-                            <a class="collapse-item" href="/admin/parking">Parking Slots</a>
-                            <a class="collapse-item" href="/admin/terms">Terms</a>
-                        </div>
-                    </div>
-                </li> --}}
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
@@ -272,7 +251,7 @@
                         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="login.html">Logout</a>
+                            <a class="btn btn-primary" href="/auth/logout">Logout</a>
                         </div>
                     </div>
                 </div>
