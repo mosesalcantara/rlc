@@ -130,9 +130,9 @@ function select_property() {
     button.empty()
 
     var row = $('<div>').addClass('row')
-    var h6_col = $('<div>').addClass('col-10 d-flex justify-content-start')
+    var h6_col = $('<div>').addClass('col-10 d-flex justify-content-start align-items-center')
     var h6 = $('<h6>').html(property)
-    var i_col = $('<div>').addClass('col-2 d-flex justify-content-end')
+    var i_col = $('<div>').addClass('col-2 d-flex justify-content-end align-items-center')
     var i = $('<i>').addClass('fa-solid fa-chevron-right')
 
     h6_col.append(h6)

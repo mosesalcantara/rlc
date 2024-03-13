@@ -38,10 +38,10 @@
                         <div class="dropdown" id='property_1'>
                             <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="row">
-                                    <div class="col-10 d-flex justify-content-start">
+                                    <div class="col-10 d-flex justify-content-start align-items-center">
                                         <h6>Select Property</h6>
                                     </div>
-                                    <div class="col-2 d-flex justify-content-end">
+                                    <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </div>
                                 </div>
@@ -52,10 +52,10 @@
                         <div class="dropdown" id='property_2'>
                             <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="row">
-                                    <div class="col-10 d-flex justify-content-start">
+                                    <div class="col-10 d-flex justify-content-start align-items-center">
                                         <h6>Select Property</h6>
                                     </div>
-                                    <div class="col-2 d-flex justify-content-end">
+                                    <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </div>
                                 </div>
@@ -66,10 +66,10 @@
                         <div class="dropdown" id='property_3'>
                             <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="row">
-                                    <div class="col-10 d-flex justify-content-start">
+                                    <div class="col-10 d-flex justify-content-start align-items-center">
                                         <h6>Select Property</h6>
                                     </div>
-                                    <div class="col-2 d-flex justify-content-end">
+                                    <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </div>
                                 </div>
