@@ -147,7 +147,7 @@ class PageController extends Controller
         $c_unit['building'] = $record[0]['name'];
         $c_unit['floor_plan'] = $record[0]['floor_plan'];
 
-        $measurements = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->get();
+        $measurements = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('building_id', $c_unit['building_id'])->get();
 
         $data = [
             'c_unit' => $c_unit,
