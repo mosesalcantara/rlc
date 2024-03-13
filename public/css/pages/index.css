@@ -28,11 +28,13 @@
 }
 
 .search {
+    background-color: white;
     width: 100%;
     z-index: 1;
     border-radius: 1rem;
     opacity: 97%;
-    padding: 0.3rem;
+    padding: 1rem;
+    margin: 1rem 5rem 2rem;
 }
 
 .search select {
@@ -42,7 +44,7 @@
     height: 5.5vh;
     font-weight: 500;
     border-radius: 1rem;
-    margin-top: 0.7vh;
+    width: 100%;
 }
 
 .search button {
@@ -52,10 +54,11 @@
     font-weight: 500;
     border-radius: 1rem;
     color: white;
+    width: 100%;
 }
 
 .featured {
-    padding: 2rem 5rem 2rem;
+    padding: 0rem 5rem 2rem;
 }
 
 .featured h1 {
