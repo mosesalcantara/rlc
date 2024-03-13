@@ -11,3 +11,7 @@ a:hover {
     text-decoration: none;
     color: black;
 }
+
+.sidebar-brand-icon img {
+    width: 30%;
+}

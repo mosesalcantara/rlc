@@ -29,10 +29,9 @@
 
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <i class="fas fa-laugh-wink"></i>
+                    <div class="sidebar-brand-icon">
+                        <div class="sidebar-brand-text mx-3">RLC Admin</div>
                     </div>
-                    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
                 </a>
 
                 <!-- Divider -->
@@ -55,49 +54,6 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Components</span>
-                    </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Components:</h6>
-                            <a class="collapse-item" href="buttons.html">Buttons</a>
-                            <a class="collapse-item" href="cards.html">Cards</a>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Nav Item - Utilities Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                        aria-expanded="true" aria-controls="collapseUtilities">
-                        <i class="fas fa-fw fa-wrench"></i>
-                        <span>Utilities</span>
-                    </a>
-                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Utilities:</h6>
-                            <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            <a class="collapse-item" href="utilities-border.html">Borders</a>
-                            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                            <a class="collapse-item" href="utilities-other.html">Other</a>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Addons
-                </div>
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                         aria-expanded="true" aria-controls="collapsePages">
                         <i class="fas fa-fw fa-folder"></i>
@@ -105,27 +61,19 @@
                     </a>
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Login Screens:</h6>
-                            <a class="collapse-item" href="login.html">Login</a>
-                            <a class="collapse-item" href="register.html">Register</a>
-                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                            <div class="collapse-divider"></div>
-                            <h6 class="collapse-header">Home Page:</h6>
+                            <h6 class="collapse-header">Home Page</h6>
                             <a class="collapse-item" href="/admin/videos">Videos</a>
                             <a class="collapse-item" href="/admin/reviews">Reviews</a>
-                            <h6 class="collapse-header">Contact Us Page:</h6>
+                            <h6 class="collapse-header">Contact Us Page</h6>
                             <a class="collapse-item" href="/admin/contact">Items</a>
-                            <h6 class="collapse-header">About Us Page:</h6>
+                            <h6 class="collapse-header">About Us Page</h6>
                             <a class="collapse-item" href="/admin/about">Items</a>
                             <a class="collapse-item" href="/admin/articles">Articles</a>
-                            <h6 class="collapse-header">Other Pages:</h6>
-                            <a class="collapse-item" href="404.html">404 Page</a>
-                            <a class="collapse-item" href="blank.html">Blank Page</a>
                         </div>
                     </div>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEntities"
                         aria-expanded="true" aria-controls="collapsePages">
                         <i class="fas fa-fw fa-folder"></i>
@@ -142,6 +90,72 @@
                             <a class="collapse-item" href="/admin/snapshots">Snapshots</a>
                             <a class="collapse-item" href="/admin/commercial">Commercial Units</a>
                             <a class="collapse-item" href="/admin/parking">Parking Slots</a>
+                            <a class="collapse-item" href="/admin/terms">Terms</a>
+                        </div>
+                    </div>
+                </li> --}}
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Entities
+                </div>
+
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProperties"
+                        aria-expanded="true" aria-controls="collapseProperties">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Properties</span>
+                    </a>
+                    <div id="collapseProperties" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="/admin/properties">Properties</a>
+                            <a class="collapse-item" href="/admin/pictures">Pictures</a>
+                            <a class="collapse-item" href="/admin/buildings">Buildings</a>
+                            <a class="collapse-item" href="/admin/amenities">Amenities</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResidential"
+                        aria-expanded="true" aria-controls="collapseProperties">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Residential Units</span>
+                    </a>
+                    <div id="collapseResidential" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="/admin/residential">Units</a>
+                            <a class="collapse-item" href="/admin/snapshots">Snapshots</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCommercial"
+                        aria-expanded="true" aria-controls="collapseProperties">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Commercial Units</span>
+                    </a>
+                    <div id="collapseCommercial" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="/admin/commercial">Units</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseParking"
+                        aria-expanded="true" aria-controls="collapseProperties">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Parking Slots</span>
+                    </a>
+                    <div id="collapseParking" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="/admin/parking">Slots</a>
                             <a class="collapse-item" href="/admin/terms">Terms</a>
                         </div>
                     </div>
