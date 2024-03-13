@@ -5,9 +5,13 @@ $(document).ready( function () {
         }
     });
 
+    // $('#residential').prop('checked', true)
+    // $('input[name=property_type]').trigger('change')
+    // get_residential_properties()
+
     $('input[name=property_type]').on('change', function() {
         property_type = this.value
-        $('#property_1 ul, #property_2 ul, #property_3 ul').empty()
+        $('.dropdown-menu').remove()
 
         if (property_type == 'Residential') {
             $('.filter_rate, .filter_rate, .filter_unit_type, .filter_status').removeClass('d-none')
@@ -48,8 +52,7 @@ function get_residential_properties() {
         url: "/get-residential-units",
         success: function (res) {
             var properties = res.properties
-            var ul = $('<ul>')
-            ul.addClass('dropdown-menu')
+            var ul = $('<ul>').addClass('dropdown-menu')
 
             $.each(properties, function(key, value) {
                 var li = $('<li>')
@@ -119,12 +122,26 @@ function get_commercial_properties() {
 function select_property() {
     var element = event.target
     var property = element.innerHTML
+    // console.log(property)
     var parents = $(element).parents()
 
     var button = $(parents[1]).prev()
-    button.html(property)
+    // console.log($(parents[1]).prev())
+    button.empty()
+
+    var row = $('<div>').addClass('row')
+    var h6_col = $('<div>').addClass('col-10 d-flex justify-content-start')
+    var h6 = $('<h6>').html(property)
+    var i_col = $('<div>').addClass('col-2 d-flex justify-content-end')
+    var i = $('<i>').addClass('fa-solid fa-chevron-right')
+
+    h6_col.append(h6)
+    i_col.append(i)
+    row.append(h6_col, i_col)
+    button.append(row)
 
     var dropdown = $(parents[2])
+    // console.log($(parents[2]))
     dropdown = dropdown.attr('id')
     selected_properties[dropdown] = property
 }

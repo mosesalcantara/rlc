@@ -32,26 +32,47 @@
 
     <div class="container-fluid">
         <div class="row search_div mt-3">
-            <div class="col search_drops text-center">
+            <div class="col search_drops">
                 <div class="row">
                     <div class="col">
                         <div class="dropdown" id='property_1'>
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Select Property
+                            <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="row">
+                                    <div class="col-10 d-flex justify-content-start">
+                                        <h6>Select Property</h6>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-end">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </div>
+                                </div>
                             </button>
                         </div>
                     </div>
                     <div class="col">
                         <div class="dropdown" id='property_2'>
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Select Property
+                            <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="row">
+                                    <div class="col-10 d-flex justify-content-start">
+                                        <h6>Select Property</h6>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-end">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </div>
+                                </div>
                             </button>
                         </div>
                     </div>
                     <div class="col">
                         <div class="dropdown" id='property_3'>
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Select Property
+                            <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="row">
+                                    <div class="col-10 d-flex justify-content-start">
+                                        <h6>Select Property</h6>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-end">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </div>
+                                </div>
                             </button>
                         </div>
                     </div>
