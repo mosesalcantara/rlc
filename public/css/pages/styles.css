@@ -1,3 +1,7 @@
+.load {
+    height: 100%;
+}
+
 body {
     font-family: "MuseoSans";
     font-weight: 500;

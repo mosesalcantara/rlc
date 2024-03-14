@@ -11,9 +11,18 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
     @show
 </head>
-<body style="background-image: url({{ asset('img/pages/main-bg.png') }});">
+
+<div class="container load">
+    <div class="row">
+        <div class="col">
+            <img src="{{ asset('img/pages/logo.png') }}" alt="">
+        </div>
+    </div>
+</div>
+
+<body style="background-image: url({{ asset('img/pages/main-bg.png') }});" onload="hide_loader()">
     @section('navbar')
-        <nav class="navbar navbar-expand-lg bg-body-tertiary p-3 fixed-top">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary p-3 fixed-top d-none">
             <div class="container-fluid navbar_div">
                 <a href="#" class="navbar-brand">
                     <img src="{{ asset('img/pages/logo.png') }}" alt="">
@@ -105,10 +114,12 @@
     @show
 
     @section('scripts')
-    <script src="{{ asset('vendor/admin/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('vendor/admin/jquery/jquery.min.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
         <script src="https://kit.fontawesome.com/dc08c6c264.js" crossorigin="anonymous"></script>
+
+        <script src="{{ asset('js/pages/scripts.js') }}"></script>
     @show
 </body>
 </html>
