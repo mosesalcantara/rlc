@@ -5,13 +5,15 @@ $(document).ready( function () {
         }
     });
 
-    // $('#residential').prop('checked', true)
-    // $('input[name=property_type]').trigger('change')
-    // get_residential_properties()
+    $('#residential').prop('checked', true)
+    $('input[name=property_type]').trigger('change')
+    get_residential_properties()
 
-    $('input[name=property_type]').on('change', function() {
+    $(document).on('change', 'input[name=property_type]', function() {
         property_type = this.value
         $('.dropdown-menu').remove()
+
+        $('#property_1 h6, #property_2 h6, #property_3 h6').html('Select Property')
 
         if (property_type == 'Residential') {
             $('.filter_rate, .filter_rate, .filter_unit_type, .filter_status').removeClass('d-none')
@@ -26,7 +28,13 @@ $(document).ready( function () {
     $('#property_form').submit(function(e) {
         e.preventDefault()
 
+        var properties_div = $('.properties')
+        var units_container = $('.units_container')
+        properties_div.empty()
+        units_container.empty()
+
         if (property_type == 'Residential') {
+
             compare_residential_properties()
             compare_residential_units()
         }
@@ -36,6 +44,10 @@ $(document).ready( function () {
         }
     })  
 
+    $(document).on('click', '.drop_btn', function() {
+        $(this).next().toggleClass('show')
+    })
+
 })
 
 var selected_properties = {
@@ -44,7 +56,7 @@ var selected_properties = {
     'property_3': '',
 }
 
-var property_type = ''
+var property_type = 'Residential'
 
 function get_residential_properties() {
     $.ajax({
@@ -124,7 +136,7 @@ function select_property() {
     var property = element.innerHTML
     // console.log(property)
     var parents = $(element).parents()
-
+    $(parents[1]).toggleClass('show')
     var button = $(parents[1]).prev()
     // console.log($(parents[1]).prev())
     button.empty()
