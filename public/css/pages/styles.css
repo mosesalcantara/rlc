@@ -1,5 +1,18 @@
-.load {
-    height: 100%;
+.loader {
+    height: 100vh;
+}
+
+.loader h5 {
+    color: gray;
+}
+
+.loader img {
+    width: 20%;
+    margin-bottom: 2rem;
+}
+
+.content {
+    display: none;
 }
 
 body {
