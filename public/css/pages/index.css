@@ -31,32 +31,28 @@
 }
 
 .search {
-    background-color: white;
-    width: 100%;
+    background-color: #FAFAFA;
     border-radius: 1rem;
-    opacity: 97%;
+    margin: 0 5rem 1rem;
     padding: 1rem;
-    margin: 1rem 5rem 2rem;
 }
 
-.search select {
+.dropdown button {
     background-color: #D7D7D7;
     display: inline;
-    width: 15vw;
     height: 5.5vh;
     font-weight: 500;
     border-radius: 1rem;
     width: 100%;
 }
 
-.search button {
-    display: inline;
-    width: 4.5vw;
-    height: 5vh;
-    font-weight: 500;
-    border-radius: 1rem;
-    color: white;
-    width: 100%;
+.dropdown h6 {
+    margin-left: 1rem;
+}
+
+.dropdown i {
+    color: #CC9900;
+    margin-right: 1rem;
 }
 
 .featured {

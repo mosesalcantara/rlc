@@ -15,7 +15,7 @@
 @section('content')
     <div class="container-fluid header" style="background-image: url({{ asset('img/pages/properties/property-header.png') }})">
         <div class="row">
-            <div class="col-4 header_item">
+            <div class="col-4 header_item d-flex align-items-center">
                 <h1>Compare<br>Our Properties</h1>
             </div>
         </div>
@@ -31,15 +31,15 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row search_div mt-3">
+        <div class="row search mt-3">
             <div class="col search_drops">
                 <div class="row">
                     <div class="col">
                         <div class="dropdown" id='property_1'>
-                            <button class="btn drop_btn" type="button" aria-expanded="false">
+                            <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
-                                        <h6 class="drop_h6">Select Property</h6>
+                                        <h6>Select Property</h6>
                                     </div>
                                     <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
@@ -50,10 +50,10 @@
                     </div>
                     <div class="col">
                         <div class="dropdown" id='property_2'>
-                            <button class="btn drop_btn" type="button" aria-expanded="false">
+                            <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
-                                        <h6 class="drop_h6">Select Property</h6>
+                                        <h6>Select Property</h6>
                                     </div>
                                     <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
@@ -64,10 +64,10 @@
                     </div>
                     <div class="col">
                         <div class="dropdown" id='property_3'>
-                            <button class="btn drop_btn" type="button" aria-expanded="false">
+                            <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
-                                        <h6 class="drop_h6">Select Property</h6>
+                                        <h6>Select Property</h6>
                                     </div>
                                     <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>

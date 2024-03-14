@@ -44,7 +44,7 @@ $(document).ready( function () {
         }
     })  
 
-    $(document).on('click', '.drop_btn', function() {
+    $(document).on('click', '.dropdown button', function() {
         $(this).next().toggleClass('show')
     })
 
