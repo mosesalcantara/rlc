@@ -15,7 +15,8 @@
 </head>
 
 <body style="background-image: url({{ asset('img/pages/main-bg.png') }});" onload="hideLoader()">
-    <div class="container">
+    
+    <div class="container-fluid">
         <div class="row">
             <div class="col loader d-flex align-items-center justify-content-center">
                 <div class="text-center">

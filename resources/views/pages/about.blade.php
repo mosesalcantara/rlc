@@ -36,9 +36,11 @@
         <div class="row">
             <div class="col acronym_item acronym_1">
                 <div class="row">
-                    <div class="col-9">
-                        <h4>{{ $data['articles'][0]['title'] }}</h4>
-                        <p>{{ $data['articles'][0]['text'] }}</p>
+                    <div class="col-9 d-flex justify-content-center align-items-center">
+                        <div>
+                            <h4>{{ $data['articles'][0]['title'] }}</h4>
+                            <p>{{ $data['articles'][0]['text'] }}</p>
+                        </div>
                     </div>
                     <div class="col d-flex justify-content-end">
                         <img src="{{ asset('uploads/articles/pictures') }}/{{ $data['articles'][0]['picture'] }}" alt="">
@@ -47,7 +49,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col shape">
                 <img src="{{ asset('img/pages/about/shape-1.png') }}" alt="">
             </div>
         </div>
@@ -57,24 +59,28 @@
                     <div class="col">
                         <img src="{{ asset('uploads/articles/pictures') }}/{{ $data['articles'][1]['picture'] }}" alt="">
                     </div>
-                    <div class="col-9">
-                        <h4>{{ $data['articles'][1]['title'] }}</h4>
-                        <p>{{ $data['articles'][1]['text'] }}</p>
+                    <div class="col-9 d-flex justify-content-center align-items-center">
+                        <div>
+                            <h4>{{ $data['articles'][1]['title'] }}</h4>
+                            <p>{{ $data['articles'][1]['text'] }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col shape">
                 <img src="{{ asset('img/pages/about/shape-2.png') }}" alt="">
             </div>
         </div>
         <div class="row">
             <div class="col acronym_item acronym_3">
                 <div class="row">
-                    <div class="col-9">
-                        <h4>{{ $data['articles'][2]['title'] }}</h4>
-                        <p>{{ $data['articles'][2]['text'] }}</p>
+                    <div class="col-9 d-flex justify-content-center align-items-center">
+                        <div>
+                            <h4>{{ $data['articles'][2]['title'] }}</h4>
+                            <p>{{ $data['articles'][2]['text'] }}</p>
+                        </div>
                     </div>
                     <div class="col d-flex justify-content-end">
                         <img src="{{ asset('uploads/articles/pictures') }}/{{ $data['articles'][2]['picture'] }}" alt="">
@@ -91,9 +97,11 @@
             <div class="col embded-responsive d-flex align-items-center justify-content-center">
                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/{{ $data['about']['video_code'] }}" allowfullscreen></iframe>
             </div>
-            <div class="col description">
-                <h2>{{ $data['about']['video_title'] }}</h2>
-                <p>{{ $data['about']['video_description'] }}</p>
+            <div class="col description d-flex justify-content-center align-items-center">
+                <div>
+                    <h2>{{ $data['about']['video_title'] }}</h2>
+                    <p>{{ $data['about']['video_description'] }}</p>
+                </div>
             </div>
         </div>
     </div>

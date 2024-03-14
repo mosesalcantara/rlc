@@ -1,4 +1,5 @@
 .loader {
+    background-color: white;
     height: 100vh;
 }
 
@@ -16,7 +17,8 @@
 }
 
 body {
-    font-family: "MuseoSans";
+    font-family: museo-sans, sans-serif;
+    font-style: normal;
     font-weight: 500;
     background-size: cover;
     color: #000b8c;

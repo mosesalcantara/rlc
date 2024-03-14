@@ -15,7 +15,7 @@
 .about {
     background: linear-gradient(180deg, #E8E8E8, rgba(86,86,86,1), rgba(54,54,54,1));
     height: auto;
-    font-size: 1.5rem;
+    font-size: 1.rem;
     box-shadow: 1rem 1rem 3rem 5rem #E8E8E8;
 }
 
@@ -27,11 +27,16 @@
     padding: 3vh 5vw 0 5vw;
     text-align: justify;
     font-size: 1.45rem;
+    font-weight: 500;
 }
 
 .tagline h1 {
     color: white;
     font-size: 3rem;
+}
+
+.shape img {
+    width: 100%;
 }
 
 .acronym_1, .acronym_3 {
@@ -50,7 +55,8 @@
 .acronym_item p {
     color: white;
     text-align: justify;
-    font-size: 1.45rem;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .acronym_item img {
@@ -72,15 +78,12 @@
     border-radius: 0.5rem;
 }
 
-.brand_story .description {
-    margin-top: 25vh;
-}
-
 .brand_story h2 {
     color: white;
+    margin-bottom: 1.5rem;
 }
 
 .brand_story p {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
 }
 

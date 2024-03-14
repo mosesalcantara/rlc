@@ -71,14 +71,22 @@
     margin: 2vh 5vw 2vh;
 }
 
+.card {
+    height: 75vh;
+}
+
 .card_front {
     z-index: 0;
 }
 
 .card_front div {
     border-radius: 1rem;
-    height: 75vh;
     background-size: cover;
+    height: 75vh;
+}
+
+.card_front img {
+    width: 30%;
 }
 
 .front_switch, .back_switch {
@@ -97,9 +105,12 @@
     position: absolute;
 }
 
+.card_back .row {
+    height: 75vh;
+}
+
 .snapshot img {
     width: 50vw;
-    margin-top: 8.5vh;
 }
 
 .details {
@@ -117,7 +128,7 @@
 
 .details i {
     color: #CC9900;
-    margin-bottom: 1rem;
+    margin-bottom: 1.75rem;
 }
 
 .details h5 {
