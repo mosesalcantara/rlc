@@ -25,8 +25,8 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row mt-3">
-            <div class="col search text-center">
+        <div class="row">
+            <div class="col text-center search">
                 <div class="row">
                     <div class="col">
                         <select name="" id="" class="form-select">

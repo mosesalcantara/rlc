@@ -30,7 +30,6 @@
 .search {
     background-color: white;
     width: 100%;
-    z-index: 1;
     border-radius: 1rem;
     opacity: 97%;
     padding: 1rem;

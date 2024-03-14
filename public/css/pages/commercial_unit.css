@@ -1,33 +1,37 @@
 .title h1 {
     color: #000b8c;
-    margin: 10vh 4.5vw 0;
+    margin: 10vh 5rem 0;
     border-left: 0.2rem solid #CC9900;
     padding-left: 0.3vw;
 }
 
 .search {
-    height: 7vh;
+    background-color: white;
+    width: 100%;
     border-radius: 1rem;
-    margin: 0.5rem 5rem 0.5rem;
+    opacity: 97%;
+    padding: 1rem;
+    margin: 1rem 5.5rem 2rem;
 }
 
 .search select {
     background-color: #D7D7D7;
     display: inline;
-    width: 26vw;
+    width: 15vw;
     height: 5.5vh;
     font-weight: 500;
     border-radius: 1rem;
-    margin-right: 1.5rem;
+    width: 100%;
 }
 
 .search button {
     display: inline;
-    width: 5.7vw;
+    width: 4.5vw;
     height: 5vh;
     font-weight: 500;
     border-radius: 1rem;
     color: white;
+    width: 100%;
 }
 
 .unit {
@@ -78,8 +82,11 @@
 }
 
 .picture img {
-    margin: 3rem 0 0;
-    width: 25%;
+    width: 30%;
+    height: 17%;
+    background-color: #D3DBE0;
+    padding: 1rem;
+    opacity: 80%;
 }
 
 .floor_plan {
