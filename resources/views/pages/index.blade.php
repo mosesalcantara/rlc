@@ -15,21 +15,7 @@
 @section('content')
     <div class="container-fluid" style="background-image: url({{ asset('img/pages/home/header-bg.png') }})">
         <div class="row gx-0 header" style="background-image: url({{ asset('img/pages/home/shape.png') }})">
-            <div class="col">
-                <div style="background-image: url({{ asset('img/pages/home/family.png') }})">
-                    <h3>Register My Unit</h3>
-                </div>
-            </div>
-            <div class="col">
-                <div style="background-image: url({{ asset('img/pages/home/building.png') }})">
-                    <h3>Check Available Units</h3>
-                </div>
-            </div>
-            <div class="col">
-                <div style="background-image: url({{ asset('img/pages/home/agent.png') }})">
-                    <h3>Connect With Us</h3>
-                </div>
-            </div>
+            
         </div>
     </div>
 

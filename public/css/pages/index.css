@@ -1,6 +1,5 @@
 .header {
     margin-top: 9vh;
-    width: 100%;
     height: 70vh;
     background-repeat: no-repeat;
     background-position: 0 17vh;
@@ -25,6 +24,10 @@
     margin-left: 3vw;
     border-left: 0.2rem solid #CC9900;
     padding-left: 1vw;
+}
+
+.header .back div {
+    height: 100%;
 }
 
 .search {
