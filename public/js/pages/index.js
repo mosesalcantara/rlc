@@ -97,6 +97,20 @@ $(document).ready( function () {
         }
 
         console.log(data)
+        var url = ''
+
+        if ($('#property_type button h6').html() == 'Reidential') {url = '/for-lease/residential_units'}
+        else if ($('#property_type button h6').html() == 'Commercial') {url = '/for-lease/commercial_units'}
+        else if ($('#property_type button h6').html() == 'Parking') {url = '/for-lease/parking_slots'}
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            success: function (response) {
+                
+            }
+        });
     })
 })
 

@@ -16,56 +16,71 @@ class LeaseController extends Controller
         return view("pages.lease.lease");
     }
 
-    public function residential_units() {
-        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
+    public function residential_units(Request $request) {
+        if ($request->isMethod('get')) {
+            $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
 
-        foreach ($r_units as $r_unit) {
-            $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
-                        ->where('residential_units.id', $r_unit['id'])->get();
-            $r_unit['snapshot'] = $record[0]->picture;
+            foreach ($r_units as $r_unit) {
+                $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
+                            ->where('residential_units.id', $r_unit['id'])->get();
+                $r_unit['snapshot'] = $record[0]->picture;
+            }
+    
+            $data = [
+                'r_units' => $r_units,
+            ];
+    
+            return view("pages.lease.residential_units")->with('data', $data);
         }
+        else if ($request->isMethod('post')) {
 
-        $data = [
-            'r_units' => $r_units,
-        ];
-
-        return view("pages.lease.residential_units")->with('data', $data);
+        }
     }
 
-    public function commercial_units() {
-        $c_units = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->get();
+    public function commercial_units(Request $request) {
+        if ($request->isMethod('get')) {
+            $c_units = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->get();
 
-        foreach ($c_units as $c_unit) {
-            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
-                        ->where('properties.id', $c_unit['property_id'])->get();
-            $c_unit['picture'] = $record[0]->picture;
-
-            $record = Building::where('id', $c_unit['building_id'])->get();
-            $c_unit['building'] = $record[0]['name'];
+            foreach ($c_units as $c_unit) {
+                $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                            ->where('properties.id', $c_unit['property_id'])->get();
+                $c_unit['picture'] = $record[0]->picture;
+    
+                $record = Building::where('id', $c_unit['building_id'])->get();
+                $c_unit['building'] = $record[0]['name'];
+            }
+    
+            $data = [
+                'c_units' => $c_units,
+            ];
+    
+            return view("pages.lease.commercial_units")->with('data', $data);
         }
+        else if ($request->isMethod('post')) {
 
-        $data = [
-            'c_units' => $c_units,
-        ];
-
-        return view("pages.lease.commercial_units")->with('data', $data);
+        }
     }
 
-    public function parking_slots() {
-        $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
-                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupBy('properties.id')->get();
+    public function parking_slots(Request $request) {
+        if ($request->isMethod('get')) {
+            $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
+            ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupBy('properties.id')->get();
 
-        foreach ($slots as $slot) {
-            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
-                        ->where('properties.id', $slot['id'])->get();
-            $slot['picture'] = $record[0]->picture;
+            foreach ($slots as $slot) {
+                $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                            ->where('properties.id', $slot['id'])->get();
+                $slot['picture'] = $record[0]->picture;
+            }
+
+            $data = [
+                'slots' => $slots,
+            ];
+
+            return view("pages.lease.parking_slots")->with('data', $data);
         }
+        else if ($request->isMethod('post')) {
 
-        $data = [
-            'slots' => $slots,
-        ];
-
-        return view("pages.lease.parking_slots")->with('data', $data);
+        }
     }
 
     public function residential_unit(Request $request) {

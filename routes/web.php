@@ -45,9 +45,9 @@ Route::get('/test', [PageController::class, 'test']);
 
 Route::get('/for-lease', [LeaseController::class, 'lease']);
 
-Route::get('/for-lease/category/residential_units', [LeaseController::class, 'residential_units']);
-Route::get('/for-lease/category/commercial_units', [LeaseController::class, 'commercial_units']);
-Route::get('/for-lease/category/parking_slots', [LeaseController::class, 'parking_slots']);
+Route::match(['get', 'post'], '/for-lease/category/residential_units', [LeaseController::class, 'residential_units']);
+Route::match(['get', 'post'], '/for-lease/category/commercial_units', [LeaseController::class, 'commercial_units']);
+Route::match(['get', 'post'], '/for-lease/category/parking_slots', [LeaseController::class, 'parking_slots']);
 
 Route::get('/for-lease/category/residential_units/{id}', [LeaseController::class, 'residential_unit']);
 Route::get('/for-lease/category/commercial_units/{id}', [LeaseController::class, 'commercial_unit']);
