@@ -25,10 +25,10 @@
                 <div class="row">
                     <div class="col-3">
                         <div class="dropdown" id='property_type'>
-                            <button class="btn" type="button" aria-expanded="false" data-bs-toggle='dropdown'>
+                            <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
-                                        <h6 class="drop_h6">Property Type</h6>
+                                        <h6>Property Type</h6>
                                     </div>
                                     <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
@@ -36,9 +36,9 @@
                                 </div>
                             </button>
                             <ul class='dropdown-menu'>
-                                <li><h6 class="dropdown-item" data-id='residential_type'>Residential</h6></li>
-                                <li><h6 class="dropdown-item" data-id='commercial_type'>Commercial</h6></li>
-                                <li><h6 class="dropdown-item" data-id='parking_type'>Parking</h6></li>
+                                <li><h6 class="dropdown-item">Residential</h6></li>
+                                <li><h6 class="dropdown-item">Commercial</h6></li>
+                                <li><h6 class="dropdown-item">Parking</h6></li>
                             </ul>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
-                                        <h6 class="drop_h6">Location</h6>
+                                        <h6>Location</h6>
                                     </div>
                                     <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
@@ -58,10 +58,10 @@
                     </div>
                     <div class="col-2">
                         <div class="dropdown" id='type'>
-                            <button class="btn" type="button" aria-expanded="false" data-bs-toggle='dropdown'>
+                            <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
-                                        <h6 class="drop_h6">Type of Unit</h6>
+                                        <h6>Type of Unit</h6>
                                     </div>
                                     <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
@@ -82,17 +82,24 @@
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
-                                        <h6 class="drop_h6">Rental Rate</h6>
+                                        <h6>Rental Rate</h6>
                                     </div>
                                     <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </div>
                                 </div>
                             </button>
+                            <ul class='dropdown-menu'>
+                                <li><h6 class="dropdown-item">PHP 0.00 - 16,000.00</h6></li>
+                                <li><h6 class="dropdown-item">PHP 16,000.00 - 32,000.00</h6></li>
+                                <li><h6 class="dropdown-item">PHP 32,000.00 - 48,000.00</h6></li>
+                                <li><h6 class="dropdown-item">PHP 48,000.00 - 64,000.00</h6></li>
+                                <li><h6 class="dropdown-item">PHP 64,000.00 - 80,000.00</h6></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-1 d-flex justify-content-center align-items-center search_btn">
-                        <button class="btn btn-warning search_btn">
+                        <button class="btn btn-warning">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>

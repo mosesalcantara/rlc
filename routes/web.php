@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Pages\PageController;
+use App\Http\Controllers\Pages\CompareController;
+use App\Http\Controllers\Pages\LeaseController;
 
 use App\Http\Controllers\Auth\AuthController;
 
@@ -19,8 +21,7 @@ use App\Http\Controllers\Admin\TermController;
 use App\Http\Controllers\Admin\AboutItemController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ContactItemController;
-use App\Http\Controllers\Pages\CompareController;
-use App\Http\Controllers\Pages\LeaseController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index']);
 
+Route::get('/contact-us', [PageController::class, 'contact']);
+
+Route::get('/about-us', [PageController::class, 'about']);
+
+Route::get('/test', [PageController::class, 'test']);
+
 Route::get('/for-lease', [LeaseController::class, 'lease']);
 
 Route::get('/for-lease/category/residential_units', [LeaseController::class, 'residential_units']);
@@ -48,23 +55,18 @@ Route::get('/for-lease/category/parking_slots/{id}', [LeaseController::class, 'p
 
 Route::get('/for-lease/property/{id}', [LeaseController::class, 'property']);
 
-Route::get('/compare-properties', [CompareController::class, 'properties']);
+Route::post('/for-lease/get-filters', [LeaseController::class, 'get_filters']);
 
-Route::post('/get-residential-units', [CompareController::class, 'get_residential_units']);
-Route::post('/get-commercial-units', [CompareController::class, 'get_commercial_units']);
+Route::get('/compare', [CompareController::class, 'properties']);
 
-Route::post('/compare-residential-properties', [CompareController::class, 'compare_residential_properties']);
-Route::post('/compare-commercial-properties', [CompareController::class, 'compare_commercial_properties']);
+Route::post('/compare/get-residential-units', [CompareController::class, 'get_residential_units']);
+Route::post('/compare/get-commercial-units', [CompareController::class, 'get_commercial_units']);
 
-Route::post('/compare-residential-units', [CompareController::class, 'compare_residential_units']);
-Route::post('/compare-commercial-units', [CompareController::class, 'compare_commercial_units']);
+Route::post('/compare/residential-properties', [CompareController::class, 'compare_residential_properties']);
+Route::post('/compare/commercial-properties', [CompareController::class, 'compare_commercial_properties']);
 
-Route::get('/contact-us', [PageController::class, 'contact']);
-
-Route::get('/about-us', [PageController::class, 'about']);
-
-Route::get('/test', [PageController::class, 'test']);
-
+Route::post('/compare/residential-units', [CompareController::class, 'compare_residential_units']);
+Route::post('/compare/commercial-units', [CompareController::class, 'compare_commercial_units']);
 
 Route::prefix('auth')->group(function () {
     Route::get('/', [AuthController::class, 'index']);

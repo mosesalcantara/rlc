@@ -45,7 +45,7 @@
                                 <a class="nav-link {{ Request::url() == url('/for-lease') ? 'active' : '' }}" href="/for-lease">For Lease</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::url() == url('/compare-properties') ? 'active' : '' }}" href="/compare-properties">Compare Properties</a>
+                                <a class="nav-link {{ Request::url() == url('/compare') ? 'active' : '' }}" href="/compare">Compare Properties</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::url() == url('/contact-us') ? 'active' : '' }}" href="/contact-us">Contact Us</a>

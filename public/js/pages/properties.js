@@ -3,7 +3,7 @@ $(document).ready( function () {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });
+    })
 
     $('#residential').prop('checked', true)
     $('input[name=property_type]').trigger('change')
@@ -23,6 +23,19 @@ $(document).ready( function () {
             $('.filter_rate, .filter_rate, .filter_unit_type, .filter_status').addClass('d-none')
             get_commercial_properties()
         }
+    })
+
+    $(document).on('click', '.dropdown-item', function(){
+        var selected = $(this)
+
+        var parents = $(selected).parents()
+        $(parents[1]).toggleClass('show')
+        var button = $(parents[1]).prev()
+        button.find('h6').html(selected.html())
+        
+        var dropdown = $(parents[2])
+        dropdown = dropdown.attr('id')
+        selected_properties[dropdown] = selected.html()
     })
 
     $('#property_form').submit(function(e) {
@@ -61,7 +74,7 @@ var property_type = 'Residential'
 function get_residential_properties() {
     $.ajax({
         type: 'POST',
-        url: "/get-residential-units",
+        url: "/compare/get-residential-units",
         success: function (res) {
             var properties = res.properties
             var ul = $('<ul>').addClass('dropdown-menu')
@@ -79,9 +92,6 @@ function get_residential_properties() {
                     var h6 = $('<h6>')
                     h6.html(property)
                     h6.addClass('dropdown-item')
-                    h6.attr({
-                        'onclick': `select_property()`,
-                    })
                     li.append(h6)
                     ul.append(li)
                 }  
@@ -97,7 +107,7 @@ function get_residential_properties() {
 function get_commercial_properties() {
     $.ajax({
         type: 'POST',
-        url: "/get-commercial-units",
+        url: "/compare/get-commercial-units",
         success: function (res) {
             var properties = res.properties
             var ul = $('<ul>')
@@ -116,9 +126,6 @@ function get_commercial_properties() {
                     var h6 = $('<h6>')
                     h6.html(property)
                     h6.addClass('dropdown-item')
-                    h6.attr({
-                        'onclick': `select_property()`,
-                    })
                     li.append(h6)
                     ul.append(li)
                 }  
@@ -131,37 +138,10 @@ function get_commercial_properties() {
     })   
 }
 
-function select_property() {
-    var element = event.target
-    var property = element.innerHTML
-    // console.log(property)
-    var parents = $(element).parents()
-    $(parents[1]).toggleClass('show')
-    var button = $(parents[1]).prev()
-    // console.log($(parents[1]).prev())
-    button.empty()
-
-    var row = $('<div>').addClass('row')
-    var h6_col = $('<div>').addClass('col-10 d-flex justify-content-start align-items-center')
-    var h6 = $('<h6>').html(property)
-    var i_col = $('<div>').addClass('col-2 d-flex justify-content-end align-items-center')
-    var i = $('<i>').addClass('fa-solid fa-chevron-right')
-
-    h6_col.append(h6)
-    i_col.append(i)
-    row.append(h6_col, i_col)
-    button.append(row)
-
-    var dropdown = $(parents[2])
-    // console.log($(parents[2]))
-    dropdown = dropdown.attr('id')
-    selected_properties[dropdown] = property
-}
-
 function compare_residential_properties() {
     $.ajax({
         type: 'POST',
-        url: "/compare-residential-properties",
+        url: "/compare/residential-properties",
         data: {
             'selected_properties': selected_properties,
         },
@@ -219,7 +199,7 @@ function compare_commercial_properties() {
     // console.log(selected_properties)
     $.ajax({
         type: 'POST',
-        url: "/compare-commercial-properties",
+        url: "/compare/commercial-properties",
         data: {
             'selected_properties': selected_properties,
         },
@@ -320,7 +300,7 @@ function compare_residential_units() {
 
     $.ajax({
         type: 'POST',
-        url: "/compare-residential-units",
+        url: "/compare/residential-units",
         data: data,
         success: function (res) {
             // console.log(res)
@@ -414,7 +394,7 @@ function compare_commercial_units() {
 
     $.ajax({
         type: 'POST',
-        url: "/compare-commercial-units",
+        url: "/compare/commercial-units",
         data: data,
         success: function (res) {
             console.log(res)

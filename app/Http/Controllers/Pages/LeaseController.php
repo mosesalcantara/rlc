@@ -13,7 +13,7 @@ use App\Models\Snapshot;
 class LeaseController extends Controller
 {
     public function lease() {
-        return view("pages.lease");
+        return view("pages.lease.lease");
     }
 
     public function residential_units() {
@@ -29,7 +29,7 @@ class LeaseController extends Controller
             'r_units' => $r_units,
         ];
 
-        return view("pages.residential_units")->with('data', $data);
+        return view("pages.lease.residential_units")->with('data', $data);
     }
 
     public function commercial_units() {
@@ -48,7 +48,7 @@ class LeaseController extends Controller
             'c_units' => $c_units,
         ];
 
-        return view("pages.commercial_units")->with('data', $data);
+        return view("pages.lease.commercial_units")->with('data', $data);
     }
 
     public function parking_slots() {
@@ -65,7 +65,7 @@ class LeaseController extends Controller
             'slots' => $slots,
         ];
 
-        return view("pages.parking_slots")->with('data', $data);
+        return view("pages.lease.parking_slots")->with('data', $data);
     }
 
     public function residential_unit(Request $request) {
@@ -96,7 +96,7 @@ class LeaseController extends Controller
         $data = [
             'r_unit' => $r_unit,
         ];
-        return view('pages.residential_unit')->with('data', $data);
+        return view('pages.lease.residential_unit')->with('data', $data);
     }
 
     public function commercial_unit(Request $request) {
@@ -114,7 +114,7 @@ class LeaseController extends Controller
             'c_unit' => $c_unit,
             'measurements' => $measurements,
         ];
-        return view('pages.commercial_unit')->with('data', $data);
+        return view('pages.lease.commercial_unit')->with('data', $data);
     }
 
     public function parking_slot(Request $request) {
@@ -145,7 +145,7 @@ class LeaseController extends Controller
             'property' => $property,
             'slots' => $slots,
         ];
-        return view('pages.parking_slot')->with('data', $data);
+        return view('pages.lease.parking_slot')->with('data', $data);
     }
 
     public function property(Request $request) {
@@ -191,6 +191,22 @@ class LeaseController extends Controller
         $data = [
             'property' => $property,
         ];
-        return view('pages.property')->with('data', $data);
+        return view('pages.lease.property')->with('data', $data);
+    }
+
+    public function get_filters() {
+        $records = Property::selectRaw('properties.location, Count(residential_units.id) As residential_units')
+                        ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->groupByRaw('properties.location, properties.id')
+                        ->havingRaw('Count(residential_units.id) > 0')->get();
+        $locations = [];
+
+        foreach ($records as $record) {
+            array_push($locations, $record['location']);
+        }
+
+        $data = [
+            'locations' => $locations,
+        ];
+        return response()->json($data);
     }
 }

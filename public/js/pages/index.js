@@ -1,4 +1,10 @@
 $(document).ready( function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    })
+
     show_front()
  
     $('.property_carousel_item').first().addClass('active')
@@ -49,10 +55,48 @@ $(document).ready( function () {
 
     })
 
-    $(document).on('click', '#property_type h6', function(){
-        var property_type = $(this).data('id')
+    $(document).on('click', '.dropdown button', function() {
+        $(this).next().toggleClass('show')
+    })
 
-        
+    $(document).on('click', '.dropdown-item', function(){
+        var selected = $(this)
+
+        var parents = $(selected).parents()
+        $(parents[1]).toggleClass('show')
+
+        var button = $(parents[1]).prev()
+        button.find('h6').html(selected.html())
+    })
+
+    $(document).on('click', '#property_type .dropdown-item', function(){
+        var selected = $(this)
+
+        if (selected.html() == 'Residential') {
+            get_filters()
+        } 
+    })
+
+    // $(document).on('click', '#property_type .dropdown-button', function(){
+    //     $('#location .dropdown-menu').remove()
+    // })
+
+    $(document).on('click', '.search_btn button', function(){
+        var rates = $('#rate button h6').html()
+        var words = rates.split(' ')
+
+        var min_rate = parseFloat(words[1].replace(/,/g, ''))
+        var max_rate = parseFloat(words[3].replace(/,/g, ''))
+
+        var data = {
+            'property_type': $('#property_type button h6').html(),
+            'location': $('#location button h6').html(),
+            'type': $('#type button h6').html(),
+            'min_rate': min_rate,
+            'max_rate': max_rate,
+        }
+
+        console.log(data)
     })
 })
 
@@ -76,4 +120,26 @@ function show_front() {
         col.append(picture)
         header_div.append(col)
     })
+}
+
+function get_filters() {
+    $.ajax({
+        type: 'POST',
+        url: "/for-lease/get-filters",
+        success: function (res) {
+            // console.log(res)
+            var locations = res.locations
+            var ul = $('<ul>').addClass('dropdown-menu')
+
+            for (var location of locations) {
+                var dropdown_item = `<li><h6 class='dropdown-item'>${location}</h6></li>`
+                ul.append(dropdown_item)
+            }  
+
+            $('#location').append(ul)
+        },
+        error: function (xhr, status, error) {
+            console.log(xhr)
+        },
+    })  
 }
