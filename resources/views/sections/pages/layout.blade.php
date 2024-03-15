@@ -32,7 +32,7 @@
         @section('navbar')
             <nav class="navbar navbar-expand-lg bg-body-tertiary p-3 fixed-top">
                 <div class="container-fluid navbar_div">
-                    <a href="#" class="navbar-brand">
+                    <a href="/" class="navbar-brand">
                         <img src="{{ asset('img/pages/logo.png') }}" alt="">
                     </a>
             
@@ -42,7 +42,7 @@
                                 <a class="nav-link {{ Request::url() == url('/') ? 'active' : '' }}" href="/">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::url() == url('/for-lease') ? 'active' : '' }}" href="/for-lease">For Lease</a>
+                                <a class="nav-link {{ str_contains(Request::url(), '/for-lease') ? 'active' : '' }}" href="/for-lease">For Lease</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::url() == url('/compare') ? 'active' : '' }}" href="/compare">Compare Properties</a>

@@ -46,6 +46,10 @@
     width: 100%;
 }
 
+.dropdown button:hover {
+    background-color: #D7D7D7;
+}
+
 .dropdown h6 {
     margin-left: 1rem;
 }
@@ -190,13 +194,14 @@
     border-radius: 1rem;
     color: white;
     padding: 1.5rem;
-    height: 37vh;
     font-weight: 500;
     margin-right: 0.5rem;
+    padding-bottom: 7rem;
 }
 
 .profile img {
-    width: 90%;
+    width: 100%;
+    height: 100%;
 }
 
 .profile h2 {

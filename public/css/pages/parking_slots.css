@@ -25,6 +25,10 @@
     width: 100%;
 }
 
+.dropdown button:hover {
+    background-color: #D7D7D7;
+}
+
 .dropdown h6 {
     margin-left: 1rem;
 }
