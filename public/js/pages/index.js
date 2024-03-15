@@ -77,9 +77,33 @@ $(document).ready( function () {
         } 
     })
 
-    // $(document).on('click', '#property_type .dropdown-button', function(){
-    //     $('#location .dropdown-menu').remove()
-    // })
+    $(document).on('click', '#property_type .dropdown-item', function(){
+        $('#location .dropdown-menu').remove()
+        $('#search_form')[0].reset()
+
+        var property_type = $(this).html()
+
+        if (property_type != 'Residential') {
+            $('#type').parent().toggleClass('d-none')
+            $('#rate').parent().toggleClass('d-none')
+
+            $('#property_type').parent().removeClass('col-3')
+            $('#location').parent().removeClass('col-3')
+
+            $('#property_type').parent().addClass('col-5')
+            $('#location').parent().addClass('col-6')
+        }
+        else {
+            $('#type').parent().toggleClass('d-none')
+            $('#rate').parent().toggleClass('d-none')
+
+            $('#property_type').parent().removeClass('col-5')
+            $('#location').parent().removeClass('col-6')
+
+            $('#property_type').parent().addClass('col-3')
+            $('#location').parent().addClass('col-3')
+        }
+    })
 
     $(document).on('click', '.search_btn button', function(){
         var rates = $('#rate button h6').html()
@@ -88,29 +112,19 @@ $(document).ready( function () {
         var min_rate = parseFloat(words[1].replace(/,/g, ''))
         var max_rate = parseFloat(words[3].replace(/,/g, ''))
 
-        var data = {
-            'property_type': $('#property_type button h6').html(),
-            'location': $('#location button h6').html(),
-            'type': $('#type button h6').html(),
-            'min_rate': min_rate,
-            'max_rate': max_rate,
-        }
+        $('input[name=property_type]').val($('#property_type button h6').html())
+        $('input[name=location]').val($('#location button h6').html())
+        $('input[name=type]').val($('#type button h6').html())
+        $('input[name=min_rate]').val(min_rate)
+        $('input[name=max_rate]').val(max_rate)
 
-        console.log(data)
         var url = ''
 
-        if ($('#property_type button h6').html() == 'Reidential') {url = '/for-lease/residential_units'}
-        else if ($('#property_type button h6').html() == 'Commercial') {url = '/for-lease/commercial_units'}
-        else if ($('#property_type button h6').html() == 'Parking') {url = '/for-lease/parking_slots'}
-
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: data,
-            success: function (response) {
-                
-            }
-        });
+        if ($('#property_type button h6').html() == 'Residential') {url = '/for-lease/category/residential_units'}
+        else if ($('#property_type button h6').html() == 'Commercial') {url = '/for-lease/category/commercial_units'}
+        else if ($('#property_type button h6').html() == 'Parking') {url = '/for-lease/category/parking_slots'}
+        // console.log(url)
+        $('#search_form').attr('action', url).submit()
     })
 })
 
