@@ -50,18 +50,18 @@
     margin: 0rem 5rem 0.5rem;
 }
 
-.category .card {
+.categories .card {
     border-radius: 1rem;
     color: #000b8c;
     font-weight: 500;
     margin: 0.5rem;
 }
 
-.category h1 {
+.categories h1 {
     margin-bottom: 2rem;
 }
 
-.category a {
+.categories a {
     text-decoration: none;
     color: #000b8c;
 }

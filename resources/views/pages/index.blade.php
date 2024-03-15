@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-3">
                         <div class="dropdown" id='property_type'>
-                            <button class="btn" type="button" aria-expanded="false">
+                            <button class="btn" type="button" aria-expanded="false" data-bs-toggle='dropdown'>
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
                                         <h6 class="drop_h6">Property Type</h6>
@@ -35,6 +35,11 @@
                                     </div>
                                 </div>
                             </button>
+                            <ul class='dropdown-menu'>
+                                <li><h6 class="dropdown-item" data-id='residential_type'>Residential</h6></li>
+                                <li><h6 class="dropdown-item" data-id='commercial_type'>Commercial</h6></li>
+                                <li><h6 class="dropdown-item" data-id='parking_type'>Parking</h6></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-3">
@@ -53,7 +58,7 @@
                     </div>
                     <div class="col-2">
                         <div class="dropdown" id='type'>
-                            <button class="btn" type="button" aria-expanded="false">
+                            <button class="btn" type="button" aria-expanded="false" data-bs-toggle='dropdown'>
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
                                         <h6 class="drop_h6">Type of Unit</h6>
@@ -63,6 +68,13 @@
                                     </div>
                                 </div>
                             </button>
+                            <ul class='dropdown-menu'>
+                                <li><h6 class="dropdown-item">1BR</h6></li>
+                                <li><h6 class="dropdown-item">2BR</h6></li>
+                                <li><h6 class="dropdown-item">3BR</h6></li>
+                                <li><h6 class="dropdown-item">PH</h6></li>
+                                <li><h6 class="dropdown-item">Studio</h6></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-3">
@@ -79,7 +91,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-1 d-flex justify-content-center align-items-center">
+                    <div class="col-1 d-flex justify-content-center align-items-center search_btn">
                         <button class="btn btn-warning search_btn">
                             <i class="fa fa-search"></i>
                         </button>

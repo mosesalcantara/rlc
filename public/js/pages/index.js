@@ -48,6 +48,12 @@ $(document).ready( function () {
         }, 3000)
 
     })
+
+    $(document).on('click', '#property_type h6', function(){
+        var property_type = $(this).data('id')
+
+        
+    })
 })
 
 function show_front() {

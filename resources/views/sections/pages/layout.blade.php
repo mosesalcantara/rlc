@@ -14,7 +14,7 @@
     <script src="{{ asset('vendor/admin/jquery/jquery.min.js') }}"></script>
 </head>
 
-<body style="background-image: url({{ asset('img/pages/main-bg.png') }});" onload="hideLoader()">
+<body style="background-image: url({{ asset('img/pages/main-bg.png') }});">
     
     <div class="container-fluid">
         <div class="row">

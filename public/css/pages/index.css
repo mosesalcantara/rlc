@@ -55,6 +55,18 @@
     margin-right: 1rem;
 }
 
+.dropdown-menu {
+    width: 100%;
+}
+
+.search_btn button {
+    width: 100%;
+    color: white;
+    padding: 0.65rem;
+    border-radius: 1rem;
+}
+
+
 .featured {
     padding: 0rem 5rem 2rem;
 }

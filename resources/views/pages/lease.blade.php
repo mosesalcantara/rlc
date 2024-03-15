@@ -72,30 +72,30 @@
 
     <div class="container-fluid mt-3 mb-3">
         <div class="row categories">
-            <div class="col category">
+            <div class="col">
                 <div class="card">
                     <img class='card-img-top' src="{{ asset('/img/pages/for_lease/residential.png') }}" alt="">
                     <div class="card-body text-center">
                         <h1>Residential</h1>
-                        <a href="/for-lease/category/residential_units" class="fa-solid fa-circle-chevron-right fa-4x"></a>
+                        <a href="/for-lease/category/residential_units" class="fa-solid fa-chevron-right fa-3x"></a>
                     </div>
                 </div>
             </div>
-            <div class="col category">
+            <div class="col">
                 <div class="card">
                     <img class="card-img-top" src="{{ asset('/img/pages/for_lease/commercial.png') }}" alt="">
                     <div class="card-body text-center">
                         <h1>Commercial</h1>
-                        <a href="/for-lease/category/commercial_units" class="fa-solid fa-circle-chevron-right fa-4x"></a>
+                        <a href="/for-lease/category/commercial_units" class="fa-solid fa-chevron-right fa-3x"></a>
                     </div>
                 </div>
             </div>
-            <div class="col category">
+            <div class="col">
                 <div class="card">
                     <img class='card-img-top' src="{{ asset('/img/pages/for_lease/parking.png') }}" alt="">
                     <div class="card-body text-center">
                         <h1>Parking</h1>
-                        <a href="/for-lease/category/parking_slots" class="fa-solid fa-circle-chevron-right fa-4x"></a>
+                        <a href="/for-lease/category/parking_slots" class="fa-solid fa-chevron-right fa-3x"></a>
                     </div>
                 </div>
             </div>
