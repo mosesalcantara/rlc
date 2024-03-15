@@ -17,7 +17,7 @@ class LeaseController extends Controller
     }
 
     public function residential_units(Request $request) {
-        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
+        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->orderBy('properties.name')->get();
 
         foreach ($r_units as $r_unit) {
             $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
@@ -33,7 +33,7 @@ class LeaseController extends Controller
     }
 
     public function commercial_units(Request $request) {
-        $c_units = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->get();
+        $c_units = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->orderBy('properties.name')->get();
 
         foreach ($c_units as $c_unit) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
@@ -53,7 +53,7 @@ class LeaseController extends Controller
 
     public function parking_slots(Request $request) {
         $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
-        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupBy('properties.id')->get();
+                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->orderBy('properties.name')->groupBy('properties.id')->get();
 
         foreach ($slots as $slot) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
