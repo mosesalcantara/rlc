@@ -91,12 +91,48 @@ class LeaseController extends Controller
         return view("pages.lease.residential_units")->with('data', $data);
     }
 
-    public function search_commerical_units(Request $request) {
-        
+    public function search_commercial_units(Request $request) {
+        $where = [
+            ['properties.location', $request['location']],
+        ];
+
+        $c_units = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where($where)->get();
+
+        foreach ($c_units as $c_unit) {
+            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                        ->where('properties.id', $c_unit['property_id'])->get();
+            $c_unit['picture'] = $record[0]->picture;
+
+            $record = Building::where('id', $c_unit['building_id'])->get();
+            $c_unit['building'] = $record[0]['name'];
+        }
+
+        $data = [
+            'c_units' => $c_units,
+        ];
+
+        return view("pages.lease.commercial_units")->with('data', $data);
     }
 
     public function search_parking_slots(Request $request) {
-        
+        $where = [
+            ['properties.location', $request['location']],
+        ];
+
+        $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
+                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupBy('properties.id')->get();
+
+        foreach ($slots as $slot) {
+            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                        ->where('properties.id', $slot['id'])->get();
+            $slot['picture'] = $record[0]->picture;
+        }
+
+        $data = [
+            'slots' => $slots,
+        ];
+
+        return view("pages.lease.parking_slots")->with('data', $data);
     }
 
     public function residential_unit(Request $request) {
@@ -225,10 +261,26 @@ class LeaseController extends Controller
         return view('pages.lease.property')->with('data', $data);
     }
 
-    public function get_filters() {
-        $records = Property::selectRaw('properties.location, Count(residential_units.id) As residential_units')
+    public function get_filters(Request $request) {
+        $request_data = $request->all();
+        $property_type = $request_data['property_type'];
+
+        if ($property_type == 'Residential') {
+            $records = Property::selectRaw('properties.location, Count(residential_units.id) As residential_units')
                         ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->groupByRaw('properties.location, properties.id')
                         ->havingRaw('Count(residential_units.id) > 0')->get();
+        }
+        else if ($property_type == 'Commercial') {
+            $records = Property::selectRaw('properties.location, Count(commercial_units.id) As commercial_units')
+                        ->join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->groupByRaw('properties.location, properties.id')
+                        ->havingRaw('Count(commercial_units.id) > 0')->get();
+        }
+        else if ($property_type == 'Parking') {
+            $records = Property::selectRaw('properties.location, Count(parking_slots.id) As parking_slots')
+                        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupByRaw('properties.location, properties.id')
+                        ->havingRaw('Count(parking_slots.id) > 0')->get();
+        }
+
         $locations = [];
 
         foreach ($records as $record) {
