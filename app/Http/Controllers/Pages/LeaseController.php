@@ -88,7 +88,12 @@ class LeaseController extends Controller
             'r_units' => $r_units,
         ];
 
-        return view("pages.lease.residential_units")->with('data', $data);
+        if ($request['origin'] == 'homepage') {
+            return view("pages.lease.residential_units")->with('data', $data);
+        }
+        else {
+            return response()->json($data);
+        }
     }
 
     public function search_commercial_units(Request $request) {

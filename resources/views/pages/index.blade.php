@@ -114,6 +114,7 @@
             <input type="hidden" name='type' value=''>
             <input type="hidden" name='min_rate' value=''>
             <input type="hidden" name='max_rate' value=''>
+            <input type="hidden" name='origin' value='homepage'>
         </form>
     </div>
 

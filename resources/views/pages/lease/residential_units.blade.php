@@ -89,14 +89,6 @@
                 </div>
             </div>
         </div>
-
-        <form action="" method="POST" class="d-none" id='search_form'>
-            @csrf
-            <input type="hidden" name='location' value=''>
-            <input type="hidden" name='type' value=''>
-            <input type="hidden" name='min_rate' value=''>
-            <input type="hidden" name='max_rate' value=''>
-        </form>
     </div>
 
     <div class="container-fluid">
@@ -142,4 +134,6 @@
 
 @section('scripts')
     @parent
+
+    <script src="{{ asset('js/pages/residential_units.js') }}"></script>
 @endsection
