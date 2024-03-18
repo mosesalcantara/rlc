@@ -99,6 +99,8 @@ class LeaseController extends Controller
     public function search_commercial_units(Request $request) {
         $where = [
             ['properties.location', $request['location']],
+            ['commercial_units.size', '>=', $request['min_area']],
+            ['commercial_units.size', '<=', $request['max_area']],
         ];
 
         $c_units = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where($where)->get();
@@ -116,7 +118,12 @@ class LeaseController extends Controller
             'c_units' => $c_units,
         ];
 
-        return view("pages.lease.commercial_units")->with('data', $data);
+        if ($request['origin'] == 'homepage') {
+            return view("pages.lease.commercial_units")->with('data', $data);
+        }
+        else {
+            return response()->json($data);
+        }
     }
 
     public function search_parking_slots(Request $request) {
@@ -137,7 +144,12 @@ class LeaseController extends Controller
             'slots' => $slots,
         ];
 
-        return view("pages.lease.parking_slots")->with('data', $data);
+        if ($request['origin'] == 'homepage') {
+            return view("pages.lease.parking_slots")->with('data', $data);
+        }
+        else {
+            return response()->json($data);
+        }
     }
 
     public function residential_unit(Request $request) {

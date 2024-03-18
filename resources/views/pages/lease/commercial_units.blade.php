@@ -51,6 +51,13 @@
                                     </div>
                                 </div>
                             </button>
+                            <ul class='dropdown-menu'>
+                                <li><h6 class="dropdown-item">10.00 - 350.00 SQM</h6></li>
+                                <li><h6 class="dropdown-item">350.00 - 700.00 SQM</h6></li>
+                                <li><h6 class="dropdown-item">700.00 - 1050.00 SQM</h6></li>
+                                <li><h6 class="dropdown-item">1050.00 - 1400.00 SQM</h6></li>
+                                <li><h6 class="dropdown-item">1400.00 - 1750.00 SQM</h6></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-1 d-flex justify-content-center align-items-center search_btn">
@@ -61,13 +68,6 @@
                 </div>
             </div>
         </div>
-
-        <form action="" method="POST" class="d-none" id='search_form'>
-            @csrf
-            <input type="hidden" name='property_type' value=''>
-            <input type="hidden" name='location' value=''>
-            <input type="hidden" name='area' value=''>
-        </form>
     </div>
 
     <div class="container-fluid">
@@ -109,4 +109,6 @@
 
 @section('scripts')
     @parent
+
+    <script src="{{ asset('js/pages/commercial_units.js') }}"></script>
 @endsection
