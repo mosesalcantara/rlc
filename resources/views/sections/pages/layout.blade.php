@@ -105,10 +105,10 @@
                         <button class="btn btn-warning text-light">Subscribe Now</button>
 
                         <div>
-                            <a class="fa-brands fa-facebook-f fa-2x" href='' id='facebook'></a>
-                            <a class="fa-brands fa-x-twitter fa-2x" href='' id='twitter'></a>
-                            <a class="fa-brands fa-instagram fa-2x" href='' id='instagram'></a>
-                            <a class="fa-brands fa-youtube fa-2x" href='' id='youtube'></a>
+                            <a class="fa-brands fa-facebook-f fa-2x" href='' target='_blank' id='facebook'></a>
+                            <a class="fa-brands fa-x-twitter fa-2x" href='' target='_blank' id='twitter'></a>
+                            <a class="fa-brands fa-instagram fa-2x" href='' target='_blank' id='instagram'></a>
+                            <a class="fa-brands fa-youtube fa-2x" href='' target='_blank' id='youtube'></a>
                         </div>
                     </div>
                 </div>
