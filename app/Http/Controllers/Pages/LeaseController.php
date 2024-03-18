@@ -97,14 +97,21 @@ class LeaseController extends Controller
     }
 
     public function search_commercial_units(Request $request) {
-        $where = [
-            ['properties.location', $request['location']],
-            ['commercial_units.size', '>=', $request['min_area']],
-            ['commercial_units.size', '<=', $request['max_area']],
-        ];
+        if ($request['origin'] == 'homepage') {
+            $where = [
+                ['properties.location', $request['location']],
+            ];
+        }
+        else {
+            $where = [
+                ['properties.location', $request['location']],
+                ['commercial_units.size', '>=', $request['min_area']],
+                ['commercial_units.size', '<=', $request['max_area']],
+            ];
+        }
 
         $c_units = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where($where)->get();
-
+        
         foreach ($c_units as $c_unit) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.id', $c_unit['property_id'])->get();
