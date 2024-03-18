@@ -127,12 +127,24 @@ class LeaseController extends Controller
     }
 
     public function search_parking_slots(Request $request) {
-        $where = [
-            ['properties.location', $request['location']],
-        ];
-
-        $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
-                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupBy('properties.id')->get();
+        if ($request['origin'] == 'homepage') {
+            $where = [
+                ['properties.location', $request['location']],
+            ];
+    
+            $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
+                        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupBy('properties.id')->get();
+        }
+        else {
+            $where = [
+                ['properties.location', $request['location']],
+                ['properties.name', $request['name']],
+            ];
+    
+            $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
+                        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupBy('properties.id')
+                        ->havingRaw('Min(parking_slots.rate) >= ? And Max(parking_slots.rate) <= ?', [$request['min_rate'], $request['max_rate']])->get();
+        }
 
         foreach ($slots as $slot) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
@@ -306,6 +318,23 @@ class LeaseController extends Controller
 
         $data = [
             'locations' => $locations,
+        ];
+        return response()->json($data);
+    }
+
+    public function get_properties(Request $request) {
+        $records = Property::selectRaw('properties.name, Count(parking_slots.id) As parking_slots')
+                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where('properties.location', $request['location'])->groupByRaw('properties.name, properties.id')
+                    ->havingRaw('Count(parking_slots.id) > 0')->get();
+
+        $properties = [];
+
+        foreach ($records as $record) {
+            array_push($properties, $record['name']);
+        }
+
+        $data = [
+            'properties' => $properties,
         ];
         return response()->json($data);
     }

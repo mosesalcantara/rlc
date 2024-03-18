@@ -65,6 +65,13 @@
                                     </div>
                                 </div>
                             </button>
+                            <ul class='dropdown-menu'>
+                                <li><h6 class="dropdown-item">PHP 5,500.00 - 5,650.00</h6></li>
+                                <li><h6 class="dropdown-item">PHP 5,650.00 - 5,750.00</h6></li>
+                                <li><h6 class="dropdown-item">PHP 5,750.00 - 5,900.00</h6></li>
+                                <li><h6 class="dropdown-item">PHP 5,900.00 - 6,050.00</h6></li>
+                                <li><h6 class="dropdown-item">PHP 6,050.00 - 6,200.00</h6></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-1 d-flex justify-content-center align-items-center search_btn">
@@ -123,4 +130,6 @@
 
 @section('scripts')
     @parent
+
+    <script src="{{ asset('js/pages/parking_slots.js') }}"></script>
 @endsection

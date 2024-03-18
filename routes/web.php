@@ -60,6 +60,7 @@ Route::get('/for-lease/category/parking_slots/{id}', [LeaseController::class, 'p
 Route::get('/for-lease/property/{id}', [LeaseController::class, 'property']);
 
 Route::post('/for-lease/get-filters', [LeaseController::class, 'get_filters']);
+Route::post('/for-lease/get-properties', [LeaseController::class, 'get_properties']);
 
 Route::get('/compare', [CompareController::class, 'properties']);
 
