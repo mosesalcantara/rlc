@@ -15,9 +15,20 @@ use App\Models\ResidentialUnit;
 use App\Models\Snapshot;
 use App\Models\ContactItem;
 use App\Models\AboutItem;
+use App\Models\Setting;
 
 class PageController extends Controller
 {
+    public function get_settings() {
+        $settings = Setting::all()->sortByDesc('updated_at')->take(1);
+        
+        $data = [
+            'settings' => $settings[0],
+        ];
+
+        return response()->json($data);
+    }
+
     public function index() {
         $properties = Property::limit(5)->get();
 

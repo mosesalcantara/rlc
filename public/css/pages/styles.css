@@ -78,7 +78,8 @@ body {
     margin-top: 5vh;
 }
 
-.contact_us i {
+.contact_us a {
     color: #000b8c;
     margin-right: 1vw;
+    display: inline;
 }

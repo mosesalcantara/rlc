@@ -33,7 +33,7 @@
             <nav class="navbar navbar-expand-lg bg-body-tertiary p-3 fixed-top">
                 <div class="container-fluid navbar_div">
                     <a href="/" class="navbar-brand">
-                        <img src="{{ asset('img/pages/logo.png') }}" alt="">
+                        <img src="{{ asset('img/pages/logo.png') }}" alt="" id='logo'>
                     </a>
             
                     <div class="collapse navbar-collapse justify-content-end nav-items">
@@ -83,20 +83,19 @@
                     <div class="col contacts">
                         <h3>Talk to Us</h3>
                         <p>
-                            <b>RLC Residences Leasing Department</b><br>
-                            12F Cyberscape Alpha, Sapphire and Garnet Roads, Ortigas Center, 1605, Pasig City, Philippines <br>
-                            rlcresidences.leasing@robinsonsland.com
+                            <b id='office'></b><br>
+                            <span id='address'></span><br>
+                            <span id='email'></span>
                         </p>
 
                         <div class="row">
                             <div class="col">
                                 <i class="fa-solid fa-phone"></i>
-                                +63 2 248 5851 <br>
-                                &#160 &#160 +63 2 8636 0888
+                                <span id='telephone'></span>
                             </div>
                             <div class="col">
                                 <i class="fa-solid fa-mobile-screen-button"></i>
-                                +63 998 840 7358
+                                <span id='mobile'></span>
                             </div>
                         </div>
                     </div>
@@ -106,10 +105,10 @@
                         <button class="btn btn-warning text-light">Subscribe Now</button>
 
                         <div>
-                            <i class="fa-brands fa-facebook-f fa-2x"></i>
-                            <i class="fa-brands fa-x-twitter fa-2x"></i>
-                            <i class="fa-brands fa-instagram fa-2x"></i>
-                            <i class="fa-brands fa-youtube fa-2x"></i>
+                            <a class="fa-brands fa-facebook-f fa-2x" href='' id='facebook'></a>
+                            <a class="fa-brands fa-x-twitter fa-2x" href='' id='twitter'></a>
+                            <a class="fa-brands fa-instagram fa-2x" href='' id='instagram'></a>
+                            <a class="fa-brands fa-youtube fa-2x" href='' id='youtube'></a>
                         </div>
                     </div>
                 </div>
@@ -135,7 +134,7 @@
 
         <script src="https://kit.fontawesome.com/dc08c6c264.js" crossorigin="anonymous"></script>
 
-        <script src="{{ asset('js/pages/scripts.js') }}"></script>
+        <script src="{{ asset('js/pages/settings.js') }}"></script>
     @show
 </body>
 </html>
