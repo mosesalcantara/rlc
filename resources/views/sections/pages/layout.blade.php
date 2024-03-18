@@ -68,7 +68,7 @@
                         <h3>Quick Links</h3>
                         <a href="/">Home</a>
                         <a href="/for-lease">For Lease</a>
-                        <a href="/compare-properties">Compare Properties</a>
+                        <a href="/compare">Compare Properties</a>
                         <a href="/contact-us">Contact Us</a>
                         <a href="/about-us">About Us</a>
                     </div>

@@ -141,6 +141,17 @@
                 </li>
 
                 <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Settings -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admin/settings">
+                        <i class="fas fa-fw fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+
+                <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
 
                 <!-- Sidebar Toggler (Sidebar) -->

@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\TermController;
 use App\Http\Controllers\Admin\AboutItemController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ContactItemController;
+use App\Http\Controllers\Admin\SettingController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index']);
 
 Route::get('/contact-us', [PageController::class, 'contact']);
+Route::post('/contact-us', [PageController::class, 'send_inquiry']);
 
 Route::get('/about-us', [PageController::class, 'about']);
 
@@ -225,4 +227,13 @@ Route::prefix('admin/articles')->group(function () {
     Route::post('/edit', [ArticleController::class, 'edit']);
     Route::post('/update', [ArticleController::class, 'update']);
     Route::post('/delete', [ArticleController::class, 'delete']);
+});
+
+Route::prefix('admin/settings')->group(function () {
+    Route::get('/', [SettingController::class, 'index']);
+    Route::post('/', [SettingController::class, 'get_all']);
+    Route::post('/add', [SettingController::class, 'create']);
+    Route::post('/edit', [SettingController::class, 'edit']);
+    Route::post('/update', [SettingController::class, 'update']);
+    Route::post('/delete', [SettingController::class, 'delete']);
 });

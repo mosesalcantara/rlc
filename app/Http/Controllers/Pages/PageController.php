@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
+use Mail;
+use App\Mail\InquiryMail;
 
 use App\Models\Property;
 use App\Models\Building;
@@ -58,6 +61,17 @@ class PageController extends Controller
             'contact_items' => $contact_items[0],
         ];
         return view("pages.contact")->with('data', $data);
+    }
+
+    public function send_inquiry(Request $request) {
+        $mailData = [
+            'title' => "{$request['inquiry_type']} Inquiry",
+            'body' => $request['message'],
+        ];
+
+        Mail::to($request['email'])->send(new InquiryMail($mailData));
+
+        return redirect('/contact-us');
     }
 
     public function about() {

@@ -32,47 +32,48 @@
                 <h3>{{ $data['contact_items']['subtitle'] }}</h3>
             </div>
             <div class="col contact_form">
-                <form action="">
+                <form action="/contact-us" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col">
                             <label for="" class="form-label">Inquiry Type*</label>
-                            <select class="form-select" name="" id="">
-                                <option value="" selected>--Select--</option>
-                                <option value="">Residential</option>
-                                <option value="">Commercial</option>
-                                <option value="">Parking</option>
-                                <option value="">Unit Registration for RLC Residences Homeowners</option>
+                            <select class="form-select" name="inquiry_type">
+                                <option selected>--Select--</option>
+                                <option>Residential</option>
+                                <option>Commercial</option>
+                                <option>Parking</option>
+                                <option>Unit Registration for RLC Residences Homeowners</option>
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="" class="form-label">Full Name*</label>
-                            <input class="form-control" type="text">
+                            <input class="form-control" type="text" name='fullname'>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="" class="form-label">Email*</label>
-                            <input class="form-control" type="text">
+                            <input class="form-control" type="text" name='email'>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="" class="form-label">Contact Number*</label>
-                            <input class="form-control" type="text">
+                            <input class="form-control" type="text" name='number'>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="" class="form-label">Message*</label>
-                            <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                            <textarea class="form-control" name="message" cols="30" rows="5"></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="">
+                                <input class="form-check-input" type="checkbox" name='policy'>
                                 <label class="form-check-label" for="">
                                   I have read, understood, and agree with the website's privacy policy and terms of use.
                                 </label>
