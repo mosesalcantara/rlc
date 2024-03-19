@@ -37,7 +37,7 @@ class PictureController extends Controller
     public function create(Request $request) {
         if( $request->hasFile('picture') ) {
             foreach ($request->picture as $file) {
-                $filename = time() . '.'.$file->clientExtension();
+                $filename = mt_rand() . '.'.$file->clientExtension();
                 $destination = 'uploads/properties/pictures';
                 $file->move($destination, $filename);
 
@@ -68,7 +68,7 @@ class PictureController extends Controller
         $record = Picture::find($request->upd_id);
         if( $request->hasFile('picture') ) {
             $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/properties/pictures';
             $file->move($destination, $filename);
 

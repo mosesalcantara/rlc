@@ -28,7 +28,7 @@ class ContactItemController extends Controller
 
         if( $request->hasFile('heading_image') ) {
             $file = $request->heading_image;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/contact_items/heading_images';
             $file->move($destination, $filename );
         }
@@ -58,7 +58,7 @@ class ContactItemController extends Controller
 
         if( $request->hasFile('heading_image') ) {
             $file = $request->heading_image;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/contact_items/heading_images';
             $file->move($destination, $filename );
 

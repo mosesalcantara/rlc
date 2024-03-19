@@ -28,7 +28,7 @@ class SettingController extends Controller
 
         if( $request->hasFile('logo') ) {
             $file = $request->logo;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/settings/logos';
             $file->move( $destination, $filename );
         }
@@ -63,7 +63,7 @@ class SettingController extends Controller
 
         if( $request->hasFile('logo') ) {
             $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/settings/logos';
             $file->move($destination, $filename );
 

@@ -40,7 +40,7 @@ class AmenityController extends Controller
 
         if( $request->hasFile('picture') ) {
             $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/amenities/pictures';
             $file->move($destination, $filename);
         }
@@ -72,7 +72,7 @@ class AmenityController extends Controller
 
         if( $request->hasFile( 'picture' ) ) {
             $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/amenities/pictures';
             $file->move($destination, $filename );
 

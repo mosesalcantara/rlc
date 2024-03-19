@@ -39,7 +39,7 @@ class ArticleController extends Controller
 
         if( $request->hasFile( 'picture' ) ) {
             $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/articles/pictures';
             $file->move( $destination, $filename );
         }
@@ -71,7 +71,7 @@ class ArticleController extends Controller
 
         if( $request->hasFile( 'picture' ) ) {
             $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/articles/pictures';
             $file->move( $destination, $filename );
 

@@ -26,7 +26,7 @@ class PropertyController extends Controller
 
         if( $request->hasFile('logo') ) {
             $file = $request->logo;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/properties/logos';
             $file->move( $destination, $filename );
         }
@@ -54,7 +54,7 @@ class PropertyController extends Controller
 
         if( $request->hasFile( 'logo' ) ) {
             $file = $request->file('logo');
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/properties/logos';
             $file->move($destination, $filename );
 

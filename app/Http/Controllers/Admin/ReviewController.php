@@ -38,7 +38,7 @@ class ReviewController extends Controller
         $record = new Review;
         if( $request->hasFile('picture') ) {
             $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/reviews/profile_pics';
             $file->move($destination, $filename);
 
@@ -74,7 +74,7 @@ class ReviewController extends Controller
         $record = Review::find($request->upd_id);
         if( $request->hasFile('picture') ) {
             $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/reviews/profile_pics';
             $file->move($destination, $filename);
 

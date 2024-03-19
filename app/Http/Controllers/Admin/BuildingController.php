@@ -40,7 +40,7 @@ class BuildingController extends Controller
 
         if( $request->hasFile('floor_plan') ) {
             $file = $request->floor_plan;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/buildings/floor_plans';
             $file->move( $destination, $filename );
         }
@@ -71,7 +71,7 @@ class BuildingController extends Controller
 
         if( $request->hasFile('floor_plan') ) {
             $file = $request->floor_plan;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/buildings/floor_plans';
             $file->move($destination, $filename );
 

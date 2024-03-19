@@ -37,7 +37,7 @@ class SnapshotController extends Controller
     public function create(Request $request) {
         if( $request->hasFile( 'picture' ) ) {
             foreach ($request->picture as $file) {
-                $filename = time() . '.'.$file->clientExtension();
+                $filename = mt_rand() . '.'.$file->clientExtension();
                 $destination = 'uploads/residential_units/snapshots';
                 $file->move( $destination, $filename );
     
@@ -69,7 +69,7 @@ class SnapshotController extends Controller
 
         if( $request->hasFile('picture') ) {
             $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
+            $filename = mt_rand() . '.'.$file->clientExtension();
             $destination = 'uploads/residential_units/snapshots';
             $file->move($destination, $filename );
 
