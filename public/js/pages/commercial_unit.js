@@ -5,9 +5,6 @@ $(document).ready( function () {
         }
     })
 
-    $('.snapshot_carousel_item').first().addClass('active')
-    $('.amenity_carousel_item').first().addClass('active')
-
     get_filters()
 
     $(document).on('click', '.dropdown button', function() {
@@ -25,19 +22,18 @@ $(document).ready( function () {
     })
 
     $(document).on('click', '.search_btn button', function(){
-        var rates = $('#rate button h6').html()
-        var words = rates.split(' ')
+        var areas = $('#area button h6').html()
+        var words = areas.split(' ')
 
-        var min_rate = parseFloat(words[1].replace(/,/g, ''))
-        var max_rate = parseFloat(words[3].replace(/,/g, ''))
+        var min_area = parseFloat(words[0].replace(/,/g, ''))
+        var max_area = parseFloat(words[2].replace(/,/g, ''))
 
         $('input[name=location]').val($('#location button h6').html())
-        $('input[name=type]').val($('#type button h6').html())
-        $('input[name=min_rate]').val(min_rate)
-        $('input[name=max_rate]').val(max_rate)
+        $('input[name=min_area]').val(min_area)
+        $('input[name=max_area]').val(max_area)
 
-        url = '/for-lease/category/residential_units'
-        
+        url = '/for-lease/category/commercial_units'
+
         $('#search_form').attr('action', url).submit()    
     })
 })
@@ -46,7 +42,7 @@ function get_filters() {
     $.ajax({
         type: 'POST',
         url: "/for-lease/get-filters",
-        data: {'property_type': 'Residential'},
+        data: {'property_type': 'Commercial'},
         success: function (res) {
             // console.log(res)
             var locations = res.locations

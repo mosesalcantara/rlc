@@ -22,42 +22,45 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center search">
+        <div class="row search mt-3">
+            <div class="col search_drops">
                 <div class="row">
-                    <div class="col">
-                        <select name="" id="" class="form-select">
-                            <option value="" selected>Property Type</option>
-                            <option value="">Residential</option>
-                            <option value="">Commercial</option>
-                            <option value="">Parking</option>
-                        </select>
+                    <div class="col-5">
+                        <div class="dropdown" id='location'>
+                            <button class="btn" type="button" aria-expanded="false">
+                                <div class="row">
+                                    <div class="col-10 d-flex justify-content-start align-items-center">
+                                        <h6>Location</h6>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-end align-items-center">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
                     </div>
-                    <div class="col">
-                        <select name="" id="" class="form-select">
-                            <option value="" selected>Location</option>
-                            <option value="">Mandaluyong City</option>
-                            <option value="">Muntinlupa City</option>
-                            <option value="">Quezon City</option>
-                        </select>
+                    <div class="col-6">
+                        <div class="dropdown" id='area'>
+                            <button class="btn" type="button" aria-expanded="false">
+                                <div class="row">
+                                    <div class="col-10 d-flex justify-content-start align-items-center">
+                                        <h6>Area Size</h6>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-end align-items-center">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </div>
+                                </div>
+                            </button>
+                            <ul class='dropdown-menu'>
+                                <li><h6 class="dropdown-item">10.00 - 350.00 SQM</h6></li>
+                                <li><h6 class="dropdown-item">350.00 - 700.00 SQM</h6></li>
+                                <li><h6 class="dropdown-item">700.00 - 1050.00 SQM</h6></li>
+                                <li><h6 class="dropdown-item">1050.00 - 1400.00 SQM</h6></li>
+                                <li><h6 class="dropdown-item">1400.00 - 1750.00 SQM</h6></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col">
-                        <select name="" id="" class="form-select">
-                            <option value="" selected>Type of Unit</option>
-                            <option value="">1 BR</option>
-                            <option value="">2 BR</option>
-                            <option value="">3 BR</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <select name="" id="" class="form-select">
-                            <option value="" selected>Rental Rate</option>
-                            <option value="">PHP 0.00 - 16,000.00</option>
-                            <option value="">PHP 16,000.00 - 32,000.00</option>
-                            <option value="">PHP 32,000.00 - 48,000.00</option>
-                        </select>
-                    </div>
-                    <div class="col-1 d-flex justify-content-center align-items-center">
+                    <div class="col-1 d-flex justify-content-center align-items-center search_btn">
                         <button class="btn btn-warning">
                             <i class="fa fa-search"></i>
                         </button>
@@ -65,6 +68,14 @@
                 </div>
             </div>
         </div>
+
+        <form action="" method="POST" class="d-none" id='search_form'>
+            @csrf
+            <input type="hidden" name='location' value=''>
+            <input type="hidden" name='min_area' value=''>
+            <input type="hidden" name='max_area' value=''>
+            <input type="hidden" name='origin' value='commercial_unit_page'>
+        </form>
     </div>
 
     <div class="container-fluid">
@@ -129,4 +140,6 @@
 
 @section('scripts')
     @parent
+
+    <script src="{{ asset('js/pages/commercial_unit.js') }}"></script>
 @endsection

@@ -82,15 +82,6 @@
                 </div>
             </div>
         </div>
-
-        <form action="" method="POST" class="d-none" id='search_form'>
-            @csrf
-            <input type="hidden" name='property_type' value=''>
-            <input type="hidden" name='location' value=''>
-            <input type="hidden" name='property' value=''>
-            <input type="hidden" name='min_rate' value=''>
-            <input type="hidden" name='max_rate' value=''>
-        </form>
     </div>
 
     <div class="container-fluid">
