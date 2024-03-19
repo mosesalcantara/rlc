@@ -29,6 +29,10 @@ class PageController extends Controller
         return response()->json($data);
     }
 
+    public function test() {
+        return view('pages.test');
+    }
+
     public function index() {
         $properties = Property::limit(5)->get();
 
