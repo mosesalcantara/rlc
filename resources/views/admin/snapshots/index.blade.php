@@ -47,7 +47,7 @@
                     <form action="/admin/snapshots/add" method="post" enctype="multipart/form-data" id="addForm">         
                         <div class="mb-3">
                             <label for="" class="form-label">Picture</label>     
-                            <input type="file" name="picture" class="form-control">
+                            <input type="file" name="picture[]" class="form-control" multiple>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Residential Unit</label>  

@@ -35,20 +35,20 @@ class SnapshotController extends Controller
     }
 
     public function create(Request $request) {
-        $record = new Snapshot;
-
         if( $request->hasFile( 'picture' ) ) {
-            $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
-            $destination = 'uploads/residential_units/snapshots';
-            $file->move( $destination, $filename );
+            foreach ($request->picture as $file) {
+                $filename = time() . '.'.$file->clientExtension();
+                $destination = 'uploads/residential_units/snapshots';
+                $file->move( $destination, $filename );
+    
+                $record = new Snapshot;
+                $record->picture = $filename;
+                $record->residential_unit_id = $request->residential_unit_id;
+                $record->save();   
+            } 
         }
 
-        $record->picture = $filename;
-        $record->residential_unit_id = $request->residential_unit_id;
-        $record->save();
-
-        return response(['msg' => 'Added Snapshot']);
+        return response(['msg' => 'Added Snapshots']);
     }
 
     public function edit(Request $request) {

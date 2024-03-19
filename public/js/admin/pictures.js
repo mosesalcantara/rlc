@@ -28,6 +28,7 @@ $(document).ready( function () {
 
     $('#addForm').submit(function(e) {
         e.preventDefault()
+
         $.ajax({
           url: "/admin/pictures/add/",
           method: 'POST',
@@ -37,6 +38,7 @@ $(document).ready( function () {
           success: function (res) {
             alert(res.msg)
             get_all()
+            
             $(`#addForm`).trigger('reset')
             $(`#addModal`).modal('hide')
           },

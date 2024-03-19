@@ -35,19 +35,20 @@ class PictureController extends Controller
     }
 
     public function create(Request $request) {
-        $record = new Picture;
         if( $request->hasFile('picture') ) {
-            $file = $request->picture;
-            $filename = time() . '.'.$file->clientExtension();
-            $destination = 'uploads/properties/pictures';
-            $file->move($destination, $filename);
+            foreach ($request->picture as $file) {
+                $filename = time() . '.'.$file->clientExtension();
+                $destination = 'uploads/properties/pictures';
+                $file->move($destination, $filename);
+
+                $record = new Picture;
+                $record->picture = $filename;
+                $record->property_id = $request->property_id;
+                $record->save();
+            }
         }
 
-        $record->picture = $filename;
-        $record->property_id = $request->property_id;
-        $record->save();
-
-        return response(['msg' => 'Added Picture']);
+        return response(['msg' => 'Added Pictures']);
     }
 
     public function edit(Request $request) {
