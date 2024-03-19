@@ -40,10 +40,10 @@
 .dropdown button {
     background-color: #D7D7D7;
     display: inline;
-    height: 5.5vh;
     font-weight: 500;
     border-radius: 1rem;
     width: 100%;
+    padding: 0.75rem 0.25rem 0.75rem;
 }
 
 .dropdown button:hover {
@@ -70,6 +70,10 @@
     border-radius: 1rem;
 }
 
+.search_btn h6 {
+    display: none;
+}
+
 .featured {
     padding: 0rem 5rem 2rem;
 }
@@ -92,8 +96,8 @@
 
 .card_front div {
     border-radius: 1rem;
-    background-size: cover;
     height: 75vh;
+    background-size: cover;
 }
 
 .card_front img {
@@ -104,11 +108,13 @@
     cursor: pointer;
     color: white;
     margin: 2.5rem;
+    font-size: 4em;
 }
 
 .back_switch {
     color: black;
     margin: 0;
+    font-size: 3em;
 }
 
 .card_back {
@@ -128,13 +134,13 @@
     padding: 3rem;
 }
 
-.details h3 {
+.details h4 {
     color: #000b8c;
 }
 
 .details p {
     text-align: justify;
-    font-size: 1.3rem;
+    font-size: 1.15rem;
 }
 
 .details i {
@@ -144,7 +150,7 @@
 
 .details h5 {
     display: inline;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin: 1rem;
 }
 
@@ -153,6 +159,7 @@
     cursor: pointer;
     margin-top: 1rem;
     margin-right: 0.5rem;
+    font-size: 2em;
 }
 
 .videos {
@@ -171,6 +178,7 @@
     cursor: pointer;
     margin-top: 3rem;
     margin-right: 2rem;
+    font-size: 4em;
 }
 
 .reviews {
@@ -215,4 +223,73 @@
 
 .review_text p {
     text-align: justify;
+}
+
+@media (max-width: 1200px) {
+    .search {
+        margin: 0rem 1.5rem 1rem;
+    }
+
+    .search_drops>div {
+        margin: 0rem 0rem 0.5rem;
+    }
+
+    .search_btn h6 {
+        display: inline;
+        margin-left: 0.5rem;
+    }
+    
+    .featured {
+        padding: 0rem 1.5rem 2rem;
+    }
+
+    .featured h1, .featured h4 {
+        text-align: center;
+    }
+
+    #properties_carousel {
+        margin: 1rem 1.5rem 1rem;
+    }
+
+    .card {
+        height: 50vh;
+        border-radius: 0rem;
+    }
+
+    .card_front div {
+        height: 50vh;
+        background-size: cover;
+        border-radius: 0rem;
+    }
+
+    .front_switch {
+        font-size: 2em;
+    }
+    
+    .carousel_controls i {
+        font-size: 1em;
+    }
+
+    .back_switch {
+        font-size: 2em;
+    }
+
+    .details {
+        overflow-y: scroll;
+    }
+
+    .videos iframe {
+        width: 100%;
+        height: 25vh;
+        border-radius: 0rem;
+    }
+
+    .videos i {
+        color: white;
+        cursor: pointer;
+        margin-top: 3rem;
+        margin-right: 2rem;
+        font-size: 2em;
+    }
+    
 }
