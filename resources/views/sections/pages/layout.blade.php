@@ -72,14 +72,14 @@
                         <a href="/contact-us">Contact Us</a>
                         <a href="/about-us">About Us</a>
                     </div>
-                    <div class="col">
+                    {{-- <div class="col">
                         <h3>RLC Residences</h3>
                         <a href="">About Us</a>
                         <a href="">Testimonials</a>
                         <a href="">Careers</a>
                         <a href="">Awards</a>
                         <a href="">Privacy Policy</a>
-                    </div>
+                    </div> --}}
                     <div class="col contacts">
                         <h3>Talk to Us</h3>
                         <p>
@@ -101,8 +101,10 @@
                     </div>
                     <div class="col contact_us">
                         <h3>Stay Updated</h3>
+                        
                         <input type="email" class="form-control" placeholder="Enter your email address">
                         <button class="btn btn-warning text-light">Subscribe Now</button>
+                        <div class>
 
                         <div>
                             <a class="fa-brands fa-facebook-f fa-2x" href='' target='_blank' id='facebook'></a>

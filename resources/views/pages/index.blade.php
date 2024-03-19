@@ -23,7 +23,7 @@
         <div class="row search mt-3">
             <div class="col search_drops">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-lg-3">
                         <div class="dropdown" id='property_type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -42,7 +42,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3">
                         <div class="dropdown" id='location'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -56,7 +56,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-lg-2">
                         <div class="dropdown" id='type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -77,7 +77,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3">
                         <div class="dropdown" id='rate'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -98,7 +98,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-1 d-flex justify-content-center align-items-center search_btn">
+                    <div class="col-lg-1 d-flex justify-content-center align-items-center search_btn">
                         <button class="btn btn-warning">
                             <i class="fa fa-search"></i>
                         </button>
