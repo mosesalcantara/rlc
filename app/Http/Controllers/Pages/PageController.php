@@ -75,12 +75,17 @@ class PageController extends Controller
     }
 
     public function send_inquiry(Request $request) {
+        $settings = Setting::all()->sortByDesc('updated_at')->take(1);
+
         $mailData = [
             'title' => "{$request['inquiry_type']} Inquiry",
+            'fullname' => $request['fullname'],
+            'email' => $request['email'],
+            'number' => $request['number'],
             'body' => $request['message'],
         ];
 
-        Mail::to($request['email'])->send(new InquiryMail($mailData));
+        Mail::to($settings[0]['email'])->send(new InquiryMail($mailData));
 
         return redirect('/contact-us');
     }

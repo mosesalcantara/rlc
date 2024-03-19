@@ -49,41 +49,69 @@
                             <label for="" class="form-label">Logo</label>     
                             <input type="file" name="logo" class="form-control">
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="office" class="form-control">
-                            <label for="">Office</label>     
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="office" class="form-control">
+                                    <label for="">Office</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="email" class="form-control">
+                                    <label for="">Email</label>     
+                                </div>
+                            </div>
                         </div>
+
                         <div class="form-floating mb-3">
                             <input type="text" name="address" class="form-control">
                             <label for="">Address</label>     
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="email" class="form-control">
-                            <label for="">Email</label>     
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="telephone" class="form-control">
+                                    <label for="">Telephone</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="mobile" class="form-control">
+                                    <label for="">Mobile</label>     
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="telephone" class="form-control">
-                            <label for="">Telephone</label>     
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="facebook" class="form-control">
+                                    <label for="">Facebook</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="twitter" class="form-control">
+                                    <label for="">Twitter</label>     
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="mobile" class="form-control">
-                            <label for="">Mobile</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="facebook" class="form-control">
-                            <label for="">Facebook</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="twitter" class="form-control">
-                            <label for="">Twitter</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="instagram" class="form-control">
-                            <label for="">Instagram</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="youtube" class="form-control">
-                            <label for="">YouTube</label>     
+
+                        <div class="row">
+                            <div class="col">  
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="instagram" class="form-control">
+                                    <label for="">Instagram</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="youtube" class="form-control">
+                                    <label for="">YouTube</label>     
+                                </div>
+                            </div>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -108,43 +136,71 @@
                     <form action="/admin/settings/update" method="post" enctype="multipart/form-data" id="updForm">
                         <div class="mb-3">
                             <label for="" class="form-label">Logo</label>     
-                            <input type="file" name="logo" class="form-control">
+                            <input type="file" name="logo" id='logo' class="form-control">
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="office" id='office' class="form-control">
-                            <label for="">Office</label>     
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="office" id='office' class="form-control">
+                                    <label for="">Office</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="email" id='email' class="form-control">
+                                    <label for="">Email</label>     
+                                </div>
+                            </div>
                         </div>
+
                         <div class="form-floating mb-3">
                             <input type="text" name="address" id='address' class="form-control">
                             <label for="">Address</label>     
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="email" id='email' class="form-control">
-                            <label for="">Email</label>     
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="telephone" id='telephone' class="form-control">
+                                    <label for="">Telephone</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="mobile" id='mobile' class="form-control">
+                                    <label for="">Mobile</label>     
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="telephone" id='telephone' class="form-control">
-                            <label for="">Telephone</label>     
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="facebook" id='facebook' class="form-control">
+                                    <label for="">Facebook</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="twitter" id='twitter' class="form-control">
+                                    <label for="">Twitter</label>     
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="mobile" id='mobile' class="form-control">
-                            <label for="">Mobile</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="facebook" id='facebook' class="form-control">
-                            <label for="">Facebook</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="twitter" id='twitter' class="form-control">
-                            <label for="">Twitter</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="instagram" id='instagram' class="form-control">
-                            <label for="">Instagram</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="youtube" id='youtube' class="form-control">
-                            <label for="">YouTube</label>     
+
+                        <div class="row">
+                            <div class="col">  
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="instagram" id='instagram' class="form-control">
+                                    <label for="">Instagram</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="youtube" id='youtube' class="form-control">
+                                    <label for="">YouTube</label>     
+                                </div>
+                            </div>
                         </div>
                 </div>
                 <div class="modal-footer">
