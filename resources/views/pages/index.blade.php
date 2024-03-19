@@ -27,10 +27,8 @@
                         <div class="dropdown" id='property_type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
-                                    <div class="col-10 d-flex justify-content-start align-items-center">
+                                    <div class="col d-flex justify-content-start align-items-center">
                                         <h6>Property Type</h6>
-                                    </div>
-                                    <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </div>
                                 </div>
@@ -46,10 +44,8 @@
                         <div class="dropdown" id='location'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
-                                    <div class="col-10 d-flex justify-content-start align-items-center">
+                                    <div class="col d-flex justify-content-start align-items-center">
                                         <h6>Location</h6>
-                                    </div>
-                                    <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </div>
                                 </div>
@@ -60,10 +56,8 @@
                         <div class="dropdown" id='type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
-                                    <div class="col-10 d-flex justify-content-start align-items-center">
+                                    <div class="col d-flex justify-content-start align-items-center">
                                         <h6>Type of Unit</h6>
-                                    </div>
-                                    <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </div>
                                 </div>
@@ -81,10 +75,8 @@
                         <div class="dropdown" id='rate'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
-                                    <div class="col-10 d-flex justify-content-start align-items-center">
+                                    <div class="col d-flex justify-content-start align-items-center">
                                         <h6>Rental Rate</h6>
-                                    </div>
-                                    <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </div>
                                 </div>

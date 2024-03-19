@@ -26,12 +26,12 @@
 
     <div class="container-fluid contact">
         <div class="row">
-            <div class="col contact_header">
+            <div class="col-lg-6 contact_header">
                 <h1>{{ $data['contact_items']['title'] }}</h1>
 
                 <h3>{{ $data['contact_items']['subtitle'] }}</h3>
             </div>
-            <div class="col contact_form">
+            <div class="col-lg-6 contact_form">
                 <form action="/contact-us" method="POST">
                     @csrf
                     <div class="row">

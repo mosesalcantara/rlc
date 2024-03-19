@@ -64,7 +64,7 @@
         @section('footer')
             <div class="container-fluid footer px-5">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-lg-4">
                         <h3>Quick Links</h3>
                         <a href="/">Home</a>
                         <a href="/for-lease">For Lease</a>
@@ -80,7 +80,7 @@
                         <a href="">Awards</a>
                         <a href="">Privacy Policy</a>
                     </div> --}}
-                    <div class="col contacts">
+                    <div class="col-lg-4 contacts">
                         <h3>Talk to Us</h3>
                         <p>
                             <b id='office'></b><br>
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col contact_us">
+                    <div class="col-lg-4 contact_us">
                         <h3>Stay Updated</h3>
                         
                         <input type="email" class="form-control" placeholder="Enter your email address">
