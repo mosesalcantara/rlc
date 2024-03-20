@@ -88,7 +88,6 @@ class ReviewController extends Controller
         }
         else {
             $record->update([
-                'picture' => 'profile_pic.png',
                 'fullname' => $request->fullname,
                 'property_id' => $request->property_id,
                 'reviewed_on' => $request->reviewed_on,

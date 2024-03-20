@@ -101,7 +101,7 @@
                     <div class="row">
                         <div class="col compare_item filter_rate">
                             <h4>Rental Rate</h4>
-                            <input type="range" class="form-range" id=""> 
+                            {{-- <input type="range" class="form-range" id="">  --}}
                             
                             <div class="row">
                                 <div class="col">
@@ -147,7 +147,7 @@
                     <div class="row">
                         <div class="col compare_item filter_area">
                             <h4>Unit Area (sqm)</h4>
-                            <input type="range" class="form-range" id=""> 
+                            {{-- <input type="range" class="form-range" id="">  --}}
                             
                             <div class="row">
                                 <div class="col">

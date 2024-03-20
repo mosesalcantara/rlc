@@ -7,6 +7,8 @@ $(document).ready( function () {
 
     $('#addForm').submit(function(e) {
         e.preventDefault()
+        $('#addForm span').remove()
+
         $.ajax({
           url: "/admin/videos/add/",
           method: 'POST',
@@ -17,14 +19,30 @@ $(document).ready( function () {
             $(`#addForm`).trigger('reset')
             $(`#addModal`).modal('hide')
           },
-          error: function (xhr, status, error) {
+          error: function (res) {
+            var errors = res.responseJSON.errors
 
+            var inputs = $('#addForm input')
+            $.each(inputs, function(index, input) {
+              var name = $(input).attr('name')
+
+              for (error of errors[name]) {
+                var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                error_msg.insertAfter($(input))
+              }
+            })
           },
         })    
-    })   
+    })
+    
+    $('#addModal').on('show.bs.modal', function(e) {
+      $('#addForm span').remove()
+    })
 
     $('#updForm').submit(function(e) {
         e.preventDefault()
+        $('#updForm span').remove()
+
         $.ajax({
           type: 'POST',
           url: "/admin/videos/update/",
@@ -36,10 +54,24 @@ $(document).ready( function () {
             $(`#updModal`).modal('hide')
           },
           error: function (res) {
+            var errors = res.responseJSON.errors
 
+            var inputs = $('#updForm input')
+            $.each(inputs, function(index, input) {
+              var name = $(input).attr('name')
+
+              for (error of errors[name]) {
+                var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                error_msg.insertAfter($(input))
+              }
+            })
           },
         })    
-    })  
+    })
+    
+    $('#updModal').on('show.bs.modal', function(e) {
+      $('#updForm span').remove()
+    })
 
     $('#delForm').submit(function(e) {
         e.preventDefault()

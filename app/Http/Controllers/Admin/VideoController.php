@@ -23,11 +23,15 @@ class VideoController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'code'=>'required|unique:videos',
+        ]);
+
         $record = new Video;
         $record->code = $request->code;
         $record->save();
 
-        return response(['msg' => 'Added Video']);
+        return response(['msg' => 'Added Video', ]);
     }
 
     public function edit(Request $request) {
@@ -40,6 +44,10 @@ class VideoController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'code'=>'required',
+        ]);
+
         $record = Video::find($request->upd_id);
 
         $record->update([
