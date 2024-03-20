@@ -38,7 +38,7 @@
                 <hr class="sidebar-divider my-0">
 
                 <!-- Nav Item - Dashboard -->
-                <li class="nav-item active">
+                <li class="nav-item {{ Request::url() == url('/admin') ? 'active' : '' }}">
                     <a class="nav-link" href="/admin">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
@@ -54,7 +54,7 @@
                 </div>
 
                 <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
+                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/videos'), url('/admin/reviews'), url('/admin/contact'), url('/admin/about'), url('/admin/articles') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                         aria-expanded="true" aria-controls="collapsePages">
                         <i class="fas fa-fw fa-folder"></i>
@@ -83,7 +83,7 @@
                 </div>
 
                 <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
+                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/properties'), url('/admin/pictures'), url('/admin/buildings'), url('/admin/amenities') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProperties"
                         aria-expanded="true" aria-controls="collapseProperties">
                         <i class="fas fa-fw fa-folder"></i>
@@ -99,7 +99,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/residential'), url('/admin/snapshots') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResidential"
                         aria-expanded="true" aria-controls="collapseProperties">
                         <i class="fas fa-fw fa-folder"></i>
@@ -113,7 +113,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item {{ Request::url() == url('/admin/commercial') ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCommercial"
                         aria-expanded="true" aria-controls="collapseProperties">
                         <i class="fas fa-fw fa-folder"></i>
@@ -126,7 +126,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/parking'), url('/admin/terms') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseParking"
                         aria-expanded="true" aria-controls="collapseProperties">
                         <i class="fas fa-fw fa-folder"></i>
@@ -144,7 +144,7 @@
                 <hr class="sidebar-divider my-0">
 
                 <!-- Nav Item - Settings -->
-                <li class="nav-item active">
+                <li class="nav-item {{ Request::url() == url('/admin/settings') ? 'active' : '' }}">
                     <a class="nav-link" href="/admin/settings">
                         <i class="fas fa-fw fa-gear"></i>
                         <span>Settings</span>
