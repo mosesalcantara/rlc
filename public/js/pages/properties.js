@@ -190,7 +190,11 @@ function compare_residential_properties() {
             }
         },
         error: function (res) {
-            console.log(res)
+            var properties_div = $('.properties')
+            var no_data_msg = `<div class='col no_data text-center'>
+                                    No properties selected
+                               </div>`
+            properties_div.append(no_data_msg)
         },
     })   
 }
@@ -239,7 +243,11 @@ function compare_commercial_properties() {
             }
         },
         error: function (res) {
-            console.log(res)
+            var properties_div = $('.properties')
+            var no_data_msg = `<div class='col no_data text-center'>
+                                    No properties selected
+                               </div>`
+            properties_div.append(no_data_msg)
         },
     })  
 }
@@ -381,6 +389,12 @@ function compare_residential_units() {
         },
         error: function (res) {
             console.log(res)
+
+            var units_container = $('.units_container')
+            var no_data_msg = `<div class='col no_data text-center'>
+                                    No data available
+                               </div>`
+            units_container.append(no_data_msg)
         },
     })   
 }
@@ -465,8 +479,14 @@ function compare_commercial_units() {
                 units_container.append(units_div)
             }
         },
-        error: function (xhr, status, error) {
-            console.log(xhr)
+        error: function (res) {
+            console.log(res)
+
+            var units_container = $('.units_container')
+            var no_data_msg = `<div class='col no_data text-center'>
+                                    No data available
+                               </div>`
+            units_container.append(no_data_msg)
         },
     })   
 }
