@@ -88,7 +88,7 @@ class LeaseController extends Controller
             'r_units' => $r_units,
         ];
 
-        if ($request['origin'] == 'homepage' || $request['origin'] == 'residential_unit_page') {
+        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'residential_unit_page') {
             return view("pages.lease.residential_units")->with('data', $data);
         }
         else {
@@ -97,7 +97,7 @@ class LeaseController extends Controller
     }
 
     public function search_commercial_units(Request $request) {
-        if ($request['origin'] == 'homepage') {
+        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page') {
             $where = [
                 ['properties.location', $request['location']],
             ];
@@ -125,7 +125,7 @@ class LeaseController extends Controller
             'c_units' => $c_units,
         ];
 
-        if ($request['origin'] == 'homepage' || $request['origin'] == 'commercial_unit_page') {
+        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'commercial_unit_page') {
             return view("pages.lease.commercial_units")->with('data', $data);
         }
         else {
@@ -134,7 +134,7 @@ class LeaseController extends Controller
     }
 
     public function search_parking_slots(Request $request) {
-        if ($request['origin'] == 'homepage') {
+        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page') {
             $where = [
                 ['properties.location', $request['location']],
             ];
@@ -163,7 +163,7 @@ class LeaseController extends Controller
             'slots' => $slots,
         ];
 
-        if ($request['origin'] == 'homepage' || $request['origin'] == 'parking_slot_page') {
+        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'parking_slot_page') {
             return view("pages.lease.parking_slots")->with('data', $data);
         }
         else {

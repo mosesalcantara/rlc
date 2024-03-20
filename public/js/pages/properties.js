@@ -189,8 +189,8 @@ function compare_residential_properties() {
                 }
             }
         },
-        error: function (xhr, status, error) {
-        console.log(xhr)
+        error: function (res) {
+            console.log(res)
         },
     })   
 }
@@ -238,8 +238,8 @@ function compare_commercial_properties() {
                 }
             }
         },
-        error: function (xhr, status, error) {
-        console.log(xhr)
+        error: function (res) {
+            console.log(res)
         },
     })  
 }
@@ -379,8 +379,8 @@ function compare_residential_units() {
                 units_container.append(units_div)
             }
         },
-        error: function (xhr, status, error) {
-            console.log(xhr)
+        error: function (res) {
+            console.log(res)
         },
     })   
 }

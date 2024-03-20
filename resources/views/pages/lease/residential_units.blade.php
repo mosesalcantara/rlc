@@ -123,6 +123,10 @@
                     </div>
                 </div>
             @endforeach
+            @else
+                <div class="col text-center no_data">
+                    No data available
+                </div>
             @endif
         </div>
     </div>
