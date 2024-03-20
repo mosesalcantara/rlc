@@ -24,6 +24,17 @@ class AboutItemController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'heading_title'=>'required',
+            'heading_image'=>'required|image',
+            'description'=>'required',
+            'tagline_title'=>'required',
+            'tagline'=>'required',
+            'video_code'=>'required',
+            'video_title'=>'required',
+            'video_description'=>'required',
+        ]);
+
         $record = new AboutItem;
 
         if( $request->hasFile( 'heading_image' ) ) {
@@ -57,6 +68,17 @@ class AboutItemController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'heading_title'=>'required',
+            'heading_image'=>'image',
+            'description'=>'required',
+            'tagline_title'=>'required',
+            'tagline'=>'required',
+            'video_code'=>'required',
+            'video_title'=>'required',
+            'video_description'=>'required',
+        ]);
+
         $record = AboutItem::find($request->upd_id);
 
         if( $request->hasFile( 'heading_image' ) ) {

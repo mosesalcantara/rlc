@@ -3,7 +3,11 @@ $(document).ready( function () {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });
+    })
+
+    $('#addModal').on('show.bs.modal', function(e) {
+      $('#addForm span').remove()
+    })
 
     $('#addForm').submit(function(e) {
         e.preventDefault()
@@ -21,22 +25,25 @@ $(document).ready( function () {
           },
           error: function (res) {
             var errors = res.responseJSON.errors
+            // console.log(errors)
 
             var inputs = $('#addForm input')
             $.each(inputs, function(index, input) {
               var name = $(input).attr('name')
 
-              for (error of errors[name]) {
-                var error_msg = $(`<span class='text-danger'>${error}</span>`)
-                error_msg.insertAfter($(input))
+              if (name in errors) {
+                for (error of errors[name]) {
+                    var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                    error_msg.insertAfter($(input))
+                }
               }
             })
           },
         })    
     })
-    
-    $('#addModal').on('show.bs.modal', function(e) {
-      $('#addForm span').remove()
+
+    $('#updModal').on('show.bs.modal', function(e) {
+      $('#updForm span').remove()
     })
 
     $('#updForm').submit(function(e) {
@@ -55,22 +62,21 @@ $(document).ready( function () {
           },
           error: function (res) {
             var errors = res.responseJSON.errors
+            // console.log(errors)
 
             var inputs = $('#updForm input')
             $.each(inputs, function(index, input) {
               var name = $(input).attr('name')
 
-              for (error of errors[name]) {
-                var error_msg = $(`<span class='text-danger'>${error}</span>`)
-                error_msg.insertAfter($(input))
+              if (name in errors) {
+                for (error of errors[name]) {
+                    var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                    error_msg.insertAfter($(input))
+                }
               }
             })
           },
         })    
-    })
-    
-    $('#updModal').on('show.bs.modal', function(e) {
-      $('#updForm span').remove()
     })
 
     $('#delForm').submit(function(e) {

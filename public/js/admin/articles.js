@@ -3,9 +3,11 @@ $(document).ready( function () {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });
+    })
 
     $('#addModal').on('show.bs.modal', function(e) {
+        $('#addForm span').remove()
+
         $.ajax({
             url: "/admin/articles/get-related/",
             method: 'POST',
@@ -28,6 +30,8 @@ $(document).ready( function () {
 
     $('#addForm').submit(function(e) {
         e.preventDefault()
+        $('#addForm span').remove()
+
         $.ajax({
           url: "/admin/articles/add/",
           method: 'POST',
@@ -40,18 +44,37 @@ $(document).ready( function () {
             $(`#addForm`).trigger('reset')
             $(`#addModal`).modal('hide')
           },
-          error: function (xhr, status, error) {
+          error: function (res) {
+            var errors = res.responseJSON.errors
+            // console.log(errors)
 
+            var inputs = $('#addForm input, #addForm select, #addForm textarea')
+            $.each(inputs, function(index, input) {
+              var name = $(input).attr('name')
+
+              if (name in errors) {
+                for (error of errors[name]) {
+                    var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                    error_msg.insertAfter($(input))
+                }
+              }
+            })
           },
         })    
     })   
+
+    $('#updModal').on('show.bs.modal', function(e) {
+        $('#updForm span').remove()
+    })
 
     $('#updModal').on('hide.bs.modal', function(e) {
         $('#upd_property_id').empty()
     })
 
-    $('#updForm').submit(function(e) {
+    $('#updForm').submit(function(e) {        
         e.preventDefault()
+        $('#updForm span').remove()
+        
         $.ajax({
           type: 'POST',
           url: "/admin/articles/update/",
@@ -65,7 +88,20 @@ $(document).ready( function () {
             $(`#updModal`).modal('hide')
           },
           error: function (res) {
+            var errors = res.responseJSON.errors
+            // console.log(errors)
 
+            var inputs = $('#updForm input, #updForm select, #updForm textarea')
+            $.each(inputs, function(index, input) {
+              var name = $(input).attr('name')
+
+              if (name in errors) {
+                for (error of errors[name]) {
+                    var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                    error_msg.insertAfter($(input))
+                }
+              }
+            })
           },
         })    
     })  

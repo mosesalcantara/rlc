@@ -35,6 +35,12 @@ class TermController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'category'=>'required',
+            'description'=>'required',
+        ]);
+
         $record = new Term;
 
         $record->description = $request->description;
@@ -59,6 +65,12 @@ class TermController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'category'=>'required',
+            'description'=>'required',
+        ]);
+        
         $record = Term::find($request->upd_id);
 
         $record->update([

@@ -35,6 +35,11 @@ class PictureController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'picture'=>'required',
+            'property_id'=>'required',
+        ]);
+
         if( $request->hasFile('picture') ) {
             foreach ($request->picture as $file) {
                 $filename = mt_rand() . '.'.$file->clientExtension();
@@ -65,6 +70,10 @@ class PictureController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+        ]);
+
         $record = Picture::find($request->upd_id);
         if( $request->hasFile('picture') ) {
             $file = $request->picture;

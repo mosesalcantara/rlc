@@ -24,6 +24,13 @@ class ContactItemController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'heading_title'=>'required',
+            'heading_image'=>'required|image',
+            'title'=>'required',
+            'subtitle'=>'required',
+        ]);
+
         $record = new ContactItem;
 
         if( $request->hasFile('heading_image') ) {
@@ -54,6 +61,13 @@ class ContactItemController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'heading_title'=>'required',
+            'heading_image'=>'image',
+            'title'=>'required',
+            'subtitle'=>'required',
+        ]);
+
         $record = ContactItem::find($request->upd_id);
 
         if( $request->hasFile('heading_image') ) {

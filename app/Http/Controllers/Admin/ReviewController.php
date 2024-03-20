@@ -35,6 +35,14 @@ class ReviewController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'picture'=>'image',
+            'fullname'=>'required',
+            'property_id'=>'required',
+            'reviewed_on'=>'required',
+            'review'=>'required',
+        ]);
+
         $record = new Review;
         if( $request->hasFile('picture') ) {
             $file = $request->picture;
@@ -71,6 +79,14 @@ class ReviewController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'picture'=>'image',
+            'fullname'=>'required',
+            'property_id'=>'required',
+            'reviewed_on'=>'required',
+            'review'=>'required',
+        ]);
+        
         $record = Review::find($request->upd_id);
         if( $request->hasFile('picture') ) {
             $file = $request->picture;

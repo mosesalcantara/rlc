@@ -24,6 +24,19 @@ class SettingController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'logo'=>'required|image',
+            'office'=>'required',
+            'email'=>'required|email',
+            'address'=>'required',
+            'telephone'=>'required',
+            'mobile'=>'required',
+            'facebook'=>'required|url',
+            'twitter'=>'required|url',
+            'instagram'=>'required|url',
+            'youtube'=>'required|url',
+        ]);
+
         $record = new Setting;
 
         if( $request->hasFile('logo') ) {
@@ -59,6 +72,19 @@ class SettingController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'logo'=>'image',
+            'office'=>'required',
+            'email'=>'required|email',
+            'address'=>'required',
+            'telephone'=>'required',
+            'mobile'=>'required',
+            'facebook'=>'required|url',
+            'twitter'=>'required|url',
+            'instagram'=>'required|url',
+            'youtube'=>'required|url',
+        ]);
+
         $record = Setting::find($request->upd_id);
 
         if( $request->hasFile('logo') ) {

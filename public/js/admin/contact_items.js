@@ -3,10 +3,16 @@ $(document).ready( function () {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });
+    })
+
+    $('#addModal').on('show.bs.modal', function(e) {
+        $('#addForm span').remove()
+    })
 
     $('#addForm').submit(function(e) {
         e.preventDefault()
+        $('#addForm span').remove()
+
         $.ajax({
           url: "/admin/contact/add/",
           method: 'POST',
@@ -19,14 +25,33 @@ $(document).ready( function () {
             $(`#addForm`).trigger('reset')
             $(`#addModal`).modal('hide')
           },
-          error: function (xhr, status, error) {
+          error: function (res) {
+            var errors = res.responseJSON.errors
+            // console.log(errors)
 
+            var inputs = $('#addForm input')
+            $.each(inputs, function(index, input) {
+              var name = $(input).attr('name')
+
+              if (name in errors) {
+                for (error of errors[name]) {
+                    var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                    error_msg.insertAfter($(input))
+                }
+              }
+            })
           },
         })    
     })   
 
+    $('#updModal').on('show.bs.modal', function(e) {
+        $('#updForm span').remove()
+    })
+
     $('#updForm').submit(function(e) {
         e.preventDefault()
+        $('#updForm span').remove()
+
         $.ajax({
           type: 'POST',
           url: "/admin/contact/update/",
@@ -40,7 +65,20 @@ $(document).ready( function () {
             $(`#updModal`).modal('hide')
           },
           error: function (res) {
+            var errors = res.responseJSON.errors
+            // console.log(errors)
 
+            var inputs = $('#updForm input')
+            $.each(inputs, function(index, input) {
+              var name = $(input).attr('name')
+
+              if (name in errors) {
+                for (error of errors[name]) {
+                    var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                    error_msg.insertAfter($(input))
+                }
+              }
+            })
           },
         })    
     })  
@@ -83,7 +121,6 @@ function get_all() {
             thr.append($('<th>').text('Heading Image'))
             thr.append($('<th>').text('Title'))
             thr.append($('<th>').text('Subtitle'))
-            thr.append($('<th>').text('Email'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
             tbl.append(thead)
@@ -101,7 +138,6 @@ function get_all() {
                 tr.append(td_img)
                 tr.append($('<td>').text(field.title))
                 tr.append($('<td>').text(field.subtitle))
-                tr.append($('<td>').text(field.email))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
@@ -159,7 +195,6 @@ function get_upd_id(id){
         $('#heading_title').val(record.heading_title)
         $('#title').val(record.title)
         $('#subtitle').val(record.subtitle)
-        $('#email').val(record.email)
       }
     })
 }

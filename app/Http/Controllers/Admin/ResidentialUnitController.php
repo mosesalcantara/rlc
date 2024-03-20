@@ -59,6 +59,16 @@ class ResidentialUnitController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'unit_id'=>'required',
+            'building_id'=>'required',
+            'type'=>'required',
+            'area'=>'required|numeric',
+            'rate'=>'required|numeric',
+            'status'=>'required',
+        ]);
+
         $record = new ResidentialUnit;
         $record->unit_id = $request->unit_id;
         $record->type = $request->type;
@@ -94,6 +104,16 @@ class ResidentialUnitController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'unit_id'=>'required',
+            'building_id'=>'required',
+            'type'=>'required',
+            'area'=>'required|numeric',
+            'rate'=>'required|numeric',
+            'status'=>'required',
+        ]);
+        
         $record = ResidentialUnit::find($request->upd_id);
 
         $record->update([

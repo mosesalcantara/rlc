@@ -22,6 +22,13 @@ class PropertyController extends Controller
         return response()->json($data);
     }
     public function create(Request $request) {
+        $request->validate([
+            'logo'=>'required|image',
+            'name'=>'required',
+            'location'=>'required',
+            'description'=>'required',
+        ]);
+
         $record = new Property;
 
         if( $request->hasFile('logo') ) {
@@ -50,6 +57,14 @@ class PropertyController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'logo'=>'image',
+            'name'=>'required',
+            'location'=>'required',
+            'description'=>'required',
+        ]);
+
+
         $record = Property::find($request->upd_id);
 
         if( $request->hasFile( 'logo' ) ) {

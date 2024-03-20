@@ -36,6 +36,13 @@ class AmenityController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'name'=>'required',
+            'type'=>'required',
+            'picture'=>'required|image',
+        ]);
+
         $record = new Amenity;
 
         if( $request->hasFile('picture') ) {
@@ -68,6 +75,13 @@ class AmenityController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'name'=>'required',
+            'type'=>'required',
+            'picture'=>'image',
+        ]);
+
         $record = Amenity::find($request->upd_id);
 
         if( $request->hasFile( 'picture' ) ) {

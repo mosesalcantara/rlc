@@ -6,6 +6,8 @@ $(document).ready( function () {
     });
 
     $('#addModal').on('show.bs.modal', function(e) {
+        $('#addForm span').remove()
+
         $.ajax({
             url: "/admin/buildings/get-related/",
             method: 'POST',
@@ -28,6 +30,8 @@ $(document).ready( function () {
 
     $('#addForm').submit(function(e) {
         e.preventDefault()
+        $('#addForm span').remove()
+
         $.ajax({
           url: "/admin/buildings/add/",
           method: 'POST',
@@ -40,11 +44,28 @@ $(document).ready( function () {
             $(`#addForm`).trigger('reset')
             $(`#addModal`).modal('hide')
           },
-          error: function (xhr, status, error) {
-            
+          error: function (res) {
+            var errors = res.responseJSON.errors
+            // console.log(errors)
+
+            var inputs = $('#addForm input, #addForm select, #addForm textarea')
+            $.each(inputs, function(index, input) {
+              var name = $(input).attr('name')
+
+              if (name in errors) {
+                for (error of errors[name]) {
+                    var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                    error_msg.insertAfter($(input))
+                }
+              }
+            })
           },
         })    
-    })   
+    })  
+    
+    $('#updModal').on('show.bs.modal', function(e) {
+        $('#updForm span').remove()
+    })
 
     $('#updModal').on('hide.bs.modal', function(e) {
         $('#upd_property_id').empty()
@@ -52,6 +73,8 @@ $(document).ready( function () {
 
     $('#updForm').submit(function(e) {
         e.preventDefault()
+        $('#updForm span').remove()
+
         $.ajax({
           type: 'POST',
           url: "/admin/buildings/update/",
@@ -65,7 +88,20 @@ $(document).ready( function () {
             $(`#updModal`).modal('hide')
           },
           error: function (res) {
+            var errors = res.responseJSON.errors
+            // console.log(errors)
 
+            var inputs = $('#updForm input, #updForm select, #updForm textarea')
+            $.each(inputs, function(index, input) {
+              var name = $(input).attr('name')
+
+              if (name in errors) {
+                for (error of errors[name]) {
+                    var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                    error_msg.insertAfter($(input))
+                }
+              }
+            })
           },
         })    
     })  

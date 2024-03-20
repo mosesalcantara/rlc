@@ -52,6 +52,13 @@ class CommercialUnitController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'retail_id'=>'required',
+            'building_id'=>'required',
+            'size'=>'required|numeric',
+        ]);
+
         $record = new CommercialUnit;
         $record->retail_id = $request->retail_id;
         $record->size = $request->size;
@@ -84,6 +91,13 @@ class CommercialUnitController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'retail_id'=>'required',
+            'building_id'=>'required',
+            'size'=>'required|numeric',
+        ]);
+        
         $record = CommercialUnit::find($request->upd_id);
 
         $record->update([

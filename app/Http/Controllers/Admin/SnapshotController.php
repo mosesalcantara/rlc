@@ -35,6 +35,11 @@ class SnapshotController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'picture'=>'required',
+            'residential_unit_id'=>'required',
+        ]);
+
         if( $request->hasFile( 'picture' ) ) {
             foreach ($request->picture as $file) {
                 $filename = mt_rand() . '.'.$file->clientExtension();
@@ -65,6 +70,10 @@ class SnapshotController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'residential_unit_id'=>'required',
+        ]);
+
         $record = Snapshot::find($request->upd_id);
 
         if( $request->hasFile('picture') ) {

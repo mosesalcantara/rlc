@@ -61,10 +61,6 @@
                             <input type="text" name="subtitle" class="form-control">
                             <label for="">Subtitle</label>     
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" name="email" class="form-control">
-                            <label for="">Email</label>     
-                        </div>
                 </div>
                 <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" value="Add">
@@ -101,10 +97,6 @@
                         <div class="form-floating mb-3">
                             <input type="text" name="subtitle" id='subtitle' class="form-control">
                             <label for="">Subtitle</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" name="email" id='email' class="form-control">
-                            <label for="">Email</label>     
                         </div>
                 </div>
                 <div class="modal-footer">

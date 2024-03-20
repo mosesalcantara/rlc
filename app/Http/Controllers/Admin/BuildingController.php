@@ -36,6 +36,12 @@ class BuildingController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'name'=>'required',
+            'floor_plan'=>'required|image',
+        ]);
+
         $record = new Building;
 
         if( $request->hasFile('floor_plan') ) {
@@ -67,6 +73,12 @@ class BuildingController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'name'=>'required',
+            'floor_plan'=>'image',
+        ]);
+
         $record = Building::find($request->upd_id);
 
         if( $request->hasFile('floor_plan') ) {

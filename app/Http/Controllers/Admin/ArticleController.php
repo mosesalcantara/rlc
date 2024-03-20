@@ -35,6 +35,13 @@ class ArticleController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'about_item_id'=>'required',
+            'title'=>'required',
+            'text'=>'required',
+            'picture'=>'required|image',
+        ]);
+
         $record = new Article;
 
         if( $request->hasFile( 'picture' ) ) {
@@ -67,6 +74,13 @@ class ArticleController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'about_item_id'=>'required',
+            'title'=>'required',
+            'text'=>'required',
+            'picture'=>'image',
+        ]);
+
         $record = Article::find($request->upd_id);
 
         if( $request->hasFile( 'picture' ) ) {

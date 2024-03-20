@@ -35,6 +35,13 @@ class ParkingSlotController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'floor'=>'required',
+            'slot'=>'required',
+            'rate'=>'required|numeric',
+        ]);
+
         $record = new ParkingSlot;
 
         $record->floor = $request->floor;
@@ -60,6 +67,13 @@ class ParkingSlotController extends Controller
     }
 
     public function update(Request $request) {
+        $request->validate([
+            'property_id'=>'required',
+            'floor'=>'required',
+            'slot'=>'required',
+            'rate'=>'required|numeric',
+        ]);
+        
         $record = ParkingSlot::find($request->upd_id);
 
         $record->update([
