@@ -111,6 +111,7 @@ function get_all() {
         url: "/admin/about/",
         success: function (res) {
             var records = res.records
+            console.log(records)
 
             var tbl = $('<table>').addClass('table table-hover w-100')
             tbl.attr('id', 'tbl_records')

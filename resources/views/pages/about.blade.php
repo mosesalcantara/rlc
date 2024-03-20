@@ -13,6 +13,7 @@
 @endsection
  
 @section('content')
+    {{-- {{ dd($data['about']) }} --}}
     <div class="container-fluid">
         <div class="row header" style="background-image: url({{ asset('uploads/about_items/heading_images') }}/{{ $data['about']['heading_image'] }})">
             <div class="col">
@@ -24,7 +25,7 @@
     <div class="container-fluid about">
         <div class="row">
             <div class="col description">
-                <p>{{ $data['about']['description'] }}</p>
+                <p>{!! nl2br($data['about']['description']) !!}</p>
             </div>
         </div>
         <div class="row">
@@ -39,7 +40,7 @@
                     <div class="col-lg-9 d-flex justify-content-center align-items-center">
                         <div>
                             <h4>{{ $data['articles'][0]['title'] }}</h4>
-                            <p>{{ $data['articles'][0]['text'] }}</p>
+                            <p>{!! nl2br($data['articles'][0]['text']) !!}</p>
                         </div>
                     </div>
                     <div class="col d-flex justify-content-end">
@@ -62,7 +63,7 @@
                     <div class="col-lg-9 d-flex justify-content-center align-items-center">
                         <div>
                             <h4>{{ $data['articles'][1]['title'] }}</h4>
-                            <p>{{ $data['articles'][1]['text'] }}</p>
+                            <p>{!! nl2br($data['articles'][1]['text']) !!}</p>
                         </div>
                     </div>
                 </div>
@@ -79,7 +80,7 @@
                     <div class="col-lg-9 d-flex justify-content-center align-items-center">
                         <div>
                             <h4>{{ $data['articles'][2]['title'] }}</h4>
-                            <p>{{ $data['articles'][2]['text'] }}</p>
+                            <p>{!! nl2br($data['articles'][2]['text']) !!}</p>
                         </div>
                     </div>
                     <div class="col d-flex justify-content-end">
