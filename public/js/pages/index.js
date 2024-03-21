@@ -79,21 +79,21 @@ $(document).ready( function () {
             $('#type').parent().removeClass('d-none')
             $('#rate').parent().removeClass('d-none')
 
-            $('#property_type').parent().removeClass('col-xl-5')
-            $('#location').parent().removeClass('col-xl-6')
+            $('#property_type').parent().removeClass('col-xxl-5')
+            $('#location').parent().removeClass('col-xxl-6')
 
-            $('#property_type').parent().addClass('col-xl-3')
-            $('#location').parent().addClass('col-xl-3')
+            $('#property_type').parent().addClass('col-xxl-3')
+            $('#location').parent().addClass('col-xxl-3')
         }
         else {
             $('#type').parent().addClass('d-none')
             $('#rate').parent().addClass('d-none')
 
-            $('#property_type').parent().removeClass('col-xl-3')
+            $('#property_type').parent().removeClass('col-xxl-3')
             $('#location').parent().removeClass('col-3')
 
-            $('#property_type').parent().addClass('col-xl-5')
-            $('#location').parent().addClass('col-xl-6')
+            $('#property_type').parent().addClass('col-xxl-5')
+            $('#location').parent().addClass('col-xxl-6')
         }
 
         get_filters(property_type)

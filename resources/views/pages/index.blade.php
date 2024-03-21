@@ -18,14 +18,40 @@
             
         </div>
 
-
+        <div class="row header_carousel_div">
+            <div class="col d-xxl-none ">
+                <div id="header_carousel" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="{{ asset('img/pages/home/header-1.jpg') }}" class="d-block w-100" alt=" ">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('img/pages/home/header-2.jpg') }}" class="d-block w-100" alt=" ">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('img/pages/home/header-3.jpg') }}" class="d-block w-100" alt="">
+                      </div>
+                    </div>
+    
+                    <button class="carousel-control-prev" type="button" data-bs-target="#header_carousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    
+                    <button class="carousel-control-next" type="button" data-bs-target="#header_carousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+        </div>
     </div>
 
     <div class="container-fluid">
         <div class="row search mt-3">
             <div class="col">
                 <div class="row search_drops">
-                    <div class="col-xl-3">
+                    <div class="col-xxl-3">
                         <div class="dropdown" id='property_type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -44,7 +70,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-3">
+                    <div class="col-xxl-3">
                         <div class="dropdown" id='location'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -58,7 +84,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-xl-2">
+                    <div class="col-xxl-2">
                         <div class="dropdown" id='type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -79,7 +105,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-3">
+                    <div class="col-xxl-3">
                         <div class="dropdown" id='rate'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -100,7 +126,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-1 d-flex justify-content-center align-items-center search_btn">
+                    <div class="col-xxl-1 d-flex justify-content-center align-items-center search_btn">
                         <button class="btn btn-warning">
                             <i class="fa fa-search"></i>
                             <h6>Find My Unit</h6>
@@ -123,10 +149,10 @@
 
     <div class="container-fluid featured">
         <div class="row">
-            <div class="col-xl-6 d-flex align-items-center justify-content-start">        
+            <div class="col-xxl-6 d-flex align-items-center justify-content-start">        
                 <h1>Our Featured Properties</h1>
             </div>
-            <div class="col-xl-6 d-flex align-items-center justify-content-end">
+            <div class="col-xxl-6 d-flex align-items-center justify-content-end">
                 <h4>Explored our wide selection of projects to know more.</h4>
             </div>
         </div>
@@ -160,17 +186,17 @@
                                         <p>{{ $property['description'] }}</p>
 
                                         <div>
-                                            <i class="fa-solid fa-location-dot fa-xl"></i>
+                                            <i class="fa-solid fa-location-dot fa-xxl"></i>
                                             <h5>{{ $property['location'] }}</h5>
                                         </div>
 
                                         <div>
-                                            <i class="fa-solid fa-building fa-xl"></i>
+                                            <i class="fa-solid fa-building fa-xxl"></i>
                                             <h5>{{ $property['types'] }}</h5>
                                         </div>
 
                                         <div>
-                                            <i class="fa-solid fa-user fa-xl"></i>
+                                            <i class="fa-solid fa-user fa-xxl"></i>
                                             <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
                                         </div>
                                     </div>

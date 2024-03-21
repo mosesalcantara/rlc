@@ -30,13 +30,17 @@
 
     <div class="content">
         @section('navbar')
-            <nav class="navbar navbar-expand-lg bg-body-tertiary p-3 fixed-top">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary px-xxl-5 py-xxl-3 fixed-top">
                 <div class="container-fluid navbar_div">
                     <a href="/" class="navbar-brand">
                         <img src="{{ asset('img/pages/logo.png') }}" alt="" id='logo'>
                     </a>
+
+                    <button class="nav_toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
             
-                    <div class="collapse navbar-collapse justify-content-end nav-items">
+                    <div class="collapse navbar-collapse justify-content-end nav-items" id='navbarContent'>
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::url() == url('/') ? 'active' : '' }}" href="/">Home</a>

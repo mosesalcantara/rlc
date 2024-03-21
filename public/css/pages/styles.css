@@ -26,7 +26,6 @@ body {
 
 .navbar img {
     width: 3vw;
-    height: 4vh;
     margin-left: 3vw;
 }
 
@@ -43,6 +42,12 @@ body {
     font-size: 1.1rem;
     font-weight: 500;
     padding: .7rem 0;
+}
+
+.nav_toggle {
+    color: #000b8c;
+    border: none;
+    background-color: transparent;
 }
 
 .footer {
@@ -82,4 +87,11 @@ body {
     color: #000b8c;
     margin-right: 1vw;
     display: inline;
+}
+
+
+@media (min-width: 992px) {
+    .nav_toggle {
+        display: none;
+    }
 }
