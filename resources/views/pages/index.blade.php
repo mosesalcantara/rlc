@@ -156,6 +156,7 @@
                 <h4>Explored our wide selection of projects to know more.</h4>
             </div>
         </div>
+
         <div class="row">
             <div class="col">
                 <div id="properties_carousel" class="carousel slide">
@@ -188,14 +189,10 @@
                                         <div>
                                             <i class="fa-solid fa-location-dot fa-xxl"></i>
                                             <h5>{{ $property['location'] }}</h5>
-                                        </div>
-
-                                        <div>
+                                            <br>
                                             <i class="fa-solid fa-building fa-xxl"></i>
                                             <h5>{{ $property['types'] }}</h5>
-                                        </div>
-
-                                        <div>
+                                            <br>
                                             <i class="fa-solid fa-user fa-xxl"></i>
                                             <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
                                         </div>
@@ -261,10 +258,10 @@
                             <div class="row review">
                                 <div class="col">
                                     <div class="row profile">
-                                        <div class="col-2">
+                                        <div class="col-xl-2 d-flex justify-content-start col-5">
                                             <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $review->picture }}" alt="">
                                         </div>
-                                        <div class="col text-start">
+                                        <div class="col text-start g-0">
                                             <h2>{{ $review->fullname }}</h2>
                                             <h6>{{ $review->name }}</h6>
                                             <h6>{{ \Carbon\Carbon::parse($review->reviewed_on)->toFormattedDateString()}}</h6>

@@ -68,7 +68,7 @@
         @section('footer')
             <div class="container-fluid footer px-5">
                 <div class="row">
-                    <div class="col-xl-3">
+                    <div class="col-xxl-3">
                         <h3>Quick Links</h3>
                         <a href="/">Home</a>
                         <a href="/for-lease">For Lease</a>
@@ -84,7 +84,7 @@
                         <a href="">Awards</a>
                         <a href="">Privacy Policy</a>
                     </div> --}}
-                    <div class="col-xl-3 offset-xl-1 contacts">
+                    <div class="col-xxl-3 offset-xxl-1 contacts">
                         <h3>Talk to Us</h3>
                         <p>
                             <b id='office'></b><br>
@@ -93,24 +93,25 @@
                         </p>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-xxl-6">
                                 <i class="fa-solid fa-phone"></i>
                                 <span id='telephone'></span>
                             </div>
-                            <div class="col">
+                            <div class="col-xxl-6">
                                 <i class="fa-solid fa-mobile-screen-button"></i>
                                 <span id='mobile'></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 offset-xl-2 contact_us">
+                    <div class="col-xxl-3 offset-xxl-2 contact_us">
                         <h3>Stay Updated</h3>
                         
-                        <input type="email" class="form-control" placeholder="Enter your email address">
-                        <button class="btn btn-warning text-light">Subscribe Now</button>
-                        <div class>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email address">
+                            <button class="btn btn-warning text-light">Subscribe Now</button>
+                        </div>
 
-                        <div>
+                        <div class="text-xxl-start text-center">
                             <a class="fa-brands fa-facebook-f fa-2x" href='' target='_blank' id='facebook'></a>
                             <a class="fa-brands fa-x-twitter fa-2x" href='' target='_blank' id='twitter'></a>
                             <a class="fa-brands fa-instagram fa-2x" href='' target='_blank' id='instagram'></a>
@@ -119,7 +120,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col text-center mt-4">
+                    <div class="col text-center mt-4 copyright">
                         © 2023 RLC Residences. Residential Division of Robinsons Land Corporation. A Subsidiary of JG Summit Holdings, Inc.
                     </div>
                 </div>

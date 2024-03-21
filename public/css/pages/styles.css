@@ -70,15 +70,6 @@ body {
     line-height: 1.3;
 }
 
-.contact_us input {
-    width: 67%;
-    display: inline;
-}
-
-.contact_us button {
-    display: inline;
-}
-
 .contact_us div {
     margin-top: 5vh;
 }
@@ -89,6 +80,9 @@ body {
     display: inline;
 }
 
+.copyright {
+    font-size: 1rem;
+}
 
 @media (min-width: 992px) {
     .nav_toggle {
@@ -99,5 +93,21 @@ body {
 @media (max-width: 992px) {
     .nav-item a {
         padding: 0.5rem;
+    }
+}
+
+@media (max-width: 1400px) {
+    .navbar img {
+        width: 2rem;
+    }
+
+    .footer .col-xxl-3 {
+        border-top: 0.2rem solid #CC9900;
+        margin: 0rem 0rem 1rem;
+        padding: 1rem 0 0;
+    }
+
+    .copyright {
+        font-size: 0.85rem;
     }
 }

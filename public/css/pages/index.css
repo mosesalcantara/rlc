@@ -161,6 +161,7 @@
     display: inline;
     font-size: 1.2rem;
     margin: 1rem;
+    font-weight: 400;
 }
 
 .carousel_controls i {
@@ -330,5 +331,26 @@
         padding-bottom: 2rem;
         border-radius: 0;
         height: 45vh;
+    }
+
+    .profile img {
+        width: 90%;
+    }
+    
+    .profile h2 {
+        color: #CC9900;
+        font-size: 0.80rem;
+    }
+
+    .profile h6 {
+        font-size: 0.80rem;
+    }
+
+    .review_text {
+        overflow-y: auto;
+    }
+    
+    .review_text p {
+        font-size: 0.93rem;
     }
 }
