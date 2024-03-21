@@ -174,7 +174,7 @@
                             <div class="card_back">
                                 <div class="row">
 
-                                    <div class="col snapshot d-flex justify-content-center align-items-center">
+                                    <div class="col snapshot d-flex justify-content-center align-items-xxl-center align-items-start">
                                         <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
                                     </div>
 
