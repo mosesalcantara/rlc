@@ -157,7 +157,7 @@ function compare_residential_properties() {
                 });
         
                 for (var property of properties) {
-                    var property_div = $('<div>').addClass('col-4 property')
+                    var property_div = $('<div>').addClass('col-xxl-4 property')
         
                     var property_data = {
                         'Property Type': 'Residential',
@@ -213,7 +213,7 @@ function compare_commercial_properties() {
 
             if (property_type == 'Commercial') {
                 for (var property of properties) {
-                    var property_div = $('<div>').addClass('col-4 property')
+                    var property_div = $('<div>').addClass('col-xxl-4 property')
         
                     var property_data = {
                         'Property Type': 'Commercial',

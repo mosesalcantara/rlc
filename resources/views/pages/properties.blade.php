@@ -32,9 +32,9 @@
 
     <div class="container-fluid">
         <div class="row search mt-3">
-            <div class="col search_drops">
-                <div class="row">
-                    <div class="col">
+            <div class="col">
+                <div class="row search_drops">
+                    <div class="col-xxl-4">
                         <div class="dropdown" id='property_1'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -48,7 +48,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-xxl-4">
                         <div class="dropdown" id='property_2'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -62,7 +62,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-xxl-4">
                         <div class="dropdown" id='property_3'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -83,7 +83,7 @@
 
     <div class="container-fluid compare_div">
         <div class="row">
-            <div class="col-2 compare">
+            <div class="col-xxl-2 compare">
                 <form action="/compare-properties" method="POST" id='property_form'>
                     <div class="row">
                         <div class="col compare_item filter_property_type">
@@ -189,7 +189,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-9">
+            <div class="col-xxl-9">
                 <div class="row properties">
                     
                 </div>
