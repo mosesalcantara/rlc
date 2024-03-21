@@ -74,10 +74,6 @@
     border-radius: 1rem;
 }
 
-.search_btn h6 {
-    display: none;
-}
-
 .featured {
     padding: 0rem 5rem 2rem;
 }
@@ -236,13 +232,9 @@
 }
 
 @media (max-width: 1400px) {
-    .header {
-        display: none;
-    }
-
     .search {
         margin: 0rem 1.5rem 1rem;
-        border-radius: 0;
+        border-radius: 0.5rem;
     }
 
     .search_drops>div {
@@ -347,10 +339,6 @@
     .reviews_title img {
         width: 37%;
         height: 100%;
-    }
-    
-    .review_carousel_controls {
-        display: none;
     }
 
     .review {

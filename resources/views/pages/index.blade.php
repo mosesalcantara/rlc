@@ -14,7 +14,7 @@
  
 @section('content')
     <div class="container-fluid" style="background-image: url({{ asset('img/pages/home/header-bg.png') }})">
-        <div class="row gx-0 header" style="background-image: url({{ asset('img/pages/home/shape.png') }})">
+        <div class="row gx-0 header d-xxl-flex d-none" style="background-image: url({{ asset('img/pages/home/shape.png') }})">
             
         </div>
 
@@ -129,7 +129,7 @@
                     <div class="col-xxl-1 d-flex justify-content-center align-items-center search_btn">
                         <button class="btn btn-warning">
                             <i class="fa fa-search"></i>
-                            <h6>Find My Unit</h6>
+                            <h6 class="d-xxl-none">Find My Unit</h6>
                         </button>
                     </div>
                 </div>
@@ -241,7 +241,7 @@
             <div class="col-xxl-6 reviews_title d-flex align-items-center">
                 <div class="row">
                     <img src="{{  asset('img/pages/home/review-label-pc.png') }}" alt="">
-                    <div class="review_carousel_controls justify-content-center">
+                    <div class="review_carousel_controls justify-content-center d-none d-xxl-block">
                         <i class="fa-solid fa-chevron-left fa-2x" data-bs-target="#reviews_carousel" data-bs-slide="prev"></i>
                         <i class="fa-solid fa-chevron-right fa-2x" data-bs-target="#reviews_carousel" data-bs-slide="next"></i>
                     </div>

@@ -15,10 +15,10 @@
 @section('content')
     <div class="container-fluid title_div">
         <div class="row title">
-            <div class="col">
+            <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-start col-12 text-center">
                 <h1>RLC Residences Properties</h1>
             </div>
-            <div class="col text-end">
+            <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-end col-12 text-center">
                 <h4>Let us help you with your search.</h4>
             </div>
         </div>
@@ -26,9 +26,9 @@
 
     <div class="container-fluid">
         <div class="row search mt-3">
-            <div class="col search_drops">
-                <div class="row">
-                    <div class="col-3">
+            <div class="col">
+                <div class="row search_drops">
+                    <div class="col-xxl-3">
                         <div class="dropdown" id='property_type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -47,7 +47,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-xxl-3">
                         <div class="dropdown" id='location'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -61,7 +61,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-xxl-2">
                         <div class="dropdown" id='type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -82,7 +82,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-xxl-3">
                         <div class="dropdown" id='rate'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -103,7 +103,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-1 d-flex justify-content-center align-items-center search_btn">
+                    <div class="col-xxl-1 d-flex justify-content-center align-items-center search_btn">
                         <button class="btn btn-warning">
                             <i class="fa fa-search"></i>
                         </button>
@@ -125,30 +125,45 @@
 
     <div class="container-fluid mt-3 mb-3">
         <div class="row categories">
-            <div class="col">
-                <div class="card">
+            <div class="col-xxl-4">
+                <div class="card category">
                     <img class='card-img-top' src="{{ asset('/img/pages/for_lease/residential.png') }}" alt="">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center d-none d-xxl-block">
                         <h1>Residential</h1>
                         <a href="/for-lease/category/residential_units" class="fa-solid fa-chevron-right fa-3x"></a>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('/img/pages/for_lease/commercial.png') }}" alt="">
-                    <div class="card-body text-center">
-                        <h1>Commercial</h1>
-                        <a href="/for-lease/category/commercial_units" class="fa-solid fa-chevron-right fa-3x"></a>
+
+                    <div class="centered d-xxl-none">
+                        <h1>Residential</h1>
+                        <a href="/for-lease/category/residential_units" class="fa-solid fa-chevron-right"></a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
+            <div class="col-xxl-4">
+                <div class="card category">
+                    <img class="card-img-top" src="{{ asset('/img/pages/for_lease/commercial.png') }}" alt="">
+                    <div class="card-body text-center d-none d-xxl-block">
+                        <h1>Commercial</h1>
+                        <a href="/for-lease/category/commercial_units" class="fa-solid fa-chevron-right fa-3x"></a>
+                    </div>
+
+                    <div class="centered d-xxl-none">
+                        <h1>Commercial</h1>
+                        <a href="/for-lease/category/commercial_units" class="fa-solid fa-chevron-right"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4">
+                <div class="card category">
                     <img class='card-img-top' src="{{ asset('/img/pages/for_lease/parking.png') }}" alt="">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center d-none d-xxl-block">
                         <h1>Parking</h1>
                         <a href="/for-lease/category/parking_slots" class="fa-solid fa-chevron-right fa-3x"></a>
+                    </div>
+
+                    <div class="centered d-xxl-none">
+                        <h1>Parking</h1>
+                        <a href="/for-lease/category/parking_slots" class="fa-solid fa-chevron-right"></a>
                     </div>
                 </div>
             </div>
