@@ -149,10 +149,10 @@
 
     <div class="container-fluid featured">
         <div class="row">
-            <div class="col-xxl-6 d-flex align-items-center justify-content-start">        
+            <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-start">        
                 <h1>Our Featured Properties</h1>
             </div>
-            <div class="col-xxl-6 d-flex align-items-center justify-content-end">
+            <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-end">
                 <h4>Explored our wide selection of projects to know more.</h4>
             </div>
         </div>
@@ -241,7 +241,7 @@
 
     <div class="container-fluid" style="background-image: url({{ asset('img/pages/home/review-bg.png') }})">
         <div class="row reviews">
-            <div class="col reviews_title d-flex align-items-center">
+            <div class="col-xxl-6 reviews_title d-flex align-items-center">
                 <div class="row">
                     <img src="{{  asset('img/pages/home/review-label-pc.png') }}" alt="">
                     <div class="review_carousel_controls justify-content-center">
@@ -251,7 +251,7 @@
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col-xxl-6">
                 <div id="reviews_carousel" class="carousel slide text-center">
                     <div class="carousel-inner">
 
@@ -279,6 +279,18 @@
                     </div>
                     @endforeach
 
+                    </div>
+
+                    <div class="d-xxl-none justify-content-center">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#reviews_carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        
+                        <button class="carousel-control-next" type="button" data-bs-target="#reviews_carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
             </div>

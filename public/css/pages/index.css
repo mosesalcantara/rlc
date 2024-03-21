@@ -1,6 +1,6 @@
 .header {
     margin-top: 9vh;
-    height: 70vh;
+    height: 66vh;
     background-repeat: no-repeat;
     background-position: 0 17vh;
 }
@@ -12,7 +12,7 @@
 
 .header .col div {
     width: 100%;
-    height: 70vh;
+    height: 75vh;
     background-size: cover;
     color: #000b8c;
     font-weight: 500;
@@ -27,7 +27,7 @@
 }
 
 .header .back div {
-    height: 100%;
+    height: 75vh;
 }
 
 .header_carousel_div {
@@ -84,6 +84,11 @@
 
 .featured h1 {
     color: #000b8c;
+    font-size: 2.5rem;
+}
+
+.featured h4 {
+    font-size: 1.3rem;
 }
 
 #properties_carousel {
@@ -265,7 +270,7 @@
     }
 
     .card_front div {
-        height: 45vh;
+        height: 47vh;
         background-size: cover;
         border-radius: 0rem;
     }
@@ -299,5 +304,31 @@
         margin-right: 2rem;
         font-size: 2em;
     }
+
+    .featured h1 {
+        font-size: 1.5rem;
+    }
+
+    .reviews {
+        padding: 1.5rem;
+    }
+
+    .reviews_title {
+        margin-bottom: 2rem;
+    }
+
+    .reviews_title img {
+        width: 37%;
+        height: 100%;
+    }
     
+    .review_carousel_controls {
+        display: none;
+    }
+
+    .review {
+        padding-bottom: 2rem;
+        border-radius: 0;
+        height: 45vh;
+    }
 }
