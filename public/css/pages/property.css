@@ -101,6 +101,11 @@
     width: 30vw;
 }
 
+.buttons button:hover {
+    background-color: #2C3C93;
+    color: white;
+}
+
 .buttons i, .buttons h6 {
     display: inline;
 }
@@ -113,10 +118,6 @@
 .buttons i {
     float: right;
     margin-top: 0.2rem;
-}
-
-.btn {
-    /* pointer-events: none; */
 }
 
 .amenities {
