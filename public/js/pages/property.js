@@ -1,4 +1,10 @@
 $(document).ready( function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    })
+
     $('.picture_carousel_item').first().addClass('active')
 
     $( ".amenity" ).on( "click", function() {
@@ -9,5 +15,13 @@ $(document).ready( function () {
         $('#amenity_picture').attr({
             'src': `/uploads/amenities/pictures/${picture}`,
         })
-    });
+    })
+
+    $( ".buttons button" ).on( "click", function() {
+        var property_type = $(this).data('type')
+        $('#search_form input[name=property_type]').val(property_type)
+
+        url = `/for-lease/category/${property_type}`
+        $('#search_form').attr('action', url).submit()    
+    })
 })

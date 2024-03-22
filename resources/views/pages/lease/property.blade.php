@@ -80,7 +80,7 @@
                     <div class="col buttons">
                         @if ($data['property']['r_units'] == True)
                         <div class="d-flex justify-content-center button">
-                            <button type="button" class="btn text-start">
+                            <button type="button" class="btn text-start" data-type='residential_units'>
                                 <h6>Check Residential Units</h6>
                                 <i class="fa-solid fa-chevron-right fa-1x"></i>
                             </button>
@@ -89,7 +89,7 @@
 
                         @if ($data['property']['c_units'] == True)
                         <div class="d-flex justify-content-center button">
-                            <button type="button" class="btn text-start">
+                            <button type="button" class="btn text-start" data-type='commercial_units'>
                                 <h6>Check Commercial Units</h6>
                                 <i class="fa-solid fa-chevron-right fa-1x"></i>
                             </button>
@@ -98,13 +98,20 @@
 
                         @if ($data['property']['p_slots'] == True)
                         <div class="d-flex justify-content-center button">
-                            <button type="button" class="btn text-start">
+                            <button type="button" class="btn text-start" data-type='parking_slots'>
                                 <h6>Check Parking Slots</h6>
                                 <i class="fa-solid fa-chevron-right fa-1x"></i>
                             </button>
                         </div>
                         @endif
                     </div>
+
+                    <form action="" method="POST" class="d-none" id='search_form'>
+                        @csrf
+                        <input type="hidden" name='property_type' value=''>
+                        <input type="hidden" name='property_id' value='{{ $data['property']['id'] }}'>
+                        <input type="hidden" name='origin' value='property_page'>
+                    </form>
                 </div>
             </div>
         </div>

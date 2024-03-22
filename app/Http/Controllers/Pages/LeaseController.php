@@ -70,12 +70,19 @@ class LeaseController extends Controller
     }
 
     public function search_residential_units(Request $request) {
-        $where = [
-            ['properties.location', $request['location']],
-            ['residential_units.type', $request['type']],
-            ['residential_units.rate', '>=', $request['min_rate']],
-            ['residential_units.rate', '<=', $request['max_rate']],
-        ];
+        if ($request['origin'] == 'property_page') {
+            $where = [
+                ['properties.id', $request['property_id']],
+            ];
+        }
+        else {
+            $where = [
+                ['properties.location', $request['location']],
+                ['residential_units.type', $request['type']],
+                ['residential_units.rate', '>=', $request['min_rate']],
+                ['residential_units.rate', '<=', $request['max_rate']],
+            ];
+        }
 
         $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->get();
 
@@ -89,7 +96,7 @@ class LeaseController extends Controller
             'r_units' => $r_units,
         ];
 
-        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'residential_unit_page') {
+        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'residential_unit_page' || $request['origin'] == 'property_page') {
             return view("pages.lease.residential_units")->with('data', $data);
         }
         else {
@@ -101,6 +108,11 @@ class LeaseController extends Controller
         if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page') {
             $where = [
                 ['properties.location', $request['location']],
+            ];
+        }
+        else if ($request['origin'] == 'property_page') {
+            $where = [
+                ['properties.id', $request['property_id']],
             ];
         }
         else {
@@ -126,7 +138,7 @@ class LeaseController extends Controller
             'c_units' => $c_units,
         ];
 
-        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'commercial_unit_page') {
+        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'commercial_unit_page' || $request['origin'] == 'property_page') {
             return view("pages.lease.commercial_units")->with('data', $data);
         }
         else {
@@ -140,6 +152,14 @@ class LeaseController extends Controller
                 ['properties.location', $request['location']],
             ];
     
+            $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
+                        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupBy('properties.id')->get();
+        }
+        else if ($request['origin'] == 'property_page') {
+            $where = [
+                ['properties.id', $request['property_id']],
+            ];
+
             $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
                         ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupBy('properties.id')->get();
         }
@@ -164,7 +184,7 @@ class LeaseController extends Controller
             'slots' => $slots,
         ];
 
-        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'parking_slot_page') {
+        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'parking_slot_page' || $request['origin'] == 'property_page') {
             return view("pages.lease.parking_slots")->with('data', $data);
         }
         else {

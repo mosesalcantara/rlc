@@ -116,7 +116,7 @@
 }
 
 .btn {
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .amenities {
