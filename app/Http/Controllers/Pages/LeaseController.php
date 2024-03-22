@@ -284,6 +284,21 @@ class LeaseController extends Controller
         $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $request->id)->max('residential_units.rate');
         $property['max'] = $max;
 
+        $records = Property::selectRaw('properties.location, Count(residential_units.id) As residential_units')
+                    ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $request->id)
+                    ->groupByRaw('properties.location, properties.id')->get();
+        count($records) > 0 ? $property['r_units'] = True : $property['r_units'] = False;
+
+        $records = Property::selectRaw('properties.location, Count(commercial_units.id) As commercial_units')
+                    ->join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('properties.id', $request->id)
+                    ->groupByRaw('properties.location, properties.id')->get();
+        count($records) > 0 ? $property['c_units'] = True : $property['c_units'] = False;
+
+        $records = Property::selectRaw('properties.location, Count(parking_slots.id) As parking_slots')
+                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where('properties.id', $request->id)
+                    ->groupByRaw('properties.location, properties.id')->get();
+        count($records) > 0 ? $property['p_slots'] = True : $property['p_slots'] = False;
+
         $records = Property::select('amenities.id', 'amenities.name', 'amenities.type', 'amenities.picture')
                     ->join('amenities', 'properties.id', '=', 'amenities.property_id')->where('properties.id', $request->id)->get();
         $indoor = [];

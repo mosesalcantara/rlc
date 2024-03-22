@@ -38,21 +38,11 @@ class PageController extends Controller
 
         foreach ($properties as $property) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')->where('properties.id', $property['id'])->limit(1)->get();
-            if (count($record) > 0) {
-                $property['picture'] = $record[0]->picture;
-            }
-            else {
-                $property['picture'] = 'no_image.png';
-            }
+            count($record) > 0 ? $property['picture'] = $record[0]->picture : $property['picture'] = 'no_image.png';
 
             $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
                         ->where('residential_units.property_id', $property['id'])->get();
-            if (count($record) > 0) {
-                $property['snapshot'] = $record[0]->picture;
-            }
-            else {
-                $property['snapshot'] = 'no_image.png';
-            }
+            count($record) > 0 ? $property['snapshot'] = $record[0]->picture : $property['snapshot'] = 'no_image.png';
 
             $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where('properties.id', $property['id'])->get();
             

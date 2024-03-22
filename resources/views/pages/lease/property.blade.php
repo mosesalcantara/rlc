@@ -78,24 +78,32 @@
                 </div>
                 <div class="row ">
                     <div class="col buttons">
+                        @if ($data['property']['r_units'] == True)
                         <div class="d-flex justify-content-center button">
                             <button type="button" class="btn text-start">
                                 <h6>Check Residential Units</h6>
                                 <i class="fa-solid fa-chevron-right fa-1x"></i>
                             </button>
                         </div>
+                        @endif
+
+                        @if ($data['property']['c_units'] == True)
                         <div class="d-flex justify-content-center button">
                             <button type="button" class="btn text-start">
                                 <h6>Check Commercial Units</h6>
                                 <i class="fa-solid fa-chevron-right fa-1x"></i>
                             </button>
                         </div>
+                        @endif
+
+                        @if ($data['property']['p_slots'] == True)
                         <div class="d-flex justify-content-center button">
                             <button type="button" class="btn text-start">
                                 <h6>Check Parking Slots</h6>
                                 <i class="fa-solid fa-chevron-right fa-1x"></i>
                             </button>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
