@@ -9,6 +9,7 @@ use App\Models\Property;
 use App\Models\Building;
 use App\Models\ResidentialUnit;
 use App\Models\Snapshot;
+use App\Models\UnitVideo;
 
 class LeaseController extends Controller
 {
@@ -186,6 +187,14 @@ class LeaseController extends Controller
             array_push($snapshots, $snapshot['picture']);
         }
         $r_unit['snapshots'] = $snapshots;
+
+        $records = UnitVideo::all()->where('residential_unit_id', $request->id);
+        $unit_videos = [];
+
+        foreach ($records as $unit_video) {
+            array_push($unit_videos, $unit_video['video']);
+        }
+        $r_unit['unit_videos'] = $unit_videos;
 
         $records = Property::select('amenities.id', 'amenities.name', 'amenities.type', 'amenities.picture')
                     ->join('amenities', 'properties.id', '=', 'amenities.property_id')->where('properties.id', $r_unit['property_id'])->get();

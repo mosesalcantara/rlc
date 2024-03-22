@@ -99,7 +99,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/residential'), url('/admin/snapshots') ]) ? 'active' : '' }}">
+                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/residential'), url('/admin/snapshots'), url('/admin/unit_videos') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResidential"
                         aria-expanded="true" aria-controls="collapseProperties">
                         <i class="fas fa-fw fa-folder"></i>
@@ -109,6 +109,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="/admin/residential">Units</a>
                             <a class="collapse-item" href="/admin/snapshots">Snapshots</a>
+                            <a class="collapse-item" href="/admin/unit_videos">Unit Videos</a>
                         </div>
                     </div>
                 </li>

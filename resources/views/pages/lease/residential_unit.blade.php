@@ -179,6 +179,39 @@
 
     <div class="container-fluid">
         <div class="row">
+            <div class="col unit_videos">
+                <div class="row">
+                    <h1>Unit Videos</h1>
+                </div>
+
+                <div class="row">
+                    <div class='col-1 d-flex align-items-center'>
+                        <i class="fa-solid fa-circle-chevron-left fa-4x" data-bs-target="#unit_videos_carousel" data-bs-slide="prev"></i>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <div id="unit_videos_carousel" class="carousel slide">
+                            <div class="carousel-inner">
+        
+                            @foreach ($data['r_unit']['unit_videos'] as $unit_video)
+                            <div class="carousel-item unit_video_carousel_item">
+                                <video controls>
+                                    <source src="{{ asset('uploads/residential_units/unit_videos') }}/{{ $unit_video }}">
+                                </video>
+                            </div>
+                            @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1 d-flex align-items-center">
+                        <i class="fa-solid fa-circle-chevron-right fa-4x" data-bs-target="#unit_videos_carousel" data-bs-slide="next"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
             <div class="col amenities">
                 <div class="row">
                     <h1>AMENITY GALLERY</h1>

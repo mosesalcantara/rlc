@@ -141,6 +141,28 @@
     border-radius: 0.7rem;
 }
 
+.unit_videos {
+    background-color: #DBAF27;
+    color: white;
+    padding: 1rem 7rem 2rem;
+    margin-top: 1.5rem;
+}
+
+.unit_videos h1 {
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+}
+
+.unit_videos i {
+    cursor: pointer;
+}
+
+.unit_videos video {
+    width: 35vw;
+    height: 40vh;
+    border-radius: 0.7rem;
+}
+
 .amenities {
     color: white;
     background-color: #DBAF27;

@@ -20,12 +20,12 @@
     <div class="container">
         <div class="row">
             <div class="col mb-3">
-                <h1 class="h3 mb-0 text-dark">Snapshots</h1>
+                <h1 class="h3 mb-0 text-dark">Unit Videos</h1>
             </div>
             <div class="col d-flex justify-content-end">
                 <button type="button" class="btn btn-primary mb-3" data-bs-target="#addModal" data-bs-toggle="modal">
                     <i class="fa-solid fa-plus"></i>
-                    Add Snapshot
+                    Add Unit Video
                 </button>
             </div>
         </div>
@@ -40,14 +40,14 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title">Add Snapshot</h5>
+                <h5 class="modal-title">Add Unit Video</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/admin/snapshots/add" method="post" enctype="multipart/form-data" id="addForm">         
+                    <form action="/admin/unit_videos/add" method="post" enctype="multipart/form-data" id="addForm">         
                         <div class="mb-3">
-                            <label for="" class="form-label">Picture</label>     
-                            <input type="file" name="picture[]" class="form-control" multiple>
+                            <label for="" class="form-label">Video</label>     
+                            <input type="file" name="video[]" class="form-control" multiple>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Residential Unit</label>  
@@ -69,14 +69,14 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title">Update Snapshot</h5>
+                <h5 class="modal-title">Update Unit Video</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/admin/snapshots/update" method="post" enctype="multipart/form-data" id="updForm">
+                    <form action="/admin/unit_videos/update" method="post" enctype="multipart/form-data" id="updForm">
                         <div class="mb-3">
-                            <label for="" class="form-label">Picture</label>     
-                            <input type="file" name="picture" class="form-control">
+                            <label for="" class="form-label">Video</label>     
+                            <input type="file" name="video" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Residential Unit</label>  
@@ -99,14 +99,14 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title">Delete Snapshot</h5>
+                <h5 class="modal-title">Delete Unit Video</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5>Are you sure you want to delete this Snapshot?</h5>
+                    <h5>Are you sure you want to delete this Unit Video?</h5>
                 </div>
                 <div class="modal-footer">
-                    <form action="/admin/snapshots/delete/" method="POST" id="delForm">
+                    <form action="/admin/unit_video/delete/" method="POST" id="delForm">
                         <input type="hidden" value="0" id="del_id" name="del_id">
                         <input type="submit" class="btn btn-primary" value="Yes" style="cursor:pointer;">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
@@ -122,6 +122,6 @@
 @section('scripts')
     @parent
 
-    <script src="{{ asset('js/admin/snapshots.js') }}"></script>
+    <script src="{{ asset('js/admin/unit_videos.js') }}"></script>
 @endsection
     

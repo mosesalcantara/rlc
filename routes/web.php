@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\ResidentialUnitController;
 use App\Http\Controllers\Admin\SnapshotController;
+use App\Http\Controllers\Admin\UnitVideoController;
 use App\Http\Controllers\Admin\CommercialUnitController;
 use App\Http\Controllers\Admin\ParkingSlotController;
 use App\Http\Controllers\Admin\TermController;
@@ -168,6 +169,16 @@ Route::prefix('admin/snapshots')->group(function () {
     Route::post('/edit', [SnapshotController::class, 'edit']);
     Route::post('/update', [SnapshotController::class, 'update']);
     Route::post('/delete', [SnapshotController::class, 'delete']);
+});
+
+Route::prefix('admin/unit_videos')->group(function () {
+    Route::get('/', [UnitVideoController::class, 'index']);
+    Route::post('/', [UnitVideoController::class, 'get_all']);
+    Route::post('/get-related', [UnitVideoController::class, 'get_related']);
+    Route::post('/add', [UnitVideoController::class, 'create']);
+    Route::post('/edit', [UnitVideoController::class, 'edit']);
+    Route::post('/update', [UnitVideoController::class, 'update']);
+    Route::post('/delete', [UnitVideoController::class, 'delete']);
 });
 
 Route::prefix('admin/commercial')->group(function () {
