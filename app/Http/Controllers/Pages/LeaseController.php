@@ -96,11 +96,11 @@ class LeaseController extends Controller
             'r_units' => $r_units,
         ];
 
-        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'residential_unit_page' || $request['origin'] == 'property_page') {
-            return view("pages.lease.residential_units")->with('data', $data);
+        if ($request['origin'] == 'residential_units_page') {
+            return response()->json($data);
         }
         else {
-            return response()->json($data);
+            return view("pages.lease.residential_units")->with('data', $data);
         }
     }
 
@@ -138,11 +138,11 @@ class LeaseController extends Controller
             'c_units' => $c_units,
         ];
 
-        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'commercial_unit_page' || $request['origin'] == 'property_page') {
-            return view("pages.lease.commercial_units")->with('data', $data);
+        if ($request['origin'] == 'commercial_units_page') {
+            return response()->json($data);
         }
         else {
-            return response()->json($data);
+            return view("pages.lease.commercial_units")->with('data', $data);
         }
     }
 
@@ -184,11 +184,11 @@ class LeaseController extends Controller
             'slots' => $slots,
         ];
 
-        if ($request['origin'] == 'homepage' || $request['origin'] == 'lease_page' || $request['origin'] == 'parking_slot_page' || $request['origin'] == 'property_page') {
-            return view("pages.lease.parking_slots")->with('data', $data);
+        if ($request['origin'] == 'parking_slots_page') {
+            return response()->json($data);
         }
         else {
-            return response()->json($data);
+            return view("pages.lease.parking_slots")->with('data', $data);
         }
     }
 
