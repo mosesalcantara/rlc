@@ -28,7 +28,7 @@ class AdminController extends Controller
             return view('admin.index')->with('data', $data);
         }
         else {
-
+            return redirect('/auth');
         }
     }
 }
