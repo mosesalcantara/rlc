@@ -94,12 +94,18 @@
 
                         <div class="row">
                             <div class="col-xxl-6">
-                                <i class="fa-solid fa-phone"></i>
+                                <a class="fa-solid fa-phone" href=''></a>
                                 <span id='telephone'></span>
+                                <br><br>
+                                <a class="fa-brands fa-facebook-messenger" id='messenger' href='' target='_blank'></a>
+                                <span id='messenger_text'></span>
                             </div>
                             <div class="col-xxl-6">
-                                <i class="fa-solid fa-mobile-screen-button"></i>
-                                <span id='mobile'></span>
+                                <a class="fa-solid fa-mobile-screen-button" id='mobile' href='' ></a>
+                                <span id='mobile_text'></span>
+                                <br><br>
+                                <a class="fa-brands fa-telegram" id='telegram' href='' target='_blank'></a>
+                                <span id='telegram_text'></span>
                             </div>
                         </div>
                     </div>

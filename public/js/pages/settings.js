@@ -18,7 +18,12 @@ $(document).ready( function () {
           $('#email').html(settings.email)
 
           $('#telephone').html(settings.telephone)
-          $('#mobile').html(settings.mobile)
+          $('#mobile').attr({'href': `tel:${settings.mobile}`})
+          $('#mobile_text').html(settings.mobile)
+          $('#messenger').attr({'href': settings.messenger})
+          $('#messenger_text').html(settings.messenger_text)
+          $('#telegram').attr({'href': settings.telegram})
+          $('#telegram_text').html(settings.telegram_text)
 
           $('#facebook').attr({'href': settings.facebook})
           $('#twitter').attr({'href': settings.twitter})

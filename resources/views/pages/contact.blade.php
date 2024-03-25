@@ -26,12 +26,14 @@
 
     <div class="container-fluid contact">
         <div class="row">
-            <div class="col-lg-6 contact_header">
-                <h1>{{ $data['contact_items']['title'] }}</h1>
+            <div class="col contact_header d-flex justify-content-center align-items-center">
+                <div>
+                    <h1>{{ $data['contact_items']['title'] }}</h1>
 
-                <h3>{{ $data['contact_items']['subtitle'] }}</h3>
+                    <h3>{{ $data['contact_items']['subtitle'] }}</h3>
+                </div>
             </div>
-            <div class="col-lg-6 contact_form">
+            <div class="col-xxl-5 contact_form">
                 <form action="/contact-us" method="POST">
                     @csrf
                     <div class="row">

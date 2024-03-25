@@ -31,6 +31,10 @@ class SettingController extends Controller
             'address'=>'required',
             'telephone'=>'required',
             'mobile'=>'required',
+            'messenger'=>'required|url',
+            'messenger_text'=>'required',
+            'telegram'=>'required|url',
+            'telegram_text'=>'required',
             'facebook'=>'required|url',
             'twitter'=>'required|url',
             'instagram'=>'required|url',
@@ -52,6 +56,10 @@ class SettingController extends Controller
         $record->email = $request->email;
         $record->telephone = $request->telephone;
         $record->mobile = $request->mobile;
+        $record->messenger = $request->messenger;
+        $record->messenger_text = $request->messenger_text;
+        $record->telegram = $request->telegram;
+        $record->telegram_text = $request->telegram_text;
         $record->facebook = $request->facebook;
         $record->twitter = $request->twitter;
         $record->instagram = $request->instagram;
@@ -79,6 +87,10 @@ class SettingController extends Controller
             'address'=>'required',
             'telephone'=>'required',
             'mobile'=>'required',
+            'messenger'=>'required|url',
+            'messenger_text'=>'required',
+            'telegram'=>'required|url',
+            'telegram_text'=>'required',
             'facebook'=>'required|url',
             'twitter'=>'required|url',
             'instagram'=>'required|url',
@@ -100,6 +112,10 @@ class SettingController extends Controller
                 'email' => $request->email,
                 'telephone' => $request->telephone,
                 'mobile' => $request->mobile,
+                'messenger' => $request->messenger,
+                'messenger_text' => $request->messenger_text,
+                'telegram' => $request->telegram,
+                'telegram_text' => $request->telegram_text,
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,
                 'instagram' => $request->instagram,
@@ -113,6 +129,10 @@ class SettingController extends Controller
                 'email' => $request->email,
                 'telephone' => $request->telephone,
                 'mobile' => $request->mobile,
+                'messenger' => $request->messenger,
+                'messenger_text' => $request->messenger_text,
+                'telegram' => $request->telegram,
+                'telegram_text' => $request->telegram_text,
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,
                 'instagram' => $request->instagram,

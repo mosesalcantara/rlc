@@ -87,6 +87,36 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating mb-3">
+                                    <input type="text" name="messenger" class="form-control">
+                                    <label for="">Messsenger Link</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="messenger_text" class="form-control">
+                                    <label for="">Messenger Text</label>     
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="telegram" class="form-control">
+                                    <label for="">Telegram Link</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="telegram_text" class="form-control">
+                                    <label for="">Telegram Text</label>     
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
                                     <input type="text" name="facebook" class="form-control">
                                     <label for="">Facebook</label>     
                                 </div>
@@ -169,6 +199,36 @@
                                 <div class="form-floating mb-3">
                                     <input type="text" name="mobile" id='mobile' class="form-control">
                                     <label for="">Mobile</label>     
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="messenger" id='messenger' class="form-control">
+                                    <label for="">Messsenger Link</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="messenger_text" id='messenger_text' class="form-control">
+                                    <label for="">Messenger Text</label>     
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="telegram" id='telegram' class="form-control">
+                                    <label for="">Telegram Link</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="telegram_text" id='telegram_text' class="form-control">
+                                    <label for="">Telegram Text</label>     
                                 </div>
                             </div>
                         </div>

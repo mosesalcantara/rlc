@@ -20,5 +20,9 @@ class Setting extends Model
         'twitter',
         'instagram',
         'youtube',
+        'messenger',
+        'messenger_text',
+        'telegram',
+        'telegram_text',
     ];
 }

@@ -70,6 +70,11 @@ body {
     line-height: 1.3;
 }
 
+.contacts a {
+    color: #000b8c;
+    display: inline;
+}
+
 .contact_us div {
     margin-top: 5vh;
 }
@@ -97,6 +102,18 @@ body {
 }
 
 @media (max-width: 1400px) {
+    .loader img {
+        width: 45%;
+    }
+
+    .loader h3 {
+        font-size: 1.2rem;
+    }
+
+    .loader h5 {
+        font-size: 1.1rem;
+    }
+
     .navbar img {
         width: 2rem;
     }
