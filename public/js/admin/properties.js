@@ -110,7 +110,7 @@ $(document).ready( function () {
         $.ajax({
           type: 'POST',
           url: "/admin/properties/update/",
-          data: new FormData(this),
+          data: formData,
           contentType: false,
           processData: false,
           success: function (res) {
@@ -285,9 +285,7 @@ function get_upd_id(id){
             unit_type = 'Studio'
           }
 
-          // unit_types.includes(unit_type) ? $(form_unit_type).prop( "checked", true ) : $(form_unit_type).prop( "checked", false )
-
-          // if (unit_types.include(unit_type) == true) { $(form_unit_type).prop("checked", true) }
+          if (unit_types.includes(unit_type) == true) { $(form_unit_type).prop("checked", true) }
         }
       }
     })
