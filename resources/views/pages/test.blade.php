@@ -11,31 +11,24 @@
 
   <style>
     .card {
-        border-radius: 0.7rem;
-        border: 0.15rem solid black;
-        width: 30vw;
-    }
-
-    .card-body {
+        width: 20vw;
         padding: 0 3rem 0;
     }
-  </style>
+</style>
 </head>
-<body>
+<body class="bg-light">
   <div class="container">
     <div class="row">
-      <div class="col d-flex justify-content-center">
-        <div class="card">
-          <div class="card-body">
-              <h1 class="text-center">Residential Inquiry</h1><br>
-              <h3>Fullname: Moses Alcantara</h3>
-              <h3>Email: mosesalcantara123@gmail.com</h3>
-              <h3>Contact Number: 09685913442</h3><br>
-              <p>This is just a test message</p>
-          </div>
+        <div class="col d-flex justify-content-center">
+            <div class="card">
+                <h1>5</h1>
+                <h3>Fullname: 5</h3>
+                <h3>Email: 5</h3>
+                <h3>Contact Number: 5</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum reprehenderit vero dolor neque, sint corporis odio. Eaque, quasi deserunt error quas voluptatum dolores facere harum numquam, nobis nam dolore quo!</p>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 </body>
 </html>

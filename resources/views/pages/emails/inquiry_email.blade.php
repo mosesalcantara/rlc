@@ -8,12 +8,9 @@
 
     <style>
         .card {
-            border-radius: 0.7rem;
             border: 0.15rem solid black;
+            border-radius: 0.7rem;
             width: 20vw;
-        }
-
-        .card-body {
             padding: 0 3rem 0;
         }
     </style>
@@ -23,13 +20,11 @@
         <div class="row">
             <div class="col d-flex justify-content-center">
                 <div class="card">
-                    <div class="card-body text-center">
-                        <h1>{{ $mailData['title'] }}</h1>
-                        <h3>Fullname: {{ $mailData['fullname'] }}</h3>
-                        <h3>Email: {{ $mailData['email'] }}</h3>
-                        <h3>Contact Number: {{ $mailData['number'] }}</h3>
-                        <p>{{ $mailData['body'] }}</p>
-                    </div>
+                    <h1>{{ $mailData['title'] }}</h1>
+                    <h3>Fullname: {{ $mailData['fullname'] }}</h3>
+                    <h3>Email: {{ $mailData['email'] }}</h3>
+                    <h3>Contact Number: {{ $mailData['number'] }}</h3>
+                    <p>{{ $mailData['body'] }}</p>
                 </div>
             </div>
         </div>
