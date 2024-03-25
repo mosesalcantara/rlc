@@ -5,8 +5,6 @@ $(document).ready( function () {
         }
     })
 
-    get_filters()
-
     $(document).on('click', '.dropdown button', function() {
         $(this).next().toggleClass('show')
     })
@@ -21,10 +19,15 @@ $(document).ready( function () {
         button.find('h6').html(selected.html())
     })
 
-    $(document).on('click', '.search_btn button', function(){
-        var sale_status = $('#sale_status button h6').html()
-        var url = ''
+    $(document).on('click', '#sale_status .dropdown-item', function(){
+        $('#location .dropdown-menu').remove()
+        $('#search_form')[0].reset()
 
+        var sale_status = $(this).html()
+        get_filters(sale_status)
+    })
+
+    $(document).on('click', '.search_btn button', function(){
         var price_range = $('#price_range button h6').html()
         var words = price_range.split(' ')
 
@@ -36,23 +39,16 @@ $(document).ready( function () {
         $('input[name=unit_type]').val($('#unit_type button h6').html())
         $('input[name=min_price]').val(min_price)
         $('input[name=max_price]').val(max_price)
-        
 
-        if (sale_status == 'Pre-Selling') {
-            url = '/for-sale/category/pre-selling'
-        }
-        else if (sale_status == 'RFO') {
-            url = '/for-sale/category/rfo'
-        }
-
-        $('#search_form').attr('action', url).submit()
+        $('#search_form').submit()
     })
 })
 
-function get_filters() {
+function get_filters(sale_status) {
     $.ajax({
         type: 'POST',
         url: "/for-sale/get-filters",
+        data: {'sale_status': sale_status},
         success: function (res) {
             // console.log(res)
             var records = res.records

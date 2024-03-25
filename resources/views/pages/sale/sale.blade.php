@@ -112,7 +112,7 @@
             </div>
         </div>
 
-        <form action="" method="POST" class="d-none" id='search_form'>
+        <form action="/for-sale/search" method="POST" class="d-none" id='search_form'>
             @csrf
             <input type="hidden" name='sale_status' value=''>
             <input type="hidden" name='location' value=''>

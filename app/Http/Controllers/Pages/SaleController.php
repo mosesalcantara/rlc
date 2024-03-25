@@ -46,10 +46,11 @@ class SaleController extends Controller
         return view("pages.sale.rfo")->with('data', $data);
     }
 
-    public function search_pre_selling(Request $request) {
+    public function search(Request $request) {
         $where = [
-            ['properties.sale_status', 'Pre-Selling'],
+            ['properties.sale_status', $request['sale_status']],
             ['properties.location', $request['location']],
+            ['properties.unit_types', 'LIKE', '%'.$request['unit_type'].'%'],
         ];
 
         $properties = Property::orderBy('properties.name')->where($where)->get();
@@ -64,28 +65,12 @@ class SaleController extends Controller
             'properties' => $properties,
         ];
 
-        return view("pages.sale.pre_selling")->with('data', $data);
-    }
-
-    public function search_rfo(Request $request) {
-        $where = [
-            ['properties.sale_status', 'RFO'],
-            ['properties.location', $request['location']],
-        ];
-
-        $properties = Property::orderBy('properties.name')->where($where)->get();
-
-        foreach ($properties as $property) {
-            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
-                        ->where('properties.id', $property['id'])->get();
-            $property['picture'] = $record[0]->picture;
+        if ($request['sale_status'] == 'Pre-Selling') {
+            return view("pages.sale.pre_selling")->with('data', $data);
         }
-
-        $data = [
-            'properties' => $properties,
-        ];
-
-        return view("pages.sale.rfo")->with('data', $data);
+        else if ($request['sale_status'] == 'RFO') {
+            return view("pages.sale.rfo")->with('data', $data);
+        }
     }
 
     public function property(Request $request) {
@@ -122,8 +107,11 @@ class SaleController extends Controller
         return view('pages.sale.sale_property')->with('data', $data);
     }
 
-    public function get_filters() {
-        $records = Property::select('location')->distinct('location')->get();
+    public function get_filters(Request $request) {
+        $request_data = $request->all();
+        $sale_status = $request_data['sale_status'];
+
+        $records = Property::select('location')->distinct('location')->where('sale_status', $sale_status)->get();
 
         $data = [
             'records' => $records,

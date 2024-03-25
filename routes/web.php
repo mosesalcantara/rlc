@@ -53,8 +53,7 @@ Route::get('/for-sale', [SaleController::class, 'sale']);
 Route::get('/for-sale/category/pre-selling', [SaleController::class, 'pre_selling']);
 Route::get('/for-sale/category/rfo', [SaleController::class, 'rfo']);
 
-Route::post('/for-sale/category/pre-selling', [SaleController::class, 'search_pre_selling']);
-Route::post('/for-sale/category/rfo', [SaleController::class, 'search_rfo']);
+Route::post('/for-sale/search', [SaleController::class, 'search']);
 
 Route::get('/for-sale/property/{id}', [SaleController::class, 'property']);
 
