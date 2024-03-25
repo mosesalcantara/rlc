@@ -1,6 +1,6 @@
 @extends('sections.pages.layout')
 
-@section('title', 'For Lease')
+@section('title', 'For Sale')
  
 @section('links')
     @parent
@@ -34,12 +34,12 @@
                 <div class="card category">
                     <img class="card-img-top" src="{{ asset('/img/pages/for_lease/residential.png') }}" alt="">
                     <div class="card-body text-center d-none d-xxl-block">
-                        <h1>Ready For Occupancy</h1>
+                        <h1>RFO</h1>
                         <a href="/for-sale/category/rfo" class="fa-solid fa-chevron-right fa-3x"></a>
                     </div>
 
                     <div class="centered d-xxl-none">
-                        <h1>Ready For Occupancy</h1>
+                        <h1>RFO</h1>
                         <a href="/for-sale/category/rfo" class="fa-solid fa-chevron-right"></a>
                     </div>
                 </div>

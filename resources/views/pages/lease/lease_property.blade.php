@@ -73,7 +73,7 @@
                 </div>
                 <div class="row description">
                     <div class="col ">
-                        <h5>{{ $data['property']['description'] }}</h5>
+                        <p>{{ $data['property']['description'] }}</p>
                     </div>
                 </div>
                 <div class="row ">

@@ -77,6 +77,6 @@ class SaleController extends Controller
         $data = [
             'property' => $property,
         ];
-        return view('pages.sale.property')->with('data', $data);
+        return view('pages.sale.sale_property')->with('data', $data);
     }
 }

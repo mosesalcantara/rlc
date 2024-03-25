@@ -338,7 +338,7 @@ class LeaseController extends Controller
         $data = [
             'property' => $property,
         ];
-        return view('pages.lease.property')->with('data', $data);
+        return view('pages.lease.lease_property')->with('data', $data);
     }
 
     public function get_filters(Request $request) {
