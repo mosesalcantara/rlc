@@ -61,6 +61,61 @@
                             <label for="" class="form-label">Description</label>     
                             <textarea class="form-control" name="description" cols="30" rows="5"></textarea>
                         </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Status</label>     
+                            <select class='form-select' name="sale_status">
+                                <option value="Pre-Selling">Pre-Selling</option>
+                                <option value="RFO">RFO</option>
+                            </select>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="min_price" class="form-control">
+                                    <label for="">Minimum Price</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="max_price" class="form-control">
+                                    <label for="">Maximum Price</label>     
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="">Unit Types</label>     
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='br1' id='add_1br'>
+                                    <label class="form-check-label" for="">1BR</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='ph' id='add_ph'>
+                                    <label class="form-check-label" for="">PH</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='br2' id='add_2br'>
+                                    <label class="form-check-label" for="">2BR</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='studio' id='add_studio'>
+                                    <label class="form-check-label" for="">Studio</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='br3' id='add_3br'>
+                                    <label class="form-check-label" for="">3BR</label>
+                                </div>
+                            </div>
+                        </div>
+
                 </div>
                 <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" value="Add">
@@ -98,6 +153,61 @@
                             <label for="" class="form-label">Description</label>     
                             <textarea class="form-control" name="description" id='description' cols="30" rows="5"></textarea>
                         </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Status</label>     
+                            <select class='form-select' name="sale_status" id='sale_status'>
+                                <option value="Pre-Selling">Pre-Selling</option>
+                                <option value="RFO">RFO</option>
+                            </select>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="min_price" id='min_price' class="form-control">
+                                    <label for="">Minimum Price</label>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="max_price" id='max_price' class="form-control">
+                                    <label for="">Maximum Price</label>     
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="">Unit Types</label>     
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='br1' id='upd_1br'>
+                                    <label class="form-check-label" for="">1BR</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='ph' id='upd_ph'>
+                                    <label class="form-check-label" for="">Penthouse</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='br2' id='upd_2br'>
+                                    <label class="form-check-label" for="">2BR</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='studio' id='upd_studio'>
+                                    <label class="form-check-label" for="">Studio</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='br3' id='upd_3br'>
+                                    <label class="form-check-label" for="">3BR</label>
+                                </div>
+                            </div>
+                        </div>
+
                 </div>
                 <div class="modal-footer">
                         <input type="hidden" value="0" name="upd_id" id="upd_id">

@@ -27,6 +27,9 @@ class PropertyController extends Controller
             'name'=>'required',
             'location'=>'required',
             'description'=>'required',
+            'sale_status'=>'required',
+            'min_price'=>'required',
+            'max_price'=>'required',
         ]);
 
         $record = new Property;
@@ -42,6 +45,10 @@ class PropertyController extends Controller
         $record->name = $request->name;
         $record->location = $request->location;
         $record->description = $request->description;
+        $record->sale_status = $request->sale_status;
+        $record->min_price = $request->min_price;
+        $record->max_price = $request->max_price;
+        $record->unit_types = $request->unit_types;
         $record->save();
 
         return response(['msg' => 'Added Property']);
@@ -62,6 +69,9 @@ class PropertyController extends Controller
             'name'=>'required',
             'location'=>'required',
             'description'=>'required',
+            'sale_status'=>'required',
+            'min_price'=>'required',
+            'max_price'=>'required',
         ]);
 
 
@@ -78,6 +88,10 @@ class PropertyController extends Controller
                 'name' => $request->name,
                 'location' => $request->location,
                 'description' => $request->description,
+                'sale_status' => $request->sale_status,
+                'min_price' => $request->min_price,
+                'max_price' => $request->max_price,
+                'unit_types' => $request->unit_types,
             ]);    
         }
         else {
@@ -85,6 +99,10 @@ class PropertyController extends Controller
                 'name' => $request->name,
                 'location' => $request->location,
                 'description' => $request->description,
+                'sale_status' => $request->sale_status,
+                'min_price' => $request->min_price,
+                'max_price' => $request->max_price,
+                'unit_types' => $request->unit_types,
             ]);  
         }
 

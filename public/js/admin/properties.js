@@ -14,10 +14,37 @@ $(document).ready( function () {
         e.preventDefault()
         $('#addForm span').remove()
 
+        var form_unit_types = ['#add_1br', '#add_2br', '#add_3br', '#add_ph', '#add_studio']
+        var unit_types = ''
+    
+        for (var form_unit_type of form_unit_types) {
+            if ($(form_unit_type).prop('checked') == true) {
+                if (form_unit_type == '#add_1br') {
+                    form_unit_type = '1BR'
+                }
+                else if (form_unit_type == '#add_2br') {
+                  form_unit_type = '2BR'
+                }
+                else if (form_unit_type == '#add_3br') {
+                  form_unit_type = '3BR'
+                }
+                else if (form_unit_type == '#add_ph') {
+                  form_unit_type = 'PH'
+                }
+                else if (form_unit_type == '#add_studio') {
+                  form_unit_type = 'Studio'
+                }
+                unit_types += ` ${form_unit_type}`
+            }
+        }
+
+        var formData = new FormData(this)
+        formData.append('unit_types', unit_types)
+
         $.ajax({
           url: "/admin/properties/add/",
           method: 'POST',
-          data: new FormData(this),
+          data: formData,
           contentType: false,
           processData: false,
           success: function (res) {
@@ -53,6 +80,33 @@ $(document).ready( function () {
         e.preventDefault()
         $('#updForm span').remove()
         
+        var form_unit_types = ['#upd_1br', '#upd_2br', '#upd_3br', '#upd_ph', '#upd_studio']
+        var unit_types = ''
+    
+        for (var form_unit_type of form_unit_types) {
+            if ($(form_unit_type).prop('checked') == true) {
+                if (form_unit_type == '#upd_1br') {
+                    form_unit_type = '1BR'
+                }
+                else if (form_unit_type == '#upd_2br') {
+                  form_unit_type = '2BR'
+                }
+                else if (form_unit_type == '#upd_3br') {
+                  form_unit_type = '3BR'
+                }
+                else if (form_unit_type == '#upd_ph') {
+                  form_unit_type = 'PH'
+                }
+                else if (form_unit_type == '#upd_studio') {
+                  form_unit_type = 'Studio'
+                }
+                unit_types += ` ${form_unit_type}`
+            }
+        }
+
+        var formData = new FormData(this)
+        formData.append('unit_types', unit_types)
+
         $.ajax({
           type: 'POST',
           url: "/admin/properties/update/",
@@ -122,6 +176,10 @@ function get_all() {
             thr.append($('<th>').text('Name'))
             thr.append($('<th>').text('Location'))
             thr.append($('<th>').text('Description'))
+            thr.append($('<th>').text('Sale Status'))
+            thr.append($('<th>').text('Minimum Price'))
+            thr.append($('<th>').text('Maximum Price'))
+            thr.append($('<th>').text('Unit Types'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
             tbl.append(thead)
@@ -139,7 +197,10 @@ function get_all() {
                 tr.append($('<td>').text(field.name))
                 tr.append($('<td>').text(field.location))
                 tr.append($('<td>').text(field.description))
-
+                tr.append($('<td>').text(field.sale_status))
+                tr.append($('<td>').text(field.min_price))
+                tr.append($('<td>').text(field.max_price))
+                tr.append($('<td>').text(field.unit_types))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
@@ -193,10 +254,41 @@ function get_upd_id(id){
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record
-        console.log(record)
+        // console.log(record)
         $('#name').val(record.name)
         $('#location').val(record.location)
         $('#description').val(record.description)
+        $('#sale_status').val(record.sale_status)
+        $('#min_price').val(record.min_price)
+        $('#max_price').val(record.max_price)
+
+        var unit_types = record.unit_types
+        unit_types = unit_types.split(' ')
+        var unit_type = ''
+
+        var form_unit_types = ['#upd_1br', '#upd_2br', '#upd_3br', '#upd_ph', '#upd_studio']
+
+        for (var form_unit_type of form_unit_types) {
+          if (form_unit_type == '#upd_1br') {
+            unit_type = '1BR'
+          }
+          else if (form_unit_type == '#upd_2br') {
+            unit_type = '2BR'
+          }
+          else if (form_unit_type == '#upd_3br') {
+            unit_type = '3BR'
+          }
+          else if (form_unit_type == '#upd_ph') {
+            unit_type = 'PH'
+          }
+          else if (form_unit_type == '#upd_studio') {
+            unit_type = 'Studio'
+          }
+
+          // unit_types.includes(unit_type) ? $(form_unit_type).prop( "checked", true ) : $(form_unit_type).prop( "checked", false )
+
+          // if (unit_types.include(unit_type) == true) { $(form_unit_type).prop("checked", true) }
+        }
       }
     })
   }

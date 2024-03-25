@@ -17,6 +17,10 @@ class Property extends Model
         'name',
         'location',
         'description',
+        'sale_status',
+        'min_price',
+        'max_price',
+        'unit_types',
     ];
 
     public function residential_units(): HasMany
