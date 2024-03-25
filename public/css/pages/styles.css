@@ -40,6 +40,13 @@ body {
     padding: .7rem 0;
 }
 
+.contact_btns a {
+    color: #000b8c;
+    text-decoration: none;
+    margin-right: 0.7rem;
+    font-size: 1.5em;
+}
+
 .nav_toggle {
     color: #000b8c;
     border: none;

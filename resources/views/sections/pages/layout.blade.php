@@ -60,6 +60,12 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::url() == url('/about-us') ? 'active' : '' }}" href="/about-us">About Us</a>
                             </li>
+                            
+                            <li class="contact_btns d-flex align-items-center justify-content-center">
+                                <a class="fa-solid fa-mobile-screen-button" id='mobile' href='' ></a>
+                                <a class="fa-brands fa-facebook-messenger" id='messenger' href='' target='_blank'></a>
+                                <a class="fa-brands fa-telegram" id='telegram' href='' target='_blank'></a>
+                            </li>
                         </ul>
                     </div>
                 </div>

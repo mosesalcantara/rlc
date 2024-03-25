@@ -14,6 +14,115 @@
 
 
 @section('content')
+    <div class="container-fluid title_div">
+        <div class="row title">
+            <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-start col-12 text-center">
+                <h1>RLC Residences Properties</h1>
+            </div>
+            <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-end col-12 text-center">
+                <h4>Let us help you with your search.</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row search mt-3">
+            <div class="col">
+                <div class="row search_drops">
+                    <div class="col-xxl-3">
+                        <div class="dropdown" id='status'>
+                            <button class="btn" type="button" aria-expanded="false">
+                                <div class="row">
+                                    <div class="col-10 d-flex justify-content-start align-items-center">
+                                        <h6>Status</h6>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-end align-items-center">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </div>
+                                </div>
+                            </button>
+                            <ul class='dropdown-menu'>
+                                <li><h6 class="dropdown-item">Pre-Selling</h6></li>
+                                <li><h6 class="dropdown-item">RFO</h6></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3">
+                        <div class="dropdown" id='location'>
+                            <button class="btn" type="button" aria-expanded="false">
+                                <div class="row">
+                                    <div class="col-10 d-flex justify-content-start align-items-center">
+                                        <h6>Location</h6>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-end align-items-center">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-xxl-2">
+                        <div class="dropdown" id='type'>
+                            <button class="btn" type="button" aria-expanded="false">
+                                <div class="row">
+                                    <div class="col-10 d-flex justify-content-start align-items-center">
+                                        <h6>Type of Unit</h6>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-end align-items-center">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </div>
+                                </div>
+                            </button>
+                            <ul class='dropdown-menu'>
+                                <li><h6 class="dropdown-item">1BR</h6></li>
+                                <li><h6 class="dropdown-item">2BR</h6></li>
+                                <li><h6 class="dropdown-item">3BR</h6></li>
+                                <li><h6 class="dropdown-item">PH</h6></li>
+                                <li><h6 class="dropdown-item">Studio</h6></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3">
+                        <div class="dropdown" id='price_range'>
+                            <button class="btn" type="button" aria-expanded="false">
+                                <div class="row">
+                                    <div class="col-10 d-flex justify-content-start align-items-center">
+                                        <h6>Price Range</h6>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-end align-items-center">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </div>
+                                </div>
+                            </button>
+                            <ul class='dropdown-menu'>
+                                <li><h6 class="dropdown-item">PHP 0M - 20M</h6></li>
+                                <li><h6 class="dropdown-item">PHP 20M - 40M</h6></li>
+                                <li><h6 class="dropdown-item">PHP 40M - 60M</h6></li>
+                                <li><h6 class="dropdown-item">PHP 60M - 80M</h6></li>
+                                <li><h6 class="dropdown-item">PHP 80M - 100M</h6></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xxl-1 d-flex justify-content-center align-items-center search_btn">
+                        <button class="btn btn-warning">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form action="" method="POST" class="d-none" id='search_form'>
+            @csrf
+            <input type="hidden" name='property_type' value=''>
+            <input type="hidden" name='location' value=''>
+            <input type="hidden" name='type' value=''>
+            <input type="hidden" name='min_rate' value=''>
+            <input type="hidden" name='max_rate' value=''>
+            <input type="hidden" name='origin' value='lease_page'>
+        </form>
+    </div>
+
     <div class="container-fluid mt-3 mb-3">
         <div class="row categories d-flex justify-content-center align-items-center">
             <div class="col-xxl-4">

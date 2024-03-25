@@ -1,6 +1,64 @@
+.title_div {
+    margin-top: 10vh;
+}
+
+.title {
+    width: 100%;
+} 
+
+.title h1 {
+    color: #000b8c;
+    font-weight: 500;
+    padding-left: 5vw;
+}
+
+.title h4 {
+    padding-right: 5vw;
+    font-weight: 400;
+}
+
+.search {
+    background-color: #FAFAFA;
+    border-radius: 1rem;
+    margin: 0 5rem 1rem;
+    padding: 1rem;
+}
+
+.dropdown button {
+    background-color: #D7D7D7;
+    display: inline;
+    font-weight: 500;
+    border-radius: 1rem;
+    width: 100%;
+    padding: 0.75rem 0.25rem 0.75rem;
+}
+
+.dropdown button:hover {
+    background-color: #D7D7D7;
+}
+
+.dropdown h6 {
+    margin-left: 1rem;
+}
+
+.dropdown i {
+    color: #CC9900;
+    margin-right: 1rem;
+}
+
+.dropdown-menu {
+    width: 100%;
+}
+
+.search_btn button {
+    width: 100%;
+    color: white;
+    padding: 0.65rem;
+    border-radius: 1rem;
+}
+
 .categories {
     margin: 0rem 5rem 0.5rem;
-    margin-top: 10vh;
 }
 
 .categories .card {
