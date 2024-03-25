@@ -5,7 +5,7 @@
 @section('links')
     @parent
 
-    <link rel="stylesheet" href="{{ asset('css/pages/property.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/lease_property.css') }}">
 @endsection
 
 @section('navbar')
@@ -173,5 +173,5 @@
 @section('scripts')
     @parent
 
-    <script src="{{ asset('js/pages/property.js') }}"></script>
+    <script src="{{ asset('js/pages/lease_property.js') }}"></script>
 @endsection

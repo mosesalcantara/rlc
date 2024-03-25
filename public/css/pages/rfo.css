@@ -1,0 +1,58 @@
+.title {
+    margin-top: 10vh;
+    color: #000b8c;
+}
+
+.title h1 {
+    margin-left: 4.5rem;
+    border-left: 0.2rem solid #CC9900;
+    padding-left: 0.3vw;
+}
+
+.properties {
+    margin: 0rem 5rem 0.5rem;
+}
+
+.property .card {
+    border-radius: 1rem;
+    margin: 1.5rem;
+}
+
+.property img {
+    border-radius: 1rem;
+}
+
+.details {
+    margin: 1rem;
+    color: #000b8c;
+}
+
+.details i {
+    display: inline;
+    color: #CC9900;
+}
+
+.details h4 {
+    display: inline;
+    color: black;
+}
+
+.table {
+    margin-top: 2vh;
+}
+
+.details span {
+    color: black;
+    margin-left: 1vw;
+}
+
+.property a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.no_data {
+    font-weight: 500;
+}

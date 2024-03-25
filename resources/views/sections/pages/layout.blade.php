@@ -46,6 +46,9 @@
                                 <a class="nav-link {{ Request::url() == url('/') ? 'active' : '' }}" href="/">Home</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link {{ str_contains(Request::url(), '/for-sale') ? 'active' : '' }}" href="/for-sale">For Sale</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link {{ str_contains(Request::url(), '/for-lease') ? 'active' : '' }}" href="/for-lease">For Lease</a>
                             </li>
                             <li class="nav-item">
@@ -71,6 +74,7 @@
                     <div class="col-xxl-3">
                         <h3>Quick Links</h3>
                         <a href="/">Home</a>
+                        <a href="/for-sale">For Sale</a>
                         <a href="/for-lease">For Lease</a>
                         <a href="/compare">Compare Properties</a>
                         <a href="/contact-us">Contact Us</a>

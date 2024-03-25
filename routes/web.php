@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Pages\PageController;
-use App\Http\Controllers\Pages\CompareController;
+use App\Http\Controllers\Pages\SaleController;
 use App\Http\Controllers\Pages\LeaseController;
+use App\Http\Controllers\Pages\CompareController;
 
 use App\Http\Controllers\Auth\AuthController;
 
@@ -46,6 +47,13 @@ Route::post('/contact-us', [PageController::class, 'send_inquiry']);
 Route::get('/about-us', [PageController::class, 'about']);
 
 Route::get('/test', [PageController::class, 'test']);
+
+Route::get('/for-sale', [SaleController::class, 'sale']);
+
+Route::get('/for-sale/category/pre-selling', [SaleController::class, 'pre_selling']);
+Route::get('/for-sale/category/rfo', [SaleController::class, 'rfo']);
+
+Route::get('/for-sale/property/{id}', [SaleController::class, 'property']);
 
 Route::get('/for-lease', [LeaseController::class, 'lease']);
 

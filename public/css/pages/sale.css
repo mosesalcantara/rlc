@@ -1,0 +1,52 @@
+.categories {
+    margin: 0rem 5rem 0.5rem;
+    margin-top: 10vh;
+}
+
+.categories .card {
+    border-radius: 1rem;
+    color: #000b8c;
+    font-weight: 500;
+    margin: 0.5rem;
+}
+
+.categories h1 {
+    margin-bottom: 2rem;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #000b8c;
+    margin-bottom: 1.5rem;
+    font-size: 3em;
+}
+
+@media (max-width: 1400px) {
+    .categories {
+        margin: 0rem 0rem 0.5rem;
+    }
+
+    .category {
+        position: relative;
+        text-align: center;
+    }
+
+    .centered {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .categories h1 {
+        color: white;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .categories a {
+        color: white;
+        font-size: 1em;
+        margin-bottom: 0.5rem;
+    }
+}
