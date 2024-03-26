@@ -4,6 +4,8 @@
     
 @section('links')
     @parent
+
+    <link rel="stylesheet" href="{{ asset('css/admin/crud.css') }}">
 @endsection
 
 @section('sidebar')

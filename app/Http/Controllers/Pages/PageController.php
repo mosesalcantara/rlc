@@ -9,11 +9,10 @@ use Mail;
 use App\Mail\InquiryMail;
 
 use App\Models\Property;
-use App\Models\Building;
 use App\Models\Video;
 use App\Models\ResidentialUnit;
-use App\Models\Snapshot;
 use App\Models\ContactItem;
+use App\Models\InquiryEmail;
 use App\Models\AboutItem;
 use App\Models\Setting;
 
@@ -88,14 +87,23 @@ class PageController extends Controller
         $settings = Setting::all()->sortByDesc('updated_at')->take(1);
 
         $mailData = [
-            'title' => "{$request['inquiry_type']} Inquiry",
+            'title' => "{$request['type']} Inquiry",
             'fullname' => $request['fullname'],
             'email' => $request['email'],
-            'number' => $request['number'],
+            'contact_number' => $request['contact_number'],
             'body' => $request['message'],
         ];
 
         Mail::to($settings[0]['email'])->send(new InquiryMail($mailData));
+
+        $record = new InquiryEmail;
+
+        $record->type = $request->type;
+        $record->fullname = $request->fullname;
+        $record->email = $request->email;
+        $record->contact_number = $request->contact_number;
+        $record->message = $request->message;
+        $record->save();
 
         return redirect('/contact-us');
     }

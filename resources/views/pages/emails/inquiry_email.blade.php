@@ -23,7 +23,7 @@
                     <h1>{{ $mailData['title'] }}</h1>
                     <h3>Fullname: {{ $mailData['fullname'] }}</h3>
                     <h3>Email: {{ $mailData['email'] }}</h3>
-                    <h3>Contact Number: {{ $mailData['number'] }}</h3>
+                    <h3>Contact Number: {{ $mailData['contact_number'] }}</h3>
                     <p>{{ $mailData['body'] }}</p>
                 </div>
             </div>

@@ -153,7 +153,7 @@ function get_all() {
 
                 var i_edit = $('<i>')
                 i_edit.attr({
-                    'class' : 'fa fa-pencil mr-2',
+                    'class' : 'fa fa-pen-to-square mr-2',
                     'title' : "Edit",
                     'onclick' : `get_upd_id(${field.id})`,
                     'data-bs-toggle' : "modal",
@@ -166,7 +166,7 @@ function get_all() {
 
                 var i_delete = $('<i>')
                 i_delete.attr({
-                    'class' : 'fa fa-trash',
+                    'class' : 'fa-solid fa-trash',
                     'title' : "Delete",
                     'onclick' : `get_del_id(${field.id})`,
                     'data-bs-toggle' : "modal",

@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="" class="form-label">Inquiry Type*</label>
-                            <select class="form-select" name="inquiry_type">
+                            <select class="form-select" name="type">
                                 <option selected>--Select--</option>
                                 <option>Residential</option>
                                 <option>Commercial</option>
@@ -63,7 +63,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="" class="form-label">Contact Number*</label>
-                            <input class="form-control" type="text" name='number'>
+                            <input class="form-control" type="text" name='contact_number'>
                         </div>
                     </div>
                     <div class="row">
