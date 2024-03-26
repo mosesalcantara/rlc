@@ -66,12 +66,17 @@ class SaleController extends Controller
         $data = [
             'properties' => $properties,
         ];
-
-        if ($request['sale_status'] == 'Pre-Selling') {
-            return view("pages.sale.pre_selling")->with('data', $data);
+        
+        if ($request['origin'] == 'pre_selling_page' || $request['origin'] == 'rfo_page') {
+            return response()->json($data);
         }
-        else if ($request['sale_status'] == 'RFO') {
-            return view("pages.sale.rfo")->with('data', $data);
+        else {
+            if ($request['sale_status'] == 'Pre-Selling') {
+                return view("pages.sale.pre_selling")->with('data', $data);
+            }
+            else if ($request['sale_status'] == 'RFO') {
+                return view("pages.sale.rfo")->with('data', $data);
+            }
         }
     }
 
