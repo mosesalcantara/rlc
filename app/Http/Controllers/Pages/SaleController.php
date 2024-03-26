@@ -11,7 +11,7 @@ use App\Models\Building;
 class SaleController extends Controller
 {
     public function sale() {
-        return view("pages.sale.sale");
+        return view("pages.sale.index");
     }
 
     public function pre_selling(Request $request) {

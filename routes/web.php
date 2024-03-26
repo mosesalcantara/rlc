@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\TermController;
 use App\Http\Controllers\Admin\AboutItemController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ContactItemController;
+use App\Http\Controllers\Admin\InquiryEmailController;
 use App\Http\Controllers\Admin\SettingController;
 
 use Illuminate\Support\Facades\Route;
@@ -233,6 +234,14 @@ Route::prefix('admin/contact')->group(function () {
     Route::post('/delete', [ContactItemController::class, 'delete']);
 });
 
+Route::prefix('admin/inquiry_emails')->group(function () {
+    Route::get('/', [InquiryEmailController::class, 'index']);
+    Route::post('/', [InquiryEmailController::class, 'get_all']);
+    Route::post('/add', [InquiryEmailController::class, 'create']);
+    Route::post('/edit', [InquiryEmailController::class, 'edit']);
+    Route::post('/update', [InquiryEmailController::class, 'update']);
+    Route::post('/delete', [InquiryEmailController::class, 'delete']);
+});
 
 Route::prefix('admin/about')->group(function () {
     Route::get('/', [AboutItemController::class, 'index']);

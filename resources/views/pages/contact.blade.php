@@ -44,7 +44,7 @@
                                 <option>Residential</option>
                                 <option>Commercial</option>
                                 <option>Parking</option>
-                                <option>Unit Registration for RLC Residences Homeowners</option>
+                                <option>Unit Registration</option>
                             </select>
                         </div>
                     </div>

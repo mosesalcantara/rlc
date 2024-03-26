@@ -95,7 +95,7 @@ class PageController extends Controller
             'body' => $request['message'],
         ];
 
-        Mail::to($request['email'])->send(new InquiryMail($mailData));
+        Mail::to($settings[0]['email'])->send(new InquiryMail($mailData));
 
         return redirect('/contact-us');
     }

@@ -14,7 +14,7 @@ use App\Models\UnitVideo;
 class LeaseController extends Controller
 {
     public function lease() {
-        return view("pages.lease.lease");
+        return view("pages.lease.index");
     }
 
     public function residential_units(Request $request) {
