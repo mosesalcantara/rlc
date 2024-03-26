@@ -73,13 +73,13 @@
                             <div class="col">
                                 <div class="form-floating mb-3">
                                     <input type="text" name="min_price" class="form-control">
-                                    <label for="">Minimum Price</label>     
+                                    <label for="">Minimum Price (million)</label>     
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-floating mb-3">
                                     <input type="text" name="max_price" class="form-control">
-                                    <label for="">Maximum Price</label>     
+                                    <label for="">Maximum Price (million)</label>     
                                 </div>
                             </div>
                         </div>
@@ -165,13 +165,13 @@
                             <div class="col">
                                 <div class="form-floating mb-3">
                                     <input type="text" name="min_price" id='min_price' class="form-control">
-                                    <label for="">Minimum Price</label>     
+                                    <label for="">Minimum Price (million)</label>     
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-floating mb-3">
                                     <input type="text" name="max_price" id='max_price' class="form-control">
-                                    <label for="">Maximum Price</label>     
+                                    <label for="">Maximum Price (million)</label>     
                                 </div>
                             </div>
                         </div>

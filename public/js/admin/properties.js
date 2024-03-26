@@ -198,8 +198,8 @@ function get_all() {
                 tr.append($('<td>').text(field.location))
                 tr.append($('<td>').text(field.description))
                 tr.append($('<td>').text(field.sale_status))
-                tr.append($('<td>').text(field.min_price))
-                tr.append($('<td>').text(field.max_price))
+                tr.append($('<td>').text(`${field.min_price}M`))
+                tr.append($('<td>').text(`${field.max_price}M`))
                 tr.append($('<td>').text(field.unit_types))
 
                 var td_action = $('<td>')

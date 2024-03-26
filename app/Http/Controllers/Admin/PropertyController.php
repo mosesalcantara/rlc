@@ -28,8 +28,8 @@ class PropertyController extends Controller
             'location'=>'required',
             'description'=>'required',
             'sale_status'=>'required',
-            'min_price'=>'required',
-            'max_price'=>'required',
+            'min_price'=>'required|numeric',
+            'max_price'=>'required|numeric',
         ]);
 
         $record = new Property;
@@ -70,8 +70,8 @@ class PropertyController extends Controller
             'location'=>'required',
             'description'=>'required',
             'sale_status'=>'required',
-            'min_price'=>'required',
-            'max_price'=>'required',
+            'min_price'=>'required|numeric',
+            'max_price'=>'required|numeric',
         ]);
 
 
