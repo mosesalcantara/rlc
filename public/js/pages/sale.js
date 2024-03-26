@@ -31,8 +31,8 @@ $(document).ready( function () {
         var price_range = $('#price_range button h6').html()
         var words = price_range.split(' ')
 
-        var min_price = words[1]
-        var max_price = words[3]
+        var min_price = words[1].replace('M', '')
+        var max_price = words[3].replace('M', '')
 
         $('input[name=sale_status]').val($('#sale_status button h6').html())
         $('input[name=location]').val($('#location button h6').html())

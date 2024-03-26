@@ -38,7 +38,7 @@
                                     <h6>Unit Types</h6>
                                 </div>
                                 <div class="col text-dark">
-                                    <h6>{{ $property['min_price'] }} - {{ $property['max_price'] }} PHP</h6>
+                                    <h6>{{ $property['min_price'] }}M - {{ $property['max_price'] }}M PHP</h6>
                                     <h6>{{ $property['unit_types'] }}</h6>
                                 </div>
                             </div>

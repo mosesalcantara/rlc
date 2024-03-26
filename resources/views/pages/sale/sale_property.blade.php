@@ -64,7 +64,7 @@
                 <div class="row rates_types">
                     <div class="col rates">
                         <h5>Price Range</h5>
-                        <h5>{{ $data['property']['min_price'] }} - {{ $data['property']['max_price'] }}</h5>
+                        <h5>{{ $data['property']['min_price'] }}M - {{ $data['property']['max_price'] }}M</h5>
                     </div>
                     <div class="col types">
                         <h5>Unit Types</h5>

@@ -51,6 +51,8 @@ class SaleController extends Controller
             ['properties.sale_status', $request['sale_status']],
             ['properties.location', $request['location']],
             ['properties.unit_types', 'LIKE', '%'.$request['unit_type'].'%'],
+            ['properties.min_price', '>=', $request['min_price']],
+            ['properties.max_price', '<=', $request['max_price']],
         ];
 
         $properties = Property::orderBy('properties.name')->where($where)->get();
