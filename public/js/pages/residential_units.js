@@ -69,10 +69,9 @@ $(document).ready( function () {
                                                         <h6>${field.area} SQM</h6>
                                                     </div>
                                                 </div>
-
-                                                <div class="card-footer border-0">
-                                                    <a class="btn btn-warning" href="/for-lease/category/residential_units/${field.id}">VIEW UNIT</a>
-                                                </div>
+                                            </div>
+                                            <div class="card-footer border-0">
+                                                <a class="btn btn-warning" href="/for-lease/category/residential_units/${field.id}">VIEW UNIT</a>
                                             </div>
                                         </div>
                                     </div>`

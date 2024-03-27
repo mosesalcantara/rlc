@@ -61,14 +61,13 @@ $(document).ready( function () {
                                                         <h6>Unit Types</h6>
                                                     </div>
                                                     <div class="col text-dark">
-                                                        <h6>${field.min_price}M - ${field.max_price}M</h6>
+                                                        <h6>${field.min_price}M - ${field.max_price}M PHP</h6>
                                                         <h6>${field.unit_types}</h6>
                                                     </div>
                                                 </div>
-
-                                                <div class="card-footer border-0">
-                                                    <a class="btn btn-warning" href="/for-sale/property/${field.id}">VIEW PROPERTY</a>
-                                                </div>
+                                            </div>
+                                            <div class="card-footer border-0">
+                                                <a class="btn btn-warning" href="/for-sale/property/${field.id}">VIEW PROPERTY</a>
                                             </div>
                                         </div>
                                     </div>`

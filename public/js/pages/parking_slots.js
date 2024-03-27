@@ -96,10 +96,9 @@ $(document).ready( function () {
                                                         <h6>${money.format(field.min)} - ${money.format(field.max)} / mo</h6>
                                                     </div>
                                                 </div>
-
-                                                <div class="card-footer border-0">
-                                                    <a class="btn btn-warning" href="/for-lease/category/parking_slots/${field.id}">View Details</a>
-                                                </div>
+                                            </div>
+                                            <div class="card-footer border-0">
+                                                <a class="btn btn-warning" href="/for-lease/category/parking_slots/${field.id}">View Details</a>
                                             </div>
                                         </div>
                                     </div>`

@@ -89,7 +89,7 @@
                 <div>
                     <h6>Retail ID: {{ $data['c_unit']['retail_id'] }}</h6>
                     <h6>Building: {{ $data['c_unit']['building'] }}</h6>
-                    <h6>Size: {{ $data['c_unit']['size'] }}</h6>
+                    <h6>Size: {{ $data['c_unit']['size'] }} SQM</h6>
                 </div>
                 <div class="text-center">
                     <a class="btn btn-warning" href='/for-lease/property/{{ $data['c_unit']['property_id'] }}'>View Project Details</a>

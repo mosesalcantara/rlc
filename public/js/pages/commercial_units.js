@@ -64,10 +64,9 @@ $(document).ready( function () {
                                                         <h6>${field.size} SQM</h6>
                                                     </div>
                                                 </div>
-
-                                                <div class="card-footer border-0">
-                                                    <a class="btn btn-warning" href="/for-lease/category/commercial_units/${field.id}">VIEW RETAIL</a>
-                                                </div>
+                                            </div>
+                                            <div class="card-footer border-0">
+                                                <a class="btn btn-warning" href="/for-lease/category/commercial_units/${field.id}">VIEW RETAIL</a>
                                             </div>
                                         </div>
                                     </div>`
