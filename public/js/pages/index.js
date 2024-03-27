@@ -14,17 +14,17 @@ $(document).ready( function () {
     $( ".front_switch" ).on( "click", function() {
         var front = $(this).parents()
         front = $(front[1])
-        front.css({'z-index': '-1'})
+        front.addClass('d-none')
         var back = front.next()
-        back.css({'z-index': '0'})
+        back.removeClass('d-none')
     })
 
     $( ".back_switch" ).on( "click", function() {
         var back = $(this).parents()
         back = $(back[3])
-        back.css({'z-index': '-1'})
+        back.addClass('d-none')
         var front = back.prev()
-        front.css({'z-index': '0'})
+        front.removeClass('d-none')
     })
 
     $(document).on('click', '.header .col', function(){

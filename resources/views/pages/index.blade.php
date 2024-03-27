@@ -164,38 +164,36 @@
 
                     @foreach ($data['properties'] as $property)
                     <div class="carousel-item property_carousel_item">
-                        <div class="card">
-                            <div class="card_front">
-                                <div class="d-flex justify-content-center align-items-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }})">
-                                    {{-- <img class="logo" src="{{ asset('uploads/properties/logos') }}/{{ $property['logo'] }}" alt=""> --}}
-                                    <i class="fa-solid fa-circle-chevron-right front_switch"></i>
-                                </div>
+                        <div class="card_front container-fluid">
+                            <div class="d-flex justify-content-center align-items-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }})">
+                                <i class="fa-solid fa-circle-chevron-right front_switch"></i>
                             </div>
-                            <div class="card_back">
-                                <div class="row">
+                        </div>
 
-                                    <div class="col snapshot d-flex justify-content-center align-items-xxl-center align-items-start">
-                                        <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
+                        <div class="card_back container-fluid d-none">
+                            <div class="row">
+
+                                <div class="col snapshot">
+                                    <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
+                                </div>
+
+                                <div class='col info'>
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-circle-chevron-left back_switch text-info"></i>
                                     </div>
 
-                                    <div class='col details'>
-                                        <div class="d-flex justify-content-end">
-                                            <i class="fa-solid fa-circle-chevron-left back_switch text-info"></i>
-                                        </div>
+                                    <h4>{{ $property['name'] }}</h4>
+                                    <p>{{ $property['description'] }}</p>
 
-                                        <h4>{{ $property['name'] }}</h4>
-                                        <p>{{ $property['description'] }}</p>
-
-                                        <div>
-                                            <i class="fa-solid fa-location-dot fa-xxl"></i>
-                                            <h5>{{ $property['location'] }}</h5>
-                                            <br>
-                                            <i class="fa-solid fa-building fa-xxl"></i>
-                                            <h5>{{ $property['types'] }}</h5>
-                                            <br>
-                                            <i class="fa-solid fa-user fa-xxl"></i>
-                                            <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
-                                        </div>
+                                    <div class='details'>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <h5>{{ $property['location'] }}</h5>
+                                        <span class="br"></span>
+                                        <i class="fa-solid fa-building"></i>
+                                        <h5>{{ $property['types'] }}</h5>
+                                        <span class="br"></span>
+                                        <i class="fa-solid fa-user"></i>
+                                        <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
                                     </div>
                                 </div>
                             </div>
