@@ -6,129 +6,278 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-
-body{
-    font-family: 'Open Sans', sans-serif;
+    .MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+        .MultiCarousel .MultiCarousel-inner .item { float: left;}
+        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
+    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+    .MultiCarousel .leftLst { left:0; }
+    .MultiCarousel .rightLst { right:0; }
     
-}
-.search{
-  
-  top:6px;
-  left:10px;
-}
-
-.form-control{
-    
-    border:none;
-    padding-left:32px;
-}
-
-.form-control:focus{
-    
-    border:none;
-    box-shadow:none;
-}
-
-.green{
-    
-    color:green;
-}
-</style>
+    .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+  </style>
 </head>
 <body>
-  <div class="container mt-5 px-2">
-    
-    <div class="mb-2 d-flex justify-content-between align-items-center">
-        
-        <div class="position-relative">
-            <span class="position-absolute search"><i class="fa fa-search"></i></span>
-            <input class="form-control w-100" placeholder="Search by order#, name...">
-        </div>
-        
-        <div class="px-2">
-            
-            <span>Filters <i class="fa fa-angle-down"></i></span>
-            <i class="fa fa-ellipsis-h ms-3"></i>
-        </div>
-        
+  <div class="container">
+    <div class="row">
+      <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+              <div class="MultiCarousel-inner">
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="pad15">
+                          <p class="lead">Multi Item Carousel</p>
+                          <p>₹ 1</p>
+                          <p>₹ 6000</p>
+                          <p>50% off</p>
+                      </div>
+                  </div>
+              </div>
+              <button class="btn btn-primary leftLst"><</button>
+              <button class="btn btn-primary rightLst">></button>
+          </div>
     </div>
-    <div class="table-responsive">
-    <table class="table table-responsive table-borderless">
-        
-      <thead>
-        <tr class="bg-light">
-          <th><input class="form-check-input" type="checkbox"></th>
-          <th>#</th>
-          <th>Date</th>
-          <th>Status</th>
-          <th>Customer</th>
-          <th>Purchased</th>
-          <th><span>Revenue</span></th>
-        </tr>
-      </thead>
-  <tbody>
-    <tr>
-      <th scope="row"><input class="form-check-input" type="checkbox"></th>
-      <td>12</td>
-      <td>1 Oct, 21</td>
-      <td><i class="fa fa-check-circle-o green"></i><span class="ms-1">Paid</span></td>
-      <td><img src="https://i.imgur.com/VKOeFyS.png" width="25"> Althan Travis</td>
-      <td>Wirecard for figma</td>
-      <td class="text-end"><span class="fw-bolder">$0.99</span> <i class="fa fa-ellipsis-h  ms-2"></i></td>
-    </tr>
-    
-    <tr>
-      <th scope="row"><input class="form-check-input" type="checkbox"></th>
-      <td>14</td>
-      <td>12 Oct, 21</td>
-      <td><i class="fa fa-dot-circle-o text-danger"></i><span class="ms-1">Failed</span></td>
-      <td><img src="https://i.imgur.com/nmnmfGv.png" width="25"> Tomo arvis</td>
-      <td>Altroz furry</td>
-      <td class="text-end"><span class="fw-bolder">$0.19</span> <i class="fa fa-ellipsis-h  ms-2"></i></td>
-    </tr>
-    
-    
-    <tr>
-      <th scope="row"><input class="form-check-input" type="checkbox"></th>
-      <td>17</td>
-      <td>1 Nov, 21</td>
-      <td><i class="fa fa-check-circle-o green"></i><span class="ms-1">Paid</span></td>
-      <td><img src="https://i.imgur.com/VKOeFyS.png" width="25"> Althan Travis</td>
-      <td>Apple Macbook air</td>
-      <td class="text-end"><span class="fw-bolder">$1.99</span> <i class="fa fa-ellipsis-h  ms-2"></i></td>
-    </tr>
-    
-    
-    <tr>
-      <th scope="row"><input class="form-check-input" type="checkbox"></th>
-      <td>90</td>
-      <td>19 Oct, 21</td>
-      <td><i class="fa fa-check-circle-o green"></i><span class="ms-1">Paid</span></td>
-      <td><img src="https://i.imgur.com/VKOeFyS.png" width="25"> Travis head</td>
-      <td>Apple Macbook Pro</td>
-      <td class="text-end"><span class="fw-bolder">$9.99</span> <i class="fa fa-ellipsis-h  ms-2"></i></td>
-    </tr>
-    
-    
-    <tr>
-      <th scope="row"><input class="form-check-input" type="checkbox"></th>
-      <td>12</td>
-      <td>1 Oct, 21</td>
-      <td><i class="fa fa-check-circle-o green"></i><span class="ms-1">Paid</span></td>
-      <td><img src="https://i.imgur.com/nmnmfGv.png" width="25"> Althan Travis</td>
-      <td>Wirecard for figma</td>
-      <td class="text-end"><span class="fw-bolder">$0.99</span> <i class="fa fa-ellipsis-h  ms-2"></i></td>
-    </tr>
-  </tbody>
-</table>
-  
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br/><br/><br/>
+            <hr/>
+            <p>Settings</p>
+            <p>Change data items for xs,sm,md and lg display items respectively. Ex:data-items="1,3,5,6"</p>
+            <p>Change data slide for slides per click Ex:data-slide="1"</p>
+        </div>
+    </div>
   </div>
-    
-</div>   
+
+  <script>
+    $(document).ready(function () {
+      var itemsMainDiv = ('.MultiCarousel');
+      var itemsDiv = ('.MultiCarousel-inner');
+      var itemWidth = "";
+
+      $('.leftLst, .rightLst').click(function () {
+          var condition = $(this).hasClass("leftLst");
+          if (condition)
+              click(0, this);
+          else
+              click(1, this)
+      });
+
+      ResCarouselSize();
+
+
+
+
+      $(window).resize(function () {
+          ResCarouselSize();
+      });
+
+      //this function define the size of the items
+      function ResCarouselSize() {
+          var incno = 0;
+          var dataItems = ("data-items");
+          var itemClass = ('.item');
+          var id = 0;
+          var btnParentSb = '';
+          var itemsSplit = '';
+          var sampwidth = $(itemsMainDiv).width();
+          var bodyWidth = $('body').width();
+          $(itemsDiv).each(function () {
+              id = id + 1;
+              var itemNumbers = $(this).find(itemClass).length;
+              btnParentSb = $(this).parent().attr(dataItems);
+              itemsSplit = btnParentSb.split(',');
+              $(this).parent().attr("id", "MultiCarousel" + id);
+
+
+              if (bodyWidth >= 1200) {
+                  incno = itemsSplit[3];
+                  itemWidth = sampwidth / incno;
+              }
+              else if (bodyWidth >= 992) {
+                  incno = itemsSplit[2];
+                  itemWidth = sampwidth / incno;
+              }
+              else if (bodyWidth >= 768) {
+                  incno = itemsSplit[1];
+                  itemWidth = sampwidth / incno;
+              }
+              else {
+                  incno = itemsSplit[0];
+                  itemWidth = sampwidth / incno;
+              }
+              $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+              $(this).find(itemClass).each(function () {
+                  $(this).outerWidth(itemWidth);
+              });
+
+              $(".leftLst").addClass("over");
+              $(".rightLst").removeClass("over");
+
+          });
+      }
+
+
+      //this function used to move the items
+      function ResCarousel(e, el, s) {
+          var leftBtn = ('.leftLst');
+          var rightBtn = ('.rightLst');
+          var translateXval = '';
+          var divStyle = $(el + ' ' + itemsDiv).css('transform');
+          var values = divStyle.match(/-?[\d\.]+/g);
+          var xds = Math.abs(values[4]);
+          if (e == 0) {
+              translateXval = parseInt(xds) - parseInt(itemWidth * s);
+              $(el + ' ' + rightBtn).removeClass("over");
+
+              if (translateXval <= itemWidth / 2) {
+                  translateXval = 0;
+                  $(el + ' ' + leftBtn).addClass("over");
+              }
+          }
+          else if (e == 1) {
+              var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+              translateXval = parseInt(xds) + parseInt(itemWidth * s);
+              $(el + ' ' + leftBtn).removeClass("over");
+
+              if (translateXval >= itemsCondition - itemWidth / 2) {
+                  translateXval = itemsCondition;
+                  $(el + ' ' + rightBtn).addClass("over");
+              }
+          }
+          $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+      }
+
+      //It is used to get some elements from btn
+      function click(ell, ee) {
+          var Parent = "#" + $(ee).parent().attr("id");
+          var slide = $(Parent).attr("data-slide");
+          ResCarousel(ell, Parent, slide);
+      }
+
+    });
+  </script>
 </body>
 </html>

@@ -17,7 +17,8 @@ $(document).ready( function () {
           $('#address').html(settings.address)
           $('#email').html(settings.email)
 
-          $('#telephone').html(settings.telephone)
+          $('#telephone').attr({'href': `tel:${settings.telephone}`})
+          $('#telephone_text').html(settings.telephone)
           $('#mobile').attr({'href': `tel:${settings.mobile}`})
           $('#mobile_text').html(settings.mobile)
           $('#messenger').attr({'href': settings.messenger})

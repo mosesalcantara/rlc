@@ -104,8 +104,8 @@
 
                         <div class="row">
                             <div class="col-xxl-6">
-                                <a class="fa-solid fa-phone" href=''></a>
-                                <span id='telephone'></span>
+                                <a class="fa-solid fa-phone" id='telephone' href='' target='_blank'></a>
+                                <span id='telephone_text'></span>
                                 <br><br>
                                 <a class="fa-brands fa-facebook-messenger" id='messenger' href='' target='_blank'></a>
                                 <span id='messenger_text'></span>

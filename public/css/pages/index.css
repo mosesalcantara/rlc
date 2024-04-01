@@ -95,7 +95,7 @@
 
 .card_front div {
     border-radius: 1rem;
-    height: 65vh;
+    height: 66.1vh;
     background-size: cover;
 }
 
@@ -113,8 +113,8 @@
 }
 
 .snapshot img {
-    width: 45vw;
-    height: 57vh;
+    width: 44.5vw;
+    height: 57.7vh;
     border-radius: 1rem;
 }
 
@@ -248,6 +248,10 @@
         padding: 0rem 1.5rem 2rem;
     }
 
+    .featured h1 {
+        border: none;
+    }
+
     .featured h1, .featured h4 {
         text-align: center;
     }
@@ -257,12 +261,7 @@
     }
 
     #properties_carousel {
-        margin: 1rem 1.5rem 1rem;
-    }
-
-    .card {
-        height: 45vh;
-        border-radius: 0rem;
+        margin: 0;
     }
 
     .card_front div {
@@ -338,7 +337,7 @@
     .review {
         padding-bottom: 2rem;
         border-radius: 0;
-        height: 45vh;
+        height: 40vh;
     }
 
     .profile img {
@@ -359,6 +358,6 @@
     }
     
     .review_text p {
-        font-size: 0.93rem;
+        font-size: 0.9rem;
     }
 }
