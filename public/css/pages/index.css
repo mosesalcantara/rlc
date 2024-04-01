@@ -256,8 +256,12 @@
         font-size: 1.5rem;
     }
 
+    .featured h4 {
+        font-size: 1.53rem;
+    }
+
     #properties_carousel {
-        margin: 0;
+        margin: 1.5rem 0 0;
     }
 
     .card_front div {
@@ -285,22 +289,6 @@
 
     .details {
         padding: 1.5rem;
-    }
-
-    .details h4 {
-        font-size: 1.1rem;
-    }
-    
-    .details p {
-        font-size: 0.95rem;
-    }
-    
-    .details i {
-        margin-bottom: 0.3rem;
-    }
-    
-    .details h5 {
-        font-size: 0.85rem;
     }
 
     .videos iframe {
@@ -339,21 +327,8 @@
     .profile img {
         width: 90%;
     }
-    
-    .profile h5 {
-        color: #CC9900;
-        font-size: 0.80rem;
-    }
-
-    .profile h6 {
-        font-size: 0.80rem;
-    }
 
     .review_text {
         overflow-y: auto;
-    }
-    
-    .review_text p {
-        font-size: 0.9rem;
     }
 }

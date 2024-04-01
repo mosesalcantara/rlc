@@ -78,11 +78,7 @@
 }
 
 @media (max-width: 1400px) {
-    .title h1 {
-        font-size: 1.3rem;
-    }
-
-    .title h4 {
+    .title h1, .title h4 {
         font-size: 1.3rem;
     }
 
@@ -122,13 +118,12 @@
 
     .categories h1 {
         color: white;
-        font-size: 1.3rem;
         margin-bottom: 1rem;
     }
     
     .categories a {
         color: white;
-        font-size: 1em;
+        font-size: 2em;
         margin-bottom: 0.5rem;
     }
 }

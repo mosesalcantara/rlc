@@ -15,11 +15,12 @@
 @section('content')
     <div class="container-fluid header">
         <div class="row">
-            <div class="col-3 header_item">
-                <h1>{{ $data['contact_items']['heading_title'] }}</h1>
+            <div class="text-center">
+                <img class="header_pic" src="{{ asset('uploads/contact_items/heading_images') }}/{{ $data['contact_items']['heading_image'] }}" alt="">
             </div>
-            <div class="col header_pic" style="background-image: url({{ asset('uploads/contact_items/heading_images') }}/{{ $data['contact_items']['heading_image'] }})">
 
+            <div class="header_item">
+                <h1>{{ $data['contact_items']['heading_title'] }}</h1>
             </div>
         </div>
     </div>

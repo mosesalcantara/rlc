@@ -1,3 +1,7 @@
+html {
+    font-size: 100%;
+}
+
 .loader {
     background-color: white;
     height: 100vh;
@@ -5,6 +9,7 @@
 
 .loader h5 {
     color: gray;
+    font-size: 1.25rem;
 }
 
 .loader img {
@@ -105,16 +110,12 @@ body {
 }
 
 @media (max-width: 1400px) {
+    html {
+        font-size: 80%;
+    }
+
     .loader img {
         width: 45%;
-    }
-
-    .loader h3 {
-        font-size: 1.2rem;
-    }
-
-    .loader h5 {
-        font-size: 1.1rem;
     }
 
     .navbar img {
@@ -125,9 +126,5 @@ body {
         border-top: 0.2rem solid #CC9900;
         margin: 0rem 0rem 1rem;
         padding: 1rem 0 0;
-    }
-
-    .copyright {
-        font-size: 0.85rem;
     }
 }

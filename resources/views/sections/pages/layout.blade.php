@@ -137,7 +137,7 @@
                 </div>
                 <div class="row">
                     <div class="col text-center mt-4 copyright">
-                        © 2023 RLC Residences. Residential Division of Robinsons Land Corporation. A Subsidiary of JG Summit Holdings, Inc.
+                        <p>© 2023 RLC Residences. Residential Division of Robinsons Land Corporation. A Subsidiary of JG Summit Holdings, Inc.</p>
                     </div>
                 </div>
             </div>
