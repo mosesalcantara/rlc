@@ -127,7 +127,7 @@
                             <button class="btn btn-warning text-light">Subscribe Now</button>
                         </div>
 
-                        <div class="text-xxl-start text-center">
+                        <div class="text-xxl-start text-center mt-5">
                             <a class="fa-brands fa-facebook-f fa-2x" href='' target='_blank' id='facebook'></a>
                             <a class="fa-brands fa-x-twitter fa-2x" href='' target='_blank' id='twitter'></a>
                             <a class="fa-brands fa-instagram fa-2x" href='' target='_blank' id='instagram'></a>
