@@ -13,7 +13,7 @@ class SettingController extends Controller
         return view('admin.settings.index');
     }
 
-    public function edit(Request $request) {
+    public function edit() {
         $record = Setting::first();
 
         $data = [

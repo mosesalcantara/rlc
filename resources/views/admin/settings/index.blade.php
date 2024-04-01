@@ -125,7 +125,7 @@
                     <div class="row">
                         <div class="col d-flex align-items-center justify-content-end">
                             <input type="hidden" value="0" name="upd_id" id="upd_id">
-                            <input type="submit" class="btn btn-primary mr-2" value="Save Changes">
+                            <input type="submit" class="btn btn-primary mr-2" value="Save">
                             <button type="button" class="btn btn-outline-secondary" onclick="get_upd_id()">Cancel</button>
                         </div>
                     </div>

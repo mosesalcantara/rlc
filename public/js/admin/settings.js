@@ -7,10 +7,6 @@ $(document).ready( function () {
 
     get_upd_id()
 
-    $('#updModal').on('show.bs.modal', function(e) {
-        $('#updForm span').remove()
-    })
-
     $('#updForm').submit(function(e) {
         e.preventDefault()
         $('#updForm span').remove()
@@ -23,13 +19,10 @@ $(document).ready( function () {
           processData: false,
           success: function (res) {
             alert(res.msg)
-            get_all()
-            $(`#updForm`).trigger('reset')
-            $(`#updModal`).modal('hide')
           },
           error: function (res) {
             var errors = res.responseJSON.errors
-            // console.log(errors)
+            console.log(errors)
 
             var inputs = $('#updForm input, #updForm select, #updForm textarea')
             $.each(inputs, function(index, input) {

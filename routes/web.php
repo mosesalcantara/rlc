@@ -227,11 +227,8 @@ Route::prefix('admin/terms')->group(function () {
 
 Route::prefix('admin/contact')->group(function () {
     Route::get('/', [ContactItemController::class, 'index']);
-    Route::post('/', [ContactItemController::class, 'get_all']);
-    Route::post('/add', [ContactItemController::class, 'create']);
     Route::post('/edit', [ContactItemController::class, 'edit']);
     Route::post('/update', [ContactItemController::class, 'update']);
-    Route::post('/delete', [ContactItemController::class, 'delete']);
 });
 
 Route::prefix('admin/inquiry_emails')->group(function () {

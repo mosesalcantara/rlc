@@ -13,45 +13,8 @@ class ContactItemController extends Controller
         return view('admin.contact_items.index');
     }
 
-    public function get_all() {
-        $records = ContactItem::all();
-        
-        $data = [
-            'records' => $records,
-        ];
-
-        return response()->json($data);
-    }
-
-    public function create(Request $request) {
-        $request->validate([
-            'heading_title'=>'required',
-            'heading_image'=>'required|image',
-            'title'=>'required',
-            'subtitle'=>'required',
-        ]);
-
-        $record = new ContactItem;
-
-        if( $request->hasFile('heading_image') ) {
-            $file = $request->heading_image;
-            $filename = mt_rand() . '.'.$file->clientExtension();
-            $destination = 'uploads/contact_items/heading_images';
-            $file->move($destination, $filename );
-        }
-
-        $record->heading_title = $request->heading_title;
-        $record->heading_image = $filename;
-        $record->title = $request->title;
-        $record->subtitle = $request->subtitle;
-        $record->email = $request->email;
-        $record->save();
-
-        return response(['msg' => 'Added Contact Us Item']);
-    }
-
-    public function edit(Request $request) {
-        $record = ContactItem::find($request->upd_id);
+    public function edit() {
+        $record = ContactItem::first();
 
         $data = [
             'record' => $record,
@@ -81,7 +44,6 @@ class ContactItemController extends Controller
                 'heading_image' => $filename,
                 'title' => $request->title,
                 'subtitle' => $request->subtitle,
-                'email' => $request->email,
             ]);
         }
         else {
@@ -89,18 +51,9 @@ class ContactItemController extends Controller
                 'heading_title' => $request->heading_title,
                 'title' => $request->title,
                 'subtitle' => $request->subtitle,
-                'email' => $request->email,
             ]);
         }
 
-        return response(['msg' => 'Updated Contact Us Item']);
-    }
-
-
-    public function delete(Request $request) {
-        $record = ContactItem::find($request->del_id);
-        $record->delete();
-        
-        return response(['msg' => 'Deleted Contact Us Item']);
+        return response(['msg' => 'Updated Contact Us']);
     }
 }
