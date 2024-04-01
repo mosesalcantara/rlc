@@ -85,6 +85,7 @@
                     <div class="col-xxl-1 d-flex justify-content-center align-items-center search_btn">
                         <button class="btn btn-warning">
                             <i class="fa fa-search"></i>
+                            <h6 class="d-xxl-none">Find My Unit</h6>
                         </button>
                     </div>
                 </div>

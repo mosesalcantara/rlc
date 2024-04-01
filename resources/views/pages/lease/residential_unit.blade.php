@@ -23,9 +23,9 @@
 
     <div class="container-fluid">
         <div class="row search mt-3">
-            <div class="col search_drops">
-                <div class="row">
-                    <div class="col-3">
+            <div class="col">
+                <div class="row search_drops">
+                    <div class="col-xxl-3">
                         <div class="dropdown" id='location'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -39,7 +39,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-xxl-4">
                         <div class="dropdown" id='type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -60,7 +60,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-xxl-4">
                         <div class="dropdown" id='rate'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -81,9 +81,10 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-1 d-flex justify-content-center align-items-center search_btn">
+                    <div class="col-xxl-1 d-flex justify-content-center align-items-center search_btn">
                         <button class="btn btn-warning">
                             <i class="fa fa-search"></i>
+                            <h6 class="d-xxl-none">Find My Unit</h6>
                         </button>
                     </div>
                 </div>
@@ -229,9 +230,6 @@
                             <div class="carousel-item amenity_carousel_item">
                                 <div class="amenity">
                                     <img src="{{ asset('uploads/amenities/pictures') }}/{{ $amenity['picture'] }}" alt="">
-                                    {{-- <div class="name">
-                                        <h4>{{ $amenity['name'] }}</h4>
-                                    </div> --}}
                                 </div>
                             </div>
                             @endforeach

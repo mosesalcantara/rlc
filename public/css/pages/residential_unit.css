@@ -189,13 +189,22 @@
     position: relative;
 }
 
-.name {
-    background-color: #2A36B9;
-    padding: 1rem;
-    border-radius: 0.7rem;
-    width: 70%;
-    position: absolute;
-    top: 91%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@media (max-width: 1400px) {
+    .search {
+        margin: 0rem 1.5rem 1rem;
+        border-radius: 0.5rem;
+    }
+
+    .search_drops>div {
+        margin: 0rem 0rem 0.5rem;
+    }
+
+    .dropdown button {
+        padding: 0.50rem 0.25rem 0.50rem;
+    }
+
+    .search_btn h6 {
+        display: inline;
+        margin-left: 0.5rem;
+    }
 }

@@ -47,7 +47,7 @@ $(document).ready( function () {
                 units_div.empty()
 
                 $.each(r_units, function(row, field) {
-                    var unit_html = `<div class='col-lg-4 unit'>
+                    var unit_html = `<div class='col-xxl-4 unit'>
                                         <div class='card'>
                                             <img class='card-img-top' src='/uploads/residential_units/snapshots/${field.snapshot}' alt=''>
                                             <div class='card-body details'>

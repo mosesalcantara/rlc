@@ -23,9 +23,9 @@
 
     <div class="container-fluid">
         <div class="row search mt-3">
-            <div class="col search_drops">
-                <div class="row">
-                    <div class="col-5">
+            <div class="col">
+                <div class="row search_drops">
+                    <div class="col-xxl-5">
                         <div class="dropdown" id='location'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -39,7 +39,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-xxl-6">
                         <div class="dropdown" id='area'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
@@ -60,9 +60,10 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-1 d-flex justify-content-center align-items-center search_btn">
+                    <div class="col-xxl-1 d-flex justify-content-center align-items-center search_btn">
                         <button class="btn btn-warning">
                             <i class="fa fa-search"></i>
+                            <h6 class="d-xxl-none">Find My Unit</h6>
                         </button>
                     </div>
                 </div>
@@ -74,7 +75,7 @@
         <div class="row units">
             @if (count($data['c_units']) > 0)
             @foreach ($data['c_units'] as $c_unit)
-                <div class="col-lg-4 unit">
+                <div class="col-xxl-4 unit">
                     <div class="card">
                         <img class='card-img-top' src="{{ asset('uploads/properties/pictures') }}/{{ $c_unit['picture'] }}" alt="">
                         <div class="card-body details">

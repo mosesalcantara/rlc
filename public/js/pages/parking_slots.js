@@ -80,7 +80,7 @@ $(document).ready( function () {
                 });
 
                 $.each(slots, function(row, field) {
-                    var unit_html = `<div class='col-lg-4 unit'>
+                    var unit_html = `<div class='col-xxl-4 unit'>
                                         <div class='card'>
                                             <img class='card-img-top' src='/uploads/properties/pictures/${field.picture}' alt=''>
                                             <div class='card-body details'>
