@@ -264,9 +264,6 @@ Route::prefix('admin/articles')->group(function () {
 
 Route::prefix('admin/settings')->group(function () {
     Route::get('/', [SettingController::class, 'index']);
-    Route::post('/', [SettingController::class, 'get_all']);
-    Route::post('/add', [SettingController::class, 'create']);
     Route::post('/edit', [SettingController::class, 'edit']);
     Route::post('/update', [SettingController::class, 'update']);
-    Route::post('/delete', [SettingController::class, 'delete']);
 });

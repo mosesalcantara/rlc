@@ -13,64 +13,8 @@ class SettingController extends Controller
         return view('admin.settings.index');
     }
 
-    public function get_all() {
-        $records = Setting::all();
-        
-        $data = [
-            'records' => $records,
-        ];
-
-        return response()->json($data);
-    }
-
-    public function create(Request $request) {
-        $request->validate([
-            'logo'=>'required|image',
-            'office'=>'required',
-            'email'=>'required|email',
-            'address'=>'required',
-            'telephone'=>'required',
-            'mobile'=>'required',
-            'messenger'=>'required|url',
-            'messenger_text'=>'required',
-            'telegram'=>'required|url',
-            'telegram_text'=>'required',
-            'facebook'=>'required|url',
-            'twitter'=>'required|url',
-            'instagram'=>'required|url',
-            'youtube'=>'required|url',
-        ]);
-
-        $record = new Setting;
-
-        if( $request->hasFile('logo') ) {
-            $file = $request->logo;
-            $filename = mt_rand() . '.'.$file->clientExtension();
-            $destination = 'uploads/settings/logos';
-            $file->move( $destination, $filename );
-        }
-
-        $record->logo = $filename;
-        $record->office = $request->office;
-        $record->address = $request->address;
-        $record->email = $request->email;
-        $record->telephone = $request->telephone;
-        $record->mobile = $request->mobile;
-        $record->messenger = $request->messenger;
-        $record->messenger_text = $request->messenger_text;
-        $record->telegram = $request->telegram;
-        $record->telegram_text = $request->telegram_text;
-        $record->facebook = $request->facebook;
-        $record->twitter = $request->twitter;
-        $record->instagram = $request->instagram;
-        $record->youtube = $request->youtube;
-        $record->save();
-
-        return response(['msg' => 'Added Setting']);
-    }
-
     public function edit(Request $request) {
-        $record = Setting::find($request->upd_id);
+        $record = Setting::first();
 
         $data = [
             'record' => $record,
@@ -140,13 +84,6 @@ class SettingController extends Controller
             ]);
         }
 
-        return response(['msg' => 'Updated Setting']);
-    }
-
-    public function delete(Request $request) {
-        $record = Setting::find($request->del_id);
-        $record->delete();
-        
-        return response(['msg' => 'Deleted Setting']);
+        return response(['msg' => 'Updated Settings']);
     }
 }
