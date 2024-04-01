@@ -242,11 +242,8 @@ Route::prefix('admin/inquiry_emails')->group(function () {
 
 Route::prefix('admin/about')->group(function () {
     Route::get('/', [AboutItemController::class, 'index']);
-    Route::post('/', [AboutItemController::class, 'get_all']);
-    Route::post('/add', [AboutItemController::class, 'create']);
     Route::post('/edit', [AboutItemController::class, 'edit']);
     Route::post('/update', [AboutItemController::class, 'update']);
-    Route::post('/delete', [AboutItemController::class, 'delete']);
 });
 
 Route::prefix('admin/articles')->group(function () {
