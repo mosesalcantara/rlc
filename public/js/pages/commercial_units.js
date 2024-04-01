@@ -55,11 +55,11 @@ $(document).ready( function () {
                                                 <h4>${field.location}</h4>
 
                                                 <div class="row table">
-                                                    <div class="col-4">
+                                                    <div class="col-xxl-4 col-5">
                                                         <h6>Retail ID</h6>
                                                         <h6>Area</h6>
                                                     </div>
-                                                    <div class="col text-dark">
+                                                    <div class="col-xxl-4 col-7 text-dark">
                                                         <h6>${field.building} - ${field.retail_id}</h6>
                                                         <h6>${field.size} SQM</h6>
                                                     </div>

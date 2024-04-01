@@ -83,11 +83,11 @@
                             <i class="fa-solid fa-location-dot fa-xl"></i>
                             <h4>{{ $c_unit['location'] }}</h4>
                             <div class="row table">
-                                <div class="col-4">
+                                <div class="col-xxl-4 col-5">
                                     <h6>Retail ID</h6>
                                     <h6>Area</h6>
                                 </div>
-                                <div class="col text-dark">
+                                <div class="col-xxl-4 col-7 text-dark">
                                     <h6>{{ $c_unit['building'] }} - {{ $c_unit['retail_id'] }}</h6>
                                     <h6>{{ $c_unit['size'] }} SQM</h6>
                                 </div>

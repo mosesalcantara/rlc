@@ -89,10 +89,10 @@ $(document).ready( function () {
                                                 <h4>${field.location}</h4>
 
                                                 <div class="row table">
-                                                    <div class="col-4">
+                                                    <div class="col-3">
                                                         <h6>Rate</h6>
                                                     </div>
-                                                    <div class="col text-dark">
+                                                    <div class="col-9 text-dark">
                                                         <h6>${money.format(field.min)} - ${money.format(field.max)} / mo</h6>
                                                     </div>
                                                 </div>

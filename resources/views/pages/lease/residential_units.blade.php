@@ -104,13 +104,13 @@
                             <i class="fa-solid fa-location-dot fa-xl"></i>
                             <h4>{{ $r_unit['location'] }}</h4>
                             <div class="row table">
-                                <div class="col-4">
+                                <div class="col-xxl-4 col-5">
                                     <h6>Unit ID</h6>
                                     <h6>Unit Type</h6>
                                     <h6>Rental Rate</h6>
                                     <h6>Area</h6>
                                 </div>
-                                <div class="col text-dark">
+                                <div class="col-xxl-4 col-7 text-dark">
                                     <h6>{{ $r_unit['unit_id'] }}</h6>
                                     <h6>{{ $r_unit['type'] }}</h6>
                                     <h6>PHP {{ number_format($r_unit['rate'], 2) }} / mo</h6>

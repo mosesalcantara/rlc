@@ -115,4 +115,8 @@
         display: inline;
         margin-left: 0.5rem;
     }
+
+    .properties {
+        margin: 0rem 0.5rem 0.5rem;
+    }
 }

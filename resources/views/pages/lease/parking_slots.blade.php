@@ -97,10 +97,10 @@
                             <i class="fa-solid fa-location-dot fa-xl"></i>
                             <h4>{{ $slot['location'] }}</h4>
                             <div class="row table">
-                                <div class="col-2">
+                                <div class="col-3">
                                     <h6>Rate</h6>
                                 </div>
-                                <div class="col text-dark">
+                                <div class="col-9 text-dark">
                                     <h6>PHP {{ number_format($slot['min'], 2) }} - {{ number_format($slot['max'], 2) }} / mo</h6>
                                 </div>
                             </div>
