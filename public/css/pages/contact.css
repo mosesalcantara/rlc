@@ -4,6 +4,13 @@
     font-weight: 500;
 }
 
+.header_pic {
+    width: 60%;
+    height: 70vh;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
 .header_item {
     position: absolute;
     top: 15%;
@@ -17,13 +24,6 @@
     margin-left: 3vw;
     border-left: 0.2rem solid #CC9900;
     padding-left: 1rem;
-}
-
-.header_pic {
-    width: 60%;
-    height: 70vh;
-    position: relative;
-    background-repeat: no-repeat;
 }
 
 .contact {
@@ -54,13 +54,13 @@
 }
 
 @media (max-width: 1400px) {
-    .header_item {
-        top: 7%;
-    }
-
     .header_pic {
         width: 100%;
         height: 37vh;
+    }
+    
+    .header_item {
+        top: 7%;
     }
 
     .contact_header {
