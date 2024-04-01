@@ -260,7 +260,7 @@
                                             <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $review->picture }}" alt="">
                                         </div>
                                         <div class="col text-start g-0">
-                                            <h2>{{ $review->fullname }}</h2>
+                                            <h5>{{ $review->fullname }}</h5>
                                             <h6>{{ $review->name }}</h6>
                                             <h6>{{ \Carbon\Carbon::parse($review->reviewed_on)->toFormattedDateString()}}</h6>
                                         </div>

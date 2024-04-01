@@ -85,10 +85,6 @@
     padding-left: 0.15rem;
 }
 
-.featured h4 {
-    font-size: 1.3rem;
-}
-
 #properties_carousel {
     margin: 2vh 5vw 2vh;
 }
@@ -212,9 +208,9 @@
     height: 100%;
 }
 
-.profile h2 {
+.profile h5 {
     color: #CC9900;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
 }
 
 .review_text {
@@ -344,7 +340,7 @@
         width: 90%;
     }
     
-    .profile h2 {
+    .profile h5 {
         color: #CC9900;
         font-size: 0.80rem;
     }

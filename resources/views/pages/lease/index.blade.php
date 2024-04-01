@@ -15,10 +15,10 @@
 @section('content')
     <div class="container-fluid title_div">
         <div class="row title">
-            <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-start col-12 text-center">
+            <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-start text-center">
                 <h1>RLC Residences Properties</h1>
             </div>
-            <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-end col-12 text-center">
+            <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-end text-center">
                 <h4>Let us help you with your search.</h4>
             </div>
         </div>
