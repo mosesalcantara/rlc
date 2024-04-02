@@ -5,11 +5,6 @@
 
 .title h1 {
     color: #000b8c;
-    font-weight: 500;
-}
-
-.title h4 {
-    font-weight: 400;
 }
 
 .search {
@@ -22,7 +17,6 @@
 .dropdown button {
     background-color: #D7D7D7;
     display: inline;
-    font-weight: 500;
     border-radius: 1rem;
     width: 100%;
     padding: 0.75rem 0.25rem 0.75rem;
@@ -59,7 +53,6 @@
 .categories .card {
     border-radius: 1rem;
     color: #000b8c;
-    font-weight: 500;
     margin: 0.5rem;
 }
 

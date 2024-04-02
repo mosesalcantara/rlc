@@ -19,7 +19,6 @@
 .dropdown button {
     background-color: #D7D7D7;
     display: inline;
-    font-weight: 500;
     border-radius: 1rem;
     width: 100%;
     padding: 0.75rem 0.25rem 0.75rem;
@@ -91,10 +90,6 @@
     color: white;
     font-size: 1rem;
     width: 100%;
-}
-
-.no_data {
-    font-weight: 500;
 }
 
 @media (max-width: 1400px) {

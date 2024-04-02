@@ -17,7 +17,6 @@
 
 .header_item h1 {
     color: #000b8c;
-    font-weight: 500;
     font-size: 3rem;
     border-left: 0.2rem solid #CC9900;
     padding-left: 1vw;
@@ -37,7 +36,6 @@
     padding: 3vh 5vw 0 5vw;
     text-align: justify;
     font-size: 1.45rem;
-    font-weight: 500;
 }
 
 .tagline h1 {
@@ -65,7 +63,6 @@
     color: white;
     text-align: justify;
     font-size: 1.2rem;
-    font-weight: 500;
 }
 
 .acronym_item img {
@@ -75,8 +72,7 @@
 
 .brand_story {
     background-size: cover;
-    font-weight: 500;
-    padding: 7rem 2rem 7rem;
+    padding: 7rem;
 }
 
 .video {
