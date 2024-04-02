@@ -88,7 +88,7 @@
     border: 0.15rem solid #CC9900;
     border-radius: 0.7rem;
     margin: 0.3rem;
-    padding: 0.75rem;
+    padding: 1.5rem 0.20rem 1.5rem;
 }
 
 .details i {
@@ -98,6 +98,7 @@
 .details h6 {
     color: #CC9900;
     line-height: normal;
+    font-size: 1rem;
 }
 
 .info a {
@@ -189,6 +190,10 @@
 }
 
 @media (max-width: 1400px) {
+    .title h1 {
+        font-size: 1.5rem;
+    }
+
     .search {
         margin: 0rem 1.5rem 1rem;
         border-radius: 0.5rem;
