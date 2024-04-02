@@ -50,29 +50,29 @@
             </div>
         </div>
         <div class="row info">
-            <div class="col-6 maps">
+            <div class="col-xxl-6 maps">
                 <img src="{{ asset('uploads/properties/pictures') }}/{{ $data['property']['pictures'][0] }}" alt="">
             </div>
-            <div class="col-6 details">
+            <div class="col-xxl-6 details">
                 <div class="row">
-                    <div class="col">
+                    <div class="col text-center text-xxl-start">
                         <h4>{{ $data['property']['name'] }}</h4>
                         <i class="fa-solid fa-location-dot fa-xl"></i>
                         <h5>{{ $data['property']['location'] }}</h5>
                     </div>
                 </div>
                 <div class="row rates_types">
-                    <div class="col rates">
+                    <div class="col-xxl col-12 rates text-xxl-start text-center">
                         <h5>Price Range</h5>
                         <h5>{{ $data['property']['min_price'] }}M - {{ $data['property']['max_price'] }}M</h5>
                     </div>
-                    <div class="col types">
+                    <div class="col-xxl col-12 types text-xxl-start text-center">
                         <h5>Unit Types</h5>
                         <h5>{{ $data['property']['unit_types'] }}</h5>
                     </div>
                 </div>
-                <div class="row description">
-                    <div class="col ">
+                <div class="row">
+                    <div class="col description">
                         <p>{{ $data['property']['description'] }}</p>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
 
     <div class="container-fluid amenities">
         <div class="row title">
-            <div class="col">
+            <div class="col text-xxl-start text-center">
                 <h4>Amenities and Features</h4>
             </div>
         </div>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="row indoors">
                     @foreach ($data['property']['indoor'] as $amenity)
-                    <div class="col-2">
+                    <div class="col-xxl-2">
                         <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
                     </div>
                     @endforeach
@@ -103,7 +103,7 @@
                 </div>
                 <div class="row outdoors">
                     @foreach ($data['property']['outdoor'] as $amenity)
-                    <div class="col-2">
+                    <div class="col-xxl-2">
                         <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
                     </div>
                     @endforeach

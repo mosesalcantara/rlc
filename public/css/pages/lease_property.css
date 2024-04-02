@@ -44,6 +44,7 @@
 }
 
 .details {
+    height: 27rem;
     background-color: #CC9900;
     padding: 1rem 3rem 1rem;
     border-radius: 0.7rem;
@@ -51,7 +52,7 @@
 
 .details h4 {
     color: #000b8c;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .details i {
@@ -66,7 +67,7 @@
 }
 
 .rates_types {
-    margin: 1.5rem 0 1.5rem;
+    margin: 0.5rem 0 0.5rem;
 }
 
 .rates_types h5 {
@@ -83,7 +84,9 @@
 }
 
 .description {
-    margin-bottom: 10vh;
+    padding-bottom: 0.5rem;
+    height: 5.5rem;
+    overflow: auto;
 }
 
 .description p {

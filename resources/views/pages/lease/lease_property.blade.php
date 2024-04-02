@@ -71,12 +71,12 @@
                         <h5>{{ $data['property']['types'] }}</h5>
                     </div>
                 </div>
-                <div class="row description">
-                    <div class="col ">
+                <div class="row">
+                    <div class="col description">
                         <p>{{ $data['property']['description'] }}</p>
                     </div>
                 </div>
-                <div class="row ">
+                <div class="row">
                     <div class="col buttons">
                         @if ($data['property']['r_units'] == True)
                         <div class="d-flex justify-content-center button">
