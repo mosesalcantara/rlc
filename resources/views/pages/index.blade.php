@@ -198,6 +198,33 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="mobile_card_back container-fluid d-none">
+                            <div class="row">
+                                <div class='col info'>
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-circle-chevron-left back_switch text-info"></i>
+                                    </div>
+
+                                    <h4>{{ $property['name'] }}</h4>
+                                    <p>{{ $property['description'] }}</p>
+
+                                    <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
+
+                                    <div class='details'>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <h5>{{ $property['location'] }}</h5>
+                                        <span class="br"></span>
+                                        <i class="fa-solid fa-building"></i>
+                                        <h5>{{ $property['types'] }}</h5>
+                                        <span class="br"></span>
+                                        <i class="fa-solid fa-user"></i>
+                                        <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     @endforeach
 

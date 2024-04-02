@@ -15,7 +15,12 @@ $(document).ready( function () {
         var front = $(this).parents()
         front = $(front[1])
         front.addClass('d-none')
-        var back = front.next()
+        if (window.matchMedia("(max-width: 1400px)").matches) {
+            var back = front.next().next()
+        }
+        else {
+            var back = front.next()
+        }
         back.removeClass('d-none')
     })
 
@@ -23,7 +28,12 @@ $(document).ready( function () {
         var back = $(this).parents()
         back = $(back[3])
         back.addClass('d-none')
-        var front = back.prev()
+        if (window.matchMedia("(max-width: 1400px)").matches) {
+            var front = back.prev().prev()
+        }
+        else {
+            var front = back.prev()
+        }
         front.removeClass('d-none')
     })
 

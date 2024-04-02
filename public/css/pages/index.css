@@ -282,13 +282,36 @@
         font-size: 1.3em;
     }
 
-    .snapshot img {
-        width: 65vw;
-        margin-top: 1rem;
+    .info {
+        background-color: white;
+        padding: 1.5rem;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        height: 24rem;
+        overflow: auto;
+        border-radius: 0.3rem;
+    }
+
+    .info img {
+        height: 50%;
+        width: 100%;
+        margin: 0 0 1.5rem;
     }
 
     .details {
-        padding: 1.5rem;
+        background-color: #EFEFEE;
+        padding: 1.5rem 1rem 1.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .details i {
+        font-size: 1.75em;
+    }
+
+    .details h5 {
+        margin: 0 0.3rem 0;
     }
 
     .videos iframe {
