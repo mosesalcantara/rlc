@@ -179,6 +179,10 @@
         height: 15rem;
     }
 
+    .picture img {
+        height: 23%;
+    }
+
     .info {
         margin: 0.5rem 1rem 0.5rem;
     }

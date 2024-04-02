@@ -16,7 +16,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col title">
-                <h1>Parking Slots For You</h1>
+                <h1 class="text-center text-xxl-start">Parking Slots For You</h1>
             </div>
         </div>
     </div>
@@ -96,7 +96,7 @@
 
     <div class="container-fluid">
         <div class="row unit">
-            <div class="col info">
+            <div class="col-12 col-xxl info order-xxl-first order-last">
                 <div class="top">
                     <h3>{{ $data['property']['name'] }}</h3>
                     <i class="fa-solid fa-location-dot fa-xl"></i>
@@ -118,7 +118,7 @@
                     <a class="btn btn-warning" href='/for-lease/property/{{ $data['property']['id'] }}'>View Project Details</a>
                 </div>
             </div>
-            <div class="col picture text-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $data['property']['picture'] }})">
+            <div class="col-12 col-xxl picture text-end order-xxl-last order-first" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $data['property']['picture'] }})">
                 <img src="{{ asset('uploads/properties/logos/') }}/{{ $data['property']['logo'] }}" alt="">
             </div>
         </div>
@@ -128,8 +128,8 @@
         <div class="row">
             <div class="col rates">
                 <div class="row">
-                    <h3>Monthly Parking Rate(s)</h3>
-                    <h6>{{ $data['property']['name'] }} Parking Rental Rates</h6>
+                    <h3 class="text-center text-xxl-start">Monthly Parking Rate(s)</h3>
+                    <h6 class="text-center text-xxl-start">{{ $data['property']['name'] }} Parking Rental Rates</h6>
                 </div>
 
                 <div class="row">

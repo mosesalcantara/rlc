@@ -137,6 +137,10 @@
 }
 
 @media (max-width: 1400px) {
+    .title h1 {
+        font-size: 1.5rem;
+    }
+
     .search {
         margin: 0rem 1.5rem 1rem;
         border-radius: 0.5rem;
@@ -153,5 +157,34 @@
     .search_btn h6 {
         display: inline;
         margin-left: 0.5rem;
+    }
+
+    .unit {
+        margin: 0.5rem 1.5rem 0.5rem;
+        height: auto;
+    }
+
+    .picture {
+        height: 15rem;
+    }
+
+    .picture img {
+        height: 23%;
+    }
+
+    .info {
+        margin: 0.5rem 1rem 0.5rem;
+    }
+
+    .requirements {
+        padding-left: 0;
+    }
+
+    .rates {
+        padding: 0.5rem 1.5rem 0.5rem;
+    }
+
+    .rates h6 {
+        margin: 0.5rem 0 1rem;
     }
 }
