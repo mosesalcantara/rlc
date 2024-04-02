@@ -103,7 +103,7 @@
 
     <div class="container-fluid">
         <div class="row unit">
-            <div class="col info">
+            <div class="col info order-xxl-first order-last">
                 <div class="top">
                     <h3>{{ $data['r_unit']['name'] }}</h3>
                     <i class="fa-solid fa-location-dot fa-xl"></i>
@@ -114,22 +114,22 @@
                     <h6>Building: {{ $data['r_unit']['building'] }}</h6>
 
                     <div class="row details">
-                        <div class="col text-center">
+                        <div class="col-5 col-xxl text-center">
                             <i class="fa-solid fa-house fa-xl"></i>
                             <h6>UNIT TYPE</h6>
                             <h6 class="text-dark">{{ $data['r_unit']['type'] }}</h6>
                         </div>
-                        <div class="col text-center">
+                        <div class="col-5 col-xxl text-center">
                             <i class="fa-regular fa-square fa-xl"></i>
                             <h6>AREA</h6>
                             <h6 class="text-dark">{{ number_format($data['r_unit']['area'], 2) }} SQM</h6>
                         </div>
-                        <div class="col text-center">
+                        <div class="col-5 col-xxl text-center">
                             <i class="fa-solid fa-piggy-bank fa-xl fa-flip-vertical"></i>
                             <h6>MONTHLY RATE</h6>
                             <h6 class="text-dark">PHP {{ number_format($data['r_unit']['rate'], 2) }}</h6>
                         </div>
-                        <div class="col text-center">
+                        <div class="col-5 col-xxl text-center">
                             <i class="fa-solid fa-key fa-xl"></i>
                             <h6>UNIT STATUS</h6>
                             <h6 class="text-dark">{{ $data['r_unit']['status'] }}</h6>
@@ -140,7 +140,7 @@
                     <a class="btn btn-warning" href='/for-lease/property/{{ $data['r_unit']['property_id'] }}'>View Project Details</a>
                 </div>
             </div>
-            <div class="col picture text-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $data['r_unit']['picture'] }})">
+            <div class="col-12 col-xxl picture text-end order-xxl-last order-first" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $data['r_unit']['picture'] }})">
                 <img src="{{ asset('uploads/properties/logos/') }}/{{ $data['r_unit']['logo'] }}" alt="">
             </div>
         </div>
@@ -150,12 +150,12 @@
         <div class="row">
             <div class="col snapshots">
                 <div class="row">
-                    <h1>Residential Snapshots</h1>
+                    <h1 class="text-center text-xxl-start">Residential Snapshots</h1>
                 </div>
 
                 <div class="row">
                     <div class='col-1 d-flex align-items-center'>
-                        <i class="fa-solid fa-circle-chevron-left fa-4x" data-bs-target="#snapshots_carousel" data-bs-slide="prev"></i>
+                        <i class="fa-solid fa-circle-chevron-left" data-bs-target="#snapshots_carousel" data-bs-slide="prev"></i>
                     </div>
                     <div class="col d-flex justify-content-center">
                         <div id="snapshots_carousel" class="carousel slide">
@@ -171,7 +171,7 @@
                         </div>
                     </div>
                     <div class="col-1 d-flex align-items-center">
-                        <i class="fa-solid fa-circle-chevron-right fa-4x" data-bs-target="#snapshots_carousel" data-bs-slide="next"></i>
+                        <i class="fa-solid fa-circle-chevron-right" data-bs-target="#snapshots_carousel" data-bs-slide="next"></i>
                     </div>
                 </div>
             </div>
@@ -182,12 +182,12 @@
         <div class="row">
             <div class="col unit_videos">
                 <div class="row">
-                    <h1>Unit Videos</h1>
+                    <h1 class="text-center text-xxl-start">Unit Videos</h1>
                 </div>
 
                 <div class="row">
                     <div class='col-1 d-flex align-items-center'>
-                        <i class="fa-solid fa-circle-chevron-left fa-4x" data-bs-target="#unit_videos_carousel" data-bs-slide="prev"></i>
+                        <i class="fa-solid fa-circle-chevron-left" data-bs-target="#unit_videos_carousel" data-bs-slide="prev"></i>
                     </div>
                     <div class="col d-flex justify-content-center">
                         <div id="unit_videos_carousel" class="carousel slide">
@@ -204,7 +204,7 @@
                         </div>
                     </div>
                     <div class="col-1 d-flex align-items-center">
-                        <i class="fa-solid fa-circle-chevron-right fa-4x" data-bs-target="#unit_videos_carousel" data-bs-slide="next"></i>
+                        <i class="fa-solid fa-circle-chevron-right" data-bs-target="#unit_videos_carousel" data-bs-slide="next"></i>
                     </div>
                 </div>
             </div>
@@ -215,7 +215,7 @@
         <div class="row">
             <div class="col amenities">
                 <div class="row">
-                    <h1>AMENITY GALLERY</h1>
+                    <h1 class="text-center text-xxl-start">AMENITY GALLERY</h1>
                 </div>
 
                 <div class="row">

@@ -84,7 +84,7 @@
     padding: 0 6.5rem 0;
 }
 
-.details .col {
+.details .col-5 {
     border: 0.15rem solid #CC9900;
     border-radius: 0.7rem;
     margin: 0.3rem;
@@ -120,66 +120,24 @@
     opacity: 80%;
 }
 
-.snapshots {
+.snapshots, .unit_videos, .amenities {
     background-color: #DBAF27;
     color: white;
     padding: 1rem 7rem 2rem;
+    margin: 0 0 1rem;
 }
 
-.snapshots h1 {
+.snapshots h1, .unit_videos h1, .amenities h1 {
     font-size: 4.5rem;
     margin-bottom: 2rem;
 }
 
-.snapshots i {
+.snapshots i, .unit_videos i, .amenities i {
     cursor: pointer;
+    font-size: 4em;
 }
 
-.snapshots img {
-    width: 35vw;
-    height: 40vh;
-    border-radius: 0.7rem;
-}
-
-.unit_videos {
-    background-color: #DBAF27;
-    color: white;
-    padding: 1rem 7rem 2rem;
-    margin-top: 1.5rem;
-}
-
-.unit_videos h1 {
-    font-size: 4.5rem;
-    margin-bottom: 2rem;
-}
-
-.unit_videos i {
-    cursor: pointer;
-}
-
-.unit_videos video {
-    width: 35vw;
-    height: 40vh;
-    border-radius: 0.7rem;
-}
-
-.amenities {
-    color: white;
-    background-color: #DBAF27;
-    margin-top: 1.5rem;
-    padding: 1rem 7rem 2rem;
-}
-
-.amenities h1 {
-    font-size: 2.7rem;
-    margin-bottom: 2rem;
-}
-
-.amenities i {
-    cursor: pointer;
-}
-
-.amenities img {
+.snapshots img, .unit_videos video, .amenities img {
     width: 35vw;
     height: 40vh;
     border-radius: 0.7rem;
@@ -210,5 +168,40 @@
     .search_btn h6 {
         display: inline;
         margin-left: 0.5rem;
+    }
+
+    .unit {
+        margin: 0.5rem 1.5rem 0.5rem;
+        height: auto;
+    }
+
+    .picture {
+        height: 15rem;
+    }
+
+    .info {
+        margin: 0.5rem 1rem 0.5rem;
+    }
+
+    .details {
+        padding: 0 0 0;
+    }
+
+    .snapshots, .unit_videos, .amenities {
+        padding: 1rem 1.5rem 1rem;
+        margin: 0 0 0.5rem;
+    }
+
+    .snapshots h1, .unit_videos h1, .amenities h1 {
+        font-size: 2.5rem;
+    }
+
+    .snapshots i, .unit_videos i, .amenities i {
+        font-size: 2em;
+    }
+
+    .snapshots img, .unit_videos video, .amenities img {
+        width: 100%;
+        height: 50%;
     }
 }
