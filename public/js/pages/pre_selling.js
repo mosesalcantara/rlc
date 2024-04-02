@@ -60,7 +60,7 @@ $(document).ready( function () {
                                                         <h6>Price Range</h6>
                                                         <h6>Unit Types</h6>
                                                     </div>
-                                                    <div class="col-xxl-4 col-7 text-dark">
+                                                    <div class="col-xxl col-7 text-dark">
                                                         <h6>${field.min_price}M - ${field.max_price}M PHP</h6>
                                                         <h6>${field.unit_types}</h6>
                                                     </div>

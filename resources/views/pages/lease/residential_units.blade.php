@@ -110,7 +110,7 @@
                                     <h6>Rental Rate</h6>
                                     <h6>Area</h6>
                                 </div>
-                                <div class="col-xxl-4 col-7 text-dark">
+                                <div class="col-xxl col-7 text-dark">
                                     <h6>{{ $r_unit['unit_id'] }}</h6>
                                     <h6>{{ $r_unit['type'] }}</h6>
                                     <h6>PHP {{ number_format($r_unit['rate'], 2) }} / mo</h6>

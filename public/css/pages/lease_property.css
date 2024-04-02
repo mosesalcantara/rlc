@@ -18,6 +18,10 @@
     width: 45%;
 }
 
+#pictures_carousel i {
+    font-size: 2em;
+}
+
 .about {
     padding: 0 7rem 0;
     margin-bottom: 1rem;
@@ -33,13 +37,9 @@
     padding: 0 7rem 0;
 }
 
-.maps {
-    height: 55vh;
-}
-
 .maps img {
-    width: 75%;
-    height: 100%;
+    width: 70%;
+    height: 27rem;
     border-radius: 0.7rem 0 0 0.7rem;
 }
 
@@ -173,4 +173,23 @@
     height: 100%;
 }
 
+@media (max-width: 1400px) {
+    .picture {
+        height: 13rem;
+    }
+
+    .logo {
+        height: 3rem;
+        border-radius: 0;
+        margin-top: 0.5rem;
+    }
+
+    #pictures_carousel i {
+        font-size: 1.5em;
+    }
+
+    .info {
+        padding: 0 2rem 0;
+    }
+}
 

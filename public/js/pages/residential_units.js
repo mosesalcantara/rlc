@@ -62,7 +62,7 @@ $(document).ready( function () {
                                                         <h6>Rental Rate</h6>
                                                         <h6>Area</h6>
                                                     </div>
-                                                    <div class="col-xxl-4 col-7 text-dark">
+                                                    <div class="col-xxl col-7 text-dark">
                                                         <h6>${field.unit_id}</h6>
                                                         <h6>${field.type}</h6>
                                                         <h6>${field.rate} / mo</h6>

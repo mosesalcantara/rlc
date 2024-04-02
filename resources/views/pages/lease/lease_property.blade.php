@@ -33,10 +33,10 @@
                         @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#pictures_carousel" data-bs-slide="prev">
-                        <i class="fa-solid fa-chevron-left fa-2x"></i>
+                        <i class="fa-solid fa-chevron-left"></i>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#pictures_carousel" data-bs-slide="next">
-                        <i class="fa-solid fa-chevron-right fa-2x"></i>
+                        <i class="fa-solid fa-chevron-right"></i>
                     </button>
                 </div>
             </div>
@@ -50,10 +50,10 @@
             </div>
         </div>
         <div class="row info">
-            <div class="col-6 maps">
+            <div class="col-xxl-6 maps">
                 <img src="{{ asset('uploads/properties/pictures') }}/{{ $data['property']['pictures'][0] }}" alt="">
             </div>
-            <div class="col-6 details">
+            <div class="col-xxl-6 details">
                 <div class="row">
                     <div class="col">
                         <h4>{{ $data['property']['name'] }}</h4>
