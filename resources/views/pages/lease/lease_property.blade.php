@@ -55,18 +55,18 @@
             </div>
             <div class="col-xxl-6 details">
                 <div class="row">
-                    <div class="col">
+                    <div class="col text-center text-xxl-start">
                         <h4>{{ $data['property']['name'] }}</h4>
                         <i class="fa-solid fa-location-dot fa-xl"></i>
                         <h5>{{ $data['property']['location'] }}</h5>
                     </div>
                 </div>
                 <div class="row rates_types">
-                    <div class="col rates">
+                    <div class="col-xxl col-12 rates text-xxl-start text-center">
                         <h5>Rental Rate</h5>
                         <h5>PHP {{ number_format($data['property']['min'], 2) }} - {{ number_format($data['property']['max'], 2) }} / mo</h5>
                     </div>
-                    <div class="col types">
+                    <div class="col-xxl col-12 types text-xxl-start text-center">
                         <h5>Unit Types</h5>
                         <h5>{{ $data['property']['types'] }}</h5>
                     </div>
@@ -130,7 +130,7 @@
                 </div>
                 <div class="row indoors">
                     @foreach ($data['property']['indoor'] as $amenity)
-                    <div class="col-2">
+                    <div class="col-xxl-2">
                         <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
                     </div>
                     @endforeach
@@ -140,7 +140,7 @@
                 </div>
                 <div class="row outdoors">
                     @foreach ($data['property']['outdoor'] as $amenity)
-                    <div class="col-2">
+                    <div class="col-xxl-2">
                         <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
                     </div>
                     @endforeach

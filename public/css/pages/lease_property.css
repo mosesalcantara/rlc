@@ -194,5 +194,45 @@
     .info {
         padding: 0 2rem 0;
     }
+
+    .maps img {
+        width: 100%;
+        height: 15rem;
+        margin: 0 0 1.5rem;
+    }
+
+    .details {
+        height: 30rem;
+        padding: 1rem 1.5rem 1rem;
+    }
+
+    .rates_types {
+        margin: 1rem 0 0;
+    }
+
+    .rates {
+        border: none;
+    }
+
+    .types {
+        margin-left: 0rem;
+    }
+
+    .buttons button {
+        width: 100%;
+    }
+
+    .amenities {
+        padding: 0 2rem 0;
+    }
+
+    .amenities .title h4 {
+        border: none;
+    }
+
+    .modal-content {
+        height: 23rem;
+        width: 25rem;
+    }
 }
 
