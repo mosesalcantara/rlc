@@ -13,9 +13,13 @@
 @endsection
  
 @section('content')
-    <div class="container-fluid header" style="background-image: url({{ asset('img/pages/properties/property-header.png') }})">
+    <div class="container-fluid header">
         <div class="row">
-            <div class="col-4 header_item d-flex align-items-center">
+            <div class="text-center">
+                <img class="header_pic" src="{{ asset('img/pages/properties/property-header.png') }}" alt="">
+            </div>
+
+            <div class="header_item">
                 <h1>Compare<br>Our Properties</h1>
             </div>
         </div>
@@ -210,6 +214,5 @@
 @section('scripts')
     @parent
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/pages/properties.js') }}"></script>
 @endsection

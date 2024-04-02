@@ -341,7 +341,7 @@ function compare_residential_units() {
                         'Unit Status': r_unit.status,
                     }
 
-                    var unit_col = $('<div>').addClass('col-4 unit')
+                    var unit_col = $('<div>').addClass('col-xxl-4 unit')
 
                     var card = $('<div>').addClass('card')
                     var img = $('<img>').addClass('card-img-top snapshot').attr({
@@ -433,7 +433,7 @@ function compare_commercial_units() {
                         'Unit Area (sqm)': `${c_unit.size} sqm`,
                     }
 
-                    var unit_col = $('<div>').addClass('col-4 unit')
+                    var unit_col = $('<div>').addClass('col-xxl-4 unit')
 
                     var card = $('<div>').addClass('card')
                     var img = $('<img>').addClass('card-img-top snapshot').attr({

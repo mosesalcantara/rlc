@@ -93,9 +93,15 @@ class CompareController extends Controller
             $details['max_rate'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.name', $property)->max('residential_units.rate');
 
             $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where('properties.name', $property)->get();
-            $types = '';
+
+            $types_arr = [];
             foreach ($record as $item) {
-                $types .= ' ' . $item['type'];
+                array_push($types_arr, $item['type']);
+            }
+
+            $types = '';
+            foreach (array_unique($types_arr) as $type) {
+                $types .= ' ' . $type;
             }
             $details['types'] = $types;
 
