@@ -47,30 +47,35 @@ $(document).ready( function () {
                 properties_div.empty()
 
                 $.each(properties, function(row, field) {
-                    var property_html = `<div class='col-xxl-4 property'>
-                                        <div class='card'>
-                                            <img class='card-img-top' src='/uploads/properties/pictures/${field.picture}' alt=''>
-                                            <div class='card-body details'>
-                                                <h3>${field.name}</h3>
-                                                <i class="fa-solid fa-location-dot fa-xl"></i>
-                                                <h4>${field.location}</h4>
-
-                                                <div class="row table">
-                                                    <div class="col-xxl-4 col-5">
-                                                        <h6>Price Range</h6>
-                                                        <h6>Unit Types</h6>
-                                                    </div>
-                                                    <div class="col-xxl col-7 text-dark">
-                                                        <h6>${field.min_price}M - ${field.max_price}M PHP</h6>
-                                                        <h6>${field.unit_types}</h6>
+                    var property_html = `                
+                                        <div class="col-xxl-4 property">
+                                            <div class="card">
+                                                <img class='card-img-top' src="/uploads/sale_units/snapshots/${field.snapshot}" alt="">
+                                                <div class="card-body details">
+                                                    <h3>${field.name}</h3>
+                                                    <i class="fa-solid fa-location-dot fa-xl"></i>
+                                                    <h4>${field.location}</h4>
+                                                    <div class="row table">
+                                                        <div class="col-xxl-4 col-5">
+                                                            <h6>Unit ID</h6>
+                                                            <h6>Unit Type</h6>
+                                                            <h6>Price</h6>
+                                                            <h6>Area</h6>
+                                                        </div>
+                                                        <div class="col-xxl col-7 text-dark">
+                                                            <h6>${field.unit_id}</h6>
+                                                            <h6>${field.type}</h6>
+                                                            <h6>PHP ${field.price}M</h6>
+                                                            <h6>${field.area}</h6>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="card-footer border-0">
-                                                <a class="btn btn-warning" href="/for-sale/property/${field.id}">VIEW PROPERTY</a>
+                                                <div class="card-footer border-0">
+                                                    <a class="btn btn-warning" href="">VIEW UNIT</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>`
+                                        `
 
                     properties_div.append(property_html)
                 })

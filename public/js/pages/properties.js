@@ -154,7 +154,7 @@ function compare_residential_properties() {
                     style: 'currency',
                     currencyDisplay: 'code',
                     currency: 'PHP',
-                });
+                })
         
                 for (var property of properties) {
                     var property_div = $('<div>').addClass('col-xxl-4 property')

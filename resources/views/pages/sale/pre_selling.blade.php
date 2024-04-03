@@ -95,28 +95,32 @@
 
     <div class="container-fluid">
         <div class="row properties">
-            @if (count($data['properties']) > 0)
-            @foreach ($data['properties'] as $property)
+            @if (count($data['sale_units']) > 0)
+            @foreach ($data['sale_units'] as $sale_unit)
                 <div class="col-xxl-4 property">
                     <div class="card">
-                        <img class='card-img-top' src="{{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }}" alt="">
+                        <img class='card-img-top' src="{{ asset('uploads/sale_units/snapshots') }}/{{ $sale_unit['snapshot'] }}" alt="">
                         <div class="card-body details">
-                            <h3>{{ $property['name'] }}</h3>
+                            <h3>{{ $sale_unit['name'] }}</h3>
                             <i class="fa-solid fa-location-dot fa-xl"></i>
-                            <h4>{{ $property['location'] }}</h4>
+                            <h4>{{ $sale_unit['location'] }}</h4>
                             <div class="row table">
                                 <div class="col-xxl-4 col-5">
-                                    <h6>Price Range</h6>
-                                    <h6>Unit Types</h6>
+                                    <h6>Unit ID</h6>
+                                    <h6>Unit Type</h6>
+                                    <h6>Price</h6>
+                                    <h6>Area</h6>
                                 </div>
                                 <div class="col-xxl col-7 text-dark">
-                                    <h6>{{ $property['min_price'] }}M - {{ $property['max_price'] }}M PHP</h6>
-                                    <h6>{{ $property['unit_types'] }}</h6>
+                                    <h6>{{ $sale_unit['unit_id'] }}</h6>
+                                    <h6>{{ $sale_unit['type'] }}</h6>
+                                    <h6>PHP {{ $sale_unit['price'] }}M</h6>
+                                    <h6>{{ $sale_unit['area'] }} SQM</h6>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer border-0">
-                            <a class="btn btn-warning" href="/for-sale/property/{{ $property['id'] }}">VIEW PROPERTY</a>
+                            <a class="btn btn-warning" href="">VIEW UNIT</a>
                         </div>
                     </div>
                 </div>

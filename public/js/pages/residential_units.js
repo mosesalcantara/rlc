@@ -46,6 +46,12 @@ $(document).ready( function () {
                 var units_div = $('.units')
                 units_div.empty()
 
+                let money = new Intl.NumberFormat('fil-PH', {
+                    style: 'currency',
+                    currencyDisplay: 'code',
+                    currency: 'PHP',
+                })
+
                 $.each(r_units, function(row, field) {
                     var unit_html = `<div class='col-xxl-4 unit'>
                                         <div class='card'>
@@ -65,7 +71,7 @@ $(document).ready( function () {
                                                     <div class="col-xxl col-7 text-dark">
                                                         <h6>${field.unit_id}</h6>
                                                         <h6>${field.type}</h6>
-                                                        <h6>${field.rate} / mo</h6>
+                                                        <h6>${money.format(field.rate)} / mo</h6>
                                                         <h6>${field.area} SQM</h6>
                                                     </div>
                                                 </div>

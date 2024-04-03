@@ -106,7 +106,7 @@
                     <h5>Are you sure you want to delete this Unit Video?</h5>
                 </div>
                 <div class="modal-footer">
-                    <form action="/admin/unit_video/delete/" method="POST" id="delForm">
+                    <form action="/admin/unit_videos/delete/" method="POST" id="delForm">
                         <input type="hidden" value="0" id="del_id" name="del_id">
                         <input type="submit" class="btn btn-primary" value="Yes" style="cursor:pointer;">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>

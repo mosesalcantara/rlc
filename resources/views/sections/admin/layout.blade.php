@@ -104,7 +104,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSaleUnits"
                         aria-expanded="true" aria-controls="collapseProperties">
                         <i class="fas fa-fw fa-folder"></i>
-                        <span>Units For Sale</span>
+                        <span>For Sale</span>
                     </a>
                     <div id="collapseSaleUnits" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">

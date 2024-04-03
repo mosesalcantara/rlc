@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\SaleUnit;
 use App\Models\Property;
 use App\Models\Building;
 
@@ -15,16 +16,16 @@ class SaleController extends Controller
     }
 
     public function pre_selling(Request $request) {
-        $properties = Property::orderBy('properties.name')->where('sale_status', 'Pre-Selling')->get();
+        $sale_units = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->where('properties.sale_status', 'Pre-Selling')->orderBy('properties.name')->get();
 
-        foreach ($properties as $property) {
-            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
-                        ->where('properties.id', $property['id'])->get();
-            $property['picture'] = $record[0]->picture;
+        foreach ($sale_units as $sale_unit) {
+            $record = SaleUnit::join('sale_snapshots', 'sale_units.id', '=', 'sale_snapshots.sale_unit_id')
+                        ->where('sale_units.id', $sale_unit['id'])->get();
+            $sale_unit['snapshot'] = $record[0]->picture;
         }
 
         $data = [
-            'properties' => $properties,
+            'sale_units' => $sale_units,
         ];
 
         return view("pages.sale.pre_selling")->with('data', $data);
