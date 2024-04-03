@@ -11,6 +11,6 @@ class SaleSnapshot extends Model
 
     protected $fillable = [
         'picture',
-        'residential_unit_id',
+        'sale_unit_id',
     ];
 }

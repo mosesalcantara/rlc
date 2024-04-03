@@ -11,6 +11,6 @@ class SaleUnitVideo extends Model
 
     protected $fillable = [
         'video',
-        'residential_unit_id',
+        'sale_unit_id',
     ];
 }

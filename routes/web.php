@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\BuildingController;
 use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\SaleUnitController;
+use App\Http\Controllers\Admin\SaleSnapshotController;
+use App\Http\Controllers\Admin\SaleUnitVideoController;
 use App\Http\Controllers\Admin\ResidentialUnitController;
 use App\Http\Controllers\Admin\SnapshotController;
 use App\Http\Controllers\Admin\UnitVideoController;
@@ -171,6 +173,26 @@ Route::prefix('admin/sale')->group(function () {
     Route::post('/edit', [SaleUnitController::class, 'edit']);
     Route::post('/update', [SaleUnitController::class, 'update']);
     Route::post('/delete', [SaleUnitController::class, 'delete']);
+});
+
+Route::prefix('admin/sale_snapshots')->group(function () {
+    Route::get('/', [SaleSnapshotController::class, 'index']);
+    Route::post('/', [SaleSnapshotController::class, 'get_all']);
+    Route::post('/get-related', [SaleSnapshotController::class, 'get_related']);
+    Route::post('/add', [SaleSnapshotController::class, 'create']);
+    Route::post('/edit', [SaleSnapshotController::class, 'edit']);
+    Route::post('/update', [SaleSnapshotController::class, 'update']);
+    Route::post('/delete', [SaleSnapshotController::class, 'delete']);
+});
+
+Route::prefix('admin/sale_unit_videos')->group(function () {
+    Route::get('/', [SaleUnitVideoController::class, 'index']);
+    Route::post('/', [SaleUnitVideoController::class, 'get_all']);
+    Route::post('/get-related', [SaleUnitVideoController::class, 'get_related']);
+    Route::post('/add', [SaleUnitVideoController::class, 'create']);
+    Route::post('/edit', [SaleUnitVideoController::class, 'edit']);
+    Route::post('/update', [SaleUnitVideoController::class, 'update']);
+    Route::post('/delete', [SaleUnitVideoController::class, 'delete']);
 });
 
 Route::prefix('admin/residential')->group(function () {
