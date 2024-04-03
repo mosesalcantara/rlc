@@ -28,8 +28,6 @@ class PropertyController extends Controller
             'location'=>'required',
             'description'=>'required',
             'sale_status'=>'required',
-            'min_price'=>'required|numeric',
-            'max_price'=>'required|numeric',
         ]);
 
         $record = new Property;
@@ -46,9 +44,6 @@ class PropertyController extends Controller
         $record->location = $request->location;
         $record->description = $request->description;
         $record->sale_status = $request->sale_status;
-        $record->min_price = $request->min_price;
-        $record->max_price = $request->max_price;
-        $record->unit_types = $request->unit_types;
         $record->save();
 
         return response(['msg' => 'Added Property']);
@@ -70,10 +65,7 @@ class PropertyController extends Controller
             'location'=>'required',
             'description'=>'required',
             'sale_status'=>'required',
-            'min_price'=>'required|numeric',
-            'max_price'=>'required|numeric',
         ]);
-
 
         $record = Property::find($request->upd_id);
 
@@ -89,9 +81,6 @@ class PropertyController extends Controller
                 'location' => $request->location,
                 'description' => $request->description,
                 'sale_status' => $request->sale_status,
-                'min_price' => $request->min_price,
-                'max_price' => $request->max_price,
-                'unit_types' => $request->unit_types,
             ]);    
         }
         else {
@@ -100,9 +89,6 @@ class PropertyController extends Controller
                 'location' => $request->location,
                 'description' => $request->description,
                 'sale_status' => $request->sale_status,
-                'min_price' => $request->min_price,
-                'max_price' => $request->max_price,
-                'unit_types' => $request->unit_types,
             ]);  
         }
 
