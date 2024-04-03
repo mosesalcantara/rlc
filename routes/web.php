@@ -54,13 +54,11 @@ Route::get('/test', [PageController::class, 'test']);
 
 Route::get('/for-sale', [SaleController::class, 'sale']);
 
-Route::get('/for-sale/category/pre-selling', [SaleController::class, 'pre_selling']);
-Route::get('/for-sale/category/rfo', [SaleController::class, 'rfo']);
-
-Route::post('/for-sale/search', [SaleController::class, 'search']);
-
+Route::get('/for-sale/category/{sale_status}', [SaleController::class, 'units']);
+Route::get('/for-sale/category/{sale_status}/{id}', [SaleController::class, 'unit']);
 Route::get('/for-sale/property/{id}', [SaleController::class, 'property']);
 
+Route::post('/for-sale/search', [SaleController::class, 'search']);
 Route::post('/for-sale/get-filters', [SaleController::class, 'get_filters']);
 
 Route::get('/for-lease', [LeaseController::class, 'lease']);

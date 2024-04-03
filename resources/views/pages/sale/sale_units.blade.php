@@ -5,7 +5,7 @@
 @section('links')
     @parent
 
-    <link rel="stylesheet" href="{{ asset('css/pages/pre_selling.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/sale_units.css') }}">
 @endsection
 
 @section('navbar')
@@ -13,11 +13,10 @@
 @endsection
 
 @section('content')
-    {{-- {{ dd($data['properties']) }} --}}
     <div class="container-fluid">
         <div class="row">
             <div class="col title">
-                <h1>Pre-Selling Units For You</h1>
+                <h1>{{ $data['sale_status'] == 'pre-selling' ? 'Pre-Selling Units For You' : 'RFO Units For You' }}</h1>
             </div>
         </div>
     </div>
@@ -120,7 +119,7 @@
                             </div>
                         </div>
                         <div class="card-footer border-0">
-                            <a class="btn btn-warning" href="">VIEW UNIT</a>
+                            <a class="btn btn-warning" href="/for-sale/category/{{ $data['sale_status'] }}/{{ $sale_unit['id'] }}">VIEW UNIT</a>
                         </div>
                     </div>
                 </div>
@@ -141,5 +140,5 @@
 @section('scripts')
     @parent
 
-    <script src="{{ asset('js/pages/pre_selling.js') }}"></script>
+    <script src="{{ asset('js/pages/sale_units.js') }}"></script>
 @endsection

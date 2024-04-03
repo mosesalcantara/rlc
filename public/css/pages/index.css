@@ -161,7 +161,8 @@
 
 .videos iframe {
     width: 45%;
-    height: 50vh;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
     border-radius: 0.5rem;
 }
 
@@ -312,7 +313,6 @@
 
     .videos iframe {
         width: 100%;
-        height: 53%;
         border-radius: 0rem;
     }
 

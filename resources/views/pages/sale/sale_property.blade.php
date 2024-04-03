@@ -64,11 +64,11 @@
                 <div class="row rates_types">
                     <div class="col-xxl col-12 rates text-xxl-start text-center">
                         <h5>Price Range</h5>
-                        <h5>{{ $data['property']['min_price'] }}M - {{ $data['property']['max_price'] }}M</h5>
+                        <h5>PHP{{ $data['property']['min'] }}M - PHP{{ $data['property']['max'] }}M</h5>
                     </div>
                     <div class="col-xxl col-12 types text-xxl-start text-center">
                         <h5>Unit Types</h5>
-                        <h5>{{ $data['property']['unit_types'] }}</h5>
+                        <h5>{{ $data['property']['types'] }}</h5>
                     </div>
                 </div>
                 <div class="row">

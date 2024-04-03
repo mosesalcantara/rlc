@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\SaleUnit;
 use App\Models\Property;
 use App\Models\Building;
+use App\Models\SaleSnapshot;
+use App\Models\SaleUnitVideo;
 
 class SaleController extends Controller
 {
@@ -15,8 +17,15 @@ class SaleController extends Controller
         return view("pages.sale.index");
     }
 
-    public function pre_selling(Request $request) {
-        $sale_units = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->where('properties.sale_status', 'Pre-Selling')->orderBy('properties.name')->get();
+    public function units(Request $request) {
+        $sale_status = $request->sale_status;
+        $where = [
+            'sale_status' => '',
+        ];
+
+        $sale_status == 'pre-selling' ? $where['sale_status'] = 'Pre-Selling' : $where['sale_status'] = 'RFO';
+
+        $sale_units = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->where($where)->orderBy('properties.name')->get();
 
         foreach ($sale_units as $sale_unit) {
             $record = SaleUnit::join('sale_snapshots', 'sale_units.id', '=', 'sale_snapshots.sale_unit_id')
@@ -26,25 +35,98 @@ class SaleController extends Controller
 
         $data = [
             'sale_units' => $sale_units,
+            'sale_status' => $sale_status,
         ];
-
-        return view("pages.sale.pre_selling")->with('data', $data);
+        
+        return view("pages.sale.sale_units")->with('data', $data);
     }
 
-    public function rfo(Request $request) {
-        $properties = Property::orderBy('properties.name')->where('sale_status', 'RFO')->get();
+    public function unit(Request $request) {
+        $sale_status = $request->sale_status;
 
-        foreach ($properties as $property) {
-            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
-                        ->where('properties.id', $property['id'])->get();
-            $property['picture'] = $record[0]->picture;
+        $sale_unit = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->join('pictures', 'properties.id', '=', 'pictures.property_id')
+                        ->where('sale_units.id', $request->id)->get();
+        $sale_unit = $sale_unit[0];
+
+        $record = Building::where('id', $sale_unit['building_id'])->get();
+        $sale_unit['building'] = $record[0]['name'];
+
+        $records = SaleSnapshot::all()->where('sale_unit_id', $request->id);
+        $snapshots = [];
+
+        foreach ($records as $snapshot) {
+            array_push($snapshots, $snapshot['picture']);
         }
+        $sale_unit['snapshots'] = $snapshots;
+
+        $records = SaleUnitVideo::all()->where('sale_unit_id', $request->id);
+        $unit_videos = [];
+
+        foreach ($records as $unit_video) {
+            array_push($unit_videos, $unit_video['video']);
+        }
+        $sale_unit['unit_videos'] = $unit_videos;
+
+        $records = Property::select('amenities.id', 'amenities.name', 'amenities.type', 'amenities.picture')
+                    ->join('amenities', 'properties.id', '=', 'amenities.property_id')->where('properties.id', $sale_unit['property_id'])->get();
+        $amenities = [];
+
+        foreach ($records as $amenity) {
+            array_push($amenities, $amenity);
+        }
+        $sale_unit['amenities'] = $amenities;
 
         $data = [
-            'properties' => $properties,
+            'sale_unit' => $sale_unit,
+            'sale_status' => $sale_status,
         ];
+        return view('pages.sale.sale_unit')->with('data', $data);
+    }
 
-        return view("pages.sale.rfo")->with('data', $data);
+    public function property(Request $request) {
+        $property = Property::where('id', $request->id)->get();
+        $property = $property[0];
+
+        $records = Property::select('pictures.picture')->join('pictures', 'properties.id', '=', 'pictures.property_id')
+                    ->where('properties.id', $request->id)->get();
+        $pictures = [];
+        foreach ($records as $record) {
+            array_push($pictures, $record->picture);
+        }
+        $property['pictures'] = $pictures;
+
+        $record = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->distinct('sale_units.type')->where('properties.id', $request->id)->get();
+        $types = '';
+        foreach ($record as $item) {
+            $types .= ' ' . $item['type'];
+        }
+        $property['types'] = $types;
+
+        $min = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->where('properties.id', $request->id)->min('sale_units.price');
+        $property['min'] = $min;
+        $max = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->where('properties.id', $request->id)->max('sale_units.price');
+        $property['max'] = $max;
+
+        $records = Property::select('amenities.id', 'amenities.name', 'amenities.type', 'amenities.picture')
+                    ->join('amenities', 'properties.id', '=', 'amenities.property_id')->where('properties.id', $request->id)->get();
+        $indoor = [];
+        $outdoor = [];
+
+        foreach ($records as $amenity) {
+            if ($amenity->type == 'Indoor') {
+                array_push($indoor, $amenity);
+            }
+            else {
+                array_push($outdoor, $amenity);
+            }
+        }
+        $property['indoor'] = $indoor;
+        $property['outdoor'] = $outdoor;
+
+        $data = [
+            'property' => $property,
+        ];
+        return view('pages.sale.sale_property')->with('data', $data);
     }
 
     public function search(Request $request) {
@@ -79,40 +161,6 @@ class SaleController extends Controller
                 return view("pages.sale.rfo")->with('data', $data);
             }
         }
-    }
-
-    public function property(Request $request) {
-        $property = Property::where('id', $request->id)->get();
-        $property = $property[0];
-
-        $records = Property::select('pictures.picture')->join('pictures', 'properties.id', '=', 'pictures.property_id')
-                    ->where('properties.id', $request->id)->get();
-        $pictures = [];
-        foreach ($records as $record) {
-            array_push($pictures, $record->picture);
-        }
-        $property['pictures'] = $pictures;
-
-        $records = Property::select('amenities.id', 'amenities.name', 'amenities.type', 'amenities.picture')
-                    ->join('amenities', 'properties.id', '=', 'amenities.property_id')->where('properties.id', $request->id)->get();
-        $indoor = [];
-        $outdoor = [];
-
-        foreach ($records as $amenity) {
-            if ($amenity->type == 'Indoor') {
-                array_push($indoor, $amenity);
-            }
-            else {
-                array_push($outdoor, $amenity);
-            }
-        }
-        $property['indoor'] = $indoor;
-        $property['outdoor'] = $outdoor;
-
-        $data = [
-            'property' => $property,
-        ];
-        return view('pages.sale.sale_property')->with('data', $data);
     }
 
     public function get_filters(Request $request) {
