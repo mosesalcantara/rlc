@@ -1,9 +1,6 @@
-.title_div {
-    margin-top: 10vh;
-}
-
 .title {
     width: 100%;
+    padding: 10vh 5vw 0;
 } 
 
 .title h1 {

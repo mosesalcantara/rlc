@@ -61,8 +61,8 @@ function get_filters(sale_status) {
 
             $('#location').append(ul)
         },
-        error: function (xhr, status, error) {
-            console.log(xhr)
+        error: function (res) {
+
         },
     })  
 }

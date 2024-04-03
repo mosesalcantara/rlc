@@ -16,7 +16,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col title">
-                <h1>{{ $data['sale_status'] == 'pre-selling' ? 'Pre-Selling Units For You' : 'RFO Units For You' }}</h1>
+                <h1>{{ strtolower($data['sale_status']) == 'pre-selling' ? 'Pre-Selling Units For You' : 'RFO Units For You' }}</h1>
             </div>
         </div>
     </div>
@@ -93,10 +93,10 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row properties">
+        <div class="row units">
             @if (count($data['sale_units']) > 0)
             @foreach ($data['sale_units'] as $sale_unit)
-                <div class="col-xxl-4 property">
+                <div class="col-xxl-4 unit">
                     <div class="card">
                         <img class='card-img-top' src="{{ asset('uploads/sale_units/snapshots') }}/{{ $sale_unit['snapshot'] }}" alt="">
                         <div class="card-body details">
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                         <div class="card-footer border-0">
-                            <a class="btn btn-warning" href="/for-sale/category/{{ $data['sale_status'] }}/{{ $sale_unit['id'] }}">VIEW UNIT</a>
+                            <a class="btn btn-warning" href="/for-sale/category/{{ $sale_unit['sale_status'] }}/{{ $sale_unit['id'] }}">VIEW UNIT</a>
                         </div>
                     </div>
                 </div>

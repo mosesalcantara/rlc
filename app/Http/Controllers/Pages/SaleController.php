@@ -133,33 +133,29 @@ class SaleController extends Controller
         $where = [
             ['properties.sale_status', $request['sale_status']],
             ['properties.location', $request['location']],
-            ['properties.unit_types', 'LIKE', '%'.$request['unit_type'].'%'],
-            ['properties.min_price', '>=', $request['min_price']],
-            ['properties.max_price', '<=', $request['max_price']],
+            ['sale_units.type', $request['unit_type']],
+            ['sale_units.price', '>=', $request['min_price']],
+            ['sale_units.price', '<=', $request['max_price']],
         ];
 
-        $properties = Property::orderBy('properties.name')->where($where)->get();
+        $sale_units = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->where($where)->get();
 
-        foreach ($properties as $property) {
-            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
-                        ->where('properties.id', $property['id'])->get();
-            $property['picture'] = $record[0]->picture;
+        foreach ($sale_units as $sale_unit) {
+            $record = SaleUnit::join('sale_snapshots', 'sale_units.id', '=', 'sale_snapshots.sale_unit_id')
+                        ->where('sale_units.id', $sale_unit['id'])->get();
+            $sale_unit['snapshot'] = $record[0]->picture;
         }
 
         $data = [
-            'properties' => $properties,
+            'sale_units' => $sale_units,
+            'sale_status' => $request['sale_status'],
         ];
         
         if ($request['origin'] == 'pre_selling_page' || $request['origin'] == 'rfo_page') {
             return response()->json($data);
         }
         else {
-            if ($request['sale_status'] == 'Pre-Selling') {
-                return view("pages.sale.pre_selling")->with('data', $data);
-            }
-            else if ($request['sale_status'] == 'RFO') {
-                return view("pages.sale.rfo")->with('data', $data);
-            }
+            return view("pages.sale.sale_units")->with('data', $data);
         }
     }
 

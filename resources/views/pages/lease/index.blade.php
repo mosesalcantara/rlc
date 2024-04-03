@@ -13,7 +13,7 @@
 @endsection
  
 @section('content')
-    <div class="container-fluid title_div">
+    <div class="container-fluid">
         <div class="row title">
             <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-start text-center">
                 <h1>RLC Residences Properties</h1>

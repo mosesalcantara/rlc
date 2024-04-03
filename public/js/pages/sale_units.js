@@ -29,12 +29,12 @@ $(document).ready( function () {
         var max_price = words[3].replace('M', '')
 
         var data = {
-            'sale_status': 'Pre-Selling',
+            'sale_status': title,
             'location': $('#location button h6').html(),
             'unit_type': $('#unit_type button h6').html(),
             'min_price': min_price,
             'max_price': max_price,
-            'origin': 'pre_selling_page',
+            'origin': origin,
         }
 
         $.ajax({
@@ -42,13 +42,13 @@ $(document).ready( function () {
             url: "/for-sale/search",
             data: data,
             success: function (res) {
-                var properties = res.properties
-                var properties_div = $('.properties')
-                properties_div.empty()
+                var units = res.sale_units
+                var units_div = $('.units')
+                units_div.empty()
 
-                $.each(properties, function(row, field) {
-                    var property_html = `                
-                                        <div class="col-xxl-4 property">
+                $.each(units, function(row, field) {
+                    var unit_html = `                
+                                        <div class="col-xxl-4 unit">
                                             <div class="card">
                                                 <img class='card-img-top' src="/uploads/sale_units/snapshots/${field.snapshot}" alt="">
                                                 <div class="card-body details">
@@ -71,27 +71,33 @@ $(document).ready( function () {
                                                     </div>
                                                 </div>
                                                 <div class="card-footer border-0">
-                                                    <a class="btn btn-warning" href="">VIEW UNIT</a>
+                                                    <a class="btn btn-warning" href="/for-sale/category/${field.sale_status}/${field.id}">VIEW UNIT</a>
                                                 </div>
                                             </div>
                                         </div>
                                         `
 
-                    properties_div.append(property_html)
+                    units_div.append(unit_html)
                 })
             },
             error: function (res) {
-                console.log(res)
+
             },
         })  
     })
 })
 
+var title = $('.title h1').html()
+title = title.split(' ')[0]
+
+var origin = ''
+title == 'Pre-Selling' ? origin = 'pre_selling_page' : origin = 'rfo_page'
+
 function get_filters() {
     $.ajax({
         type: 'POST',
         url: "/for-sale/get-filters",
-        data: {'sale_status': 'Pre-Selling'},
+        data: {'sale_status': title},
         success: function (res) {
             // console.log(res)
             var records = res.records

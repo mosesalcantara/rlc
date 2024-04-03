@@ -48,16 +48,16 @@
     border-radius: 1rem;
 }
 
-.properties {
+.units {
     margin: 0rem 5rem 0.5rem;
 }
 
-.property .card {
+.unit .card {
     border-radius: 1rem;
     margin: 1.5rem;
 }
 
-.property img {
+.unit img {
     border-radius: 1rem;
 }
 
@@ -85,7 +85,7 @@
     margin-left: 1vw;
 }
 
-.property a {
+.unit a {
     text-decoration: none;
     color: white;
     font-size: 1rem;
@@ -111,7 +111,7 @@
         margin-left: 0.5rem;
     }
 
-    .properties {
+    .units {
         margin: 0rem 0.5rem 0.5rem;
     }
 }
