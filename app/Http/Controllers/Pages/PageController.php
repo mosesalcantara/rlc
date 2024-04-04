@@ -9,6 +9,7 @@ use Mail;
 use App\Mail\InquiryMail;
 
 use App\Models\Property;
+use App\Models\Amenity;
 use App\Models\Video;
 use App\Models\ResidentialUnit;
 use App\Models\ContactItem;
@@ -29,7 +30,12 @@ class PageController extends Controller
     }
 
     public function test() {
-        return view('pages.test');
+        $amenities = Property::first();
+        $amenities = $amenities->amenities;
+        $data = [
+            'amenities' => $amenities,
+        ];
+        return view('pages.test')->with('data', $data);
     }
 
     public function index() {

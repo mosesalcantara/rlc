@@ -15,9 +15,8 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            {{-- {{ dd($data['sale_unit']) }} --}}
             <div class="col title">
-                <h1>{{ $data['sale_status'] == 'pre-selling' ? 'Pre-Selling Units For You' : 'RFO Units For You' }}</h1>
+                <h1>{{ strtolower($data['sale_status']) == 'pre-selling' ? 'Pre-Selling Units For You' : 'RFO Units For You' }}</h1>
             </div>
         </div>
     </div>
@@ -41,7 +40,7 @@
                         </div>
                     </div>
                     <div class="col-xxl-4">
-                        <div class="dropdown" id='type'>
+                        <div class="dropdown" id='unit_type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
@@ -62,11 +61,11 @@
                         </div>
                     </div>
                     <div class="col-xxl-4">
-                        <div class="dropdown" id='rate'>
+                        <div class="dropdown" id='price_range'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
-                                        <h6>Rental Rate</h6>
+                                        <h6>Price Range</h6>
                                     </div>
                                     <div class="col-2 d-flex justify-content-end align-items-center">
                                         <i class="fa-solid fa-chevron-right"></i>
@@ -74,11 +73,11 @@
                                 </div>
                             </button>
                             <ul class='dropdown-menu'>
-                                <li><h6 class="dropdown-item">PHP 0.00 - 16,000.00</h6></li>
-                                <li><h6 class="dropdown-item">PHP 16,000.00 - 32,000.00</h6></li>
-                                <li><h6 class="dropdown-item">PHP 32,000.00 - 48,000.00</h6></li>
-                                <li><h6 class="dropdown-item">PHP 48,000.00 - 64,000.00</h6></li>
-                                <li><h6 class="dropdown-item">PHP 64,000.00 - 80,000.00</h6></li>
+                                <li><h6 class="dropdown-item">PHP 0M - 20M</h6></li>
+                                <li><h6 class="dropdown-item">PHP 20M - 40M</h6></li>
+                                <li><h6 class="dropdown-item">PHP 40M - 60M</h6></li>
+                                <li><h6 class="dropdown-item">PHP 60M - 80M</h6></li>
+                                <li><h6 class="dropdown-item">PHP 80M - 100M</h6></li>
                             </ul>
                         </div>
                     </div>
@@ -92,13 +91,14 @@
             </div>
         </div>
 
-        <form action="" method="POST" class="d-none" id='search_form'>
+        <form action="/for-sale/search" method="POST" class="d-none" id='search_form'>
             @csrf
+            <input type="hidden" name='sale_status' value=''>
             <input type="hidden" name='location' value=''>
-            <input type="hidden" name='type' value=''>
-            <input type="hidden" name='min_rate' value=''>
-            <input type="hidden" name='max_rate' value=''>
-            <input type="hidden" name='origin' value='residential_unit_page'>
+            <input type="hidden" name='unit_type' value=''>
+            <input type="hidden" name='min_price' value=''>
+            <input type="hidden" name='max_price' value=''>
+            <input type="hidden" name='origin' value='sale_unit_page'>
         </form>
     </div>
 

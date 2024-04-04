@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-use App\Models\ResidentialUnit;
+use App\Models\Amenity;
 
 class Property extends Model
 {
@@ -23,8 +23,8 @@ class Property extends Model
         'unit_types',
     ];
 
-    public function residential_units(): HasMany
+    public function amenities(): HasMany
     {
-        return $this->hasMany(ResidentialUnit::class);
+        return $this->hasMany(Amenity::class);
     }
 }

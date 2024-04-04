@@ -29,12 +29,12 @@ $(document).ready( function () {
         var max_price = words[3].replace('M', '')
 
         var data = {
-            'sale_status': title,
+            'sale_status': sale_status,
             'location': $('#location button h6').html(),
             'unit_type': $('#unit_type button h6').html(),
             'min_price': min_price,
             'max_price': max_price,
-            'origin': origin,
+            'origin': 'sale_units_page',
         }
 
         $.ajax({
@@ -66,7 +66,7 @@ $(document).ready( function () {
                                                             <h6>${field.unit_id}</h6>
                                                             <h6>${field.type}</h6>
                                                             <h6>PHP ${field.price}M</h6>
-                                                            <h6>${field.area}</h6>
+                                                            <h6>${field.area} SQM</h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -87,17 +87,14 @@ $(document).ready( function () {
     })
 })
 
-var title = $('.title h1').html()
-title = title.split(' ')[0]
-
-var origin = ''
-title == 'Pre-Selling' ? origin = 'pre_selling_page' : origin = 'rfo_page'
+var sale_status = $('.title h1').html()
+sale_status = sale_status.split(' ')[0]
 
 function get_filters() {
     $.ajax({
         type: 'POST',
         url: "/for-sale/get-filters",
-        data: {'sale_status': title},
+        data: {'sale_status': sale_status},
         success: function (res) {
             // console.log(res)
             var records = res.records
@@ -110,8 +107,8 @@ function get_filters() {
 
             $('#location').append(ul)
         },
-        error: function (xhr, status, error) {
-            console.log(xhr)
+        error: function (res) {
+
         },
     })  
 }

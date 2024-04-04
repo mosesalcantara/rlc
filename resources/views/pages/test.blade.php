@@ -7,8 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <p style="font-size: 1rem;">Test</p>
-    <p style="font-size: 2rem;">Test</p>
-    <h1 style="font-size: 2rem;">Test</h1>
+    {{ dd($data) }}
 </body>
 </html>

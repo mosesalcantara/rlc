@@ -151,7 +151,7 @@ class SaleController extends Controller
             'sale_status' => $request['sale_status'],
         ];
         
-        if ($request['origin'] == 'pre_selling_page' || $request['origin'] == 'rfo_page') {
+        if ($request['origin'] == 'sale_units_page') {
             return response()->json($data);
         }
         else {
