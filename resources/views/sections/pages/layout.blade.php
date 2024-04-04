@@ -52,26 +52,43 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::url() == url('/') ? 'active' : '' }}" href="/">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ str_contains(Request::url(), '/for-sale') ? 'active' : '' }}" href="/for-sale">For Sale</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ str_contains(Request::url(), '/for-lease') ? 'active' : '' }}" href="/for-lease">For Lease</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link {{ in_array(Request::url(), [ url('/for-sale'), url('/for-lease') ]) ? 'active' : '' }} dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Units
+                                  </a>
+                                <ul class="dropdown-menu" id='unit_drop'>
+                                    <li><a class="dropdown-item" href="/for-sale">For Sale</a></li>
+                                    <li><a class="dropdown-item" href="/for-lease">For Lease</a></li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::url() == url('/compare') ? 'active' : '' }}" href="/compare">Compare Properties</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::url() == url('/contact-us') ? 'active' : '' }}" href="/contact-us">Contact Us</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link {{ Request::url() == url('/contact-us') ? 'active' : '' }} dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Contact Us
+                                </a>
+                                <ul class="dropdown-menu" id='contact_drop'>
+                                  <li><a class="dropdown-item" href="/contact-us">Send Inquiry</a></li>
+                                  <li><a class="dropdown-item" id='mobile' href=''>
+                                        <i class="fa-solid fa-mobile-screen-button"></i>
+                                        <p>Mobile</p>
+                                      </a>
+                                  </li>
+                                  <li><a class="dropdown-item" id='messenger' href='' target='_blank'>
+                                        <i class="fa-brands fa-facebook-messenger"></i>
+                                        <p>Messenger</p>
+                                      </a>
+                                  </li>
+                                  <li><a class="dropdown-item" id='telegram' href='' target='_blank'>
+                                        <i class="fa-brands fa-telegram"></i>
+                                        <p>Telegram</p>
+                                      </a>
+                                  </li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::url() == url('/about-us') ? 'active' : '' }}" href="/about-us">About Us</a>
-                            </li>
-                            
-                            <li class="contact_btns d-flex align-items-center justify-content-center">
-                                <a class="fa-solid fa-mobile-screen-button" id='mobile' href='' ></a>
-                                <a class="fa-brands fa-facebook-messenger" id='messenger' href='' target='_blank'></a>
-                                <a class="fa-brands fa-telegram" id='telegram' href='' target='_blank'></a>
                             </li>
                         </ul>
                     </div>
