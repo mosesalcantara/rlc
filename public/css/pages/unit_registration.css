@@ -46,7 +46,7 @@
     margin-bottom: 0.3vh;
 }
 
-.form_btn {
+.prev_btn, .next_btn, .submit_btn {
     padding: 1vh 1vw;
 }
 

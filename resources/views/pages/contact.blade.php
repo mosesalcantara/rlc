@@ -1,6 +1,6 @@
 @extends('sections.pages.layout')
 
-@section('title', 'Compare Properties')
+@section('title', 'Contact Us')
  
 @section('links')
     @parent
@@ -45,7 +45,6 @@
                                 <option>Residential</option>
                                 <option>Commercial</option>
                                 <option>Parking</option>
-                                <option>Unit Registration</option>
                             </select>
                         </div>
                     </div>

@@ -114,6 +114,21 @@ class PageController extends Controller
         return redirect('/contact-us');
     }
 
+    public function unit_registration() {
+        $contact_items = ContactItem::all()->sortByDesc('updated_at')->take(1);
+        $properties = Property::all();
+
+        $data = [
+            'contact_items' => $contact_items[0],
+            'properties' => $properties,
+        ];
+        return view('pages.unit_registration')->with('data', $data);
+    }
+
+    public function register_unit(Request $request) {
+        echo 1;
+    }
+
     public function about() {
         $about = AboutItem::all()->sortByDesc('updated_at')->take(1);
         $about = $about[0];

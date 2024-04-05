@@ -56,7 +56,7 @@
                                 <a class="nav-link {{ in_array(Request::url(), [ url('/for-sale'), url('/for-lease') ]) ? 'active' : '' }} dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Units
                                   </a>
-                                <ul class="dropdown-menu" id='unit_drop'>
+                                <ul class="dropdown-menu unit_drop">
                                     <li><a class="dropdown-item" href="/for-sale">For Sale</a></li>
                                     <li><a class="dropdown-item" href="/for-lease">For Lease</a></li>
                                 </ul>
@@ -70,6 +70,7 @@
                                 </a>
                                 <ul class="dropdown-menu" id='contact_drop'>
                                   <li><a class="dropdown-item" href="/contact-us">Send Inquiry</a></li>
+                                  <li><a class="dropdown-item" href="unit-registration">Unit Registration</a></li>
                                   <li><a class="dropdown-item" id='mobile' href=''>
                                         <i class="fa-solid fa-mobile-screen-button"></i>
                                         <p>Mobile</p>
@@ -110,14 +111,6 @@
                         <a href="/contact-us">Contact Us</a>
                         <a href="/about-us">About Us</a>
                     </div>
-                    {{-- <div class="col">
-                        <h3>RLC Residences</h3>
-                        <a href="">About Us</a>
-                        <a href="">Testimonials</a>
-                        <a href="">Careers</a>
-                        <a href="">Awards</a>
-                        <a href="">Privacy Policy</a>
-                    </div> --}}
                     <div class="col-xxl-3 offset-xxl-1 contacts">
                         <h3>Talk to Us</h3>
                         <p>

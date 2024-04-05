@@ -1,6 +1,6 @@
 @extends('sections.pages.layout')
 
-@section('title', 'Compare Properties')
+@section('title', 'About Us')
  
 @section('links')
     @parent

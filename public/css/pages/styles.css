@@ -42,8 +42,12 @@ body {
     padding: .7rem 0;
 }
 
-#unit_drop, #contact_drop {
+.unit_drop, #contact_drop {
     padding: 0.5rem 1rem 0.5rem;
+}
+
+#contact_drop a {
+    font-size: 1rem;
 }
 
 #contact_drop i, #contact_drop p {

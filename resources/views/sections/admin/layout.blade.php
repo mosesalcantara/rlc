@@ -67,7 +67,6 @@
                             <a class="collapse-item" href="/admin/reviews">Reviews</a>
                             <h6 class="collapse-header">Contact Us Page</h6>
                             <a class="collapse-item" href="/admin/contact">Items</a>
-                            <a class="collapse-item" href="/admin/inquiry_emails">Inquiry Emails</a>
                             <h6 class="collapse-header">About Us Page</h6>
                             <a class="collapse-item" href="/admin/about">Items</a>
                             <a class="collapse-item" href="/admin/articles">Articles</a>
@@ -102,7 +101,7 @@
 
                 <li class="nav-item {{ in_array(Request::url(), [ url('/admin/sale'), url('/admin/sale_snapshots'), url('/admin/sale_unit_videos') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSaleUnits"
-                        aria-expanded="true" aria-controls="collapseProperties">
+                        aria-expanded="true" aria-controls="collapseSaleUnits">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>For Sale</span>
                     </a>
@@ -117,7 +116,7 @@
 
                 <li class="nav-item {{ in_array(Request::url(), [ url('/admin/residential'), url('/admin/snapshots'), url('/admin/unit_videos') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResidential"
-                        aria-expanded="true" aria-controls="collapseProperties">
+                        aria-expanded="true" aria-controls="collapseResidential">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Residential Units</span>
                     </a>
@@ -132,7 +131,7 @@
 
                 <li class="nav-item {{ Request::url() == url('/admin/commercial') ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCommercial"
-                        aria-expanded="true" aria-controls="collapseProperties">
+                        aria-expanded="true" aria-controls="collapseCommercial">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Commercial Units</span>
                     </a>
@@ -145,7 +144,7 @@
 
                 <li class="nav-item {{ in_array(Request::url(), [ url('/admin/parking'), url('/admin/terms') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseParking"
-                        aria-expanded="true" aria-controls="collapseProperties">
+                        aria-expanded="true" aria-controls="collapseParking">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Parking Slots</span>
                     </a>
@@ -153,6 +152,19 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="/admin/parking">Slots</a>
                             <a class="collapse-item" href="/admin/terms">Terms</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/inquiry_emails') ]) ? 'active' : '' }}">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInquiry"
+                        aria-expanded="true" aria-controls="collapseInquiry">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Inquiry</span>
+                    </a>
+                    <div id="collapseInquiry" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="/admin/inquiry_emails">Inquiry Emails</a>
                         </div>
                     </div>
                 </li>
