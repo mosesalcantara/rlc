@@ -22,7 +22,7 @@ $(document).ready( function () {
             error: function (xhr, status, error) {
 
             },
-          })    
+        })    
     })
 
     $("#add_property_id").on( "change", function() {
@@ -45,7 +45,7 @@ $(document).ready( function () {
 
             },
         })    
-    });
+    })
 
     $('#addModal').on('hide.bs.modal', function(e) {
         $('#add_property_id').empty()

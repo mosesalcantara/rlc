@@ -49,6 +49,7 @@ Route::get('/contact-us', [PageController::class, 'contact']);
 Route::post('/contact-us', [PageController::class, 'send_inquiry']);
 Route::get('/unit-registration', [PageController::class, 'unit_registration']);
 Route::post('/unit-registration', [PageController::class, 'register_unit']);
+Route::post('/unit-registration/related-buildings', [PageController::class, 'related_buildings']);
 
 Route::get('/about-us', [PageController::class, 'about']);
 

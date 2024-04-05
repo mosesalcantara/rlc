@@ -11,6 +11,7 @@ use App\Mail\InquiryMail;
 use App\Models\Property;
 use App\Models\Amenity;
 use App\Models\Video;
+use App\Models\SaleUnit;
 use App\Models\ResidentialUnit;
 use App\Models\ContactItem;
 use App\Models\InquiryEmail;
@@ -126,7 +127,30 @@ class PageController extends Controller
     }
 
     public function register_unit(Request $request) {
-        echo 1;
+        $reg_type = $request->registration_type;
+        $record = $reg_type == 'For Sale' ? new SaleUnit : new ResidentialUnit;
+
+        $record->unit_id = $request->unit_id;
+        $record->type = $request->type;
+        $record->area = $request->area;
+        if ($reg_type == 'For Sale') { $record->price =  $request->price; }
+        else { $record->rate =  $request->price; }
+        $record->status = $request->status;
+        $record->property_id = $request->property_id;
+        $record->building_id = $request->building_id;
+        $record->save();
+
+        return response(['msg' => 'Unit Registered']);
+    }
+
+    public function related_buildings(Request $request) {
+        $records = Property::join('buildings', 'properties.id', '=', 'buildings.property_id')->where('properties.id', $request->property_id)->get();
+
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
     }
 
     public function about() {

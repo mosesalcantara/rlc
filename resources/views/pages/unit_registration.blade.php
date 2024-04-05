@@ -34,8 +34,8 @@
                     <h3>{{ $data['contact_items']['subtitle'] }}</h3>
                 </div>
             </div>
-            <div class="col-xxl-5 contact_form">
-                <form action="/unit-registration" method="POST" enctype="multipart/form-data">
+            <div class="col-xxl-5 registration_div">
+                <form action="/unit-registration" method="POST" enctype="multipart/form-data" id='registration_form'>
                     @csrf
                     <div class="step-1">
                         <h4 class="text-center">Contact Details</h4>
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xxl-6">
+                                <div class="col-4">
                                     <label for="" class="form-label">Property*</label>
                                     <select class="form-select" name="property_id">
                                         @foreach ($data['properties'] as $property)
@@ -85,24 +85,25 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-xxl-6">
+                                <div class="col-4">
                                     <label for="" class="form-label">Building*</label>
                                     <select class="form-select" name="building_id">
                                     </select>
                                 </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col">
+                                <div class="col-4">
                                     <label for="" class="form-label">Unit ID*</label>
                                     <input class="form-control" type="text" name='unit_id'>
                                 </div>
+                            </div>
+
+                            <div class="row">
+
                             </div>
                         </div>
 
                         <div class="unit_details">
                             <div class="row">
-                                <div class="col-xxl-6">
+                                <div class="col-6">
                                     <label for="" class="form-label">Unit Type*</label>
                                     <select class="form-select" name="type">
                                         <option>1BR</option>
@@ -112,9 +113,9 @@
                                         <option>Studio</option>
                                     </select>
                                 </div>
-                                <div class="col-xxl-6">
+                                <div class="col-6">
                                     <label for="" class="form-label">Unit Status*</label>
-                                    <select class="form-select" name="type">
+                                    <select class="form-select" name="status">
                                         <option>Unfurnished</option>
                                         <option>Semi-furnished</option>
                                         <option>Fully Furnished</option>
@@ -122,11 +123,11 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xxl-6">
+                                <div class="col-6">
                                     <label for="" class="form-label">Area (sqm)*</label>
                                     <input class="form-control" type="text" name='area'>
                                 </div>
-                                <div class="col-xxl-6">
+                                <div class="col-6">
                                     <label for="" class="form-label">Price*</label>
                                     <input class="form-control" type="text" name='price'>
                                 </div>
@@ -158,7 +159,7 @@
                         <div class="row mt-3">
                             <div class="col">
                                 <button class="btn btn-primary prev_btn" type='button'>Previous</button>
-                                <button class="btn btn-primary submit_btn">Register</button>
+                                <input type="submit" class="btn btn-primary submit_btn" value="Register">
                             </div>
                         </div>
                     </div>

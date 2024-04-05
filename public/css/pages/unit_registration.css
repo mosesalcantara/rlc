@@ -33,7 +33,7 @@
     color: #000b8c;
 }
 
-.contact_form {
+.registration_div {
     background-color: #484848;
     border-radius: 1rem;
     opacity: 90%;
@@ -42,7 +42,7 @@
     margin-right: 5vw;
 }
 
-.contact_form form div {
+.registration_div div {
     margin-bottom: 0.3vh;
 }
 

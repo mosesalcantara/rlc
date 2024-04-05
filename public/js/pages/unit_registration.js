@@ -24,4 +24,46 @@ $(document).ready( function () {
         $(step_div).hide()
         prev_step.show()
     })
+
+    $("select[name=property_id]").val('')
+
+    $("select[name=property_id]").on( "change", function() {
+        $('select[name=building_id]').empty()
+
+        $.ajax({
+            url: "/unit-registration/related-buildings",
+            method: 'POST',
+            data: { 
+                'property_id': $('select[name=property_id]').val(),
+            },
+            success: function (res) {
+                var records = res.records
+                $.each(records, function(row, field) {
+                    var option = $('<option>').text(field.name).val(field.id)
+                    $('select[name=building_id]').append(option)
+                })
+            },
+            error: function (xhr, status, error) {
+
+            },
+        })    
+    })
+
+    $('#registration_form').on('submit', function(e) {
+        e.preventDefault()
+        $.ajax({
+          url: "/unit-registration",
+          method: 'POST',
+          data: new FormData(this),
+          contentType: false,
+          processData: false,
+          success: function (res) {
+            alert(res.msg)
+            $('.registration_form').trigger('reset')
+          },
+          error: function (res) {
+            console.log(res)
+          },
+        })   
+    })
 })
