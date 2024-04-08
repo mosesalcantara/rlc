@@ -122,7 +122,7 @@
                                     @foreach ($data['measurements'] as $measurement)
                                     <tr>
                                         <td><h6>{{ $measurement['retail_id'] }}</h6></td>
-                                        <td><h6>{{ $measurement['size'] }} sqm</h6></td>
+                                        <td><h6>{{ $measurement['size'] }} SQM</h6></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

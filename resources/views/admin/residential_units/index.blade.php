@@ -76,7 +76,7 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" name="area" class="form-control">
-                            <label for="">Area</label>     
+                            <label for="">Area (SQM)</label>     
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" name="price" class="form-control">
@@ -142,7 +142,7 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" name="area" id="area" class="form-control">
-                            <label for="">Area</label>     
+                            <label for="">Area (SQM)</label>     
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" name="price" id="price" class="form-control">

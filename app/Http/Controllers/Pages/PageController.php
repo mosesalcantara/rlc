@@ -15,6 +15,7 @@ use App\Models\SaleUnit;
 use App\Models\ResidentialUnit;
 use App\Models\ContactItem;
 use App\Models\InquiryEmail;
+use App\Models\RegisteredUnit;
 use App\Models\AboutItem;
 use App\Models\Setting;
 
@@ -143,6 +144,15 @@ class PageController extends Controller
         $record->property_id = $request->property_id;
         $record->building_id = $request->building_id;
         $record->published = 0;
+        $record->save();
+
+        $residential_unit_id = $record->id;
+
+        $record = new RegisteredUnit;
+        $record->name = $request->name;
+        $record->email = $request->email;
+        $record->phone = $request->phone;
+        $record->residential_unit_id = $residential_unit_id;
         $record->save();
 
         return response(['msg' => 'Unit Registered']);

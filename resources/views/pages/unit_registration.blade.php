@@ -124,7 +124,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="" class="form-label">Area (sqm)*</label>
+                                    <label for="" class="form-label">Area (SQM)*</label>
                                     <input class="form-control" type="text" name='area'>
                                 </div>
                                 <div class="col-6">

@@ -59,7 +59,7 @@
                 
                         <div class="form-floating mb-3">  
                             <input type="text" name="size" class="form-control">
-                            <label for="">Size</label>   
+                            <label for="">Size (SQM)</label>   
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -98,7 +98,7 @@
                 
                         <div class="form-floating mb-3">  
                             <input type="text" name="size" id='size' class="form-control">
-                            <label for="">Size</label>   
+                            <label for="">Size (SQM)</label>   
                         </div>
                 </div>
                 <div class="modal-footer">

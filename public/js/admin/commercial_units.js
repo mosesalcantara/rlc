@@ -189,7 +189,7 @@ function get_all() {
             thr.append($('<th>').text('Location'))
             thr.append($('<th>').text('Retail ID'))
             thr.append($('<th>').text('Building'))
-            thr.append($('<th>').text('Size'))
+            thr.append($('<th>').text('Size (SQM'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
             tbl.append(thead)
@@ -201,7 +201,7 @@ function get_all() {
                 tr.append($('<td>').text(field.location))
                 tr.append($('<td>').text(field.retail_id))
                 tr.append($('<td>').text(field.building))
-                tr.append($('<td>').text(field.size))
+                tr.append($('<td>').text(`${field.size} SQM`))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
