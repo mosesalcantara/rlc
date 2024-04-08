@@ -16,6 +16,8 @@ use App\Models\ResidentialUnit;
 use App\Models\ContactItem;
 use App\Models\InquiryEmail;
 use App\Models\RegisteredUnit;
+use App\Models\Snapshot;
+use App\Models\UnitVideo;
 use App\Models\AboutItem;
 use App\Models\Setting;
 
@@ -147,6 +149,32 @@ class PageController extends Controller
         $record->save();
 
         $residential_unit_id = $record->id;
+
+        if($request->hasFile('picture')) {
+            foreach ($request->picture as $file) {
+                $filename = mt_rand() . '.'.$file->clientExtension();
+                $destination = 'uploads/residential_units/snapshots';
+                $file->move($destination, $filename);
+    
+                $record = new Snapshot;
+                $record->picture = $filename;
+                $record->residential_unit_id = $residential_unit_id;
+                $record->save();   
+            } 
+        }
+
+        if($request->hasFile('video')) {
+            foreach ($request->video as $file) {
+                $filename = mt_rand() . '.'.$file->clientExtension();
+                $destination = 'uploads/residential_units/unit_videos';
+                $file->move($destination, $filename);
+    
+                $record = new UnitVideo;
+                $record->video = $filename;
+                $record->residential_unit_id = $residential_unit_id;
+                $record->save();   
+            } 
+        }
 
         $record = new RegisteredUnit;
         $record->name = $request->name;
