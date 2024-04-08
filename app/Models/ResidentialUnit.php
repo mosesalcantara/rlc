@@ -11,9 +11,10 @@ class ResidentialUnit extends Model
 
     protected $fillable = [
         'unit_id',
+        'retail_status',
         'type',
         'area',
-        'rate',
+        'price',
         'status',
         'property_id',
         'building_id',

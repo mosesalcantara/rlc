@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="col-xxl-4">
-                        <div class="dropdown" id='unit_type'>
+                        <div class="dropdown" id='type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="col-xxl-4">
-                        <div class="dropdown" id='price_range'>
+                        <div class="dropdown" id='price'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
@@ -95,7 +95,7 @@
             @csrf
             <input type="hidden" name='sale_status' value=''>
             <input type="hidden" name='location' value=''>
-            <input type="hidden" name='unit_type' value=''>
+            <input type="hidden" name='type' value=''>
             <input type="hidden" name='min_price' value=''>
             <input type="hidden" name='max_price' value=''>
             <input type="hidden" name='origin' value='sale_unit_page'>
@@ -164,7 +164,7 @@
         
                             @foreach ($data['sale_unit']['snapshots'] as $snapshot)
                             <div class="carousel-item snapshot_carousel_item">
-                                <img src="{{ asset('uploads/sale_units/snapshots') }}/{{ $snapshot }}" alt="">
+                                <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $snapshot }}" alt="">
                             </div>
                             @endforeach
         
@@ -197,7 +197,7 @@
                             @foreach ($data['sale_unit']['unit_videos'] as $unit_video)
                             <div class="carousel-item unit_video_carousel_item">
                                 <video controls>
-                                    <source src="{{ asset('uploads/sale_units/unit_videos') }}/{{ $unit_video }}">
+                                    <source src="{{ asset('uploads/residential_units/unit_videos') }}/{{ $unit_video }}">
                                 </video>
                             </div>
                             @endforeach

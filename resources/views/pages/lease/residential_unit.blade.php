@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="col-xxl-4">
-                        <div class="dropdown" id='rate'>
+                        <div class="dropdown" id='price'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
@@ -95,8 +95,8 @@
             @csrf
             <input type="hidden" name='location' value=''>
             <input type="hidden" name='type' value=''>
-            <input type="hidden" name='min_rate' value=''>
-            <input type="hidden" name='max_rate' value=''>
+            <input type="hidden" name='min_price' value=''>
+            <input type="hidden" name='max_price' value=''>
             <input type="hidden" name='origin' value='residential_unit_page'>
         </form>
     </div>
@@ -127,7 +127,7 @@
                         <div class="col-5 col-xxl text-center">
                             <i class="fa-solid fa-piggy-bank fa-xl fa-flip-vertical"></i>
                             <h6>MONTHLY RATE</h6>
-                            <h6 class="text-dark">PHP {{ number_format($data['r_unit']['rate'], 2) }}</h6>
+                            <h6 class="text-dark">PHP {{ number_format($data['r_unit']['price'], 2) }}</h6>
                         </div>
                         <div class="col-5 col-xxl text-center">
                             <i class="fa-solid fa-key fa-xl"></i>

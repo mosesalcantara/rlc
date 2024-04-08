@@ -58,6 +58,13 @@
                             <select name="building_id" id="add_building_id" class="form-select"></select>
                         </div>
                         <div class="mb-3">
+                            <label for="" class="form-label">Retail Status</label>     
+                            <select name="retail_status" class="form-select">
+                                <option value="For Sale">For Sale</option>
+                                <option value="For Lease">For Lease</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label for="" class="form-label">Unit Type</label>     
                             <select name="type" class="form-select">
                                 <option value="1BR">1 Bedroom</option>
@@ -72,8 +79,8 @@
                             <label for="">Area</label>     
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" name="rate" class="form-control">
-                            <label for="">Monthly Rate</label>     
+                            <input type="text" name="price" class="form-control">
+                            <label for="">Price</label>     
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Unit Status</label>     
@@ -117,6 +124,13 @@
                             <select name="building_id" id="upd_building_id" class="form-select"></select>
                         </div>
                         <div class="mb-3">
+                            <label for="" class="form-label">Retail Status</label>     
+                            <select name="retail_status" id="retail_status" class="form-select">
+                                <option value="For Sale">For Sale</option>
+                                <option value="For Lease">For Lease</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label for="" class="form-label">Unit Type</label>     
                             <select name="type" id="type" class="form-select">
                                 <option value="1BR">1 Bedroom</option>
@@ -131,8 +145,8 @@
                             <label for="">Area</label>     
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" name="rate" id="rate" class="form-control">
-                            <label for="">Monthly Rate</label>     
+                            <input type="text" name="price" id="price" class="form-control">
+                            <label for="">Price</label>     
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Unit Status</label>     

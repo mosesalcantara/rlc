@@ -87,7 +87,7 @@ $(document).ready( function () {
 
         if (property_type == 'Residential') {
             $('#type').parent().removeClass('d-none')
-            $('#rate').parent().removeClass('d-none')
+            $('#price').parent().removeClass('d-none')
 
             $('#property_type').parent().removeClass('col-xxl-5')
             $('#location').parent().removeClass('col-xxl-6')
@@ -97,7 +97,7 @@ $(document).ready( function () {
         }
         else {
             $('#type').parent().addClass('d-none')
-            $('#rate').parent().addClass('d-none')
+            $('#price').parent().addClass('d-none')
 
             $('#property_type').parent().removeClass('col-xxl-3')
             $('#location').parent().removeClass('col-3')
@@ -114,17 +114,17 @@ $(document).ready( function () {
         var url = ''
 
         if (property_type == 'Residential') {
-            var rates = $('#rate button h6').html()
-            var words = rates.split(' ')
+            var prices = $('#price button h6').html()
+            var words = prices.split(' ')
 
-            var min_rate = parseFloat(words[1].replace(/,/g, ''))
-            var max_rate = parseFloat(words[3].replace(/,/g, ''))
+            var min_price = parseFloat(words[1].replace(/,/g, ''))
+            var max_price = parseFloat(words[3].replace(/,/g, ''))
 
             $('input[name=property_type]').val($('#property_type button h6').html())
             $('input[name=location]').val($('#location button h6').html())
             $('input[name=type]').val($('#type button h6').html())
-            $('input[name=min_rate]').val(min_rate)
-            $('input[name=max_rate]').val(max_rate)
+            $('input[name=min_price]').val(min_price)
+            $('input[name=max_price]').val(max_price)
 
             url = '/for-lease/category/residential_units'
         }

@@ -15,8 +15,8 @@ class ResidentialUnitController extends Controller
         return view('admin.residential_units.index');
     }
 
-    public function get_all() {
-        $records = Property::select('residential_units.id', 'unit_id', 'type', 'area', 'rate', 'status', 'building_id', 'properties.name as property', 'properties.location as location')
+    public function get_all(Request $request) {
+        $records = Property::select('residential_units.id', 'unit_id', 'retail_status', 'type', 'area', 'price', 'status', 'building_id', 'properties.name as property', 'properties.location as location')
                     ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->get();
         
         foreach ($records as $r_unit) {
@@ -56,17 +56,19 @@ class ResidentialUnitController extends Controller
             'property_id'=>'required',
             'unit_id'=>'required',
             'building_id'=>'required',
+            'retail_status'=>'required',
             'type'=>'required',
             'area'=>'required|numeric',
-            'rate'=>'required|numeric',
+            'price'=>'required|numeric',
             'status'=>'required',
         ]);
 
         $record = new ResidentialUnit;
         $record->unit_id = $request->unit_id;
+        $record->retail_status = $request->retail_status;
         $record->type = $request->type;
         $record->area = $request->area;
-        $record->rate = $request->rate;
+        $record->price = $request->price;
         $record->status = $request->status;
         $record->property_id = $request->property_id;
         $record->building_id = $request->building_id;
@@ -76,7 +78,7 @@ class ResidentialUnitController extends Controller
     }
 
     public function edit(Request $request) {
-        $record = Property::select('residential_units.id', 'unit_id', 'type', 'area', 'rate', 'status', 'building_id', 'property_id', 'properties.name as property', 'properties.location as location')
+        $record = Property::select('residential_units.id', 'unit_id', 'retail_status', 'type', 'area', 'price', 'status', 'building_id', 'property_id', 'properties.name as property', 'properties.location as location')
                     ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')
                     ->where('residential_units.id', $request->upd_id)->get();
         $record = $record[0];
@@ -101,9 +103,10 @@ class ResidentialUnitController extends Controller
             'property_id'=>'required',
             'unit_id'=>'required',
             'building_id'=>'required',
+            'retail_status'=>'required',
             'type'=>'required',
             'area'=>'required|numeric',
-            'rate'=>'required|numeric',
+            'price'=>'required|numeric',
             'status'=>'required',
         ]);
         
@@ -111,9 +114,10 @@ class ResidentialUnitController extends Controller
 
         $record->update([
             'unit_id' => $request->unit_id,
+            'retail_status' => $request->retail_status,
             'type' => $request->type,
             'area' => $request->area,
-            'rate' => $request->rate,
+            'price' => $request->price,
             'status' => $request->status,
             'property_id' => $request->property_id,
             'building_id' => $request->building_id,

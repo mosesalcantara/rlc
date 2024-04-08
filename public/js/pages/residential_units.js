@@ -22,18 +22,18 @@ $(document).ready( function () {
     })
 
     $(document).on('click', '.search_btn button', function(){
-        var rates = $('#rate button h6').html()
-        var words = rates.split(' ')
+        var prices = $('#price button h6').html()
+        var words = prices.split(' ')
 
-        var min_rate = parseFloat(words[1].replace(/,/g, ''))
-        var max_rate = parseFloat(words[3].replace(/,/g, ''))
+        var min_price = parseFloat(words[1].replace(/,/g, ''))
+        var max_price = parseFloat(words[3].replace(/,/g, ''))
 
         var data = {
             'property_type': 'Residential',
             'location': $('#location button h6').html(),
             'type': $('#type button h6').html(),
-            'min_rate': min_rate,
-            'max_rate': max_rate,
+            'min_price': min_price,
+            'max_price': max_price,
             'origin': 'residential_units_page',
         }
 
@@ -71,7 +71,7 @@ $(document).ready( function () {
                                                     <div class="col-xxl col-7 text-dark">
                                                         <h6>${field.unit_id}</h6>
                                                         <h6>${field.type}</h6>
-                                                        <h6>${money.format(field.rate)} / mo</h6>
+                                                        <h6>${money.format(field.price)} / mo</h6>
                                                         <h6>${field.area} SQM</h6>
                                                     </div>
                                                 </div>

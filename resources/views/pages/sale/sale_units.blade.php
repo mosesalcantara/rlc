@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="col-xxl-4">
-                        <div class="dropdown" id='unit_type'>
+                        <div class="dropdown" id='type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="col-xxl-4">
-                        <div class="dropdown" id='price_range'>
+                        <div class="dropdown" id='price'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
@@ -98,7 +98,7 @@
             @foreach ($data['sale_units'] as $sale_unit)
                 <div class="col-xxl-4 unit">
                     <div class="card">
-                        <img class='card-img-top' src="{{ asset('uploads/sale_units/snapshots') }}/{{ $sale_unit['snapshot'] }}" alt="">
+                        <img class='card-img-top' src="{{ asset('uploads/residential_units/snapshots') }}/{{ $sale_unit['snapshot'] }}" alt="">
                         <div class="card-body details">
                             <h3>{{ $sale_unit['name'] }}</h3>
                             <i class="fa-solid fa-location-dot fa-xl"></i>

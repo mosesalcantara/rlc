@@ -17,11 +17,15 @@ class CompareController extends Controller
     }
 
     public function get_residential_units() {
+        $where = [
+            'retail_status' => 'For Lease',
+        ];
         $records = Property::selectRaw('properties.name, properties.location, Count(residential_units.id) As residential_units')
-                        ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->groupByRaw('properties.name, properties.location')->havingRaw('Count(residential_units.id) > 0')->get();
+                        ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)
+                        ->groupByRaw('properties.name, properties.location')->havingRaw('Count(residential_units.id) > 0')->get();
         $locations = Property::selectRaw('properties.location, Count(residential_units.id) As residential_units')
-                        ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->groupByRaw('properties.location, properties.id')
-                        ->havingRaw('Count(residential_units.id) > 0')->get();
+                        ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)
+                        ->groupByRaw('properties.location, properties.id')->havingRaw('Count(residential_units.id) > 0')->get();
         $properties = [];
 
         foreach ($locations as $location) {
@@ -66,6 +70,10 @@ class CompareController extends Controller
         $properties = [];
 
         foreach ($selected_properties as $property) {
+            $where = [
+                'properties.name' => $property,
+                'retail_status' => 'For Lease',
+            ];
             $details = [];
 
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
@@ -76,7 +84,8 @@ class CompareController extends Controller
 
             $property_types = '';
             $record = Property::selectRaw('properties.name, properties.location, Count(residential_units.id) As residential_units')
-                        ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->groupByRaw('properties.name, properties.location')->havingRaw('Count(residential_units.id) > 0')->get();
+                        ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('retail_status', 'For Lease')
+                        ->groupByRaw('properties.name, properties.location')->havingRaw('Count(residential_units.id) > 0')->get();
             if ($record[0]['residential_units'] > 0) {
                 $property_types .= ' Residential';
             }
@@ -89,10 +98,10 @@ class CompareController extends Controller
 
             $details['property_types'] = $property_types;
 
-            $details['min_rate'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.name', $property)->min('residential_units.rate');
-            $details['max_rate'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.name', $property)->max('residential_units.rate');
+            $details['min_price'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
+            $details['max_price'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
 
-            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where('properties.name', $property)->get();
+            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where($where)->get();
 
             $types_arr = [];
             foreach ($record as $item) {
@@ -105,10 +114,10 @@ class CompareController extends Controller
             }
             $details['types'] = $types;
 
-            $details['min_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.name', $property)->min('residential_units.area');
-            $details['max_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.name', $property)->max('residential_units.area');
+            $details['min_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.area');
+            $details['max_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.area');
 
-            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.status')->where('properties.name', $property)->get();
+            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.status')->where($where)->get();
             $statuses = '';
             foreach ($record as $item) {
                 $statuses .= ' ' . $item['status'];
@@ -155,11 +164,12 @@ class CompareController extends Controller
 
         foreach ($selected_properties as $property) {
             $where = [
-                ['residential_units.rate', '>=', $request_data['min_rate']],
-                ['residential_units.rate', '<=', $request_data['max_rate']],
+                ['residential_units.price', '>=', $request_data['min_price']],
+                ['residential_units.price', '<=', $request_data['max_price']],
                 ['residential_units.area', '>=', $request_data['min_area']],
                 ['residential_units.area', '<=', $request_data['max_area']],
                 ['properties.name', $property],
+                ['residential_units.retail_status', 'For Lease'],
             ];
 
             $details = [];

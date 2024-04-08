@@ -189,9 +189,10 @@ function get_all() {
             thr.append($('<th>').text('Location'))
             thr.append($('<th>').text('Unit ID'))
             thr.append($('<th>').text('Building'))
+            thr.append($('<th>').text('Retail Status'))
             thr.append($('<th>').text('Type'))
             thr.append($('<th>').text('Area'))
-            thr.append($('<th>').text('Rate'))
+            thr.append($('<th>').text('Price'))
             thr.append($('<th>').text('Status'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
@@ -204,9 +205,10 @@ function get_all() {
                 tr.append($('<td>').text(field.location))
                 tr.append($('<td>').text(field.unit_id))
                 tr.append($('<td>').text(field.building))
+                tr.append($('<td>').text(field.retail_status))
                 tr.append($('<td>').text(field.type))
                 tr.append($('<td>').text(field.area))
-                tr.append($('<td>').text(field.rate))
+                tr.append($('<td>').text(field.price))
                 tr.append($('<td>').text(field.status))
 
                 var td_action = $('<td>')
@@ -277,10 +279,14 @@ function get_upd_id(id){
         $('#upd_building_id').val(record.building_id)  
 
         $('#unit_id').val(record.unit_id)
+        $('#retail_status').val(record.retail_status)
         $('#type').val(record.type)
         $('#area').val(record.area)
-        $('#rate').val(record.rate)
+        $('#price').val(record.price)
         $('#status').val(record.status)
+      },
+      error: function(res) {
+        console.log(res)
       }
     })
 }

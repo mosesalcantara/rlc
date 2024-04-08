@@ -22,8 +22,8 @@ $(document).ready( function () {
     })
 
     $(document).on('click', '.search_btn button', function(){
-        var price_range = $('#price_range button h6').html()
-        var words = price_range.split(' ')
+        var prices = $('#price button h6').html()
+        var words = prices.split(' ')
 
         var min_price = words[1].replace('M', '')
         var max_price = words[3].replace('M', '')
@@ -31,7 +31,7 @@ $(document).ready( function () {
         var data = {
             'sale_status': sale_status,
             'location': $('#location button h6').html(),
-            'unit_type': $('#unit_type button h6').html(),
+            'type': $('#type button h6').html(),
             'min_price': min_price,
             'max_price': max_price,
             'origin': 'sale_units_page',
@@ -50,7 +50,7 @@ $(document).ready( function () {
                     var unit_html = `                
                                         <div class="col-xxl-4 unit">
                                             <div class="card">
-                                                <img class='card-img-top' src="/uploads/sale_units/snapshots/${field.snapshot}" alt="">
+                                                <img class='card-img-top' src="/uploads/residential_units/snapshots/${field.snapshot}" alt="">
                                                 <div class="card-body details">
                                                     <h3>${field.name}</h3>
                                                     <i class="fa-solid fa-location-dot fa-xl"></i>

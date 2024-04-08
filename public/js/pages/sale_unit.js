@@ -26,15 +26,15 @@ $(document).ready( function () {
     })
 
     $(document).on('click', '.search_btn button', function(){
-        var price_range = $('#price_range button h6').html()
-        var words = price_range.split(' ')
+        var prices = $('#price button h6').html()
+        var words = prices.split(' ')
 
         var min_price = words[1].replace('M', '')
         var max_price = words[3].replace('M', '')
 
         $('input[name=sale_status]').val(sale_status)
         $('input[name=location]').val($('#location button h6').html())
-        $('input[name=unit_type]').val($('#unit_type button h6').html())
+        $('input[name=type]').val($('#type button h6').html())
         $('input[name=min_price]').val(min_price)
         $('input[name=max_price]').val(max_price)
 

@@ -43,6 +43,11 @@ class PageController extends Controller
         $properties = Property::limit(5)->get();
 
         foreach ($properties as $property) {
+            $where = [
+                'properties.id' => $property['id'],
+                'retail_status' => 'For Lease',
+            ];
+            
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')->where('properties.id', $property['id'])->limit(1)->get();
             count($record) > 0 ? $property['picture'] = $record[0]->picture : $property['picture'] = 'no_image.png';
 
@@ -50,7 +55,7 @@ class PageController extends Controller
                         ->where('residential_units.property_id', $property['id'])->get();
             count($record) > 0 ? $property['snapshot'] = $record[0]->picture : $property['snapshot'] = 'no_image.png';
 
-            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where('properties.id', $property['id'])->get();
+            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where($where)->get();
             
             $types_arr = [];
             foreach ($record as $item) {
@@ -63,9 +68,9 @@ class PageController extends Controller
             }
             $property['types'] = $types;
 
-            $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $property['id'])->min('residential_units.rate');
+            $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
             $property['min'] = $min;
-            $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $property['id'])->max('residential_units.rate');
+            $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
             $property['max'] = $max;
         }
 
@@ -127,14 +132,13 @@ class PageController extends Controller
     }
 
     public function register_unit(Request $request) {
-        $reg_type = $request->registration_type;
-        $record = $reg_type == 'For Sale' ? new SaleUnit : new ResidentialUnit;
+        $record = new ResidentialUnit;
 
         $record->unit_id = $request->unit_id;
+        $record->retail_status = $request->retail_status;
         $record->type = $request->type;
         $record->area = $request->area;
-        if ($reg_type == 'For Sale') { $record->price =  $request->price; }
-        else { $record->rate =  $request->price; }
+        $record->price =  $request->price;
         $record->status = $request->status;
         $record->property_id = $request->property_id;
         $record->building_id = $request->building_id;

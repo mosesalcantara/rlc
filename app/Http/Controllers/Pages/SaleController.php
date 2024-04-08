@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\SaleUnit;
+use App\Models\ResidentialUnit;
 use App\Models\Property;
 use App\Models\Building;
-use App\Models\SaleSnapshot;
-use App\Models\SaleUnitVideo;
+use App\Models\Snapshot;
+use App\Models\UnitVideo;
 
 class SaleController extends Controller
 {
@@ -21,15 +21,16 @@ class SaleController extends Controller
         $sale_status = $request->sale_status;
         $where = [
             'sale_status' => '',
+            'retail_status' => 'For Sale',
         ];
 
         $sale_status == 'pre-selling' ? $where['sale_status'] = 'Pre-Selling' : $where['sale_status'] = 'RFO';
 
-        $sale_units = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->where($where)->orderBy('properties.name')->get();
+        $sale_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->orderBy('properties.name')->get();
 
         foreach ($sale_units as $sale_unit) {
-            $record = SaleUnit::join('sale_snapshots', 'sale_units.id', '=', 'sale_snapshots.sale_unit_id')
-                        ->where('sale_units.id', $sale_unit['id'])->get();
+            $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
+                        ->where('residential_units.id', $sale_unit['id'])->get();
             $sale_unit['snapshot'] = $record[0]->picture;
         }
 
@@ -44,14 +45,14 @@ class SaleController extends Controller
     public function unit(Request $request) {
         $sale_status = $request->sale_status;
 
-        $sale_unit = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->join('pictures', 'properties.id', '=', 'pictures.property_id')
-                        ->where('sale_units.id', $request->id)->get();
+        $sale_unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->join('pictures', 'properties.id', '=', 'pictures.property_id')
+                        ->where('residential_units.id', $request->id)->get();
         $sale_unit = $sale_unit[0];
 
         $record = Building::where('id', $sale_unit['building_id'])->get();
         $sale_unit['building'] = $record[0]['name'];
 
-        $records = SaleSnapshot::all()->where('sale_unit_id', $request->id);
+        $records = Snapshot::all()->where('residential_unit_id', $request->id);
         $snapshots = [];
 
         foreach ($records as $snapshot) {
@@ -59,7 +60,7 @@ class SaleController extends Controller
         }
         $sale_unit['snapshots'] = $snapshots;
 
-        $records = SaleUnitVideo::all()->where('sale_unit_id', $request->id);
+        $records = UnitVideo::all()->where('residential_unit_id', $request->id);
         $unit_videos = [];
 
         foreach ($records as $unit_video) {
@@ -84,6 +85,11 @@ class SaleController extends Controller
     }
 
     public function property(Request $request) {
+        $where = [
+            'properties.id' => $request->id,
+            'retail_status' => 'For Sale',
+        ];
+
         $property = Property::where('id', $request->id)->get();
         $property = $property[0];
 
@@ -95,16 +101,16 @@ class SaleController extends Controller
         }
         $property['pictures'] = $pictures;
 
-        $record = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->distinct('sale_units.type')->where('properties.id', $request->id)->get();
+        $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where($where)->get();
         $types = '';
         foreach ($record as $item) {
             $types .= ' ' . $item['type'];
         }
         $property['types'] = $types;
 
-        $min = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->where('properties.id', $request->id)->min('sale_units.price');
+        $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
         $property['min'] = $min;
-        $max = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->where('properties.id', $request->id)->max('sale_units.price');
+        $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
         $property['max'] = $max;
 
         $records = Property::select('amenities.id', 'amenities.name', 'amenities.type', 'amenities.picture')
@@ -133,16 +139,17 @@ class SaleController extends Controller
         $where = [
             ['properties.sale_status', $request['sale_status']],
             ['properties.location', $request['location']],
-            ['sale_units.type', $request['unit_type']],
-            ['sale_units.price', '>=', $request['min_price']],
-            ['sale_units.price', '<=', $request['max_price']],
+            ['residential_units.type', $request['type']],
+            ['residential_units.price', '>=', $request['min_price']],
+            ['residential_units.price', '<=', $request['max_price']],
+            ['residential_units.retail_status', 'For Sale'],
         ];
 
-        $sale_units = Property::join('sale_units', 'properties.id', '=', 'sale_units.property_id')->where($where)->get();
+        $sale_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->get();
 
         foreach ($sale_units as $sale_unit) {
-            $record = SaleUnit::join('sale_snapshots', 'sale_units.id', '=', 'sale_snapshots.sale_unit_id')
-                        ->where('sale_units.id', $sale_unit['id'])->get();
+            $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
+                        ->where('residential_units.id', $sale_unit['id'])->get();
             $sale_unit['snapshot'] = $record[0]->picture;
         }
 

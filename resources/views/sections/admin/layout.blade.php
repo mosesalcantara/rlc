@@ -99,21 +99,6 @@
                     </div>
                 </li>
 
-                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/sale'), url('/admin/sale_snapshots'), url('/admin/sale_unit_videos') ]) ? 'active' : '' }}">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSaleUnits"
-                        aria-expanded="true" aria-controls="collapseSaleUnits">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>For Sale</span>
-                    </a>
-                    <div id="collapseSaleUnits" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="/admin/sale">Units</a>
-                            <a class="collapse-item" href="/admin/sale_snapshots">Snapshots</a>
-                            <a class="collapse-item" href="/admin/sale_unit_videos">Unit Videos</a>
-                        </div>
-                    </div>
-                </li>
-
                 <li class="nav-item {{ in_array(Request::url(), [ url('/admin/residential'), url('/admin/snapshots'), url('/admin/unit_videos') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResidential"
                         aria-expanded="true" aria-controls="collapseResidential">

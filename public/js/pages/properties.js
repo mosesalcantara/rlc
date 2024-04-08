@@ -16,11 +16,11 @@ $(document).ready( function () {
         $('#property_1 h6, #property_2 h6, #property_3 h6').html('Select Property')
 
         if (property_type == 'Residential') {
-            $('.filter_rate, .filter_rate, .filter_unit_type, .filter_status').removeClass('d-none')
+            $('.filter_price, .filter_unit_type, .filter_status').removeClass('d-none')
             get_residential_properties()
         } 
         else {
-            $('.filter_rate, .filter_rate, .filter_unit_type, .filter_status').addClass('d-none')
+            $('.filter_price, .filter_unit_type, .filter_status').addClass('d-none')
             get_commercial_properties()
         }
     })
@@ -161,7 +161,7 @@ function compare_residential_properties() {
         
                     var property_data = {
                         'Property Type': 'Residential',
-                        'Rentail Rate': `${money.format(property.min_rate)} - ${money.format(property.max_rate)} / mo.`,
+                        'Rentail Rate': `${money.format(property.min_price)} - ${money.format(property.max_price)} / mo.`,
                         'Unit Type': property.types,
                         'Unit Area (sqm)': `${property.min_area} - ${property.max_area} sqm`,
                         'Unit Status': property.statuses,
@@ -298,8 +298,8 @@ function compare_residential_units() {
     var data = {
         'selected_properties': selected_properties,
         'property_type': $('input[name=property_type]').val(),
-        'min_rate': $('#min_rate').val(),
-        'max_rate': $('#max_rate').val(),
+        'min_price': $('#min_price').val(),
+        'max_price': $('#max_price').val(),
         'types': types,
         'min_area': $('#min_area').val(),
         'max_area': $('#max_area').val(),
@@ -335,7 +335,7 @@ function compare_residential_units() {
                     var unit_data = {
                         'Unit ID': r_unit.unit_id,
                         'Property Type': 'Residential',
-                        'Monthly Rate': money.format(r_unit.rate),
+                        'Monthly Rate': money.format(r_unit.price),
                         'Unit Type': r_unit.type,
                         'Unit Area (sqm)': `${r_unit.area} sqm`,
                         'Unit Status': r_unit.status,

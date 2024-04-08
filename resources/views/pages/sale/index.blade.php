@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="col-xxl-2">
-                        <div class="dropdown" id='unit_type'>
+                        <div class="dropdown" id='type'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="col-xxl-3">
-                        <div class="dropdown" id='price_range'>
+                        <div class="dropdown" id='price'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
@@ -116,7 +116,7 @@
             @csrf
             <input type="hidden" name='sale_status' value=''>
             <input type="hidden" name='location' value=''>
-            <input type="hidden" name='unit_type' value=''>
+            <input type="hidden" name='type' value=''>
             <input type="hidden" name='min_price' value=''>
             <input type="hidden" name='max_price' value=''>
             <input type="hidden" name='origin' value='sale_page'>

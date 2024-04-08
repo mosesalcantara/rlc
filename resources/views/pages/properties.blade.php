@@ -103,20 +103,20 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col compare_item filter_rate">
+                        <div class="col compare_item filter_price">
                             <h4>Rental Rate</h4>
                             {{-- <input type="range" class="form-range" id="">  --}}
                             
                             <div class="row">
                                 <div class="col">
                                     <div class="form-floating mb-3">
-                                        <input type="text" id="min_rate" name='min_rate' class="form-control form-control-lg" />
+                                        <input type="text" id="min_price" name='min_price' class="form-control form-control-lg" />
                                         <label class="form-label" for="">From PHP</label>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-floating">
-                                        <input type="text" id="max_rate" name='max_rate' class="form-control form-control-lg" />
+                                        <input type="text" id="max_price" name='max_price' class="form-control form-control-lg" />
                                         <label class="form-label" for="">To PHP</label>
                                     </div>
                                 </div>

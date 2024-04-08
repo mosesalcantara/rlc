@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="col-xxl-3">
-                        <div class="dropdown" id='rate'>
+                        <div class="dropdown" id='price'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
@@ -141,8 +141,8 @@
             <input type="hidden" name='property_type' value=''>
             <input type="hidden" name='location' value=''>
             <input type="hidden" name='type' value=''>
-            <input type="hidden" name='min_rate' value=''>
-            <input type="hidden" name='max_rate' value=''>
+            <input type="hidden" name='min_price' value=''>
+            <input type="hidden" name='max_price' value=''>
             <input type="hidden" name='origin' value='homepage'>
         </form>
     </div>

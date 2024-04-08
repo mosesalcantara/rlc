@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="col-xxl-4">
-                        <div class="dropdown" id='rate'>
+                        <div class="dropdown" id='price'>
                             <button class="btn" type="button" aria-expanded="false">
                                 <div class="row">
                                     <div class="col-10 d-flex justify-content-start align-items-center">
@@ -113,7 +113,7 @@
                                 <div class="col-xxl col-7 text-dark">
                                     <h6>{{ $r_unit['unit_id'] }}</h6>
                                     <h6>{{ $r_unit['type'] }}</h6>
-                                    <h6>PHP {{ number_format($r_unit['rate'], 2) }} / mo</h6>
+                                    <h6>PHP {{ number_format($r_unit['price'], 2) }} / mo</h6>
                                     <h6>{{ $r_unit['area'] }} SQM</h6>
                                 </div>
                             </div>

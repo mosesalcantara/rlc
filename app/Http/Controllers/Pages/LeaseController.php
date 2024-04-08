@@ -18,7 +18,7 @@ class LeaseController extends Controller
     }
 
     public function residential_units(Request $request) {
-        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->orderBy('properties.name')->get();
+        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('retail_status', 'For Lease')->orderBy('properties.name')->get();
 
         foreach ($r_units as $r_unit) {
             $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
@@ -79,8 +79,9 @@ class LeaseController extends Controller
             $where = [
                 ['properties.location', $request['location']],
                 ['residential_units.type', $request['type']],
-                ['residential_units.rate', '>=', $request['min_rate']],
-                ['residential_units.rate', '<=', $request['max_rate']],
+                ['residential_units.price', '>=', $request['min_price']],
+                ['residential_units.price', '<=', $request['max_price']],
+                ['residential_units.retail_status', 'For Lease'],
             ];
         }
 
@@ -281,6 +282,10 @@ class LeaseController extends Controller
     }
 
     public function property(Request $request) {
+        $where = [
+            'properties.id' => $request->id,
+            'retail_status' => 'For Lease',
+        ];
         $property = Property::where('id', $request->id)->get();
         $property = $property[0];
 
@@ -292,20 +297,20 @@ class LeaseController extends Controller
         }
         $property['pictures'] = $pictures;
 
-        $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where('properties.id', $request->id)->get();
+        $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where($where)->get();
         $types = '';
         foreach ($record as $item) {
             $types .= ' ' . $item['type'];
         }
         $property['types'] = $types;
 
-        $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $request->id)->min('residential_units.rate');
+        $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
         $property['min'] = $min;
-        $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $request->id)->max('residential_units.rate');
+        $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
         $property['max'] = $max;
 
         $records = Property::selectRaw('properties.location, Count(residential_units.id) As residential_units')
-                    ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $request->id)
+                    ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)
                     ->groupByRaw('properties.location, properties.id')->get();
         count($records) > 0 ? $property['r_units'] = True : $property['r_units'] = False;
 
@@ -346,7 +351,7 @@ class LeaseController extends Controller
         $property_type = $request_data['property_type'];
 
         if ($property_type == 'Residential') {
-            $records = Property::selectRaw('properties.location, Count(residential_units.id) As residential_units')
+            $records = Property::selectRaw('properties.location, Count(residential_units.id) As residential_units')->where('retail_status', 'For Lease')
                         ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->groupByRaw('properties.location, properties.id')
                         ->havingRaw('Count(residential_units.id) > 0')->get();
         }
