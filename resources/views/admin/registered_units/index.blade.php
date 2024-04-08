@@ -73,6 +73,13 @@
                             <select class='form-select' name="residential_unit_id" id='add_residential_unit_id'>
                             </select>
                         </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Publish Status</label>     
+                            <select name="published" class="form-select">
+                                <option value="0">Unpublished</option>
+                                <option value="1">Published</option>
+                            </select>
+                        </div>
                 </div>
                 <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" value="Add">
@@ -120,6 +127,13 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Unit</label>     
                             <select class='form-select' name="residential_unit_id" id='upd_residential_unit_id'>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Publish Status</label>     
+                            <select name="published" id='published' class="form-select">
+                                <option value="0">Unpublished</option>
+                                <option value="1">Published</option>
                             </select>
                         </div>
                 </div>

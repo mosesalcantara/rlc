@@ -83,6 +83,11 @@ class RegisteredUnitController extends Controller
             'residential_unit_id' => $request->residential_unit_id,
         ]);
 
+        $record = ResidentialUnit::find($request->residential_unit_id);
+        $record->update([
+            'published' => $request->published,
+        ]);
+
         return response(['msg' => 'Updated Registered Unit']);
     }
 

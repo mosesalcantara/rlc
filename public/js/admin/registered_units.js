@@ -140,6 +140,7 @@ function get_all() {
             thr.append($('<th>').text('Email'))
             thr.append($('<th>').text('Contact Number'))
             thr.append($('<th>').text('Unit'))
+            thr.append($('<th>').text('Publish Status'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
             tbl.append(thead)
@@ -151,6 +152,7 @@ function get_all() {
                 tr.append($('<td>').text(field.email))
                 tr.append($('<td>').text(field.phone))
                 tr.append($('<td>').text(field.unit_id))
+                field.published == 0 ? tr.append($('<td>').text('Unpublished')) : tr.append($('<td>').text('Published'))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
@@ -218,6 +220,8 @@ function get_upd_id(id){
             $('#upd_residential_unit_id').append(option)
         })
         $('#upd_residential_unit_id').val(record.residential_unit_id)
+
+        $('#published').val(record.published)
       }
     })
 }
