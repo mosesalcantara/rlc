@@ -59,7 +59,9 @@ $(document).ready( function () {
           processData: false,
           success: function (res) {
             alert(res.msg)
-            $('.registration_form').trigger('reset')
+            $('#registration_form').trigger('reset')
+            $('.step-2, .step-3').hide()
+            $('.step-1').show()
           },
           error: function (res) {
             console.log(res)

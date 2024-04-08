@@ -69,7 +69,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="" class="form-label">Registration Type*</label>
-                                    <select class="form-select" name="registration_type">
+                                    <select class="form-select" name="retail_status">
                                         <option selected>--Select--</option>
                                         <option>For Sale</option>
                                         <option>For Lease</option>
