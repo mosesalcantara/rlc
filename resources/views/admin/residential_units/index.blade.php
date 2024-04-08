@@ -90,6 +90,13 @@
                                 <option value="Fully Furnished">Fully Furnished</option>
                             </select>
                         </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Publish Status</label>     
+                            <select name="published" class="form-select">
+                                <option value="0">Unpublished</option>
+                                <option value="1">Published</option>
+                            </select>
+                        </div>
                 </div>
                 <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" value="Add">
@@ -154,6 +161,13 @@
                                 <option value="Unfurnished">Unfurnished</option>
                                 <option value="Semi-furnished">Semi-furnished</option>
                                 <option value="Fully Furnished">Fully Furnished</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Publish Status</label>     
+                            <select name="published" id='published' class="form-select">
+                                <option value="0">Unpublished</option>
+                                <option value="1">Published</option>
                             </select>
                         </div>
                 </div>
