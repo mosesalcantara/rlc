@@ -18,5 +18,6 @@ class ResidentialUnit extends Model
         'status',
         'property_id',
         'building_id',
+        'published',
     ];
 }

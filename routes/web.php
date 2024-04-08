@@ -20,10 +20,11 @@ use App\Http\Controllers\Admin\UnitVideoController;
 use App\Http\Controllers\Admin\CommercialUnitController;
 use App\Http\Controllers\Admin\ParkingSlotController;
 use App\Http\Controllers\Admin\TermController;
-use App\Http\Controllers\Admin\AboutItemController;
-use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ContactItemController;
 use App\Http\Controllers\Admin\InquiryEmailController;
+use App\Http\Controllers\Admin\RegisteredUnitController;
+use App\Http\Controllers\Admin\AboutItemController;
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\SettingController;
 
 use Illuminate\Support\Facades\Route;
@@ -237,6 +238,16 @@ Route::prefix('admin/inquiry_emails')->group(function () {
     Route::post('/edit', [InquiryEmailController::class, 'edit']);
     Route::post('/update', [InquiryEmailController::class, 'update']);
     Route::post('/delete', [InquiryEmailController::class, 'delete']);
+});
+
+Route::prefix('admin/registered_units')->group(function () {
+    Route::get('/', [RegisteredUnitController::class, 'index']);
+    Route::post('/', [RegisteredUnitController::class, 'get_all']);
+    Route::post('/get-related', [RegisteredUnitController::class, 'get_related']);
+    Route::post('/add', [RegisteredUnitController::class, 'create']);
+    Route::post('/edit', [RegisteredUnitController::class, 'edit']);
+    Route::post('/update', [RegisteredUnitController::class, 'update']);
+    Route::post('/delete', [RegisteredUnitController::class, 'delete']);
 });
 
 Route::prefix('admin/about')->group(function () {
