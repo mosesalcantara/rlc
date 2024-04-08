@@ -11,9 +11,9 @@ class InquiryEmail extends Model
 
     protected $fillable = [
         'type',
-        'fullname',
+        'name',
         'email',
-        'contact_number',
+        'phone',
         'message',
     ];
 }

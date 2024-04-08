@@ -51,7 +51,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="" class="form-label">Full Name*</label>
-                            <input class="form-control" type="text" name='fullname'>
+                            <input class="form-control" type="text" name='name'>
                         </div>
                     </div>
                     <div class="row">
@@ -63,7 +63,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="" class="form-label">Contact Number*</label>
-                            <input class="form-control" type="text" name='contact_number'>
+                            <input class="form-control" type="text" name='phone'>
                         </div>
                     </div>
                     <div class="row">

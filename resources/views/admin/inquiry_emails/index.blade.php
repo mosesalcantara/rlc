@@ -51,14 +51,13 @@
                                 <option value="Residential">Residential</option>
                                 <option value="Commercial">Commercial</option>
                                 <option value="Parking">Parking</option>
-                                <option value="Unit Registration">Unit Registration</option>
                             </select>
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating mb-3">
-                                    <input type="text" name="fullname" class="form-control">
+                                    <input type="text" name="name" class="form-control">
                                     <label for="">Full Name</label>     
                                 </div>
                             </div>
@@ -72,7 +71,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating mb-3">
-                                    <input type="text" name="contact_number" class="form-control">
+                                    <input type="text" name="phone" class="form-control">
                                     <label for="">Contact Number</label>     
                                 </div>
                             </div>
@@ -109,14 +108,13 @@
                                 <option value="Residential">Residential</option>
                                 <option value="Commercial">Commercial</option>
                                 <option value="Parking">Parking</option>
-                                <option value="Unit Registration">Unit Registration</option>
                             </select>
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating mb-3">
-                                    <input type="text" name="fullname" id='fullname' class="form-control">
+                                    <input type="text" name="name" id='name' class="form-control">
                                     <label for="">Full Name</label>     
                                 </div>
                             </div>
@@ -130,7 +128,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating mb-3">
-                                    <input type="text" name="contact_number" id='contact_number' class="form-control">
+                                    <input type="text" name="phone" id='phone' class="form-control">
                                     <label for="">Contact Number</label>     
                                 </div>
                             </div>

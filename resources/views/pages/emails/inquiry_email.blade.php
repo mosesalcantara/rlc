@@ -21,9 +21,9 @@
             <div class="col d-flex justify-content-center">
                 <div class="card">
                     <h1>{{ $mailData['title'] }}</h1>
-                    <h3>Fullname: {{ $mailData['fullname'] }}</h3>
+                    <h3>Fullname: {{ $mailData['name'] }}</h3>
                     <h3>Email: {{ $mailData['email'] }}</h3>
-                    <h3>Contact Number: {{ $mailData['contact_number'] }}</h3>
+                    <h3>Contact Number: {{ $mailData['phone'] }}</h3>
                     <p>{{ $mailData['body'] }}</p>
                 </div>
             </div>

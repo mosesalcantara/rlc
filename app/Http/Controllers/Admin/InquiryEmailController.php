@@ -26,18 +26,18 @@ class InquiryEmailController extends Controller
     public function create(Request $request) {
         $request->validate([
             'type'=>'required',
-            'fullname'=>'required',
+            'name'=>'required',
             'email'=>'required|email',
-            'contact_number'=>'required',
+            'phone'=>'required',
             'message'=>'required',
         ]);
 
         $record = new InquiryEmail;
 
         $record->type = $request->type;
-        $record->fullname = $request->fullname;
+        $record->name = $request->name;
         $record->email = $request->email;
-        $record->contact_number = $request->contact_number;
+        $record->phone = $request->phone;
         $record->message = $request->message;
         $record->save();
 
@@ -57,9 +57,9 @@ class InquiryEmailController extends Controller
     public function update(Request $request) {
         $request->validate([
             'type'=>'required',
-            'fullname'=>'required',
+            'name'=>'required',
             'email'=>'required|email',
-            'contact_number'=>'required',
+            'phone'=>'required',
             'message'=>'required',
         ]);
 
@@ -67,9 +67,9 @@ class InquiryEmailController extends Controller
 
         $record->update([
             'type' => $request->type,
-            'fullname' => $request->fullname,
+            'name' => $request->name,
             'email' => $request->email,
-            'contact_number' => $request->contact_number,
+            'phone' => $request->phone,
             'message' => $request->message,
         ]);
 

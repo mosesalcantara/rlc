@@ -100,9 +100,9 @@ class PageController extends Controller
 
         $mailData = [
             'title' => "{$request['type']} Inquiry",
-            'fullname' => $request['fullname'],
+            'name' => $request['name'],
             'email' => $request['email'],
-            'contact_number' => $request['contact_number'],
+            'phone' => $request['phone'],
             'body' => $request['message'],
         ];
 
@@ -111,9 +111,9 @@ class PageController extends Controller
         $record = new InquiryEmail;
 
         $record->type = $request->type;
-        $record->fullname = $request->fullname;
+        $record->name = $request->name;
         $record->email = $request->email;
-        $record->contact_number = $request->contact_number;
+        $record->phone = $request->phone;
         $record->message = $request->message;
         $record->save();
 
@@ -142,6 +142,7 @@ class PageController extends Controller
         $record->status = $request->status;
         $record->property_id = $request->property_id;
         $record->building_id = $request->building_id;
+        $record->published = 0;
         $record->save();
 
         return response(['msg' => 'Unit Registered']);

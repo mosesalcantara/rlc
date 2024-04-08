@@ -125,9 +125,9 @@ function get_all() {
             $.each(records, function(row, field) {
                 var tr = $('<tr>')
                 tr.append($('<td>').text(field.type))
-                tr.append($('<td>').text(field.fullname))
+                tr.append($('<td>').text(field.name))
                 tr.append($('<td>').text(field.email))
-                tr.append($('<td>').text(field.contact_number))
+                tr.append($('<td>').text(field.phone))
                 tr.append($('<td>').text(field.message))
 
                 var td_action = $('<td>')
@@ -187,9 +187,9 @@ function get_upd_id(id){
         var record = res.record
 
         $('#type').val(record.type)
-        $('#fullname').val(record.fullname)
+        $('#name').val(record.name)
         $('#email').val(record.email)
-        $('#contact_number').val(record.contact_number)
+        $('#phone').val(record.phone)
         $('#message').val(record.message)
       }
     })
