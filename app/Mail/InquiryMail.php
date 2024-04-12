@@ -40,7 +40,7 @@ class InquiryMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'pages.emails.inquiry_email',
+            markdown: 'pages.emails.inquiry_email',
         );
     }
 

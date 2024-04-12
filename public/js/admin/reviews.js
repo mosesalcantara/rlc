@@ -156,7 +156,7 @@ function get_all() {
                 var td_img = $('<td>')
                 var img = $('<img>')
                 img.attr({
-                    'src' : `/uploads/reviews/profile_pics/${field.picture}`,
+                  'src' : `/uploads/reviews/profile_pics/${field.picture}`,
                 })
                 td_img.append(img)
                 tr.append(td_img)
