@@ -79,7 +79,9 @@ class PageController extends Controller
         }
 
         $videos = Video::all()->sortByDesc('updated_at')->take(3);
-        $reviews = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')->orderBy('reviews.updated_at', 'desc')->limit(10)->get();
+        $reviews = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')
+                    ->where('published', 'Published')->orderBy('reviews.updated_at', 'desc')
+                    ->limit(10)->get();
 
         $data = [
             'properties' => $properties,

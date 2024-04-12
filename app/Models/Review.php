@@ -15,6 +15,7 @@ class Review extends Model
         'property_id',
         'reviewed_on',
         'review',
+        'published',
     ];
 
     protected $casts = [

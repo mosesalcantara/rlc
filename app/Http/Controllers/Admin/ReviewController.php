@@ -41,6 +41,7 @@ class ReviewController extends Controller
             'property_id'=>'required',
             'reviewed_on'=>'required',
             'review'=>'required',
+            'published'=>'required',
         ]);
 
         $record = new Review;
@@ -60,6 +61,7 @@ class ReviewController extends Controller
         $record->property_id = $request->property_id;
         $record->reviewed_on = $request->reviewed_on;
         $record->review = $request->review;
+        $record->published = $request->published;
         $record->save();
 
         return response(['msg' => 'Added Review']);
@@ -85,6 +87,7 @@ class ReviewController extends Controller
             'property_id'=>'required',
             'reviewed_on'=>'required',
             'review'=>'required',
+            'published'=>'required',
         ]);
         
         $record = Review::find($request->upd_id);
@@ -100,6 +103,7 @@ class ReviewController extends Controller
                 'property_id' => $request->property_id,
                 'reviewed_on' => $request->reviewed_on,
                 'review' => $request->review,
+                'published'=>$request->published,
             ]);
         }
         else {
@@ -108,6 +112,7 @@ class ReviewController extends Controller
                 'property_id' => $request->property_id,
                 'reviewed_on' => $request->reviewed_on,
                 'review' => $request->review,
+                'published' => $request->published,
             ]);
         }
 

@@ -70,6 +70,13 @@
                             <label for="" class="form-label">Review</label>     
                             <textarea class="form-control" name="review" cols="30" rows="5"></textarea>
                         </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Publish Status</label>     
+                            <select name="published" class="form-select">
+                                <option>Unpublished</option>
+                                <option>Published</option>
+                            </select>
+                        </div>
                 </div>
                 <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" value="Add">
@@ -110,6 +117,13 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Review</label>     
                             <textarea class="form-control" name="review" id='review' cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Publish Status</label>     
+                            <select name="published" id='published' class="form-select">
+                                <option>Unpublished</option>
+                                <option>Published</option>
+                            </select>
                         </div>
                 </div>
                 <div class="modal-footer">
