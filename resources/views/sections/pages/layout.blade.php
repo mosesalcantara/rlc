@@ -65,12 +65,13 @@
                                 <a class="nav-link {{ Request::url() == url('/compare') ? 'active' : '' }}" href="/compare">Compare Properties</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link {{ Request::url() == url('/contact-us') ? 'active' : '' }} dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link {{ in_array(Request::url(), [ url('/contact-us'), url('/submit-review'), url('/unit-registration') ]) ? 'active' : '' }} dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                   Contact Us
                                 </a>
                                 <ul class="dropdown-menu" id='contact_drop'>
                                   <li><a class="dropdown-item" href="/contact-us">Send Inquiry</a></li>
-                                  <li><a class="dropdown-item" href="unit-registration">Unit Registration</a></li>
+                                  <li><a class="dropdown-item" href="/submit-review">Submit Review</a></li>
+                                  <li><a class="dropdown-item" href="/unit-registration">Unit Registration</a></li>
                                   <li><a class="dropdown-item" id='mobile' href=''>
                                         <i class="fa-solid fa-mobile-screen-button"></i>
                                         <p>Mobile</p>

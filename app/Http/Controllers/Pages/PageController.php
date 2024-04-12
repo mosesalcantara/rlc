@@ -10,14 +10,14 @@ use App\Mail\InquiryMail;
 
 use App\Models\Property;
 use App\Models\Amenity;
+use App\Models\Review;
 use App\Models\Video;
-use App\Models\SaleUnit;
 use App\Models\ResidentialUnit;
+use App\Models\Snapshot;
+use App\Models\UnitVideo;
 use App\Models\ContactItem;
 use App\Models\InquiryEmail;
 use App\Models\RegisteredUnit;
-use App\Models\Snapshot;
-use App\Models\UnitVideo;
 use App\Models\AboutItem;
 use App\Models\Setting;
 
@@ -197,6 +197,41 @@ class PageController extends Controller
         ];
 
         return response()->json($data);
+    }
+
+    public function submit_review() {
+        $contact_items = ContactItem::all()->sortByDesc('updated_at')->take(1);
+        $properties = Property::all();
+
+        $data = [
+            'contact_items' => $contact_items[0],
+            'properties' => $properties,
+        ];
+        return view("pages.submit_review")->with('data', $data);
+    }
+
+    public function save_review(Request $request) {
+        $record = new Review;
+        if($request->hasFile('picture')) {
+            $file = $request->picture;
+            $filename = mt_rand() . '.'.$file->clientExtension();
+            $destination = 'uploads/reviews/profile_pics';
+            $file->move($destination, $filename);
+
+            $record->picture = $filename;
+        }
+        else {
+            $record->picture = 'profile_pic.png';
+        }
+
+        $record->fullname = $request->fullname;
+        $record->property_id = $request->property_id;
+        $record->reviewed_on = date("Y-m-d");
+        $record->review = $request->review;
+        $record->published = 'Unpublished';
+        $record->save();
+
+        return redirect('/submit-review');
     }
 
     public function about() {
