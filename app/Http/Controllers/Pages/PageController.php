@@ -80,7 +80,7 @@ class PageController extends Controller
 
         $videos = Video::all()->sortByDesc('updated_at')->take(3);
         $reviews = Property::join('reviews', 'properties.id', '=', 'reviews.property_id')
-                    ->where('published', 'Published')->orderBy('reviews.updated_at', 'desc')
+                    ->where('publish_status', 'Published')->orderBy('reviews.updated_at', 'desc')
                     ->limit(10)->get();
 
         $data = [
@@ -228,7 +228,7 @@ class PageController extends Controller
         $record->property_id = $request->property_id;
         $record->reviewed_on = date("Y-m-d");
         $record->review = $request->review;
-        $record->published = 'Unpublished';
+        $record->publish_status = 'Unpublished';
         $record->save();
 
         return redirect('/submit-review');

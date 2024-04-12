@@ -72,7 +72,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Publish Status</label>     
-                            <select name="published" class="form-select">
+                            <select name="publish_status" class="form-select">
                                 <option>Unpublished</option>
                                 <option>Published</option>
                             </select>
@@ -120,7 +120,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Publish Status</label>     
-                            <select name="published" id='published' class="form-select">
+                            <select name="publish_status" id='publish_status' class="form-select">
                                 <option>Unpublished</option>
                                 <option>Published</option>
                             </select>

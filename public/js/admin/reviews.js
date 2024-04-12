@@ -145,7 +145,7 @@ function get_all() {
             thr.append($('<th>').text('Property'))
             thr.append($('<th>').text('Reviewed On'))
             thr.append($('<th>').text('Review'))
-            thr.append($('<th>').text('Published'))
+            thr.append($('<th>').text('Publish Status'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
             tbl.append(thead)
@@ -167,7 +167,7 @@ function get_all() {
                 reviewed_on = reviewed_on.toLocaleString('default', {month: 'long', day: 'numeric', year: 'numeric'});
                 tr.append($('<td>').text(reviewed_on))
                 tr.append($('<td>').text(field.review))
-                tr.append($('<td>').text(field.published))
+                tr.append($('<td>').text(field.publish_status))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
@@ -232,7 +232,7 @@ function get_upd_id(id){
         $('#fullname').val(record.fullname)
         $('#reviewed_on').val(record.reviewed_on)
         $('#review').val(record.review)
-        $('#published').val(record.published)
+        $('#publish_status').val(record.publish_status)
       }
     })
 }
