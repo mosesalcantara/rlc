@@ -24,7 +24,7 @@ class LeaseController extends Controller
         foreach ($r_units as $r_unit) {
             $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
                         ->where('residential_units.id', $r_unit['id'])->get();
-            $r_unit['snapshot'] = $record[0]->picture;
+            count($record) > 0 ? $r_unit['snapshot'] = $record[0]->picture : $r_unit['snapshot'] = 'no_image.png';
         }
 
         $data = [
@@ -40,7 +40,7 @@ class LeaseController extends Controller
         foreach ($c_units as $c_unit) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.id', $c_unit['property_id'])->get();
-            $c_unit['picture'] = $record[0]->picture;
+            count($record) > 0 ? $c_unit['picture'] = $record[0]->picture : $c_unit['picture'] = 'no_image.png';
 
             $record = Building::where('id', $c_unit['building_id'])->get();
             $c_unit['building'] = $record[0]['name'];
@@ -60,7 +60,7 @@ class LeaseController extends Controller
         foreach ($slots as $slot) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.id', $slot['id'])->get();
-            $slot['picture'] = $record[0]->picture;
+            count($record) > 0 ? $slot['picture'] = $record[0]->picture : $slot['picture'] = 'no_image.png';
         }
 
         $data = [
@@ -92,7 +92,7 @@ class LeaseController extends Controller
         foreach ($r_units as $r_unit) {
             $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
                         ->where('residential_units.id', $r_unit['id'])->get();
-            $r_unit['snapshot'] = $record[0]->picture;
+            count($record) > 0 ? $r_unit['snapshot'] = $record[0]->picture : $r_unit['snapshot'] = 'no_image.png';
         }
 
         $data = [
@@ -131,7 +131,7 @@ class LeaseController extends Controller
         foreach ($c_units as $c_unit) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.id', $c_unit['property_id'])->get();
-            $c_unit['picture'] = $record[0]->picture;
+            count($record) > 0 ? $c_unit['picture'] = $record[0]->picture : $c_unit['picture'] = 'no_image.png';
 
             $record = Building::where('id', $c_unit['building_id'])->get();
             $c_unit['building'] = $record[0]['name'];
@@ -180,7 +180,7 @@ class LeaseController extends Controller
         foreach ($slots as $slot) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.id', $slot['id'])->get();
-            $slot['picture'] = $record[0]->picture;
+            count($record) > 0 ? $slot['picture'] = $record[0]->picture : $slot['picture'] = 'no_image.png';
         }
 
         $data = [

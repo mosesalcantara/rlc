@@ -80,7 +80,7 @@ class CompareController extends Controller
 
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.name', $property)->get();
-            $details['picture'] = $record[0]['picture'];
+            count($record) > 0 ? $details['picture'] = $record[0]['picture'] : $details['picture'] = 'no_image.png';
             $details['location'] = $record[0]['location'];
             $details['name'] = $property;
 
@@ -121,9 +121,14 @@ class CompareController extends Controller
             $details['max_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.area');
 
             $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.status')->where($where)->get();
-            $statuses = '';
+            $statuses_arr = [];
             foreach ($record as $item) {
-                $statuses .= ' ' . $item['status'];
+                array_push($statuses_arr, $item['status']);
+            }
+
+            $statuses = '';
+            foreach (array_unique($statuses_arr) as $status) {
+                $statuses .= ' ' . $status;
             }
             $details['statuses'] = $statuses;
 
@@ -144,7 +149,7 @@ class CompareController extends Controller
             $details = [];
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.name', $property)->get();
-            $details['picture'] = $record[0]['picture'];
+            count($record) > 0 ? $details['picture'] = $record[0]['picture'] : $details['picture'] = 'no_image.png';
             $details['location'] = $record[0]['location'];
             $details['name'] = $property;
 
@@ -190,7 +195,7 @@ class CompareController extends Controller
             foreach ($records as $record) {
                 $snapshot = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
                                 ->where('residential_units.id', $record['id'])->get();
-                $record['snapshot'] = $snapshot[0]->picture;
+                count($snapshot) > 0 ? $record['snapshot'] = $snapshot[0]->picture : $record['snapshot'] = 'no_image.png';
             }
             $details['units'] = $records;
 
@@ -228,7 +233,7 @@ class CompareController extends Controller
             foreach ($records as $record) {
                 $picture = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                             ->where('properties.id', $record['property_id'])->get();
-                $record['picture'] = $picture[0]->picture;
+                count($picture) > 0 ? $record['picture'] = $picture[0]->picture : $record['picture'] = 'no_image.png';
 
                 $building = Building::where('id', $record['building_id'])->get();
                 $record['building'] = $building[0]['name'];

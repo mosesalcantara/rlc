@@ -31,7 +31,7 @@ class SaleController extends Controller
         foreach ($sale_units as $sale_unit) {
             $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
                         ->where('residential_units.id', $sale_unit['id'])->get();
-            $sale_unit['snapshot'] = $record[0]->picture;
+            count($record) > 0 ? $sale_unit['snapshot'] = $record[0]->picture : $sale_unit['snapshot'] = 'no_image.png';
         }
 
         $data = [
