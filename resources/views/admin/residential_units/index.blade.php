@@ -44,18 +44,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/admin/residential/add" method="post" enctype="multipart/form-data" id="addForm">         
-                        <div class="mb-3">
-                            <label for="" class="form-label">Property</label>  
-                            <select name="property_id" id="add_property_id" class="form-select"></select>
-                        </div>
+                    <form action="/admin/residential/add" method="post" enctype="multipart/form-data" id="addForm">       
+                        <div class="row">
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Property</label>  
+                                <select name="property_id" id="add_property_id" class="form-select"></select>
+                            </div>
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Building</label>  
+                                <select name="building_id" id="add_building_id" class="form-select"></select>
+                            </div>
+                        </div>  
                         <div class="form-floating mb-3">
                             <input type="text" name="unit_id" class="form-control">
                             <label for="">Unit ID</label>     
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Building</label>  
-                            <select name="building_id" id="add_building_id" class="form-select"></select>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Retail Status</label>     
@@ -64,31 +66,35 @@
                                 <option value="For Lease">For Lease</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Unit Type</label>     
-                            <select name="type" class="form-select">
-                                <option value="1BR">1 Bedroom</option>
-                                <option value="2BR">2 Bedrooms</option>
-                                <option value="3BR">3 Bedrooms</option>
-                                <option value="PH">Penthouse</option>
-                                <option value="Studio">Studio</option>
-                            </select>
+                        <div class="row">
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Unit Type</label>     
+                                <select name="type" class="form-select">
+                                    <option value="1BR">1 Bedroom</option>
+                                    <option value="2BR">2 Bedrooms</option>
+                                    <option value="3BR">3 Bedrooms</option>
+                                    <option value="PH">Penthouse</option>
+                                    <option value="Studio">Studio</option>
+                                </select>
+                            </div>
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Unit Status</label>     
+                                <select name="status" class="form-select">
+                                    <option value="Unfurnished">Unfurnished</option>
+                                    <option value="Semi-furnished">Semi-furnished</option>
+                                    <option value="Fully Furnished">Fully Furnished</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="area" class="form-control">
-                            <label for="">Area (SQM)</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="price" class="form-control">
-                            <label for="">Price</label>     
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Unit Status</label>     
-                            <select name="status" class="form-select">
-                                <option value="Unfurnished">Unfurnished</option>
-                                <option value="Semi-furnished">Semi-furnished</option>
-                                <option value="Fully Furnished">Fully Furnished</option>
-                            </select>
+                        <div class="row">
+                            <div class="col-xxl-6 form-floating mb-3">
+                                <input type="text" name="area" class="form-control">
+                                <label for="">Area (SQM)</label>     
+                            </div>
+                            <div class="col-xxl-6 form-floating mb-3">
+                                <input type="text" name="price" class="form-control">
+                                <label for="">Price</label>     
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Publish Status</label>     
@@ -118,17 +124,19 @@
                 </div>
                 <div class="modal-body">
                     <form action="/admin/residential/update" method="post" enctype="multipart/form-data" id="updForm">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Property</label>  
-                            <select name="property_id" id="upd_property_id" class="form-select"></select>
+                        <div class="row">
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Property</label>  
+                                <select name="property_id" id="upd_property_id" class="form-select"></select>
+                            </div>
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Building</label>  
+                                <select name="building_id" id="upd_building_id" class="form-select"></select>
+                            </div>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" name="unit_id" id="unit_id" class="form-control">
                             <label for="">Unit ID</label>     
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Building</label>  
-                            <select name="building_id" id="upd_building_id" class="form-select"></select>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Retail Status</label>     
@@ -137,31 +145,35 @@
                                 <option value="For Lease">For Lease</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Unit Type</label>     
-                            <select name="type" id="type" class="form-select">
-                                <option value="1BR">1 Bedroom</option>
-                                <option value="2BR">2 Bedrooms</option>
-                                <option value="3BR">3 Bedrooms</option>
-                                <option value="PH">Penthouse</option>
-                                <option value="Studio">Studio</option>
-                            </select>
+                        <div class="row">
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Unit Type</label>     
+                                <select name="type" id="type" class="form-select">
+                                    <option value="1BR">1 Bedroom</option>
+                                    <option value="2BR">2 Bedrooms</option>
+                                    <option value="3BR">3 Bedrooms</option>
+                                    <option value="PH">Penthouse</option>
+                                    <option value="Studio">Studio</option>
+                                </select>
+                            </div>
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Unit Status</label>     
+                                <select name="status" id="status" class="form-select">
+                                    <option value="Unfurnished">Unfurnished</option>
+                                    <option value="Semi-furnished">Semi-furnished</option>
+                                    <option value="Fully Furnished">Fully Furnished</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="area" id="area" class="form-control">
-                            <label for="">Area (SQM)</label>     
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" name="price" id="price" class="form-control">
-                            <label for="">Price</label>     
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Unit Status</label>     
-                            <select name="status" id="status" class="form-select">
-                                <option value="Unfurnished">Unfurnished</option>
-                                <option value="Semi-furnished">Semi-furnished</option>
-                                <option value="Fully Furnished">Fully Furnished</option>
-                            </select>
+                        <div class="row">
+                            <div class="col-xxl-6 form-floating mb-3">
+                                <input type="text" name="area" id="area" class="form-control">
+                                <label for="">Area (SQM)</label>     
+                            </div>
+                            <div class="col-xxl-6 form-floating mb-3">
+                                <input type="text" name="price" id="price" class="form-control">
+                                <label for="">Price</label>     
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Publish Status</label>     
