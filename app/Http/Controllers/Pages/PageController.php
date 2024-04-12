@@ -49,6 +49,7 @@ class PageController extends Controller
             $where = [
                 'properties.id' => $property['id'],
                 'retail_status' => 'For Lease',
+                'published' => 1,
             ];
             
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')->where('properties.id', $property['id'])->limit(1)->get();
