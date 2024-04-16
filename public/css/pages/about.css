@@ -25,7 +25,6 @@
 
 .about {
     background: linear-gradient(180deg, #E8E8E8, rgba(86,86,86,1), rgba(54,54,54,1));
-    height: auto;
     box-shadow: 1rem 1rem 3rem 5rem #E8E8E8;
 }
 
