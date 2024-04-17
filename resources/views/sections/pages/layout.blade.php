@@ -52,14 +52,11 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::url() == url('/') ? 'active' : '' }}" href="/">Home</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link {{ in_array(Request::url(), [ url('/for-sale'), url('/for-lease') ]) ? 'active' : '' }} dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Units
-                                  </a>
-                                <ul class="dropdown-menu unit_drop">
-                                    <li><a class="dropdown-item" href="/for-sale">For Sale</a></li>
-                                    <li><a class="dropdown-item" href="/for-lease">For Lease</a></li>
-                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::url() == url('/for-sale') ? 'active' : '' }}" href="/for-sale">For Sale</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::url() == url('/for-lease') ? 'active' : '' }}" href="/for-lease">For Lease</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::url() == url('/compare') ? 'active' : '' }}" href="/compare">Compare Properties</a>
