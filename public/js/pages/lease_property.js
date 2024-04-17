@@ -19,7 +19,6 @@ $(document).ready( function () {
 
     $( ".buttons button" ).on( "click", function() {
         var property_type = $(this).data('type')
-        $('#search_form input[name=property_type]').val(property_type)
 
         url = `/for-lease/category/${property_type}`
         $('#search_form').attr('action', url).submit()    

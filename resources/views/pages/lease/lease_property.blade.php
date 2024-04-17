@@ -108,7 +108,6 @@
 
                     <form action="" method="POST" class="d-none" id='search_form'>
                         @csrf
-                        <input type="hidden" name='property_type' value=''>
                         <input type="hidden" name='property_id' value='{{ $data['property']['id'] }}'>
                         <input type="hidden" name='origin' value='property_page'>
                     </form>

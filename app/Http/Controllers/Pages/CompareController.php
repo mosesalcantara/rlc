@@ -81,6 +81,7 @@ class CompareController extends Controller
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.name', $property)->get();
             count($record) > 0 ? $details['picture'] = $record[0]['picture'] : $details['picture'] = 'no_image.png';
+            $details['id'] = $record[0]['property_id'];
             $details['location'] = $record[0]['location'];
             $details['name'] = $property;
 
@@ -150,6 +151,7 @@ class CompareController extends Controller
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.name', $property)->get();
             count($record) > 0 ? $details['picture'] = $record[0]['picture'] : $details['picture'] = 'no_image.png';
+            $details['id'] = $record[0]['property_id'];
             $details['location'] = $record[0]['location'];
             $details['name'] = $property;
 

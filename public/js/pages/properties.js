@@ -57,6 +57,16 @@ $(document).ready( function () {
         }
     })  
 
+    $(document).on('click', '.picture', function(){
+        var property_type = $(this).next().children()[1]
+        property_type = $(property_type).text().toLowerCase() + '_units'
+        var property_id = $(this).data('property_id')
+        $('#search_form input[name=property_id]').val(property_id)
+
+        url = `/for-lease/category/${property_type}`
+        $('#search_form').attr('action', url).submit()
+    })
+
     $(document).on('click', '.dropdown button', function() {
         $(this).next().toggleClass('show')
     })
@@ -169,6 +179,8 @@ function compare_residential_properties() {
                     }
         
                     var property_picture = $('<div>').addClass('picture d-flex justify-content-center align-items-end')
+                    property_picture.data('property_type', 'residential_units')
+                    property_picture.data('property_id', property.id)
                     property_picture.css({
                         'background-image': `url(uploads/properties/pictures/${property.picture})`
                     })
@@ -222,6 +234,7 @@ function compare_commercial_properties() {
                     }
         
                     var property_picture = $('<div>').addClass('picture d-flex justify-content-center align-items-end')
+                    property_picture.data('property_id', property.id)
                     property_picture.css({
                         'background-image': `url(uploads/properties/pictures/${property.picture})`
                     })
@@ -411,7 +424,7 @@ function compare_commercial_units() {
         url: "/compare/commercial-units",
         data: data,
         success: function (res) {
-            console.log(res)
+            // console.log(res)
             var properties = res.properties
             var units_container = $('.units_container')
 

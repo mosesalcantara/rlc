@@ -198,6 +198,12 @@
                     
                 </div>
             </div>
+
+            <form action="" method="POST" class="d-none" id='search_form'>
+                @csrf
+                <input type="hidden" name='property_id' value=''>
+                <input type="hidden" name='origin' value='compare_page'>
+            </form>
         </div>
     </div>
 

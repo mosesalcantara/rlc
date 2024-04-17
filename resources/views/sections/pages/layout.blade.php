@@ -93,12 +93,19 @@
                 <div class="row">
                     <div class="col-xxl-3">
                         <h3>Quick Links</h3>
-                        <a href="/">Home</a>
-                        <a href="/for-sale">For Sale</a>
-                        <a href="/for-lease">For Lease</a>
-                        <a href="/compare">Compare Properties</a>
-                        <a href="/contact-us">Contact Us</a>
-                        <a href="/about-us">About Us</a>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="/">Home</a>
+                                <a href="/for-sale">For Sale</a>
+                                <a href="/for-lease">For Lease</a>
+                                <a href="/compare">Compare Properties</a>
+                                <a href="/contact-us">Contact Us</a>
+                                <a href="/about-us">About Us</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="/calculator">Loan Calculator</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-xxl-3 offset-xxl-1 contacts">
                         <h3>Talk to Us</h3>

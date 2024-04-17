@@ -71,7 +71,7 @@ class LeaseController extends Controller
     }
 
     public function search_residential_units(Request $request) {
-        if ($request['origin'] == 'property_page') {
+        if ($request['origin'] == 'property_page' || $request['origin'] == 'compare_page') {
             $where = [
                 ['properties.id', $request['property_id']],
             ];
@@ -113,7 +113,7 @@ class LeaseController extends Controller
                 ['properties.location', $request['location']],
             ];
         }
-        else if ($request['origin'] == 'property_page') {
+        else if ($request['origin'] == 'property_page' || $request['origin'] == 'compare_page') {
             $where = [
                 ['properties.id', $request['property_id']],
             ];
