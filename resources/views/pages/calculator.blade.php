@@ -64,9 +64,9 @@
                         <input type="text" id="terms" class="form-control form-control-lg" />
                     </div>
                 </div>
-                <div class="row calculator_btn mb-3">
+                <div class="row calculator_btns mb-3">
                     <div class="col-6">
-                        <button>Compute</button>
+                        <button id='compute_btn'>Compute</button>
                     </div>
                     <div class="col-6">
                         <button>Clear</button>
@@ -89,5 +89,5 @@
 @section('scripts')
     @parent
 
-    {{-- <script src="{{ asset('js/pages/properties.js') }}"></script> --}}
+    <script src="{{ asset('js/pages/calculator.js') }}"></script>
 @endsection
