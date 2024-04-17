@@ -53,6 +53,8 @@ Route::post('/unit-registration/related-buildings', [PageController::class, 'rel
 
 Route::get('/about-us', [PageController::class, 'about']);
 
+Route::get('/calculator', [PageController::class, 'calculator']);
+
 Route::get('/test', [PageController::class, 'test']);
 
 Route::get('/for-sale', [SaleController::class, 'sale']);

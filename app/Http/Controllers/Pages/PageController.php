@@ -245,4 +245,8 @@ class PageController extends Controller
         ];
         return view("pages.about")->with('data', $data);
     }
+
+    public function calculator() {
+        return view('pages.calculator');
+    }
 }

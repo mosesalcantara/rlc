@@ -9,6 +9,23 @@ $(document).ready( function () {
     $('input[name=property_type]').trigger('change')
     get_residential_properties()
 
+    $(document).on('click', '.dropdown button', function() {
+        $(this).next().toggleClass('show')
+    })
+
+    $(document).on('click', '.dropdown-item', function(){
+        var selected = $(this)
+
+        var parents = $(selected).parents()
+        $(parents[1]).toggleClass('show')
+        var button = $(parents[1]).prev()
+        button.find('h6').html(selected.html())
+        
+        var dropdown = $(parents[2])
+        dropdown = dropdown.attr('id')
+        selected_properties[dropdown] = selected.html()
+    })
+
     $(document).on('change', 'input[name=property_type]', function() {
         property_type = this.value
         $('.dropdown-menu').remove()
@@ -23,19 +40,6 @@ $(document).ready( function () {
             $('.filter_price, .filter_unit_type, .filter_status').addClass('d-none')
             get_commercial_properties()
         }
-    })
-
-    $(document).on('click', '.dropdown-item', function(){
-        var selected = $(this)
-
-        var parents = $(selected).parents()
-        $(parents[1]).toggleClass('show')
-        var button = $(parents[1]).prev()
-        button.find('h6').html(selected.html())
-        
-        var dropdown = $(parents[2])
-        dropdown = dropdown.attr('id')
-        selected_properties[dropdown] = selected.html()
     })
 
     $('#property_form').submit(function(e) {
@@ -66,11 +70,6 @@ $(document).ready( function () {
         url = `/for-lease/category/${property_type}`
         $('#search_form').attr('action', url).submit()
     })
-
-    $(document).on('click', '.dropdown button', function() {
-        $(this).next().toggleClass('show')
-    })
-
 })
 
 var selected_properties = {
@@ -182,7 +181,8 @@ function compare_residential_properties() {
                     property_picture.data('property_type', 'residential_units')
                     property_picture.data('property_id', property.id)
                     property_picture.css({
-                        'background-image': `url(uploads/properties/pictures/${property.picture})`
+                        'background-image': `url(uploads/properties/pictures/${property.picture})`,
+                        'cursor' : 'pointer',
                     })
                     var name = $('<h5>').html(property.name)
                     property_picture.append(name)
@@ -236,7 +236,8 @@ function compare_commercial_properties() {
                     var property_picture = $('<div>').addClass('picture d-flex justify-content-center align-items-end')
                     property_picture.data('property_id', property.id)
                     property_picture.css({
-                        'background-image': `url(uploads/properties/pictures/${property.picture})`
+                        'background-image': `url(uploads/properties/pictures/${property.picture})`,
+                        'cursor' : 'pointer',
                     })
                     var name = $('<h5>').html(property.name)
                     property_picture.append(name)
