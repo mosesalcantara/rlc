@@ -23,6 +23,34 @@ use App\Models\Setting;
 
 class PageController extends Controller
 {
+    public function handle() {
+        $botman = app('botman');
+   
+        $botman->hears('{message}', function($botman, $message) {
+   
+            if ($message == 'hi') {
+                $this->askName($botman);
+            }
+            
+            else{
+                $botman->reply("Start a conversation by saying hi.");
+            }
+   
+        });
+   
+        $botman->listen();
+    }
+
+    public function askName($botman)
+    {
+        $botman->ask('Hello! What is your Name?', function(Answer $answer) {
+   
+            $name = $answer->getText();
+   
+            $this->say('Nice to meet you '.$name);
+        });
+    }
+
     public function get_settings() {
         $settings = Setting::all()->sortByDesc('updated_at')->take(1);
         

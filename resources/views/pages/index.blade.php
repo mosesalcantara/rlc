@@ -4,7 +4,7 @@
  
 @section('links')
     @parent
-    
+
     <link rel="stylesheet" href="{{ asset('css/pages/index.css') }}">
 @endsection
 

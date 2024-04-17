@@ -40,6 +40,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::match(['get', 'post'], '/botman', [PageController::class, 'handle']);
+
 Route::get('/', [PageController::class, 'index']);
 Route::post('/get-settings', [PageController::class, 'get_settings']);
 
