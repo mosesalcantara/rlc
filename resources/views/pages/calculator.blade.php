@@ -73,11 +73,10 @@
                     </div>
                 </div>
             </div>
+            <div class="col results">
+
+            </div>
         </div>
-    </div>
-
-    <div class="container-fluid results">
-
     </div>
 
 @endsection

@@ -20,5 +20,30 @@ $(document).ready( function () {
         var downpayment = price * down
         var financed = price - downpayment
         var amortization = (financed * (interest / 12)) / (1 - (1 + (interest / 12))** (-12 * terms))
+
+        var results_div = $('.results')
+        var result = `
+                        <div class='card'>
+                            <div class='card-body'>
+                                <h4 class='mb-3'>Result</h4>
+
+                                <div class='row'>
+                                    <div class='col-6'>
+                                        <h6>Selling Price</h6>
+                                        <h6>Downpayment</h6>
+                                        <h6>Amount Financed</h6>
+                                        <h6>Monthly Amortization</h6>
+                                    </div>
+                                    <div class='col-6'>
+                                        <h6>${money.format(price)}</h6>
+                                        <h6>${money.format(downpayment)}</h6>
+                                        <h6>${money.format(financed)}</h6>
+                                        <h6>${money.format(amortization)}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                     `
+        results_div.append(result)
     });
 })
