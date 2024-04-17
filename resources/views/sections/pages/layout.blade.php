@@ -6,7 +6,7 @@
     <title>RLC Residences | Leasing - @yield('title')</title>
 
     @section('links')
-        {{-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css"> --}}
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('css/pages/styles.css') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -170,7 +170,7 @@
         <script>
             var botmanWidget = {
                 aboutText: 'Start the conversation with Hi',
-                introMessage: "WELCOME TO ALL ABOUT LARAVEL"
+                introMessage: "Welcome to RLC Residences"
             };
         </script>
 
