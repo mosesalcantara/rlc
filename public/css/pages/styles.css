@@ -42,20 +42,20 @@ body {
     padding: .7rem 0;
 }
 
-.unit_drop, #contact_drop {
+.contact_btns a {
+    color: #000b8c;
+    text-decoration: none;
+    margin-right: 0.7rem;
+    font-size: 1.5em;
+}
+
+#contact_drop {
     padding: 0.5rem 1rem 0.5rem;
 }
 
 #contact_drop a {
-    font-size: 1rem;
+    font-size: 0.97rem;
 }
-
-#contact_drop i, #contact_drop p {
-    display: inline;
-    color: #000b8c;
-    margin-right: 0.5rem;
-}
-
 
 .nav_toggle {
     color: #000b8c;
