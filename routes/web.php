@@ -22,11 +22,13 @@ use App\Http\Controllers\Admin\ParkingSlotController;
 use App\Http\Controllers\Admin\TermController;
 use App\Http\Controllers\Admin\ContactItemController;
 use App\Http\Controllers\Admin\InquiryEmailController;
+use App\Http\Controllers\Admin\ViewingController;
 use App\Http\Controllers\Admin\RegisteredUnitController;
 use App\Http\Controllers\Admin\AboutItemController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Pages\BotManController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -244,6 +246,15 @@ Route::prefix('admin/inquiry_emails')->group(function () {
     Route::post('/edit', [InquiryEmailController::class, 'edit']);
     Route::post('/update', [InquiryEmailController::class, 'update']);
     Route::post('/delete', [InquiryEmailController::class, 'delete']);
+});
+
+Route::prefix('admin/viewings')->group(function () {
+    Route::get('/', [ViewingController::class, 'index']);
+    Route::post('/', [ViewingController::class, 'get_all']);
+    Route::post('/add', [ViewingController::class, 'create']);
+    Route::post('/edit', [ViewingController::class, 'edit']);
+    Route::post('/update', [ViewingController::class, 'update']);
+    Route::post('/delete', [ViewingController::class, 'delete']);
 });
 
 Route::prefix('admin/registered_units')->group(function () {

@@ -141,7 +141,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/inquiry_emails'), url('/admin/registered_units') ]) ? 'active' : '' }}">
+                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/inquiry_emails'), url('/admin/viewings'), url('/admin/registered_units') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInquiry"
                         aria-expanded="true" aria-controls="collapseInquiry">
                         <i class="fas fa-fw fa-folder"></i>
@@ -150,6 +150,7 @@
                     <div id="collapseInquiry" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="/admin/inquiry_emails">Inquiry Emails</a>
+                            <a class="collapse-item" href="/admin/viewings">Viewings</a>
                             <a class="collapse-item" href="/admin/registered_units">Registered Units</a>
                         </div>
                     </div>
