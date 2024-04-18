@@ -118,6 +118,7 @@ function get_all() {
             thr.append($('<th>').text('Viewing Date'))
             thr.append($('<th>').text('Viewing Time'))
             thr.append($('<th>').text('Message'))
+            thr.append($('<th>').text('Status'))
             thr.append($('<th>').text('Action'))
             thead.append(thr)
             tbl.append(thead)
@@ -134,6 +135,7 @@ function get_all() {
                 tr.append($('<td>').text(date))
                 tr.append($('<td>').text(field.time))
                 tr.append($('<td>').text(field.message))
+                tr.append($('<td>').text(field.status))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
@@ -197,6 +199,7 @@ function get_upd_id(id){
         $('#date').val(record.date)
         $('#time').val(record.time)
         $('#message').val(record.message)
+        $('#status').val(record.status)
       }
     })
 }

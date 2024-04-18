@@ -31,6 +31,7 @@ class ViewingController extends Controller
             'date'=>'required',
             'time'=>'required',
             'message'=>'required',
+            'status'=>'required',
         ]);
 
         $record = new Viewing;
@@ -41,6 +42,7 @@ class ViewingController extends Controller
         $record->date = $request->date;
         $record->time = $request->time;
         $record->message = $request->message;
+        $record->status = $request->status;
         $record->save();
 
         return response(['msg' => 'Added Viewing']);
@@ -64,6 +66,7 @@ class ViewingController extends Controller
             'date'=>'required',
             'time'=>'required',
             'message'=>'required',
+            'status'=>'required',
         ]);
 
         $record = Viewing::find($request->upd_id);
@@ -75,6 +78,7 @@ class ViewingController extends Controller
             'date' => $request->date,
             'time' => $request->time,
             'message' => $request->message,
+            'status' => $request->status,
         ]);
 
         return response(['msg' => 'Updated Viewing']);

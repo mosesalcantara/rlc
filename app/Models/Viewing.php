@@ -16,5 +16,6 @@ class Viewing extends Model
         'date',
         'time',
         'message',
+        'status',
     ];
 }

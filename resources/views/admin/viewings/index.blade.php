@@ -87,6 +87,17 @@
                             <label for="" class="form-label">Message</label>     
                             <textarea class="form-control" name="message" cols="30" rows="5"></textarea>
                         </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="" class="form-label">Status</label>     
+                                <select name="status" class="form-select">
+                                    <option value="Approved">Approved</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Denied">Denied</option>
+                                </select>
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" value="Add">
@@ -149,6 +160,17 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Message</label>     
                             <textarea class="form-control" name="message" id='message' cols="30" rows="5"></textarea>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="" class="form-label">Status</label>     
+                                <select name="status" id="status" class="form-select">
+                                    <option value="Approved">Approved</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Denied">Denied</option>
+                                </select>
+                            </div>
                         </div>
                 </div>
                 <div class="modal-footer">
