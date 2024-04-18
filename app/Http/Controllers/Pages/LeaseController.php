@@ -74,6 +74,8 @@ class LeaseController extends Controller
         if ($request['origin'] == 'property_page' || $request['origin'] == 'compare_page') {
             $where = [
                 ['properties.id', $request['property_id']],
+                ['residential_units.retail_status', 'For Lease'],
+                ['residential_units.published', 1],
             ];
         }
         else {
