@@ -80,6 +80,8 @@
                                 <a class="fa-solid fa-mobile-screen-button" id='mobile' href=''></a>
                                 <a class="fa-brands fa-facebook-messenger" id='messenger' href='' target='_blank'></a>
                                 <a class="fa-brands fa-telegram" id='telegram' href='' target='_blank'></a>
+                                <a class="fa-brands fa-weixin" id='wechat' href='' target='_blank'></a>
+                                <a class="fa-brands fa-viber" id='viber' href='' target='_blank'></a>
                             </li>
                         </ul>
                     </div>
@@ -123,6 +125,9 @@
                                 <br><br>
                                 <a class="fa-brands fa-facebook-messenger" id='messenger' href='' target='_blank'></a>
                                 <span id='messenger_text'></span>
+                                <br><br>
+                                <a class="fa-brands fa-weixin" id='wechat' href='' target='_blank'></a>
+                                <span id='wechat_text'></span>
                             </div>
                             <div class="col-xxl-6">
                                 <a class="fa-solid fa-mobile-screen-button" id='mobile' href='' ></a>
@@ -130,6 +135,9 @@
                                 <br><br>
                                 <a class="fa-brands fa-telegram" id='telegram' href='' target='_blank'></a>
                                 <span id='telegram_text'></span>
+                                <br><br>
+                                <a class="fa-brands fa-viber" id='viber' href='' target='_blank'></a>
+                                <span id='viber_text'></span>
                             </div>
                         </div>
                     </div>

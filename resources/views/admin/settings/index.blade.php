@@ -95,6 +95,36 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-floating mb-3">
+                                <input type="text" name="wechat" id='wechat' class="form-control">
+                                <label for="">WeChat Link</label>     
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" name="wechat_text" id='wechat_text' class="form-control">
+                                <label for="">WeChat Text</label>     
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" name="viber" id='viber' class="form-control">
+                                <label for="">Viber Link</label>     
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" name="viber_text" id='viber_text' class="form-control">
+                                <label for="">Viber Text</label>     
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
                                 <input type="text" name="facebook" id='facebook' class="form-control">
                                 <label for="">Facebook</label>     
                             </div>
@@ -122,7 +152,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col d-flex align-items-center justify-content-end">
                             <input type="hidden" value="0" name="upd_id" id="upd_id">
                             <input type="submit" class="btn btn-primary mr-2" value="Save">

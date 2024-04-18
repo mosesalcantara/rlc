@@ -25,6 +25,10 @@ $(document).ready( function () {
           $('#messenger_text').html(settings.messenger_text)
           $('#telegram').attr({'href': settings.telegram})
           $('#telegram_text').html(settings.telegram_text)
+          $('#wechat').attr({'href': settings.wechat})
+          $('#wechat_text').html(settings.wechat_text)
+          $('#viber').attr({'href': settings.viber})
+          $('#viber_text').html(settings.viber_text)
 
           $('#facebook').attr({'href': settings.facebook})
           $('#twitter').attr({'href': settings.twitter})

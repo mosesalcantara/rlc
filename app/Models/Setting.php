@@ -24,5 +24,9 @@ class Setting extends Model
         'messenger_text',
         'telegram',
         'telegram_text',
+        'wechat',
+        'wechat_text',
+        'viber',
+        'viber_text',
     ];
 }
