@@ -68,6 +68,17 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Property</label>  
+                                <select name="property_id" id="add_property_id" class="form-select"></select>
+                            </div>
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Unit</label>  
+                                <select name="residential_unit_id" id="add_residential_unit_id" class="form-select"></select>
+                            </div>
+                        </div>
+
                         <div class="row mb-3">
                             <div class="col">
                                 <div class="form-floating">
@@ -139,6 +150,17 @@
                                     <input type="text" name="phone" id='phone' class="form-control">
                                     <label for="">Contact Number</label>     
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Property</label>  
+                                <select name="property_id" id="upd_property_id" class="form-select"></select>
+                            </div>
+                            <div class="col-xxl-6 mb-3">
+                                <label for="" class="form-label">Unit</label>  
+                                <select name="residential_unit_id" id="upd_residential_unit_id" class="form-select"></select>
                             </div>
                         </div>
 

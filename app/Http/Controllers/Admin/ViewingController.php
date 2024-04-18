@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Viewing;
+use App\Models\ResidentialUnit;
+use App\Models\Property;
 
 class ViewingController extends Controller
 {
@@ -14,8 +16,34 @@ class ViewingController extends Controller
     }
 
     public function get_all() {
-        $records = Viewing::all();
+        $records = ResidentialUnit::select('viewings.id', 'viewings.name', 'email', 'phone', 'property_id', 'residential_unit_id', 'unit_id', 'date', 'time', 'message', 'viewings.status')
+                    ->join('viewings', 'residential_units.id', '=', 'viewings.residential_unit_id')->get();
+
+        foreach ($records as $record) {
+            $property = Property::where('id', $record['property_id'])->get();
+            $record['property'] = $property[0]['name'];
+        }
         
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
+    }
+
+    public function related_properties() {
+        $records = Property::all();
+        
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
+    }
+
+    public function related_residential_units(Request $request) {
+        $records = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $request->property_id)->get();
+
         $data = [
             'records' => $records,
         ];
@@ -28,6 +56,7 @@ class ViewingController extends Controller
             'name'=>'required',
             'email'=>'required|email',
             'phone'=>'required',
+            'residential_unit_id'=>'required',
             'date'=>'required',
             'time'=>'required',
             'message'=>'required',
@@ -39,6 +68,7 @@ class ViewingController extends Controller
         $record->name = $request->name;
         $record->email = $request->email;
         $record->phone = $request->phone;
+        $record->residential_unit_id = $request->residential_unit_id;
         $record->date = $request->date;
         $record->time = $request->time;
         $record->message = $request->message;
@@ -49,10 +79,20 @@ class ViewingController extends Controller
     }
 
     public function edit(Request $request) {
-        $record = Viewing::find($request->upd_id);
+        $record = ResidentialUnit::select('viewings.id', 'viewings.name', 'email', 'phone', 'property_id', 'residential_unit_id', 'unit_id', 'date', 'time', 'message', 'viewings.status')
+                    ->join('viewings', 'residential_units.id', '=', 'viewings.residential_unit_id')->where('viewings.id', $request->upd_id)->get();
+        $record = $record[0];
 
+        $property = Property::where('id', $record['property_id'])->get();
+        $record['property'] = $property[0]['name'];
+
+        $properties = Property::all();
+        $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('properties.id', $record['property_id'])->get();
+        
         $data = [
             'record' => $record,
+            'properties' => $properties,
+            'r_units' => $r_units,
         ];
 
         return response()->json($data);
@@ -63,6 +103,7 @@ class ViewingController extends Controller
             'name'=>'required',
             'email'=>'required|email',
             'phone'=>'required',
+            'residential_unit_id'=>'required',
             'date'=>'required',
             'time'=>'required',
             'message'=>'required',
@@ -75,6 +116,7 @@ class ViewingController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
+            'residential_unit_id' => $request->residential_unit_id,
             'date' => $request->date,
             'time' => $request->time,
             'message' => $request->message,

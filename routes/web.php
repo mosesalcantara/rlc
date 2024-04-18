@@ -252,6 +252,8 @@ Route::prefix('admin/inquiry_emails')->group(function () {
 Route::prefix('admin/viewings')->group(function () {
     Route::get('/', [ViewingController::class, 'index']);
     Route::post('/', [ViewingController::class, 'get_all']);
+    Route::post('/related-properties', [ViewingController::class, 'related_properties']);
+    Route::post('/related-residential-units', [ViewingController::class, 'related_residential_units']);
     Route::post('/add', [ViewingController::class, 'create']);
     Route::post('/edit', [ViewingController::class, 'edit']);
     Route::post('/update', [ViewingController::class, 'update']);

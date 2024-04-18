@@ -7,6 +7,49 @@ $(document).ready( function () {
 
     $('#addModal').on('show.bs.modal', function(e) {
         $('#addForm span').remove()
+
+        $.ajax({
+          url: "/admin/viewings/related-properties",
+          method: 'POST',
+          success: function (res) {
+              var records = res.records
+              $.each(records, function(row, field) {
+                  var option = $('<option>').text(field.name).val(field.id)
+                  $('#add_property_id').append(option)
+              })
+              $('#add_property_id').val('')
+          },
+          error: function (xhr, status, error) {
+
+          },
+      })   
+    })
+
+    $("#add_property_id").on( "change", function() {
+      $('#add_residential_unit_id').empty()
+
+      $.ajax({
+          url: "/admin/viewings/related-residential-units",
+          method: 'POST',
+          data: { 
+              'property_id': $('#add_property_id').val(),
+          },
+          success: function (res) {
+              var records = res.records
+              $.each(records, function(row, field) {
+                  var option = $('<option>').text(field.unit_id).val(field.id)
+                  $('#add_residential_unit_id').append(option)
+              })
+          },
+          error: function (xhr, status, error) {
+
+          },
+      })    
+    })
+
+    $('#addModal').on('hide.bs.modal', function(e) {
+      $('#add_property_id').empty()
+      $('#add_residential_unit_id').empty()
     })
 
     $('#addForm').submit(function(e) {
@@ -41,8 +84,37 @@ $(document).ready( function () {
         })    
     })   
 
+    $("#upd_property_id").on( "change", function() {
+      $('#upd_residential_unit_id').empty()
+      var property_id = $('#upd_property_id').val()
+
+      $.ajax({
+          url: "/admin/viewings/related-residential-units",
+          method: 'POST',
+          data: { 
+            'property_id': property_id,
+          },
+          success: function (res) {
+              var records = res.records
+              $.each(records, function(row, field) {
+                  var option = $('<option>').text(field.unit_id).val(field.id)
+                  $('#upd_residential_unit_id').append(option)
+              })
+
+          },
+          error: function (xhr, status, error) {
+              console.log(xhr)
+          },
+      })    
+    })
+
     $('#updModal').on('show.bs.modal', function(e) {
         $('#updForm span').remove()
+    })
+
+    $('#updModal').on('hide.bs.modal', function(e) {
+      $('#upd_property_id').empty()
+      $('#upd_residential_unit_id').empty()
     })
 
     $('#updForm').submit(function(e) {
@@ -115,6 +187,8 @@ function get_all() {
             thr.append($('<th>').text('Full Name'))
             thr.append($('<th>').text('Email'))
             thr.append($('<th>').text('Contact Number'))
+            thr.append($('<th>').text('Property'))
+            thr.append($('<th>').text('Unit ID'))
             thr.append($('<th>').text('Viewing Date'))
             thr.append($('<th>').text('Viewing Time'))
             thr.append($('<th>').text('Message'))
@@ -129,6 +203,8 @@ function get_all() {
                 tr.append($('<td>').text(field.name))
                 tr.append($('<td>').text(field.email))
                 tr.append($('<td>').text(field.phone))
+                tr.append($('<td>').text(field.property))
+                tr.append($('<td>').text(field.unit_id))
                 var date = field.date
                 date = new Date(date)
                 date = date.toLocaleString('default', {month: 'long', day: 'numeric', year: 'numeric'});
@@ -192,6 +268,20 @@ function get_upd_id(id){
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record
+        var properties = res.properties
+        var r_units = res.r_units
+
+        $.each(properties, function(row, field) {
+          var option = $('<option>').text(field.name).val(field.id)
+          $('#upd_property_id').append(option)
+        })
+        $('#upd_property_id').val(record.property_id)
+
+        $.each(r_units, function(row, field) {
+            var option = $('<option>').text(field.unit_id).val(field.id)
+            $('#upd_residential_unit_id').append(option)
+        })
+        $('#upd_residential_unit_id').val(record.residential_unit_id)  
 
         $('#name').val(record.name)
         $('#email').val(record.email)

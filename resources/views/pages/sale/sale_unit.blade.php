@@ -299,7 +299,7 @@
                         <textarea class="form-control" name="message" cols="30" rows="5"></textarea>
                     </div>
 
-                    <input type="hidden" name='id' value='{{ $data['sale_unit']['id'] }}'>
+                    <input type="hidden" name='residential_unit_id' value='{{ $data['sale_unit']['id'] }}'>
             </div>
             <div class="modal-footer">
                     <input type="submit" class="btn btn-primary" value="Submit">

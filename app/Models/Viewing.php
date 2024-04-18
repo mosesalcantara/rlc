@@ -13,6 +13,7 @@ class Viewing extends Model
         'name',
         'email',
         'phone',
+        'residential_unit_id',
         'date',
         'time',
         'message',
