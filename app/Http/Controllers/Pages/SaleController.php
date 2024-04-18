@@ -48,6 +48,7 @@ class SaleController extends Controller
         $sale_unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('residential_units.id', $request->id)->get();
         $sale_unit = $sale_unit[0];
+        $sale_unit['id'] = $request->id;
 
         $record = Building::where('id', $sale_unit['building_id'])->get();
         $sale_unit['building'] = $record[0]['name'];

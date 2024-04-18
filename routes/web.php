@@ -49,6 +49,7 @@ Route::post('/get-settings', [PageController::class, 'get_settings']);
 
 Route::get('/contact-us', [PageController::class, 'contact']);
 Route::post('/contact-us', [PageController::class, 'send_inquiry']);
+Route::post('/request-viewing', [PageController::class, 'request_viewing']);
 Route::get('/submit-review', [PageController::class, 'submit_review']);
 Route::post('/submit-review', [PageController::class, 'save_review']);
 Route::get('/unit-registration', [PageController::class, 'unit_registration']);

@@ -17,6 +17,7 @@ use App\Models\Snapshot;
 use App\Models\UnitVideo;
 use App\Models\ContactItem;
 use App\Models\InquiryEmail;
+use App\Models\Viewing;
 use App\Models\RegisteredUnit;
 use App\Models\AboutItem;
 use App\Models\Setting;
@@ -124,6 +125,32 @@ class PageController extends Controller
         $record->save();
 
         return redirect('/contact-us');
+    }
+
+    public function request_viewing(Request $request) {
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email',
+            'phone'=>'required',
+            'date'=>'required',
+            'time'=>'required',
+            'message'=>'required',
+        ]);
+
+        $record = new Viewing;
+
+        $record->name = $request->name;
+        $record->email = $request->email;
+        $record->phone = $request->phone;
+        $record->date = $request->date;
+        $record->time = $request->time;
+        $record->message = $request->message;
+        $record->status = 'Pending';
+        $record->save();
+
+        
+
+        return response(['msg' => 'Request Submitted']);
     }
 
     public function unit_registration() {
