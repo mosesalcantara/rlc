@@ -209,7 +209,10 @@ function get_all() {
                 date = new Date(date)
                 date = date.toLocaleString('default', {month: 'long', day: 'numeric', year: 'numeric'});
                 tr.append($('<td>').text(date))
-                tr.append($('<td>').text(field.time))
+                var time = field.time
+                time = new Date(`01/01/2024 ${time}`)
+                time = time.toLocaleTimeString('en-US', { hour12: true })
+                tr.append($('<td>').text(time))
                 tr.append($('<td>').text(field.message))
                 tr.append($('<td>').text(field.status))
 

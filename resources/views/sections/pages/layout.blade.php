@@ -38,7 +38,7 @@
 
     <div class="content">
         @section('navbar')
-            <nav class="navbar navbar-expand-lg bg-body-tertiary px-xxl-5 py-xxl-3 fixed-top">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary px-xxl-3 py-xxl-3 fixed-top">
                 <div class="container-fluid navbar_div">
                     <a href="/" class="navbar-brand">
                         <img src="{{ asset('img/pages/logo.png') }}" alt="" id='logo'>
