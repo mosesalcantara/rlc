@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+
 use Mail;
 use App\Mail\InquiryMail;
 
@@ -132,6 +133,7 @@ class PageController extends Controller
             'name'=>'required',
             'email'=>'required|email',
             'phone'=>'required',
+            'residential_unit_id'=>'required',
             'date'=>'required',
             'time'=>'required',
             'message'=>'required',
@@ -142,13 +144,12 @@ class PageController extends Controller
         $record->name = $request->name;
         $record->email = $request->email;
         $record->phone = $request->phone;
+        $record->residential_unit_id = $request->residential_unit_id;
         $record->date = $request->date;
         $record->time = $request->time;
         $record->message = $request->message;
         $record->status = 'Pending';
         $record->save();
-
-        
 
         return response(['msg' => 'Request Submitted']);
     }

@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
+use Mail;
+use App\Mail\ViewingMail;
 
 use App\Models\Viewing;
 use App\Models\ResidentialUnit;
@@ -122,6 +126,22 @@ class ViewingController extends Controller
             'message' => $request->message,
             'status' => $request->status,
         ]);
+
+        if ($request->status != 'Pending') {
+            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->residential_unit_id)->get();
+            $record = $record[0];
+    
+            $mailData = [
+                'name' => $request->name,
+                'property' => $record['name'],
+                'unit_id' => $record['unit_id'],
+                'date' => Carbon::parse($request->date)->toFormattedDateString(),
+                'time' => Carbon::createFromFormat('H:i:s', $request->time)->format('h:i'),
+                'status' => $request->status,
+            ];
+
+            Mail::to($request->email)->send(new ViewingMail($mailData));
+        }
 
         return response(['msg' => 'Updated Viewing']);
     }
