@@ -101,6 +101,10 @@ body {
     font-size: 1rem;
 }
 
+.desktop-closed-message-avatar, .mobile-closed-message-avatar {
+    background-color: #000b8c !important;
+}
+
 @media (min-width: 992px) {
     .nav_toggle {
         display: none;
