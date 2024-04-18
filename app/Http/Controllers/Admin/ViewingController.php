@@ -136,7 +136,7 @@ class ViewingController extends Controller
                 'property' => $record['name'],
                 'unit_id' => $record['unit_id'],
                 'date' => Carbon::parse($request->date)->toFormattedDateString(),
-                'time' => Carbon::createFromFormat('H:i:s', $request->time)->format('h:i'),
+                'time' => Carbon::createFromFormat('H:i:s', $request->time)->format('g:i a'),
                 'status' => $request->status,
             ];
 
