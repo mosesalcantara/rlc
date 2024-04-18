@@ -18,7 +18,7 @@ $(document).ready( function () {
         var price = $('#price').val()
         var down = $('#down').val().replace('%', '') / 100
         var terms = $('#terms').val()
-        var interest = $('#interest').val() / 100
+        var interest = $('#interest').val().replace('%', '') / 100
 
         var downpayment = price * down
         var financed = price - downpayment

@@ -59,7 +59,18 @@
                 <div class="row mb-4">
                     <div class="col calculator_item">
                         <h4>Interest Rate</h4>
-                        <input type="text" id="interest" class="form-control form-control-lg" />
+                        <select class="form-select" id="interest">
+                            <option selected></option>
+                            <option>6%</option>
+                            <option>7%</option>
+                            <option>8%</option>
+                            <option>9%</option>
+                            <option>10%</option>
+                            <option>11%</option>
+                            <option>12%</option>
+                            <option>13%</option>
+                            <option>14%</option>
+                        </select>
                     </div>
                     <div class="col calculator_item">
                         <h4>Payment Terms</h4>
