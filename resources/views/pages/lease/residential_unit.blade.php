@@ -137,6 +137,7 @@
                     </div>
                 </div>
                 <div class="text-center">
+                    <a class="btn btn-warning" data-bs-target="#viewingModal" data-bs-toggle="modal">Request a Viewing</a>
                     <a class="btn btn-warning" href='/for-lease/property/{{ $data['r_unit']['property_id'] }}'>View Project Details</a>
                 </div>
             </div>
@@ -242,6 +243,69 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="viewingModal">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Request a Viewing</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/request-viewing" method="post" enctype="multipart/form-data" id="viewingForm">    
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" name="name" class="form-control">
+                                <label for="">Full Name</label>     
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" name="email" class="form-control">
+                        <label for="">Email</label>     
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" name="phone" class="form-control">
+                                <label for="">Contact Number</label>     
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <div class="form-floating">
+                                <input type="date" name="date" class="form-control">
+                                <label for="">Viewing Date</label>     
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating">
+                                <input type="time" name="time" class="form-control">
+                                <label for="">Viewing Time</label>     
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Message</label>     
+                        <textarea class="form-control" name="message" cols="30" rows="5"></textarea>
+                    </div>
+
+                    <input type="hidden" name='residential_unit_id' value='{{ $data['r_unit']['id'] }}'>
+            </div>
+            <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
         </div>
     </div>
 @endsection

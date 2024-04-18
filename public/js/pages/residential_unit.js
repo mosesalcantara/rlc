@@ -41,6 +41,36 @@ $(document).ready( function () {
         
         $('#search_form').attr('action', url).submit()    
     })
+
+    $('#viewingForm').submit(function (e) { 
+        e.preventDefault()
+        $.ajax({
+            type: 'POST',
+            url: "/request-viewing",
+            data: $(this).serialize(),
+            success: function (res) {
+                alert(res.msg)
+                $(`#viewingForm`).trigger('reset')
+                $(`#viewingModal`).modal('hide')
+            },
+            error: function (res) {
+                var errors = res.responseJSON.errors
+                // console.log(errors)
+
+                var inputs = $('#viewingForm input, #viewingForm select, #viewingForm textarea')
+                $.each(inputs, function(index, input) {
+                    var name = $(input).attr('name')
+
+                    if (name in errors) {
+                    for (error of errors[name]) {
+                        var error_msg = $(`<span class='text-danger'>${error}</span>`)
+                        error_msg.insertAfter($(input))
+                    }
+                    }
+                })
+            },
+        })
+    });
 })
 
 function get_filters() {

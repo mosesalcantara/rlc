@@ -199,6 +199,7 @@ class LeaseController extends Controller
         $r_unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->join('pictures', 'properties.id', '=', 'pictures.property_id')
                     ->where('residential_units.id', $request->id)->get();
         $r_unit = $r_unit[0];
+        $r_unit['id'] = $request->id;
 
         $record = Building::where('id', $r_unit['building_id'])->get();
         $r_unit['building'] = $record[0]['name'];
