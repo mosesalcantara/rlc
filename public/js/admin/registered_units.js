@@ -26,7 +26,7 @@ $(document).ready( function () {
     })
 
     $('#addModal').on('hide.bs.modal', function(e) {
-        $('#add_residential_unit_id').empty()
+      $('#add_residential_unit_id').empty()
     })
 
     $('#addForm').submit(function(e) {
@@ -68,7 +68,7 @@ $(document).ready( function () {
     })
 
     $('#updModal').on('hide.bs.modal', function(e) {
-        $('#upd_property_id').empty()
+        $('#upd_residential_unit_id').empty()
     })
 
     $('#updForm').submit(function(e) {

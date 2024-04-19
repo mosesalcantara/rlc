@@ -25,7 +25,7 @@ class RegisteredUnitController extends Controller
     }
 
     public function get_related() {
-        $records = ResidentialUnit::all();
+        $records = ResidentialUnit::orderBy('unit_id')->get();
         
         $data = [
             'records' => $records,
