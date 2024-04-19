@@ -1,5 +1,0 @@
--Loan Calculator
--Contact Icons On Navbar
--For Sale and For Lease Navbar
--Chatbot
--Compare Properties Click Property to View Units

@@ -1,5 +1,5 @@
 @component('mail::message')
-{{ $mailData['title'] }}
+<h1>{{ $mailData['title'] }}</h1>
 
 Fullname: {{ $mailData['name'] }}<br>
 Email: {{ $mailData['email'] }}<br>

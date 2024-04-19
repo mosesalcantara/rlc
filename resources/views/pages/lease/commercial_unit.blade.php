@@ -93,7 +93,7 @@
                     <h6>Size: {{ $data['c_unit']['size'] }} SQM</h6>
                 </div>
                 <div class="text-center">
-                    <a class="btn btn-warning" data-bs-target="#viewingModal" data-bs-toggle="modal">Request a Viewing</a>
+                    <a class="btn btn-warning" data-bs-target="#viewingModal" data-bs-toggle="modal">Request Viewing</a>
                     <a class="btn btn-warning" href='/for-lease/property/{{ $data['c_unit']['property_id'] }}'>View Project Details</a>
                 </div>
             </div>

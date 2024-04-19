@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <a class="btn btn-warning" data-bs-target="#viewingModal" data-bs-toggle="modal">Request a Viewing</a>
+                    <a class="btn btn-warning" data-bs-target="#viewingModal" data-bs-toggle="modal">Request Viewing</a>
                     <a class="btn btn-warning" href='/for-lease/property/{{ $data['r_unit']['property_id'] }}'>View Project Details</a>
                 </div>
             </div>
@@ -250,7 +250,7 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title">Request a Viewing</h5>
+            <h5 class="modal-title">Request Viewing</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
