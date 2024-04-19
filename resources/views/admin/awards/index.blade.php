@@ -9,8 +9,8 @@
     
     <style>
         img {
-            height: 50%;
-            width: 50%;
+            height: 30%;
+            width: 30%;
         }
     </style>
 @endsection
