@@ -72,7 +72,7 @@
 
 .brand_story {
     background-size: cover;
-    padding: 7rem;
+    padding: 7rem 7rem 3rem;
 }
 
 .video {
@@ -89,6 +89,37 @@
 .brand_story p {
     font-size: 1.25rem;
     text-align: justify;
+}
+
+.awards_div {
+    color: white;
+    padding: 1rem 10rem 1rem;
+}
+
+.years {
+    margin: 1rem 0rem 3rem;
+}
+
+.year {
+    padding: 1rem;
+    background-color: #000b8c;
+    border-radius: 0.6rem;
+}
+
+.awards {
+    margin: 0rem 0rem 3rem; 
+}
+
+.award img {
+    width: 45%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    margin: 0rem 0rem 0.5rem;
+}
+
+.award h5 {
+    border-top: 0.13rem solid white;
+    padding-top: 1vw;
 }
 
 @media (max-width: 1400px) {

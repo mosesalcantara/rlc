@@ -58,6 +58,7 @@ Route::post('/unit-registration', [PageController::class, 'register_unit']);
 Route::post('/unit-registration/related-buildings', [PageController::class, 'related_buildings']);
 
 Route::get('/about-us', [PageController::class, 'about']);
+Route::get('/about-us/get-awards', [PageController::class, 'get_awards']);
 
 Route::get('/calculator', [PageController::class, 'calculator']);
 
