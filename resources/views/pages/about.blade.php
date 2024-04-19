@@ -112,7 +112,7 @@
                 @if (count($data['years']) > 0)
                 @foreach ($data['years'] as $year)
                     <div class="col-xxl-1 text-center year" style="cursor: pointer;">
-                        <h6>{{ $year['year'] }}</h6>
+                        {{ $year['year'] }}
                     </div>
                 @endforeach
                 @endif

@@ -7,8 +7,7 @@ $(document).ready( function () {
 
     $('.year').click(function (e) { 
         $('.awards').empty()
-        var year = $(this).children()[0]
-        year = $(year).text()
+        var year = $(this).text().trim()
 
         $.ajax({
             type: "post",
@@ -32,4 +31,6 @@ $(document).ready( function () {
             },
         });
     });
+
+    $('.year').first().trigger('click')
 })
