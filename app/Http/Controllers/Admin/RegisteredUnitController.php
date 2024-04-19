@@ -37,13 +37,21 @@ class RegisteredUnitController extends Controller
     public function create(Request $request) {
         $request->validate([
             'name'=>'required',
+            'picture'=>'required|image',
             'email'=>'required|email',
             'phone'=>'required',
             'residential_unit_id'=>'required',
         ]);
 
         $record = new RegisteredUnit;
+        if($request->hasFile('picture')) {
+            $file = $request->picture;
+            $filename = mt_rand() . '.'.$file->clientExtension();
+            $destination = 'uploads/registered_units/id_pics';
+            $file->move($destination, $filename);
 
+            $record->picture = $filename;
+        }
         $record->name = $request->name;
         $record->email = $request->email;
         $record->phone = $request->phone;
@@ -75,13 +83,28 @@ class RegisteredUnitController extends Controller
         ]);
 
         $record = RegisteredUnit::find($request->upd_id);
+        if($request->hasFile('picture')) {
+            $file = $request->picture;
+            $filename = mt_rand() . '.'.$file->clientExtension();
+            $destination = 'uploads/registered_units/id_pics';
+            $file->move($destination, $filename);
 
-        $record->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'residential_unit_id' => $request->residential_unit_id,
-        ]);
+            $record->update([
+                'name' => $request->name,
+                'picture' => $filename,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'residential_unit_id' => $request->residential_unit_id,
+            ]);
+        }
+        else {
+            $record->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'residential_unit_id' => $request->residential_unit_id,
+            ]);
+        }
 
         $record = ResidentialUnit::find($request->residential_unit_id);
         $record->update([

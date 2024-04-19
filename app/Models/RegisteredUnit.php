@@ -13,6 +13,7 @@ class RegisteredUnit extends Model
         'name',
         'email',
         'phone',
+        'picture',
         'residential_unit_id',
     ];
 }

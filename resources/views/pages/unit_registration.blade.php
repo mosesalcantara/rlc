@@ -47,6 +47,12 @@
                         </div>
                         <div class="row">
                             <div class="col">
+                                <label for="" class="form-label">ID Picture</label>     
+                                <input type="file" name="id_picture" class="form-control">
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="col">
                                 <label for="" class="form-label">Email*</label>
                                 <input class="form-control" type="text" name='email'>
                             </div>

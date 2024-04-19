@@ -54,6 +54,11 @@
                             </div>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="" class="form-label">ID Picture</label>     
+                            <input type="file" name="picture" class="form-control">
+                        </div>  
+
                         <div class="form-floating mb-3">
                             <input type="email" name="email" class="form-control">
                             <label for="">Email</label>     
@@ -109,6 +114,11 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">ID Picture</label>     
+                            <input type="file" name="picture" id='picture' class="form-control">
+                        </div>  
 
                         <div class="form-floating mb-3">
                             <input type="email" name="email" id='email' class="form-control">

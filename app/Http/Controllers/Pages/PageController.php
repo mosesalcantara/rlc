@@ -208,6 +208,14 @@ class PageController extends Controller
         }
 
         $record = new RegisteredUnit;
+        if($request->hasFile('id_picture')) {
+            $file = $request->id_picture;
+            $filename = mt_rand() . '.'.$file->clientExtension();
+            $destination = 'uploads/registered_units/id_pics';
+            $file->move($destination, $filename);
+
+            $record->picture = $filename;
+        }
         $record->name = $request->name;
         $record->email = $request->email;
         $record->phone = $request->phone;

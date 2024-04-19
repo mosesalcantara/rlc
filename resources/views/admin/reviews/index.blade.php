@@ -51,7 +51,7 @@
                 <div class="modal-body">
                     <form action="/admin/reviews/add" method="post" enctype="multipart/form-data" id="addForm">      
                         <div class="mb-3">
-                            <label for="" class="form-label">Picture</label>     
+                            <label for="" class="form-label">Profile Picture</label>     
                             <input type="file" name="picture" class="form-control">
                         </div>   
                         <div class="form-floating mb-3">
@@ -99,7 +99,7 @@
                 <div class="modal-body">
                     <form action="/admin/reviews/update" method="post" enctype="multipart/form-data" id="updForm">      
                         <div class="mb-3">
-                            <label for="" class="form-label">Picture</label>     
+                            <label for="" class="form-label">Profile Picture</label>     
                             <input type="file" name="picture" class="form-control">
                         </div>   
                         <div class="form-floating mb-3">

@@ -36,7 +36,9 @@ $(document).ready( function () {
         $.ajax({
           url: "/admin/registered_units/add/",
           method: 'POST',
-          data: $(this).serialize(),
+          data: new FormData(this),
+          contentType: false,
+          processData: false,
           success: function (res) {
             alert(res.msg)
             get_all()
@@ -76,7 +78,9 @@ $(document).ready( function () {
         $.ajax({
           type: 'POST',
           url: "/admin/registered_units/update/",
-          data: $(this).serialize(),
+          data: new FormData(this),
+          contentType: false,
+          processData: false,
           success: function (res) {
             alert(res.msg)
             get_all()
@@ -137,6 +141,7 @@ function get_all() {
             var thead = $('<thead>')
             var thr = $('<tr>')
             thr.append($('<th>').text('Full Name'))
+            thr.append($('<th>').text('Profile Picture'))
             thr.append($('<th>').text('Email'))
             thr.append($('<th>').text('Contact Number'))
             thr.append($('<th>').text('Unit'))
@@ -149,6 +154,13 @@ function get_all() {
             $.each(records, function(row, field) {
                 var tr = $('<tr>')
                 tr.append($('<td>').text(field.name))
+                var td_img = $('<td>')
+                var img = $('<img>')
+                img.attr({
+                  'src' : `/uploads/registered_units/id_pics/${field.picture}`,
+                })
+                td_img.append(img)
+                tr.append(td_img)
                 tr.append($('<td>').text(field.email))
                 tr.append($('<td>').text(field.phone))
                 tr.append($('<td>').text(field.unit_id))
