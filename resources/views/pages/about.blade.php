@@ -109,15 +109,16 @@
         <div class="row awards_div">
             <h1>Awards</h1>
             <div class="row years">
-                <div class="col-xxl-1 text-center year" style="cursor: pointer;">
-                    2007
-                </div>
+                @if (count($data['years']) > 0)
+                @foreach ($data['years'] as $year)
+                    <div class="col-xxl-1 text-center year" style="cursor: pointer;">
+                        <h6>{{ $year['year'] }}</h6>
+                    </div>
+                @endforeach
+                @endif
             </div>
             <div class="row g-0 list awards">
-                <div class="col-xxl-2 text-center award">
-                    <img src="{{ asset('uploads/awards/pictures/1852303464.png') }}" alt="">
-                    <h5>Alvin Awards</h5>
-                </div>
+
             </div>
         </div>
     </div>

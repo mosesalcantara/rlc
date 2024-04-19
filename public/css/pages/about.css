@@ -102,12 +102,17 @@
 
 .year {
     padding: 1rem;
+    margin-right: 1rem;
     background-color: #000b8c;
     border-radius: 0.6rem;
 }
 
 .awards {
     margin: 0rem 0rem 3rem; 
+}
+
+.award {
+    margin-right: 1rem;
 }
 
 .award img {

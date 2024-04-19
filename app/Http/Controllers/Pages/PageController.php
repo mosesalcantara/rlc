@@ -21,6 +21,7 @@ use App\Models\InquiryEmail;
 use App\Models\Viewing;
 use App\Models\RegisteredUnit;
 use App\Models\AboutItem;
+use App\Models\Award;
 use App\Models\Setting;
 
 class PageController extends Controller
@@ -274,16 +275,25 @@ class PageController extends Controller
         $about = AboutItem::all()->sortByDesc('updated_at')->take(1);
         $about = $about[0];
         $articles = AboutItem::join('articles', 'about_items.id', '=', 'articles.about_item_id')->orderBy('about_items.id')->limit(3)->get();
+
+        $years = Award::selectRaw("Date_Format(date, '%Y') As year")->distinct('year')->orderBy('year')->get();
     
         $data = [
             'about' => $about,
             'articles' => $articles,
+            'years' => $years,
         ];
         return view("pages.about")->with('data', $data);
     }
 
-    public function get_properties() {
+    public function get_awards(Request $request) {
+        $records = Award::where('date', 'LIKE', "$request->year%")->get();
 
+        $data = [
+            'records' => $records,
+        ];
+
+        return response()->json($data);
     }
 
     public function calculator() {
