@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\ViewingController;
 use App\Http\Controllers\Admin\RegisteredUnitController;
 use App\Http\Controllers\Admin\AboutItemController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\AwardController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Pages\BotManController;
 
@@ -284,6 +285,15 @@ Route::prefix('admin/articles')->group(function () {
     Route::post('/edit', [ArticleController::class, 'edit']);
     Route::post('/update', [ArticleController::class, 'update']);
     Route::post('/delete', [ArticleController::class, 'delete']);
+});
+
+Route::prefix('admin/awards')->group(function () {
+    Route::get('/', [AwardController::class, 'index']);
+    Route::post('/', [AwardController::class, 'get_all']);
+    Route::post('/add', [AwardController::class, 'create']);
+    Route::post('/edit', [AwardController::class, 'edit']);
+    Route::post('/update', [AwardController::class, 'update']);
+    Route::post('/delete', [AwardController::class, 'delete']);
 });
 
 Route::prefix('admin/settings')->group(function () {

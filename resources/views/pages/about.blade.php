@@ -115,4 +115,6 @@
 
 @section('scripts')
     @parent
+
+    <script src="{{ asset('js/pages/about.js') }}"></script>
 @endsection

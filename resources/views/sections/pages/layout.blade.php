@@ -102,11 +102,13 @@
                                 <a href="/for-sale">For Sale</a>
                                 <a href="/for-lease">For Lease</a>
                                 <a href="/compare">Compare Properties</a>
-                                <a href="/contact-us">Contact Us</a>
-                                <a href="/about-us">About Us</a>
+                                <a href="/calculator">Loan Calculator</a>
                             </div>
                             <div class="col-6">
-                                <a href="/calculator">Loan Calculator</a>
+                                <a href="/contact-us">Contact Us</a>
+                                <a href="/submit-review">Submit a Review</a>
+                                <a href="/unit-registration">Unit Registration</a>
+                                <a href="/about-us">About Us</a>
                             </div>
                         </div>
                     </div>

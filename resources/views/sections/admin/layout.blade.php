@@ -54,7 +54,7 @@
                 </div>
 
                 <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/videos'), url('/admin/reviews'), url('/admin/contact'), url('/admin/inquiry_emails'), url('/admin/about'), url('/admin/articles') ]) ? 'active' : '' }}">
+                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/videos'), url('/admin/reviews'), url('/admin/contact'), url('/admin/inquiry_emails'), url('/admin/about'), url('/admin/articles'), url('/admin/awards') ]) ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                         aria-expanded="true" aria-controls="collapsePages">
                         <i class="fas fa-fw fa-folder"></i>
@@ -70,6 +70,7 @@
                             <h6 class="collapse-header">About Us Page</h6>
                             <a class="collapse-item" href="/admin/about">Items</a>
                             <a class="collapse-item" href="/admin/articles">Articles</a>
+                            <a class="collapse-item" href="/admin/awards">Awards</a>
                         </div>
                     </div>
                 </li>
