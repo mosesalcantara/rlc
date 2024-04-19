@@ -141,7 +141,7 @@ function get_all() {
             var thead = $('<thead>')
             var thr = $('<tr>')
             thr.append($('<th>').text('Full Name'))
-            thr.append($('<th>').text('Profile Picture'))
+            thr.append($('<th>').text('ID Picture'))
             thr.append($('<th>').text('Email'))
             thr.append($('<th>').text('Contact Number'))
             thr.append($('<th>').text('Unit'))

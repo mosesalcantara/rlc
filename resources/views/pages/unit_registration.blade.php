@@ -56,8 +56,6 @@
                                 <label for="" class="form-label">Email*</label>
                                 <input class="form-control" type="text" name='email'>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col">
                                 <label for="" class="form-label">Contact Number*</label>
                                 <input class="form-control" type="text" name='phone'>

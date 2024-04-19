@@ -5,6 +5,8 @@
 @section('links')
     @parent
 
+    <link rel="stylesheet" href="{{ asset('css/admin/crud.css') }}">
+    
     <style>
         img {
             height: 50%;

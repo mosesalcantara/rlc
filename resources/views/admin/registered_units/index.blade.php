@@ -6,6 +6,13 @@
     @parent
 
     <link rel="stylesheet" href="{{ asset('css/admin/crud.css') }}">
+    
+    <style>
+        img {
+            height: 50%;
+            width: 50%;
+        }
+    </style>
 @endsection
 
 @section('sidebar')
@@ -59,14 +66,18 @@
                             <input type="file" name="picture" class="form-control">
                         </div>  
 
-                        <div class="form-floating mb-3">
-                            <input type="email" name="email" class="form-control">
-                            <label for="">Email</label>     
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="email" name="email" class="form-control">
+                                    <label for="">Email</label>     
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col">
-                                <div class="form-floating mb-3">
+                                <div class="form-floating">
                                     <input type="text" name="phone" class="form-control">
                                     <label for="">Contact Number</label>     
                                 </div>
@@ -120,14 +131,18 @@
                             <input type="file" name="picture" id='picture' class="form-control">
                         </div>  
 
-                        <div class="form-floating mb-3">
-                            <input type="email" name="email" id='email' class="form-control">
-                            <label for="">Email</label>     
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="email" name="email" id='email' class="form-control">
+                                    <label for="">Email</label>     
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col">
-                                <div class="form-floating mb-3">
+                                <div class="form-floating">
                                     <input type="text" name="phone" id='phone' class="form-control">
                                     <label for="">Contact Number</label>     
                                 </div>
