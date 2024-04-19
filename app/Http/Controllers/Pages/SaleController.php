@@ -89,7 +89,7 @@ class SaleController extends Controller
         $where = [
             'properties.id' => $request->id,
             'retail_status' => 'For Sale',
-            'published' => 1,
+            'publish_status' => 'Published',
         ];
 
         $property = Property::where('id', $request->id)->get();
@@ -145,7 +145,7 @@ class SaleController extends Controller
             ['residential_units.price', '>=', $request['min_price']],
             ['residential_units.price', '<=', $request['max_price']],
             ['residential_units.retail_status', 'For Sale'],
-            ['residential_units.published', 1],
+            ['residential_units.publish_status', 'Published'],
         ];
 
         $sale_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->get();

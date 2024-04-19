@@ -19,7 +19,7 @@ class LeaseController extends Controller
 
     public function residential_units(Request $request) {
         $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')
-                    ->where('retail_status', 'For Lease')->where('published', 1)->orderBy('properties.name')->get();
+                    ->where('retail_status', 'For Lease')->where('publish_status', 'Published')->orderBy('properties.name')->get();
 
         foreach ($r_units as $r_unit) {
             $record = ResidentialUnit::join('snapshots', 'residential_units.id', '=', 'snapshots.residential_unit_id')
@@ -75,7 +75,7 @@ class LeaseController extends Controller
             $where = [
                 ['properties.id', $request['property_id']],
                 ['residential_units.retail_status', 'For Lease'],
-                ['residential_units.published', 1],
+                ['residential_units.publish_status', 'Published'],
             ];
         }
         else {
@@ -85,7 +85,7 @@ class LeaseController extends Controller
                 ['residential_units.price', '>=', $request['min_price']],
                 ['residential_units.price', '<=', $request['max_price']],
                 ['residential_units.retail_status', 'For Lease'],
-                ['residential_units.published', 1],
+                ['residential_units.publish_status', 'Published'],
             ];
         }
 
@@ -290,7 +290,7 @@ class LeaseController extends Controller
         $where = [
             'properties.id' => $request->id,
             'retail_status' => 'For Lease',
-            'published' => 1,
+            'publish_status' => 'Published',
         ];
         $property = Property::where('id', $request->id)->get();
         $property = $property[0];
@@ -358,7 +358,7 @@ class LeaseController extends Controller
 
         if ($property_type == 'Residential') {
             $records = Property::selectRaw('properties.location, Count(residential_units.id) As residential_units')
-                        ->where('retail_status', 'For Lease')->where('published', 1)
+                        ->where('retail_status', 'For Lease')->where('publish_status', 'Published')
                         ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')    
                         ->groupByRaw('properties.location, properties.id')
                         ->havingRaw('Count(residential_units.id) > 0')->get();

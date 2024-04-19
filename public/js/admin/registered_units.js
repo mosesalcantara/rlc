@@ -164,7 +164,7 @@ function get_all() {
                 tr.append($('<td>').text(field.email))
                 tr.append($('<td>').text(field.phone))
                 tr.append($('<td>').text(field.unit_id))
-                field.published == 0 ? tr.append($('<td>').text('Unpublished')) : tr.append($('<td>').text('Published'))
+                tr.append($('<td>').text(field.publish_status))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
@@ -233,7 +233,7 @@ function get_upd_id(id){
         })
         $('#upd_residential_unit_id').val(record.residential_unit_id)
 
-        $('#published').val(record.published)
+        $('#publish_status').val(record.publish_status)
       }
     })
 }

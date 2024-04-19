@@ -41,6 +41,7 @@ class RegisteredUnitController extends Controller
             'email'=>'required|email',
             'phone'=>'required',
             'residential_unit_id'=>'required',
+            'publish_status'=>'required',
         ]);
 
         $record = new RegisteredUnit;
@@ -57,6 +58,11 @@ class RegisteredUnitController extends Controller
         $record->phone = $request->phone;
         $record->residential_unit_id = $request->residential_unit_id;
         $record->save();
+
+        $record = ResidentialUnit::find($request->residential_unit_id);
+        $record->update([
+            'publish_status' => $request->publish_status,
+        ]);
 
         return response(['msg' => 'Added Registered Unit']);
     }
@@ -80,6 +86,7 @@ class RegisteredUnitController extends Controller
             'email'=>'required|email',
             'phone'=>'required',
             'residential_unit_id'=>'required',
+            'publish_status'=>'required',
         ]);
 
         $record = RegisteredUnit::find($request->upd_id);
@@ -108,7 +115,7 @@ class RegisteredUnitController extends Controller
 
         $record = ResidentialUnit::find($request->residential_unit_id);
         $record->update([
-            'published' => $request->published,
+            'publish_status' => $request->publish_status,
         ]);
 
         return response(['msg' => 'Updated Registered Unit']);

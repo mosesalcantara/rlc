@@ -211,7 +211,7 @@ function get_all() {
                 tr.append($('<td>').text(`${field.area} SQM`))
                 field.retail_status == 'For Sale' ? tr.append($('<td>').text(`${field.price}M`)) : tr.append($('<td>').text(field.price))
                 tr.append($('<td>').text(field.status))
-                field.published == 0 ? tr.append($('<td>').text('Unpublished')) : tr.append($('<td>').text('Published'))
+                tr.append($('<td>').text(field.publish_status))
 
                 var td_action = $('<td>')
                 tr.append(td_action)
@@ -286,7 +286,7 @@ function get_upd_id(id){
         $('#area').val(record.area)
         $('#price').val(record.price)
         $('#status').val(record.status)
-        $('#published').val(record.published)
+        $('#publish_status').val(record.publish_status)
       },
       error: function(res) {
         console.log(res)

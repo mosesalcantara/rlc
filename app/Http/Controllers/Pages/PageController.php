@@ -52,7 +52,7 @@ class PageController extends Controller
             $where = [
                 'properties.id' => $property['id'],
                 'retail_status' => 'For Lease',
-                'published' => 1,
+                'publish_status' => 'Published',
             ];
             
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')->where('properties.id', $property['id'])->limit(1)->get();
@@ -177,7 +177,7 @@ class PageController extends Controller
         $record->status = $request->status;
         $record->property_id = $request->property_id;
         $record->building_id = $request->building_id;
-        $record->published = 0;
+        $record->publish_status = 'Unpublished';
         $record->save();
 
         $residential_unit_id = $record->id;

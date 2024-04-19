@@ -91,9 +91,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Publish Status</label>     
-                            <select name="published" class="form-select">
-                                <option value="0">Unpublished</option>
-                                <option value="1">Published</option>
+                            <select name="publish_status" class="form-select">
+                                <option value="Unpublished">Unpublished</option>
+                                <option value="Published">Published</option>
                             </select>
                         </div>
                 </div>
@@ -156,9 +156,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Publish Status</label>     
-                            <select name="published" id='published' class="form-select">
-                                <option value="0">Unpublished</option>
-                                <option value="1">Published</option>
+                            <select name="publish_status" id='publish_status' class="form-select">
+                                <option value="Unpublished">Unpublished</option>
+                                <option value="Published">Published</option>
                             </select>
                         </div>
                 </div>

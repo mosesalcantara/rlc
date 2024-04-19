@@ -19,7 +19,7 @@ class CompareController extends Controller
     public function get_residential_units() {
         $where = [
             'retail_status' => 'For Lease',
-            'published' => 1,
+            'publish_status' => 'Published',
         ];
         $records = Property::selectRaw('properties.name, properties.location, Count(residential_units.id) As residential_units')
                         ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)
@@ -74,7 +74,7 @@ class CompareController extends Controller
             $where = [
                 'properties.name' => $property,
                 'retail_status' => 'For Lease',
-                'published' => 1,
+                'publish_status' => 'Published',
             ];
             $details = [];
 
@@ -88,7 +88,7 @@ class CompareController extends Controller
             $property_types = '';
             $record = Property::selectRaw('properties.name, properties.location, Count(residential_units.id) As residential_units')
                         ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')
-                        ->where('retail_status', 'For Lease')->where('published', 1)
+                        ->where('retail_status', 'For Lease')->where('publish_status', 'Published')
                         ->groupByRaw('properties.name, properties.location')->havingRaw('Count(residential_units.id) > 0')->get();
             if ($record[0]['residential_units'] > 0) {
                 $property_types .= ' Residential';
@@ -180,7 +180,7 @@ class CompareController extends Controller
                 ['residential_units.area', '<=', $request_data['max_area']],
                 ['properties.name', $property],
                 ['residential_units.retail_status', 'For Lease'],
-                ['residential_units.published', 1],
+                ['residential_units.publish_status', 'Published'],
             ];
 
             $details = [];
