@@ -90,6 +90,15 @@
                 </div>
             </div>
         </div>
+
+        <form action="" method="POST" class="d-none" id='search_form'>
+            @csrf
+            <input type="hidden" name='location' value=''>
+            <input type="hidden" name='type' value=''>
+            <input type="hidden" name='min_price' value=''>
+            <input type="hidden" name='max_price' value=''>
+            <input type="hidden" name='origin' value='residential_properties_search'>
+        </form>
     </div>
 
     <div class="container-fluid">
@@ -130,15 +139,6 @@
                 </div>
             @endif
         </div>
-
-        <form action="" method="POST" class="d-none" id='search_form'>
-            @csrf
-            <input type="hidden" name='location' value=''>
-            <input type="hidden" name='type' value=''>
-            <input type="hidden" name='min_price' value=''>
-            <input type="hidden" name='max_price' value=''>
-            <input type="hidden" name='origin' value='residential_properties_search'>
-        </form>
 
         <form action="" method="POST" class="d-none" id='view_units_form'>
             @csrf

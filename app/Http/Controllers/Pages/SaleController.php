@@ -17,11 +17,80 @@ class SaleController extends Controller
         return view("pages.sale.index");
     }
 
+    public function properties(Request $request) {
+        $sale_status = $request->sale_status;
+        $sale_status == 'pre-selling' ? $sale_status = 'Pre-Selling' : $sale_status = 'RFO';
+
+        $records = Property::selectRaw('properties.id, properties.name, properties.location, Count(residential_units.id) As residential_units')
+                    ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')
+                    ->where('sale_status', $sale_status)->where('retail_status', 'For Sale')->where('publish_status', 'Published')
+                    ->groupByRaw('properties.id, properties.name, properties.location')->havingRaw('Count(residential_units.id) > 0')->get();
+
+        $properties = [];
+
+        foreach ($records as $property) {
+            $details = [];
+            $where = [
+                'sale_status' => $sale_status,
+                'retail_status' => 'For Sale',
+                'publish_status' => 'Published',
+                'properties.id' => $property['id'],
+            ];
+
+            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                        ->where('properties.id', $property['id'])->get();
+            count($record) > 0 ? $details['picture'] = $record[0]['picture'] : $details['picture'] = 'no_image.png';
+            $details['id'] = $record[0]['property_id'];
+            $details['name'] = $record[0]['name'];
+            $details['location'] = $record[0]['location'];
+
+            $details['min_price'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
+            $details['max_price'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
+
+            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where($where)->get();
+
+            $types_arr = [];
+            foreach ($record as $item) {
+                array_push($types_arr, $item['type']);
+            }
+
+            $types = '';
+            foreach (array_unique($types_arr) as $type) {
+                $types .= ' ' . $type;
+            }
+            $details['types'] = $types;
+
+            $details['min_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.area');
+            $details['max_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.area');
+
+            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.status')->where($where)->get();
+            $statuses_arr = [];
+            foreach ($record as $item) {
+                array_push($statuses_arr, $item['status']);
+            }
+
+            $statuses = '';
+            foreach (array_unique($statuses_arr) as $status) {
+                $statuses .= ' ' . $status;
+            }
+            $details['statuses'] = $statuses;
+
+            array_push($properties, $details);
+        }
+
+        $data = [
+            'properties' => $properties,
+            'sale_status' => $sale_status,
+        ];
+        return view("pages.sale.properties")->with('data', $data);
+    }
+
     public function units(Request $request) {
         $sale_status = $request->sale_status;
         $where = [
             'sale_status' => '',
             'retail_status' => 'For Sale',
+            'publish_status' => 'Published',
         ];
 
         $sale_status == 'pre-selling' ? $where['sale_status'] = 'Pre-Selling' : $where['sale_status'] = 'RFO';
@@ -138,15 +207,25 @@ class SaleController extends Controller
     }
 
     public function search(Request $request) {
-        $where = [
-            ['properties.sale_status', $request['sale_status']],
-            ['properties.location', $request['location']],
-            ['residential_units.type', $request['type']],
-            ['residential_units.price', '>=', $request['min_price']],
-            ['residential_units.price', '<=', $request['max_price']],
-            ['residential_units.retail_status', 'For Sale'],
-            ['residential_units.publish_status', 'Published'],
-        ];
+        if ($request['origin'] == 'sale_properties_view_units') {
+            $where = [
+                ['properties.id', $request['property_id']],
+                ['properties.sale_status', $request['sale_status']],
+                ['residential_units.retail_status', 'For Sale'],
+                ['residential_units.publish_status', 'Published'],
+            ];
+        }
+        else {
+            $where = [
+                ['properties.sale_status', $request['sale_status']],
+                ['properties.location', $request['location']],
+                ['residential_units.type', $request['type']],
+                ['residential_units.price', '>=', $request['min_price']],
+                ['residential_units.price', '<=', $request['max_price']],
+                ['residential_units.retail_status', 'For Sale'],
+                ['residential_units.publish_status', 'Published'],
+            ];
+        }
 
         $sale_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->get();
 

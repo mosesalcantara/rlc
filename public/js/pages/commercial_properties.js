@@ -28,12 +28,6 @@ $(document).ready( function () {
         var min_area = parseFloat(words[0].replace(/,/g, ''))
         var max_area = parseFloat(words[2].replace(/,/g, ''))
 
-        var data = {
-            'location': $('#location button h6').html(),
-            'min_area': min_area,
-            'max_area': max_area,
-        }
-
         $('input[name=location]').val($('#location button h6').html())
         $('input[name=min_area]').val(min_area)
         $('input[name=max_area]').val(max_area)

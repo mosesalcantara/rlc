@@ -66,6 +66,8 @@ Route::get('/test', [PageController::class, 'test']);
 
 Route::get('/for-sale', [SaleController::class, 'sale']);
 
+Route::get('/for-sale/properties/{sale_status}', [SaleController::class, 'properties']);
+
 Route::get('/for-sale/category/{sale_status}', [SaleController::class, 'units']);
 Route::get('/for-sale/category/{sale_status}/{id}', [SaleController::class, 'unit']);
 Route::get('/for-sale/property/{id}', [SaleController::class, 'property']);
