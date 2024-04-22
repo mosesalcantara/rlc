@@ -137,13 +137,13 @@
             <input type="hidden" name='type' value=''>
             <input type="hidden" name='min_price' value=''>
             <input type="hidden" name='max_price' value=''>
-            <input type="hidden" name='origin' value='residential_properties_page'>
+            <input type="hidden" name='origin' value='residential_properties_search'>
         </form>
 
         <form action="" method="POST" class="d-none" id='view_units_form'>
             @csrf
             <input type="hidden" name='property_id' value=''>
-            <input type="hidden" name='origin' value='residential_properties_page'>
+            <input type="hidden" name='origin' value='residential_properties_view_units'>
         </form>
     </div>
 @endsection

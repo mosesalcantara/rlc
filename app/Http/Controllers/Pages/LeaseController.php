@@ -134,7 +134,7 @@ class LeaseController extends Controller
     }
 
     public function search_residential_units(Request $request) {
-        if ($request['origin'] == 'property_page' || $request['origin'] == 'compare_page' || $request['origin'] == 'residential_properties_page') {
+        if ($request['origin'] == 'property_page' || $request['origin'] == 'compare_page' || $request['origin'] == 'residential_properties_view_units') {
             $where = [
                 ['properties.id', $request['property_id']],
                 ['residential_units.retail_status', 'For Lease'],
