@@ -252,10 +252,25 @@ class SaleController extends Controller
         $request_data = $request->all();
         $sale_status = $request_data['sale_status'];
 
-        $records = Property::select('location')->distinct('location')->where('sale_status', $sale_status)->get();
+        $where = [
+            ['properties.sale_status', $sale_status],
+            ['residential_units.retail_status', 'For Sale'],
+            ['residential_units.publish_status', 'Published'],
+        ];
+
+        $records = Property::selectRaw('properties.location, Count(residential_units.id) As residential_units')
+                    ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')    
+                    ->groupByRaw('properties.location, properties.id')->where($where)
+                    ->havingRaw('Count(residential_units.id) > 0')->get();
+
+        $locations = [];
+        foreach ($records as $record) {
+            array_push($locations, $record['location']);
+        }
+        $locations = array_unique($locations);
 
         $data = [
-            'records' => $records,
+            'locations' => $locations,
         ];
         return response()->json($data);
     }

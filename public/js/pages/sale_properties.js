@@ -58,18 +58,18 @@ function get_filters() {
         data: {'sale_status': sale_status},
         success: function (res) {
             // console.log(res)
-            var records = res.records
+            var locations = res.locations
             var ul = $('<ul>').addClass('dropdown-menu')
 
-            for (var record of records) {
-                var dropdown_item = `<li><h6 class='dropdown-item'>${record['location']}</h6></li>`
+            for (var location of locations) {
+                var dropdown_item = `<li><h6 class='dropdown-item'>${location}</h6></li>`
                 ul.append(dropdown_item)
             }  
 
             $('#location').append(ul)
         },
         error: function (res) {
-
+            // console.log(res)
         },
     })  
 }
