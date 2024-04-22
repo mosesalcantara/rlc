@@ -170,7 +170,7 @@ function compare_residential_properties() {
         
                     var property_data = {
                         'Property Type': 'Residential',
-                        'Rentail Rate': `${money.format(property.min_price)} - ${money.format(property.max_price)} / mo.`,
+                        'Rental Rate': `${money.format(property.min_price)} - ${money.format(property.max_price)} / mo.`,
                         'Unit Type': property.types,
                         'Unit Area (sqm)': `${property.min_area} - ${property.max_area} sqm`,
                         'Unit Status': property.statuses,

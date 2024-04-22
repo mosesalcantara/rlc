@@ -17,6 +17,69 @@ class LeaseController extends Controller
         return view("pages.lease.index");
     }
 
+    public function residential_properties(Request $request) {
+        $records = Property::selectRaw('properties.id, properties.name, properties.location, Count(residential_units.id) As residential_units')
+                        ->join('residential_units', 'properties.id', '=', 'residential_units.property_id')
+                        ->where('retail_status', 'For Lease')->where('publish_status', 'Published')
+                        ->groupByRaw('properties.id, properties.name, properties.location')->havingRaw('Count(residential_units.id) > 0')->get();
+
+        $properties = [];
+
+        foreach ($records as $property) {
+            $details = [];
+            $where = [
+                'retail_status' => 'For Lease',
+                'publish_status' => 'Published',
+                'properties.id' => $property['id'],
+            ];
+
+            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
+                        ->where('properties.id', $property['id'])->get();
+            count($record) > 0 ? $details['picture'] = $record[0]['picture'] : $details['picture'] = 'no_image.png';
+            $details['id'] = $record[0]['property_id'];
+            $details['name'] = $record[0]['name'];
+            $details['location'] = $record[0]['location'];
+
+            $details['min_price'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
+            $details['max_price'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
+
+            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where($where)->get();
+
+            $types_arr = [];
+            foreach ($record as $item) {
+                array_push($types_arr, $item['type']);
+            }
+
+            $types = '';
+            foreach (array_unique($types_arr) as $type) {
+                $types .= ' ' . $type;
+            }
+            $details['types'] = $types;
+
+            $details['min_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.area');
+            $details['max_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.area');
+
+            $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.status')->where($where)->get();
+            $statuses_arr = [];
+            foreach ($record as $item) {
+                array_push($statuses_arr, $item['status']);
+            }
+
+            $statuses = '';
+            foreach (array_unique($statuses_arr) as $status) {
+                $statuses .= ' ' . $status;
+            }
+            $details['statuses'] = $statuses;
+
+            array_push($properties, $details);
+        }
+
+        $data = [
+            'properties' => $properties,
+        ];
+        return view("pages.lease.residential_properties")->with('data', $data);
+    }
+
     public function residential_units(Request $request) {
         $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')
                     ->where('retail_status', 'For Lease')->where('publish_status', 'Published')->orderBy('properties.name')->get();
@@ -71,7 +134,7 @@ class LeaseController extends Controller
     }
 
     public function search_residential_units(Request $request) {
-        if ($request['origin'] == 'property_page' || $request['origin'] == 'compare_page') {
+        if ($request['origin'] == 'property_page' || $request['origin'] == 'compare_page' || $request['origin'] == 'residential_properties_page') {
             $where = [
                 ['properties.id', $request['property_id']],
                 ['residential_units.retail_status', 'For Lease'],
