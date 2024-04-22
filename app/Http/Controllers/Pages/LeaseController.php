@@ -80,6 +80,33 @@ class LeaseController extends Controller
         return view("pages.lease.residential_properties")->with('data', $data);
     }
 
+    public function commercial_properties(Request $request) {
+        $records = Property::selectRaw('properties.id, properties.name, properties.location, Count(commercial_units.id) As commercial_units')
+                    ->join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->groupByRaw('properties.id, properties.name, properties.location')
+                    ->havingRaw('Count(commercial_units.id) > 0')->get();
+
+        $properties = [];
+
+        foreach ($records as $property) {
+            $details = [];
+            $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')->where('properties.id', $property['id'])->get();
+            count($record) > 0 ? $details['picture'] = $record[0]['picture'] : $details['picture'] = 'no_image.png';
+            $details['id'] = $record[0]['property_id'];
+            $details['name'] = $record[0]['name'];
+            $details['location'] = $record[0]['location'];
+
+            $details['min_area'] = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('properties.id', $record[0]['property_id'])->min('commercial_units.size');
+            $details['max_area'] = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('properties.id', $record[0]['property_id'])->max('commercial_units.size');
+
+            array_push($properties, $details);
+        }
+
+        $data = [
+            'properties' => $properties,
+        ];
+        return view("pages.lease.commercial_properties")->with('data', $data);
+    }
+
     public function residential_units(Request $request) {
         $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')
                     ->where('retail_status', 'For Lease')->where('publish_status', 'Published')->orderBy('properties.name')->get();
@@ -178,7 +205,7 @@ class LeaseController extends Controller
                 ['properties.location', $request['location']],
             ];
         }
-        else if ($request['origin'] == 'property_page' || $request['origin'] == 'compare_page') {
+        else if ($request['origin'] == 'property_page' || $request['origin'] == 'compare_page' || $request['origin'] == 'commercial_properties_view_units') {
             $where = [
                 ['properties.id', $request['property_id']],
             ];

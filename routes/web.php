@@ -76,6 +76,7 @@ Route::post('/for-sale/get-filters', [SaleController::class, 'get_filters']);
 Route::get('/for-lease', [LeaseController::class, 'lease']);
 
 Route::get('/for-lease/category/residential_properties', [LeaseController::class, 'residential_properties']);
+Route::get('/for-lease/category/commercial_properties', [LeaseController::class, 'commercial_properties']);
 
 Route::get('/for-lease/category/residential_units', [LeaseController::class, 'residential_units']);
 Route::get('/for-lease/category/commercial_units', [LeaseController::class, 'commercial_units']);

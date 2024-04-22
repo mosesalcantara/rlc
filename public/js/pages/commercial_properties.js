@@ -22,25 +22,23 @@ $(document).ready( function () {
     })
 
     $(document).on('click', '.search_btn button', function(){
-        var prices = $('#price button h6').html()
-        var words = prices.split(' ')
+        var areas = $('#area button h6').html()
+        var words = areas.split(' ')
 
-        var min_price = parseFloat(words[1].replace(/,/g, ''))
-        var max_price = parseFloat(words[3].replace(/,/g, ''))
+        var min_area = parseFloat(words[0].replace(/,/g, ''))
+        var max_area = parseFloat(words[2].replace(/,/g, ''))
 
         var data = {
             'location': $('#location button h6').html(),
-            'type': $('#type button h6').html(),
-            'min_price': min_price,
-            'max_price': max_price,
+            'min_area': min_area,
+            'max_area': max_area,
         }
 
         $('input[name=location]').val($('#location button h6').html())
-        $('input[name=type]').val($('#type button h6').html())
-        $('input[name=min_price]').val(min_price)
-        $('input[name=max_price]').val(max_price)
+        $('input[name=min_area]').val(min_area)
+        $('input[name=max_area]').val(max_area)
 
-        url = '/for-lease/category/residential_units'
+        url = '/for-lease/category/commercial_units'
         $('#search_form').attr('action', url).submit()    
     })
 
@@ -48,7 +46,7 @@ $(document).ready( function () {
         var property_id = $(this).data('property_id')
         $('#view_units_form input[name=property_id]').val(property_id)
 
-        url = `/for-lease/category/residential_units`
+        url = `/for-lease/category/commercial_units`
         $('#view_units_form').attr('action', url).submit()
     })
 })

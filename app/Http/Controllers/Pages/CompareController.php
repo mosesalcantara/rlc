@@ -45,7 +45,7 @@ class CompareController extends Controller
 
     public function get_commercial_units() {
         $records = Property::selectRaw('properties.id, properties.name, properties.location, Count(commercial_units.id) As commercial_units')
-                    ->join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->groupByRaw('properties.name, properties.location, properties.id')
+                    ->join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->groupByRaw('properties.id, properties.name, properties.location')
                     ->havingRaw('Count(commercial_units.id) > 0')->get();
         $locations = Property::selectRaw('properties.location, Count(commercial_units.id) As commercial_units')
                         ->join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->groupByRaw('properties.location, properties.id')
