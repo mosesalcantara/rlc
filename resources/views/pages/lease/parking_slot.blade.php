@@ -105,14 +105,20 @@
                 </div>
                 <div class="requirements">
                     <h4>PARKING LEASE REQUIREMENTS & GUIDELINES</h4>
-                    @foreach ($data['property']['terms'] as $category => $terms)
+                    @forelse ($data['property']['terms'] as $category => $terms)
                     <h5>{{ $category }}</h5>
                     <ul>
-                        @foreach ($terms as $term)
+                        @forelse ($terms as $term)
                         <li>{{ $term }}</li>
-                        @endforeach
+                        @empty
+                        
+                        @endforelse
                     </ul>
-                    @endforeach
+                    @empty
+                    <div class="col text-center no_data">
+                        No data available
+                    </div>
+                    @endforelse
                 </div>
                 <div class="text-center">
                     <a class="btn btn-warning" href='/for-lease/property/{{ $data['property']['id'] }}'>View Project Details</a>
@@ -144,13 +150,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data['slots'] as $slot)
+                                    @forelse ($data['slots'] as $slot)
                                     <tr>
                                         <td><h6>{{ $slot['floor'] }}</h6></td>
                                         <td><h6>{{ $slot['slot'] }}</h6></td>
                                         <td><h6>PHP {{ number_format($slot['rate'], 2) }} / mo</h6></td>
                                     </tr>
-                                    @endforeach
+                                    @empty
+                                    <div class="col text-center no_data">
+                                        No data available
+                                    </div>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

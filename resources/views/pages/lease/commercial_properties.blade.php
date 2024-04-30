@@ -73,8 +73,7 @@
 
     <div class="container-fluid">
         <div class="row properties">
-            @if (count($data['properties']) > 0)
-            @foreach ($data['properties'] as $property)
+            @forelse ($data['properties'] as $property)
                 <div class="col-xxl-4 property">
                     <div class="card">
                         <img class='card-img-top' src="{{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }}" alt="">
@@ -83,10 +82,10 @@
                             <i class="fa-solid fa-location-dot fa-xl"></i>
                             <h4>{{ $property['location'] }}</h4>
                             <div class="row table">
-                                <div class="col-xxl-4 col-5">
+                                <div class="col-xxl-4 col-4">
                                     <h6>Area</h6>
                                 </div>
-                                <div class="col-xxl col-7 text-dark">
+                                <div class="col-xxl col-8 text-dark">
                                     <h6>{{ number_format($property['min_area'], 2) }} - {{ number_format($property['max_area'], 2) }} SQM</h6>
                                 </div>
                             </div>
@@ -96,12 +95,11 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-            @else
-                <div class="col text-center no_data">
-                    No data available
-                </div>
-            @endif
+            @empty
+            <div class="col text-center no_data">
+                No data available
+            </div>
+            @endforelse
         </div>
 
         <form action="" method="POST" class="d-none" id='search_form'>

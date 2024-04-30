@@ -73,8 +73,7 @@
 
     <div class="container-fluid">
         <div class="row units">
-            @if (count($data['c_units']) > 0)
-            @foreach ($data['c_units'] as $c_unit)
+            @forelse ($data['c_units'] as $c_unit)
                 <div class="col-xxl-4 unit">
                     <div class="card">
                         <img class='card-img-top' src="{{ asset('uploads/properties/pictures') }}/{{ $c_unit['picture'] }}" alt="">
@@ -98,12 +97,11 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-            @else
-                <div class="col text-center no_data">
-                    No data available
-                </div>
-            @endif
+            @empty
+            <div class="col text-center no_data">
+                No data available
+            </div>
+            @endforelse
         </div>
     </div>
 @endsection

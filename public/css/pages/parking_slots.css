@@ -59,6 +59,8 @@
 
 .unit img {
     border-radius: 1rem;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
 }
 
 .details {

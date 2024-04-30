@@ -120,12 +120,16 @@
                         <div class="row d-flex justify-content-center text-center tbl_measurements">
                             <table class="table table-sm">
                                 <tbody>
-                                    @foreach ($data['measurements'] as $measurement)
+                                    @forelse ($data['measurements'] as $measurement)
                                     <tr>
                                         <td><h6>{{ $measurement['retail_id'] }}</h6></td>
                                         <td><h6>{{ $measurement['size'] }} SQM</h6></td>
                                     </tr>
-                                    @endforeach
+                                    @empty
+                                    <div class="col text-center no_data">
+                                        No data available
+                                    </div>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

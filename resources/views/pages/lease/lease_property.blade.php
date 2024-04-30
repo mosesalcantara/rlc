@@ -18,7 +18,7 @@
             <div class="col" >
                 <div id="pictures_carousel" class="carousel slide">
                     <div class="carousel-inner">
-                        @foreach ($data['property']['pictures'] as $picture)
+                        @forelse ($data['property']['pictures'] as $picture)
                         <div class="carousel-item picture_carousel_item">
                             <div class="picture" style="background-image: url({{ asset('uploads/properties/pictures') }}//{{ $picture }});"> 
                                 <div class="row">
@@ -30,7 +30,9 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @empty
+                        
+                        @endforelse
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#pictures_carousel" data-bs-slide="prev">
                         <i class="fa-solid fa-chevron-left"></i>
