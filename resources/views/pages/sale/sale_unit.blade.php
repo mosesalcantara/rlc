@@ -115,22 +115,22 @@
                     <h6>Building: {{ $data['sale_unit']['building'] }}</h6>
 
                     <div class="row details">
-                        <div class="col-5 col-xxl text-center">
+                        <div class="col-xxl col-5 text-center">
                             <i class="fa-solid fa-house fa-xl"></i>
                             <h6>UNIT TYPE</h6>
                             <h6 class="text-dark">{{ $data['sale_unit']['type'] }}</h6>
                         </div>
-                        <div class="col-5 col-xxl text-center">
+                        <div class="col-xxl col-5 text-center">
                             <i class="fa-regular fa-square fa-xl"></i>
                             <h6>AREA</h6>
                             <h6 class="text-dark">{{ number_format($data['sale_unit']['area'], 2) }} SQM</h6>
                         </div>
-                        <div class="col-5 col-xxl text-center">
+                        <div class="col-xxl col-5 text-center">
                             <i class="fa-solid fa-piggy-bank fa-xl fa-flip-vertical"></i>
                             <h6>MONTHLY RATE</h6>
                             <h6 class="text-dark">PHP {{ $data['sale_unit']['price'] }}M</h6>
                         </div>
-                        <div class="col-5 col-xxl text-center">
+                        <div class="col-xxl col-5 text-center">
                             <i class="fa-solid fa-key fa-xl"></i>
                             <h6>UNIT STATUS</h6>
                             <h6 class="text-dark">{{ $data['sale_unit']['status'] }}</h6>

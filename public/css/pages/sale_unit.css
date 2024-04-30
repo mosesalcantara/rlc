@@ -84,7 +84,7 @@
     padding: 0 6.5rem 0;
 }
 
-.details .col-5 {
+.details .col-xxl {
     border: 0.15rem solid #CC9900;
     border-radius: 0.7rem;
     margin: 0.3rem;
@@ -188,7 +188,7 @@
     }
 
     .details {
-        padding: 0 0 0;
+        padding: 0 0 0 1.7rem;
     }
 
     .snapshots, .unit_videos, .amenities {
