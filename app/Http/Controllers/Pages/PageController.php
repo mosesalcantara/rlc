@@ -36,15 +36,6 @@ class PageController extends Controller
         return response()->json($data);
     }
 
-    public function test() {
-        $amenities = Property::first();
-        $amenities = $amenities->amenities;
-        $data = [
-            'amenities' => $amenities,
-        ];
-        return view('pages.test')->with('data', $data);
-    }
-
     public function index() {
         $properties = Property::limit(5)->get();
 

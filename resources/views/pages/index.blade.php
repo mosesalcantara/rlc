@@ -162,71 +162,73 @@
                 <div id="properties_carousel" class="carousel slide">
                     <div class="carousel-inner">
 
-                    @foreach ($data['properties'] as $property)
-                    <div class="carousel-item property_carousel_item">
-                        <div class="card_front container-fluid">
-                            <div class="d-flex justify-content-center align-items-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }})">
-                                <i class="fa-solid fa-circle-chevron-right front_switch"></i>
-                            </div>
-                        </div>
-
-                        <div class="card_back container-fluid d-none">
-                            <div class="row">
-
-                                <div class="col snapshot">
-                                    <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
-                                </div>
-
-                                <div class='col info'>
-                                    <div class="d-flex justify-content-end">
-                                        <i class="fa-solid fa-circle-chevron-left back_switch text-info"></i>
-                                    </div>
-
-                                    <h4>{{ $property['name'] }}</h4>
-                                    <p>{{ $property['description'] }}</p>
-
-                                    <div class='details'>
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        <h5>{{ $property['location'] }}</h5>
-                                        <span class="br"></span>
-                                        <i class="fa-solid fa-building"></i>
-                                        <h5>{{ $property['types'] }}</h5>
-                                        <span class="br"></span>
-                                        <i class="fa-solid fa-user"></i>
-                                        <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
-                                    </div>
+                    @forelse ($data['properties'] as $property)
+                        <div class="carousel-item property_carousel_item">
+                            <div class="card_front container-fluid">
+                                <div class="d-flex justify-content-center align-items-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }})">
+                                    <i class="fa-solid fa-circle-chevron-right front_switch"></i>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="mobile_card_back container-fluid d-none">
-                            <div class="row">
-                                <div class='col info'>
-                                    <div class="d-flex justify-content-end">
-                                        <i class="fa-solid fa-circle-chevron-left back_switch text-info"></i>
+                            <div class="card_back container-fluid d-none">
+                                <div class="row">
+
+                                    <div class="col snapshot">
+                                        <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
                                     </div>
 
-                                    <h4>{{ $property['name'] }}</h4>
-                                    <p>{{ $property['description'] }}</p>
+                                    <div class='col info'>
+                                        <div class="d-flex justify-content-end">
+                                            <i class="fa-solid fa-circle-chevron-left back_switch text-info"></i>
+                                        </div>
 
-                                    <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
+                                        <h4>{{ $property['name'] }}</h4>
+                                        <p>{{ $property['description'] }}</p>
 
-                                    <div class='details'>
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        <h5>{{ $property['location'] }}</h5>
-                                        <span class="br"></span>
-                                        <i class="fa-solid fa-building"></i>
-                                        <h5>{{ $property['types'] }}</h5>
-                                        <span class="br"></span>
-                                        <i class="fa-solid fa-user"></i>
-                                        <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
+                                        <div class='details'>
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <h5>{{ $property['location'] }}</h5>
+                                            <span class="br"></span>
+                                            <i class="fa-solid fa-building"></i>
+                                            <h5>{{ $property['types'] }}</h5>
+                                            <span class="br"></span>
+                                            <i class="fa-solid fa-user"></i>
+                                            <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
-                    @endforeach
+                            <div class="mobile_card_back container-fluid d-none">
+                                <div class="row">
+                                    <div class='col info'>
+                                        <div class="d-flex justify-content-end">
+                                            <i class="fa-solid fa-circle-chevron-left back_switch text-info"></i>
+                                        </div>
+
+                                        <h4>{{ $property['name'] }}</h4>
+                                        <p>{{ $property['description'] }}</p>
+
+                                        <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $property['snapshot'] }}" alt="">
+
+                                        <div class='details'>
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <h5>{{ $property['location'] }}</h5>
+                                            <span class="br"></span>
+                                            <i class="fa-solid fa-building"></i>
+                                            <h5>{{ $property['types'] }}</h5>
+                                            <span class="br"></span>
+                                            <i class="fa-solid fa-user"></i>
+                                            <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    @empty
+
+                    @endforelse
 
                     </div>
 
@@ -244,13 +246,15 @@
             <div id="videos_carousel" class="carousel slide text-center">
                 <div class="carousel-inner">
 
-                @foreach ($data['videos'] as $video)
-                <div class="carousel-item video_carousel_item">
-                    <div class="col">
-                        <iframe src="https://www.youtube.com/embed/{{ $video->code }}/"></iframe>
+                @forelse ($data['videos'] as $video)
+                    <div class="carousel-item video_carousel_item">
+                        <div class="col">
+                            <iframe src="https://www.youtube.com/embed/{{ $video->code }}/"></iframe>
+                        </div>
                     </div>
-                </div>
-                @endforeach
+                @empty
+
+                @endforelse
                 </div>
 
                 <div class="d-flex justify-content-center">
@@ -277,29 +281,31 @@
                 <div id="reviews_carousel" class="carousel slide text-center">
                     <div class="carousel-inner">
 
-                    @foreach ($data['reviews'] as $review)
-                    <div class="carousel-item review_carousel_item">
-                        <div class="container">
-                            <div class="row review">
-                                <div class="col">
-                                    <div class="row profile">
-                                        <div class="col-xl-2 d-flex justify-content-start col-5">
-                                            <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $review->picture }}" alt="">
+                    @forelse ($data['reviews'] as $review)
+                        <div class="carousel-item review_carousel_item">
+                            <div class="container">
+                                <div class="row review">
+                                    <div class="col">
+                                        <div class="row profile">
+                                            <div class="col-xl-2 d-flex justify-content-start col-5">
+                                                <img src="{{  asset('uploads/reviews/profile_pics') }}/{{ $review->picture }}" alt="">
+                                            </div>
+                                            <div class="col text-start g-0">
+                                                <h5>{{ $review->fullname }}</h5>
+                                                <h6>{{ $review->name }}</h6>
+                                                <h6>{{ \Carbon\Carbon::parse($review->reviewed_on)->toFormattedDateString()}}</h6>
+                                            </div>
                                         </div>
-                                        <div class="col text-start g-0">
-                                            <h5>{{ $review->fullname }}</h5>
-                                            <h6>{{ $review->name }}</h6>
-                                            <h6>{{ \Carbon\Carbon::parse($review->reviewed_on)->toFormattedDateString()}}</h6>
+                                        <div class="row review_text text-start">
+                                            <p>{{ $review->review }}</p>
                                         </div>
-                                    </div>
-                                    <div class="row review_text text-start">
-                                        <p>{{ $review->review }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @endforeach
+                    @empty
+                    
+                    @endforelse
 
                     </div>
 

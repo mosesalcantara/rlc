@@ -62,8 +62,6 @@ Route::post('/about-us/get-awards', [PageController::class, 'get_awards']);
 
 Route::get('/calculator', [PageController::class, 'calculator']);
 
-Route::get('/test', [PageController::class, 'test']);
-
 Route::get('/for-sale', [SaleController::class, 'sale']);
 
 Route::get('/for-sale/properties/{sale_status}', [SaleController::class, 'properties']);

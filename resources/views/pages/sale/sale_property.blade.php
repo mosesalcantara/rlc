@@ -18,7 +18,7 @@
             <div class="col" >
                 <div id="pictures_carousel" class="carousel slide">
                     <div class="carousel-inner">
-                        @foreach ($data['property']['pictures'] as $picture)
+                        @forelse ($data['property']['pictures'] as $picture)
                         <div class="carousel-item picture_carousel_item">
                             <div class="picture" style="background-image: url({{ asset('uploads/properties/pictures') }}//{{ $picture }});"> 
                                 <div class="row">
@@ -30,7 +30,9 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @empty
+
+                        @endforelse
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#pictures_carousel" data-bs-slide="prev">
                         <i class="fa-solid fa-chevron-left fa-2x"></i>
@@ -92,21 +94,29 @@
                     <h4>Indoor</h4>
                 </div>
                 <div class="row indoors">
-                    @foreach ($data['property']['indoor'] as $amenity)
-                    <div class="col-xxl-2">
-                        <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
-                    </div>
-                    @endforeach
+                    @forelse ($data['property']['indoor'] as $amenity)
+                        <div class="col-xxl-2">
+                            <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
+                        </div>
+                    @empty
+                        <div class="col text-center no_data">
+                            No data available
+                        </div>
+                    @endforelse
                 </div>
                 <div class="row text-center category_outdoor">
                     <h4>Outdoor</h4>
                 </div>
                 <div class="row outdoors">
-                    @foreach ($data['property']['outdoor'] as $amenity)
-                    <div class="col-xxl-2">
-                        <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
-                    </div>
-                    @endforeach
+                    @forelse ($data['property']['outdoor'] as $amenity)
+                        <div class="col-xxl-2">
+                            <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
+                        </div>
+                    @empty
+                        <div class="col text-center no_data">
+                            No data available
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>

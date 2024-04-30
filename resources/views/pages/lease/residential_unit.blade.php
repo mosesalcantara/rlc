@@ -162,11 +162,15 @@
                         <div id="snapshots_carousel" class="carousel slide">
                             <div class="carousel-inner">
         
-                            @foreach ($data['r_unit']['snapshots'] as $snapshot)
+                            @forelse ($data['r_unit']['snapshots'] as $snapshot)
                             <div class="carousel-item snapshot_carousel_item">
                                 <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $snapshot }}" alt="">
                             </div>
-                            @endforeach
+                            @empty
+                                <div class="text-center no_data">
+                                    No data available
+                                </div>
+                            @endforelse
         
                             </div>
                         </div>

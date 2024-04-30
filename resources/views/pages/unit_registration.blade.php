@@ -84,9 +84,11 @@
                                 <div class="col-4">
                                     <label for="" class="form-label">Property*</label>
                                     <select class="form-select" name="property_id">
-                                        @foreach ($data['properties'] as $property)
-                                        <option value="{{ $property['id'] }}">{{ $property['name'] }}</option>
-                                        @endforeach
+                                        @forelse ($data['properties'] as $property)
+                                            <option value="{{ $property['id'] }}">{{ $property['name'] }}</option>
+                                        @empty
+                                        
+                                        @endforelse
                                     </select>
                                 </div>
                                 <div class="col-4">

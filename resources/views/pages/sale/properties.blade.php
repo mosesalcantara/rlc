@@ -104,8 +104,7 @@
 
     <div class="container-fluid">
         <div class="row properties">
-            @if (count($data['properties']) > 0)
-            @foreach ($data['properties'] as $property)
+            @forelse ($data['properties'] as $property)
                 <div class="col-xxl-4 property">
                     <div class="card">
                         <img class='card-img-top' src="{{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }}" alt="">
@@ -133,12 +132,11 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-            @else
+            @empty
                 <div class="col text-center no_data">
                     No data available
                 </div>
-            @endif
+            @endforelse
         </div>
 
         <form action="" method="POST" class="d-none" id='view_units_form'>

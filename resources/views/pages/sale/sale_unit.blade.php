@@ -163,11 +163,13 @@
                         <div id="snapshots_carousel" class="carousel slide">
                             <div class="carousel-inner">
         
-                            @foreach ($data['sale_unit']['snapshots'] as $snapshot)
+                            @forelse ($data['sale_unit']['snapshots'] as $snapshot)
                             <div class="carousel-item snapshot_carousel_item">
                                 <img src="{{ asset('uploads/residential_units/snapshots') }}/{{ $snapshot }}" alt="">
                             </div>
-                            @endforeach
+                            @empty
+
+                            @endforelse
         
                             </div>
                         </div>
@@ -195,13 +197,15 @@
                         <div id="unit_videos_carousel" class="carousel slide">
                             <div class="carousel-inner">
         
-                            @foreach ($data['sale_unit']['unit_videos'] as $unit_video)
+                            @forelse ($data['sale_unit']['unit_videos'] as $unit_video)
                             <div class="carousel-item unit_video_carousel_item">
                                 <video controls>
                                     <source src="{{ asset('uploads/residential_units/unit_videos') }}/{{ $unit_video }}">
                                 </video>
                             </div>
-                            @endforeach
+                            @empty
+
+                            @endforelse
                             </div>
                         </div>
                     </div>
@@ -228,13 +232,15 @@
                         <div id="amenities_carousel" class="carousel slide">
                             <div class="carousel-inner">
 
-                            @foreach ($data['sale_unit']['amenities'] as $amenity)
+                            @forelse ($data['sale_unit']['amenities'] as $amenity)
                             <div class="carousel-item amenity_carousel_item">
                                 <div class="amenity">
                                     <img src="{{ asset('uploads/amenities/pictures') }}/{{ $amenity['picture'] }}" alt="">
                                 </div>
                             </div>
-                            @endforeach
+                            @empty
+                            
+                            @endforelse
         
                             </div>
                         </div>

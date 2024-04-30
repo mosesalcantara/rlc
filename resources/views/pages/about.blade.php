@@ -109,13 +109,15 @@
         <div class="row awards_div">
             <h1>Awards</h1>
             <div class="row years">
-                @if (count($data['years']) > 0)
-                @foreach ($data['years'] as $year)
+                @forelse ($data['years'] as $year)
                     <div class="col-xxl-1 text-center year" style="cursor: pointer;">
                         {{ $year['year'] }}
                     </div>
-                @endforeach
-                @endif
+                @empty
+                    <div class="col text-center no_data">
+                        No data available
+                    </div>
+                @endforelse
             </div>
             <div class="row g-0 list awards">
 

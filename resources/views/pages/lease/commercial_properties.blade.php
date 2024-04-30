@@ -96,9 +96,9 @@
                     </div>
                 </div>
             @empty
-            <div class="col text-center no_data">
-                No data available
-            </div>
+                <div class="col text-center no_data">
+                    No data available
+                </div>
             @endforelse
         </div>
 

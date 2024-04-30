@@ -126,9 +126,9 @@
                                         <td><h6>{{ $measurement['size'] }} SQM</h6></td>
                                     </tr>
                                     @empty
-                                    <div class="col text-center no_data">
-                                        No data available
-                                    </div>
+                                        <div class="text-center no_data">
+                                            No data available
+                                        </div>
                                     @endforelse
                                 </tbody>
                             </table>

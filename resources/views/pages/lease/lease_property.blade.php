@@ -130,21 +130,29 @@
                     <h4>Indoor</h4>
                 </div>
                 <div class="row indoors">
-                    @foreach ($data['property']['indoor'] as $amenity)
-                    <div class="col-xxl-2">
-                        <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
-                    </div>
-                    @endforeach
+                    @forelse ($data['property']['indoor'] as $amenity)
+                        <div class="col-xxl-2">
+                            <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
+                        </div>
+                    @empty
+                        <div class="col text-center no_data">
+                            No data available
+                        </div>
+                    @endforelse
                 </div>
                 <div class="row text-center category_outdoor">
                     <h4>Outdoor</h4>
                 </div>
                 <div class="row outdoors">
-                    @foreach ($data['property']['outdoor'] as $amenity)
-                    <div class="col-xxl-2">
-                        <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
-                    </div>
-                    @endforeach
+                    @forelse ($data['property']['outdoor'] as $amenity)
+                        <div class="col-xxl-2">
+                            <h5 class='amenity' data-picture='{{ $amenity['picture'] }}' data-name='{{ $amenity['name'] }}' data-bs-target="#picModal" data-bs-toggle="modal">{{ $amenity['name'] }}</h5>
+                        </div>
+                    @empty
+                        <div class="col text-center no_data">
+                            No data available
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>

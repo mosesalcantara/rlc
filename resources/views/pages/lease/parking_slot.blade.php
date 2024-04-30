@@ -106,18 +106,18 @@
                 <div class="requirements">
                     <h4>PARKING LEASE REQUIREMENTS & GUIDELINES</h4>
                     @forelse ($data['property']['terms'] as $category => $terms)
-                    <h5>{{ $category }}</h5>
-                    <ul>
-                        @forelse ($terms as $term)
-                        <li>{{ $term }}</li>
-                        @empty
-                        
-                        @endforelse
-                    </ul>
+                        <h5>{{ $category }}</h5>
+                        <ul>
+                            @forelse ($terms as $term)
+                                <li>{{ $term }}</li>
+                            @empty
+                            
+                            @endforelse
+                        </ul>
                     @empty
-                    <div class="col text-center no_data">
-                        No data available
-                    </div>
+                        <div class="text-center no_data">
+                            No data available
+                        </div>
                     @endforelse
                 </div>
                 <div class="text-center">
@@ -151,15 +151,15 @@
                                 </thead>
                                 <tbody>
                                     @forelse ($data['slots'] as $slot)
-                                    <tr>
-                                        <td><h6>{{ $slot['floor'] }}</h6></td>
-                                        <td><h6>{{ $slot['slot'] }}</h6></td>
-                                        <td><h6>PHP {{ number_format($slot['rate'], 2) }} / mo</h6></td>
-                                    </tr>
+                                        <tr>
+                                            <td><h6>{{ $slot['floor'] }}</h6></td>
+                                            <td><h6>{{ $slot['slot'] }}</h6></td>
+                                            <td><h6>PHP {{ number_format($slot['rate'], 2) }} / mo</h6></td>
+                                        </tr>
                                     @empty
-                                    <div class="col text-center no_data">
-                                        No data available
-                                    </div>
+                                        <div class="text-center no_data">
+                                            No data available
+                                        </div>
                                     @endforelse
                                 </tbody>
                             </table>
