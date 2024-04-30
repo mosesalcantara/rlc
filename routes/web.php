@@ -116,6 +116,7 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index']);
+    Route::get('/chart-data', [AdminController::class, 'chart_data']);
 });
 
 Route::prefix('admin/videos')->group(function () {

@@ -27,29 +27,8 @@ class AdminController extends Controller
             $counts['viewings'] = Viewing::all()->count();
             $counts['registered_units'] = RegisteredUnit::all()->count();
 
-            $sale = ResidentialUnit::all()->where('retail_status', 'For Sale')->count();
-            $lease = ResidentialUnit::all()->where('retail_status', 'For Lease')->count();
-            $retail_status = [
-                'sale' => $sale,
-                'lease' => $lease,
-            ];
-
-            $for_lease = [
-                'residential_units' => $counts['residential_units'],
-                'commercial_units' => $counts['commercial_units'],
-                'parking_slots' => $counts['parking_slots'],
-            ];
-
-            $amenities_property = Property::selectRaw('properties.id, properties.name, (Select Count(id) from Amenities Where property_id = properties.id) As amenities')->get();
-
-            $reviews_property = Property::selectRaw('properties.id, properties.name, (Select Count(id) from Reviews Where property_id = properties.id) As reviews')->get();
-
             $data = [
                 'counts' => $counts,
-                'retail_status' => $retail_status,
-                'for_lease' => $for_lease,
-                'amenities_property' => $amenities_property,
-                'reviews_property' => $reviews_property,
             ];
 
             return view('admin.index')->with('data', $data);
@@ -57,5 +36,38 @@ class AdminController extends Controller
         else {
             return redirect('/auth');
         }
+    }
+
+    public function chart_data() {
+        $sale = ResidentialUnit::all()->where('retail_status', 'For Sale')->count();
+        $lease = ResidentialUnit::all()->where('retail_status', 'For Lease')->count();
+        $retail_status = [
+            'sale' => $sale,
+            'lease' => $lease,
+        ];
+
+
+        $counts['residential_units'] = ResidentialUnit::all()->count();
+        $counts['commercial_units'] = CommercialUnit::all()->count();
+        $counts['parking_slots'] = ParkingSlot::all()->count();
+        $for_lease = [
+            'Residential Units' => $counts['residential_units'],
+            'Commercial Units' => $counts['commercial_units'],
+            'Parking Slots' => $counts['parking_slots'],
+        ];
+
+        $amenities_property = Property::selectRaw('properties.id, properties.name, (Select Count(id) from Amenities Where property_id = properties.id) As amenities')
+                                ->orderBy('amenities', 'desc')->limit(7)->get();
+        $reviews_property = Property::selectRaw('properties.id, properties.name, (Select Count(id) from Reviews Where property_id = properties.id) As reviews')
+                                ->orderBy('reviews', 'desc')->limit(7)->get();
+
+        $data = [
+            'retail_status' => $retail_status,
+            'for_lease' => $for_lease,
+            'amenities_property' => $amenities_property,
+            'reviews_property' => $reviews_property,
+        ];
+
+        return response()->json($data);
     }
 }

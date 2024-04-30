@@ -24,7 +24,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xxl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row g-0 align-items-center">
@@ -43,7 +43,7 @@
                 </div>
             </div>
         
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xxl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row g-0 align-items-center">
@@ -62,7 +62,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xxl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row g-0 align-items-center">
@@ -81,7 +81,7 @@
                 </div>
             </div>
         
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xxl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row g-0 align-items-center">
@@ -100,10 +100,92 @@
                 </div>
             </div>
         </div>
+        
+        <div class="row px-5">
+            <div class="col-xxl-4 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row g-0 align-items-center">
+                            <div class="col mr-2">
+                                <div class="fw-bold text-primary text-uppercase mb-1">
+                                    Inquiries (Total)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    {{ $data['counts']['inquiries'] }}
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa-solid fa-question fa-3x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row g-0 align-items-center">
+                            <div class="col mr-2">
+                                <div class="fw-bold text-primary text-uppercase mb-1">
+                                    Viewings (Total)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    {{ $data['counts']['viewings'] }}
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa-solid fa-clipboard-question fa-3x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row g-0 align-items-center">
+                            <div class="col mr-2">
+                                <div class="fw-bold text-primary text-uppercase mb-1">
+                                    Registrations (Total)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    {{ $data['counts']['registered_units'] }}
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa-solid fa-house-circle-exclamation fa-3x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row mb-5">
+            <div class="col-xxl-6">
+                <h4 class="text-center">Retail Status Shares</h4>
+                <canvas id="retail_status"></canvas>               
+            </div>
+            <div class="col-xxl-6">
+                <h4 class="text-center">For Lease Shares</h4>
+                <canvas id="for_lease"></canvas>        
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-xxl-6">
+                <h4 class="text-center">Amenities Per Property</h4>
+                <canvas id="amenities_property"></canvas>   
+            </div>
+            <div class="col-xxl-6">
+                <h4 class="text-center">Reviews Per Property</h4>
+                <canvas id="reviews_property"></canvas> 
+            </div>
+        </div>
     </div>
 
 @endsection
 
 @section('scripts')
     @parent
+
+    <script src="{{ asset('js/admin/index.js') }}"></script>
 @endsection
