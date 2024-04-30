@@ -22,7 +22,7 @@
 
     {{-- {{ dd($data) }} --}}
 
-    <div class="container-fluid">
+    <div class="container-fluid mb-3">
         <div class="row">
             <div class="col-xxl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
@@ -160,24 +160,44 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row mb-5">
+        <div class="row mb-3">
             <div class="col-xxl-6">
-                <h4 class="text-center">Retail Status Shares</h4>
-                <canvas id="retail_status"></canvas>               
+                <div class="card">
+                    <div class="card-body d-flex justify-content-center text-center">
+                        <div>
+                            <h4>Retail Shares</h4>
+                            <canvas id="retail_status"></canvas>  
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-xxl-6">
-                <h4 class="text-center">For Lease Shares</h4>
-                <canvas id="for_lease"></canvas>        
+                <div class="card">
+                    <div class="card-body d-flex justify-content-center">
+                        <div>
+                            <h4 class="text-center">For Lease Shares</h4>
+                            <canvas id="for_lease"></canvas>    
+                        </div>
+                    </div>
+                </div>    
             </div>
         </div>
-        <div class="row mb-5">
+        <div class="row mb-3">
             <div class="col-xxl-6">
-                <h4 class="text-center">Amenities Per Property</h4>
-                <canvas id="amenities_property"></canvas>   
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="text-center">Amenities Per Property</h4>
+                        <canvas id="amenities_property"></canvas>  
+                    </div>
+                </div> 
             </div>
             <div class="col-xxl-6">
-                <h4 class="text-center">Reviews Per Property</h4>
-                <canvas id="reviews_property"></canvas> 
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="text-center">Reviews Per Property</h4>
+                        <canvas id="reviews_property"></canvas> 
+                    </div>
+                </div>
             </div>
         </div>
     </div>

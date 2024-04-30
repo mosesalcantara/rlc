@@ -13,15 +13,13 @@ $(document).ready( function () {
 })
 
 function display_charts(res) {
-    console.log(res)
-
     var keys = Object.keys(res.retail_status)
     var labels = keys.map(key => key.charAt(0).toUpperCase() + key.slice(1))
 
     var data = {
         labels: labels,
         datasets: [{
-          label: 'Retail Status Shares',
+          label: 'Retail Shares',
           data: Object.values(res.retail_status),
           backgroundColor: [
             'rgb(255, 99, 132)',
@@ -37,7 +35,7 @@ function display_charts(res) {
         type: 'pie',
         data: data,
         options: {
-            responsive: true,
+            responsive: false,
         }
     })
 
@@ -64,7 +62,7 @@ function display_charts(res) {
         type: 'pie',
         data: data,
         options: {
-            responsive: true,
+            responsive: false,
         }
     })
 
