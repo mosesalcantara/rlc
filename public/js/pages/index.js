@@ -52,7 +52,7 @@ $(document).ready( function () {
         var col = $('<div>').addClass('col-xxl-12 back')
         var picture = $('<div>').css({
             'background-image': `url('img/pages/home/${header_back[id]['picture']}')`,
-            'width': '100%',
+            'background-repeat': 'no-repeat',
         })
 
         col.append(picture)
