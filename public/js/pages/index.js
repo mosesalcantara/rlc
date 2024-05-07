@@ -50,9 +50,8 @@ $(document).ready( function () {
         $('.header .col').remove()
 
         var col = $('<div>').addClass('col-12 back')
-        var picture = $('<div>').css({
-            'background-image': `url('img/pages/home/${header_back[id]['picture']}')`,
-            'background-repeat': 'no-repeat',
+        var picture = $('<img>').css({
+            'src': `'/img/pages/home/${header_back[id]['picture']}'`,
         })
 
         col.append(picture)
