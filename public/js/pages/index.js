@@ -49,7 +49,7 @@ $(document).ready( function () {
 
         $('.header .col').remove()
 
-        var col = $('<div>').addClass('col-xxl-12 back')
+        var col = $('<div>').addClass('col-12 back')
         var picture = $('<div>').css({
             'background-image': `url('img/pages/home/${header_back[id]['picture']}')`,
         })
