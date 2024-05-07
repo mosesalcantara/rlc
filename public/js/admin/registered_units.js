@@ -34,7 +34,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/registered_units/add/",
+          url: "/admin/registered_units/add",
           method: 'POST',
           data: new FormData(this),
           contentType: false,
@@ -77,7 +77,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/registered_units/update/",
+          url: "/admin/registered_units/update",
           data: new FormData(this),
           contentType: false,
           processData: false,
@@ -110,7 +110,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/registered_units/delete/",
+          url: "/admin/registered_units/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -131,7 +131,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/registered_units/",
+        url: "/admin/registered_units",
         success: function (res) {
             var records = res.records
 
@@ -217,7 +217,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/registered_units/edit/',
+      url:'/admin/registered_units/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

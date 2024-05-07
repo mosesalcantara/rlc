@@ -9,7 +9,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-            url: "/admin/buildings/get-related/",
+            url: "/admin/buildings/get-related",
             method: 'POST',
             success: function (res) {
                 var records = res.records
@@ -33,7 +33,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/buildings/add/",
+          url: "/admin/buildings/add",
           method: 'POST',
           data: new FormData(this),
           contentType: false,
@@ -77,7 +77,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/buildings/update/",
+          url: "/admin/buildings/update",
           data: new FormData(this),
           contentType: false,
           processData: false,
@@ -110,7 +110,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/buildings/delete/",
+          url: "/admin/buildings/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -131,7 +131,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/buildings/",
+        url: "/admin/buildings",
         success: function (res) {
             var records = res.records
 
@@ -208,7 +208,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/buildings/edit/',
+      url:'/admin/buildings/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

@@ -57,7 +57,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/residential/add/",
+          url: "/admin/residential/add",
           method: 'POST',
           data: $(this).serialize(),
           success: function (res) {
@@ -124,7 +124,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/residential/update/",
+          url: "/admin/residential/update",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -155,7 +155,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/residential/delete/",
+          url: "/admin/residential/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -176,7 +176,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/residential/",
+        url: "/admin/residential",
         success: function (res) {
             var records = res.records
 
@@ -261,7 +261,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/residential/edit/',
+      url:'/admin/residential/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

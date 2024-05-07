@@ -9,7 +9,7 @@ $(document).ready( function () {
       $('#addForm span').remove()
 
       $.ajax({
-          url: "/admin/commercial/related-properties/",
+          url: "/admin/commercial/related-properties",
           method: 'POST',
           success: function (res) {
               var records = res.records
@@ -57,7 +57,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/commercial/add/",
+          url: "/admin/commercial/add",
           method: 'POST',
           data: $(this).serialize(),
           success: function (res) {
@@ -124,7 +124,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/commercial/update/",
+          url: "/admin/commercial/update",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -155,7 +155,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/commercial/delete/",
+          url: "/admin/commercial/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -176,7 +176,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/commercial/",
+        url: "/admin/commercial",
         success: function (res) {
             var records = res.records
 
@@ -251,7 +251,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/commercial/edit/',
+      url:'/admin/commercial/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

@@ -14,7 +14,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/inquiry_emails/add/",
+          url: "/admin/inquiry_emails/add",
           method: 'POST',
           data: $(this).serialize(),
           success: function (res) {
@@ -51,7 +51,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/inquiry_emails/update/",
+          url: "/admin/inquiry_emails/update",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -82,7 +82,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/inquiry_emails/delete/",
+          url: "/admin/inquiry_emails/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -103,7 +103,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/inquiry_emails/",
+        url: "/admin/inquiry_emails",
         success: function (res) {
             var records = res.records
 
@@ -181,7 +181,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/inquiry_emails/edit/',
+      url:'/admin/inquiry_emails/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

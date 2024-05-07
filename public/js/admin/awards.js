@@ -14,7 +14,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/awards/add/",
+          url: "/admin/awards/add",
           method: 'POST',
           data: new FormData(this),
           contentType: false,
@@ -54,7 +54,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/awards/update/",
+          url: "/admin/awards/update",
           data: new FormData(this),
           contentType: false,
           processData: false,
@@ -87,7 +87,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/awards/delete/",
+          url: "/admin/awards/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -108,7 +108,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/awards/",
+        url: "/admin/awards",
         success: function (res) {
             var records = res.records
 
@@ -187,7 +187,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/awards/edit/',
+      url:'/admin/awards/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

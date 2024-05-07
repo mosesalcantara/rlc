@@ -9,7 +9,7 @@ $(document).ready( function () {
       $('#addForm span').remove()
 
       $.ajax({
-          url: "/admin/parking/get-related/",
+          url: "/admin/parking/get-related",
           method: 'POST',
           success: function (res) {
               var records = res.records
@@ -33,7 +33,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/parking/add/",
+          url: "/admin/parking/add",
           method: 'POST',
           data: $(this).serialize(),
           success: function (res) {
@@ -75,7 +75,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/parking/update/",
+          url: "/admin/parking/update",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -106,7 +106,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/parking/delete/",
+          url: "/admin/parking/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -127,7 +127,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/parking/",
+        url: "/admin/parking",
         success: function (res) {
             var records = res.records
 
@@ -200,7 +200,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/parking/edit/',
+      url:'/admin/parking/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

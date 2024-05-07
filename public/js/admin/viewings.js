@@ -57,7 +57,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/viewings/add/",
+          url: "/admin/viewings/add",
           method: 'POST',
           data: $(this).serialize(),
           success: function (res) {
@@ -123,7 +123,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/viewings/update/",
+          url: "/admin/viewings/update",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -154,7 +154,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/viewings/delete/",
+          url: "/admin/viewings/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -175,7 +175,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/viewings/",
+        url: "/admin/viewings",
         success: function (res) {
             var records = res.records
 
@@ -267,7 +267,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/viewings/edit/',
+      url:'/admin/viewings/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

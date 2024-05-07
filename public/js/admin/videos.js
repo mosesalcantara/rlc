@@ -14,7 +14,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/videos/add/",
+          url: "/admin/videos/add",
           method: 'POST',
           data: $(this).serialize(),
           success: function (res) {
@@ -52,7 +52,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/videos/update/",
+          url: "/admin/videos/update",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -83,7 +83,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/videos/delete/",
+          url: "/admin/videos/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -104,7 +104,7 @@ function get_all() {
 
   $.ajax({
       type: 'POST',
-      url: "/admin/videos/",
+      url: "/admin/videos",
       success: function (res) {
           var records = res.records
 
@@ -171,7 +171,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/videos/edit/',
+      url:'/admin/videos/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

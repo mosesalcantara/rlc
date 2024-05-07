@@ -9,7 +9,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-            url: "/admin/unit_videos/get-related/",
+            url: "/admin/unit_videos/get-related",
             method: 'POST',
             success: function (res) {
                 var records = res.records
@@ -33,7 +33,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/unit_videos/add/",
+          url: "/admin/unit_videos/add",
           method: 'POST',
           data: new FormData(this),
           contentType: false,
@@ -78,7 +78,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/unit_videos/update/",
+          url: "/admin/unit_videos/update",
           data: new FormData(this),
           contentType: false,
           processData: false,
@@ -111,7 +111,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/unit_videos/delete/",
+          url: "/admin/unit_videos/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -132,7 +132,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/unit_videos/",
+        url: "/admin/unit_videos",
         success: function (res) {
             var records = res.records
 
@@ -206,7 +206,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/unit_videos/edit/',
+      url:'/admin/unit_videos/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

@@ -9,7 +9,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-            url: "/admin/snapshots/get-related/",
+            url: "/admin/snapshots/get-related",
             method: 'POST',
             success: function (res) {
                 var records = res.records
@@ -33,7 +33,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/snapshots/add/",
+          url: "/admin/snapshots/add",
           method: 'POST',
           data: new FormData(this),
           contentType: false,
@@ -78,7 +78,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/snapshots/update/",
+          url: "/admin/snapshots/update",
           data: new FormData(this),
           contentType: false,
           processData: false,
@@ -111,7 +111,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/snapshots/delete/",
+          url: "/admin/snapshots/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -132,7 +132,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/snapshots/",
+        url: "/admin/snapshots",
         success: function (res) {
             var records = res.records
 
@@ -207,7 +207,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/snapshots/edit/',
+      url:'/admin/snapshots/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record

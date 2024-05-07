@@ -33,7 +33,7 @@ $(document).ready( function () {
         $('#addForm span').remove()
 
         $.ajax({
-          url: "/admin/terms/add/",
+          url: "/admin/terms/add",
           method: 'POST',
           data: $(this).serialize(),
           success: function (res) {
@@ -75,7 +75,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/terms/update/",
+          url: "/admin/terms/update",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -106,7 +106,7 @@ $(document).ready( function () {
         e.preventDefault()
         $.ajax({
           type: 'POST',
-          url: "/admin/terms/delete/",
+          url: "/admin/terms/delete",
           data: $(this).serialize(),
           success: function (res) {
             alert(res.msg)
@@ -127,7 +127,7 @@ function get_all() {
 
     $.ajax({
         type: 'POST',
-        url: "/admin/terms/",
+        url: "/admin/terms",
         success: function (res) {
             var records = res.records
 
@@ -198,7 +198,7 @@ function get_upd_id(id){
 
     $.ajax( {
       method:"POST",
-      url:'/admin/terms/edit/',
+      url:'/admin/terms/edit',
       data: {'upd_id' : target_id},
       success: function(res) {
         var record = res.record
