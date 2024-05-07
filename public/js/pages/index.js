@@ -51,7 +51,7 @@ $(document).ready( function () {
 
         var col = $('<div>').addClass('col-12 back')
         var picture = $('<img>').attr({
-            'src': `'/img/pages/home/${header_back[id]['picture']}'`,
+            'src': `/img/pages/home/${header_back[id]['picture']}`,
         })
 
         col.append(picture)
