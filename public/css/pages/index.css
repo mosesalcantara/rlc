@@ -11,7 +11,7 @@
 }
 
 .header .col div {
-    width: 100%;
+    width: 100vw;
     height: 75vh;
     background-size: cover;
     color: #000b8c;
