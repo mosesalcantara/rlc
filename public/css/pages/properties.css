@@ -11,7 +11,7 @@
 
 .header_item {
     position: absolute;
-    top: 33%;
+    top: 8%;
     left: 27%;
     transform: translate(-50%, -50%);
     width: 50%;
@@ -26,8 +26,9 @@
 
 .band {
     margin-top: 5vh;
-    height: 30vh;
+    height: 24vh;
     color: white;
+    background-repeat: no-repeat;
 }
 
 .band_item {
