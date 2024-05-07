@@ -13,7 +13,7 @@ $(document).ready( function () {
 
         $.ajax({
           type: 'POST',
-          url: "/admin/settings/update/",
+          url: "/admin/settings/update",
           data: new FormData(this),
           contentType: false,
           processData: false,
@@ -44,7 +44,7 @@ $(document).ready( function () {
 function get_upd_id(){
     $.ajax( {
       method:"POST",
-      url:'/admin/settings/edit/',
+      url:'/admin/settings/edit',
       success: function(res) {
         var record = res.record
 
