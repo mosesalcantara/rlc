@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css"/>
 
         <link rel="stylesheet" href="{{ asset('css/admin/styles.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
     @show
 </head>
