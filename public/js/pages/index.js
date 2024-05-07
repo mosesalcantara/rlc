@@ -50,7 +50,7 @@ $(document).ready( function () {
         $('.header .col').remove()
 
         var col = $('<div>').addClass('col-12 back')
-        var picture = $('<img>').css({
+        var picture = $('<img>').attr({
             'src': `'/img/pages/home/${header_back[id]['picture']}'`,
         })
 
@@ -58,10 +58,10 @@ $(document).ready( function () {
         header_div.append(col)
         header_div.append(col)
 
-        // setTimeout(() => {
-        //     $('.header .col-12').remove()
-        //     show_front()
-        // }, 20000)
+        setTimeout(() => {
+            $('.header .col-12').remove()
+            show_front()
+        }, 3000)
 
     })
 
