@@ -126,7 +126,7 @@
                 <div class="col text-center no_data">
                     No data available
                 </div>
-            @endforeach
+            @endforelse
         </div>
     </div>
 @endsection
