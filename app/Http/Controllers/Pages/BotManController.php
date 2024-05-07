@@ -30,6 +30,7 @@ class BotManController extends Controller
             $where = [
                 'sale_status' => 'Pre-Selling',
                 'retail_status' => 'For Sale',
+                'publish_status' => 'Published',
             ];
     
             $sale_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->orderBy('properties.name')->limit(10)->get();
@@ -46,6 +47,7 @@ class BotManController extends Controller
             $where = [
                 'sale_status' => 'RFO',
                 'retail_status' => 'For Sale',
+                'publish_status' => 'Published',
             ];
     
             $sale_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->orderBy('properties.name')->limit(10)->get();
@@ -65,7 +67,7 @@ class BotManController extends Controller
 
             $where = [
                 'retail_status' => 'For Lease',
-                'published' => 1,
+                'publish_status' => 'Published',
             ];
 
             $r_units = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->orderBy('properties.name')->limit(10)->get();
