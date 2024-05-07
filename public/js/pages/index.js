@@ -59,10 +59,10 @@ $(document).ready( function () {
         header_div.append(col)
         header_div.append(col)
 
-        setTimeout(() => {
-            $('.header .col-12').remove()
-            show_front()
-        }, 20000)
+        // setTimeout(() => {
+        //     $('.header .col-12').remove()
+        //     show_front()
+        // }, 20000)
 
     })
 
