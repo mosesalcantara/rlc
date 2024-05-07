@@ -56,9 +56,9 @@ class AdminController extends Controller
             'Parking Slots' => $counts['parking_slots'],
         ];
 
-        $amenities_property = Property::selectRaw('properties.id, properties.name, (Select Count(id) from Amenities Where property_id = properties.id) As amenities')
+        $amenities_property = Property::selectRaw('properties.id, properties.name, (Select Count(id) from amenities Where property_id = properties.id) As amenities')
                                 ->orderBy('amenities', 'desc')->limit(7)->get();
-        $reviews_property = Property::selectRaw('properties.id, properties.name, (Select Count(id) from Reviews Where property_id = properties.id) As reviews')
+        $reviews_property = Property::selectRaw('properties.id, properties.name, (Select Count(id) from reviews Where property_id = properties.id) As reviews')
                                 ->orderBy('reviews', 'desc')->limit(7)->get();
 
         $data = [
