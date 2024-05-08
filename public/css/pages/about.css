@@ -10,7 +10,7 @@
 
 .header_item {
     position: absolute;
-    top: 7.5%;
+    top: 29.5%;
     left: 30%;
     transform: translate(-50%, -50%);
     width: 50%;
@@ -133,7 +133,7 @@
     }
 
     .header_item {
-        top: 2.7%;
+        top: 9.5%;
     }
 
     .header_item h1 {
