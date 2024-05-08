@@ -163,7 +163,7 @@
     }
 
     .brand_story {
-        padding: 1.5rem 5rem 1.5rem;
+        padding: 1.5rem 2.5rem 1.5rem;
     }
 
     .video {
@@ -176,7 +176,11 @@
         margin: 2rem 0 1.5rem;
     }
 
-    .awards {
-        padding: 1rem 1.5rem 1rem;
+    .awards_div {
+        padding: 1rem 2.5rem 1rem;
+    }
+
+    .award {
+
     }
 }
