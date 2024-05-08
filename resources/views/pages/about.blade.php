@@ -13,6 +13,7 @@
 @endsection
  
 @section('content')
+Try
     <div class="container-fluid header">
         <div class="row">
             <img class="header_pic" src="{{ asset('uploads/about_items/heading_images') }}/{{ $data['about']['heading_image'] }}" alt="">
