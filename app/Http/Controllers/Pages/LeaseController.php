@@ -347,7 +347,7 @@ class LeaseController extends Controller
 
     public function parking_slot(Request $request) {
         $property = Property::selectRaw('properties.id, properties.name, properties.location, properties.logo, Min(parking_slots.rate) as min, Max(parking_slots.rate) as max')
-                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupByRaw('properties.id, properties.name, properties.location')->where('properties.id', $request->id)->get();
+                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupByRaw('properties.id, properties.name, properties.location, properties.logo')->where('properties.id', $request->id)->get();
         $property = $property[0];
 
         $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
