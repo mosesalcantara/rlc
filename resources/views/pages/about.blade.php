@@ -110,7 +110,7 @@
             <h1>Awards</h1>
             <div class="row years">
                 @forelse ($data['years'] as $year)
-                    <div class="col-xxl-1 mr-2 text-center year" style="cursor: pointer;">
+                    <div class="col-xxl-1 mr-2 mb-2 text-center year" style="cursor: pointer;">
                         {{ $year['year'] }}
                     </div>
                 @empty
