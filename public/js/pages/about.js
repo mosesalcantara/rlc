@@ -18,7 +18,7 @@ $(document).ready( function () {
 
                 $.each(records, function (ind, field) { 
                     var award = `
-                                    <div class="col-xxl-2 mb-3 text-center award">
+                                    <div class="col-xxl-2 col-5 text-center award">
                                         <img src="/uploads/awards/pictures/${field.picture}" alt="">
                                         <h5>${field.title}</h5>
                                     </div>

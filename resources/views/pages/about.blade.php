@@ -13,7 +13,6 @@
 @endsection
  
 @section('content')
-Try
     <div class="container-fluid header">
         <div class="row">
             <img class="header_pic" src="{{ asset('uploads/about_items/heading_images') }}/{{ $data['about']['heading_image'] }}" alt="">
@@ -111,7 +110,7 @@ Try
             <h1>Awards</h1>
             <div class="row years">
                 @forelse ($data['years'] as $year)
-                    <div class="col-xxl-1 col-3 mr-2 text-center year" style="cursor: pointer;">
+                    <div class="col-xxl-1 mr-2 text-center year" style="cursor: pointer;">
                         {{ $year['year'] }}
                     </div>
                 @empty
