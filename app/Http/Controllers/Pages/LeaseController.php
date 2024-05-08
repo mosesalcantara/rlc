@@ -145,7 +145,7 @@ class LeaseController extends Controller
 
     public function parking_slots(Request $request) {
         $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
-                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->orderBy('properties.name')->groupBy('properties.id')->get();
+                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->orderBy('properties.name')->groupByRaw('properties.id, properties.name, properties.location')->get();
 
         foreach ($slots as $slot) {
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
@@ -248,7 +248,7 @@ class LeaseController extends Controller
             ];
     
             $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
-                        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupBy('properties.id')->get();
+                        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupByRaw('properties.id, properties.name, properties.location')->get();
         }
         else if ($request['origin'] == 'property_page') {
             $where = [
@@ -256,7 +256,7 @@ class LeaseController extends Controller
             ];
 
             $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
-                        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupBy('properties.id')->get();
+                        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupByRaw('properties.id, properties.name, properties.location')->get();
         }
         else {
             $where = [
@@ -265,7 +265,7 @@ class LeaseController extends Controller
             ];
     
             $slots = Property::selectRaw('properties.id, properties.name, properties.location, Min(parking_slots.rate) As min, Max(parking_slots.rate) As max')
-                        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupBy('properties.id')
+                        ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->where($where)->groupByRaw('properties.id, properties.name, properties.location')
                         ->havingRaw('Min(parking_slots.rate) >= ? And Max(parking_slots.rate) <= ?', [$request['min_rate'], $request['max_rate']])->get();
         }
 
@@ -347,7 +347,7 @@ class LeaseController extends Controller
 
     public function parking_slot(Request $request) {
         $property = Property::selectRaw('properties.id, properties.name, properties.location, properties.logo, Min(parking_slots.rate) as min, Max(parking_slots.rate) as max')
-                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupBy('properties.id')->where('properties.id', $request->id)->get();
+                    ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupByRaw('properties.id, properties.name, properties.location')->where('properties.id', $request->id)->get();
         $property = $property[0];
 
         $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
