@@ -200,11 +200,7 @@
     }
 
     .band_item {
-        margin: 3rem 1rem 3rem;
-    }
-
-    .band_item h1 {
-        font-size: 0.75rem;
+        margin: 1rem 1rem 1rem;
     }
 
     .search {
