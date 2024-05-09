@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col band_item">
                 <h1 class="d-xxl-block d-none">Choose up to three properties and see<br>which one fits you best.</h1>
-                <p class="d-xxl-none d-block">Looking to learn more about properties? <a href="/contact-us">Talk to us</a></p>
+                <p class="d-xxl-block d-none">Looking to learn more about properties? <a href="/contact-us">Talk to us</a></p>
             </div>
         </div>
     </div>
