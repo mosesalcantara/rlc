@@ -43,7 +43,7 @@ $(document).ready( function () {
                     $('select[name=building_id]').append(option)
                 })
             },
-            error: function (xhr, status, error) {
+            error: function (res) {
 
             },
         })    

@@ -57,7 +57,7 @@
                         </div>  
                         <div class="form-floating mb-3">
                             <input type="text" name="unit_id" class="form-control">
-                            <label for="">Unit ID</label>     
+                            <label for="">Code</label>     
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Retail Status</label>     
@@ -136,7 +136,7 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" name="unit_id" id="unit_id" class="form-control">
-                            <label for="">Unit ID</label>     
+                            <label for="">Code</label>     
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Retail Status</label>     

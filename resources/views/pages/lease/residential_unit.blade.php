@@ -110,7 +110,7 @@
                     <h4>{{ $data['r_unit']['location'] }}</h4>
                 </div>
                 <div>
-                    <h6>Unit ID: {{ $data['r_unit']['unit_id'] }}</h6>
+                    <h6>Code: {{ $data['r_unit']['unit_id'] }}</h6>
                     <h6>Building: {{ $data['r_unit']['building'] }}</h6>
 
                     <div class="row details">

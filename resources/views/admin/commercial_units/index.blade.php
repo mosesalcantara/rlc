@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-floating mb-3">  
                             <input type="text" name="retail_id" class="form-control">
-                            <label for="">Retail ID</label>   
+                            <label for="">Code</label>   
                         </div>
                 
                         <div class="mb-3">
@@ -88,7 +88,7 @@
                         </div>
                         <div class="form-floating mb-3">  
                             <input type="text" name="retail_id" id="retail_id" class="form-control">
-                            <label for="">Retail ID</label>   
+                            <label for="">Code</label>   
                         </div>
                 
                         <div class="mb-3">

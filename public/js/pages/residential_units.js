@@ -63,7 +63,7 @@ $(document).ready( function () {
 
                                                 <div class="row table">
                                                     <div class="col-xxl-4 col-5">
-                                                        <h6>Unit ID</h6>
+                                                        <h6>Code</h6>
                                                         <h6>Unit Type</h6>
                                                         <h6>Rental Rate</h6>
                                                         <h6>Area</h6>
@@ -85,8 +85,8 @@ $(document).ready( function () {
                     units_div.append(unit_html)
                 })
             },
-            error: function (xhr, status, error) {
-                console.log(xhr)
+            error: function (res) {
+                console.log(res)
             },
         })  
     })

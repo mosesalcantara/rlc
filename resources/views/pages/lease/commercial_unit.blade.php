@@ -88,7 +88,7 @@
                     <h4>{{ $data['c_unit']['location'] }}</h4>
                 </div>
                 <div>
-                    <h6>Retail ID: {{ $data['c_unit']['retail_id'] }}</h6>
+                    <h6>Code: {{ $data['c_unit']['retail_id'] }}</h6>
                     <h6>Building: {{ $data['c_unit']['building'] }}</h6>
                     <h6>Size: {{ $data['c_unit']['size'] }} SQM</h6>
                 </div>

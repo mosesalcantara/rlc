@@ -187,7 +187,7 @@ function get_all() {
             var thr = $('<tr>')
             thr.append($('<th>').text('Property'))
             thr.append($('<th>').text('Location'))
-            thr.append($('<th>').text('Unit ID'))
+            thr.append($('<th>').text('Code'))
             thr.append($('<th>').text('Building'))
             thr.append($('<th>').text('Retail Status'))
             thr.append($('<th>').text('Type'))

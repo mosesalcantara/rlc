@@ -111,7 +111,7 @@
                     <h4>{{ $data['sale_unit']['location'] }}</h4>
                 </div>
                 <div>
-                    <h6>Unit ID: {{ $data['sale_unit']['unit_id'] }}</h6>
+                    <h6>Code: {{ $data['sale_unit']['unit_id'] }}</h6>
                     <h6>Building: {{ $data['sale_unit']['building'] }}</h6>
 
                     <div class="row details">

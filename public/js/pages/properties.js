@@ -347,7 +347,7 @@ function compare_residential_units() {
                 var row = $('<div>').addClass('row')
                 for (var r_unit of property['units']) {
                     var unit_data = {
-                        'Unit ID': r_unit.unit_id,
+                        'Code': r_unit.unit_id,
                         'Property Type': 'Residential',
                         'Monthly Rate': money.format(r_unit.price),
                         'Unit Type': r_unit.type,
@@ -442,7 +442,7 @@ function compare_commercial_units() {
                 var row = $('<div>').addClass('row')
                 for (var c_unit of property['units']) {
                     var unit_data = {
-                        'Unit ID': `${c_unit.building} - ${c_unit.retail_id}`,
+                        'Code': `${c_unit.building} - ${c_unit.retail_id}`,
                         'Property Type': 'Commercial',
                         'Unit Area (sqm)': `${c_unit.size} sqm`,
                     }

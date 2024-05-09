@@ -56,7 +56,7 @@ $(document).ready( function () {
 
                                                 <div class="row table">
                                                     <div class="col-xxl-4 col-5">
-                                                        <h6>Retail ID</h6>
+                                                        <h6>Code</h6>
                                                         <h6>Area</h6>
                                                     </div>
                                                     <div class="col-xxl col-7 text-dark">

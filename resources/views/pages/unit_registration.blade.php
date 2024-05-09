@@ -97,7 +97,7 @@
                                     </select>
                                 </div>
                                 <div class="col-4">
-                                    <label for="" class="form-label">Unit ID*</label>
+                                    <label for="" class="form-label">Code*</label>
                                     <input class="form-control" type="text" name='unit_id'>
                                 </div>
                             </div>
