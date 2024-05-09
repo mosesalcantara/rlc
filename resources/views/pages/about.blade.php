@@ -5,7 +5,7 @@
 @section('links')
     @parent
 
-    <link rel="stylesheet" href="{{ asset('css/pages/about.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/pages/about.css') }}"> --}}
 @endsection
 
 @section('navbar')
