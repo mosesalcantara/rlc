@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 use Mail;
 use App\Mail\InquiryMail;
+use App\Mail\AdminViewingMail;
 
 use App\Models\Property;
-use App\Models\Amenity;
 use App\Models\Review;
 use App\Models\Video;
 use App\Models\ResidentialUnit;
@@ -142,6 +143,21 @@ class PageController extends Controller
         $record->message = $request->message;
         $record->status = 'Pending';
         $record->save();
+
+        $unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->residential_unit_id)->first();
+
+        $mailData = [
+            'name' => $request->name,
+            'unit_id' => $unit->unit_id,
+            'property' => $unit->name,
+            'date' => Carbon::parse($request->date)->toFormattedDateString(),
+            'time' => Carbon::createFromFormat('H:i', $request->time)->format('g:i a'),
+            'message' => $request->message,
+            'id' => $record->id,
+        ];
+
+        $settings = Setting::all()->sortByDesc('updated_at')->take(1);
+        Mail::to($settings[0]['email'])->send(new AdminViewingMail($mailData));
 
         return response(['msg' => 'Request Submitted']);
     }

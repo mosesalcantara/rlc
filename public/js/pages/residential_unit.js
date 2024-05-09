@@ -54,6 +54,7 @@ $(document).ready( function () {
                 $(`#viewingModal`).modal('hide')
             },
             error: function (res) {
+                console.log(res)
                 var errors = res.responseJSON.errors
                 // console.log(errors)
 

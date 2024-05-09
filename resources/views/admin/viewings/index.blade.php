@@ -105,7 +105,7 @@
                                 <select name="status" class="form-select">
                                     <option value="Approved">Approved</option>
                                     <option value="Pending">Pending</option>
-                                    <option value="Denied">Denied</option>
+                                    <option value="Declined">Declined</option>
                                 </select>
                             </div>
                         </div>
@@ -190,7 +190,7 @@
                                 <select name="status" id="status" class="form-select">
                                     <option value="Approved">Approved</option>
                                     <option value="Pending">Pending</option>
-                                    <option value="Denied">Denied</option>
+                                    <option value="Declined">Declined</option>
                                 </select>
                             </div>
                         </div>

@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ViewingMail extends Mailable
+class AdminViewingMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $mailData;
@@ -38,7 +38,7 @@ class ViewingMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'pages.emails.viewing_email',
+            markdown: 'pages.emails.admin_viewing_email',
         );
     }
 

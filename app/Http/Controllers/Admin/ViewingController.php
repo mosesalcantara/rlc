@@ -152,4 +152,42 @@ class ViewingController extends Controller
         
         return response(['msg' => 'Deleted Viewing']);
     }
+
+    public function approve($id) {
+        $record = Viewing::find($id);
+        $unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $record->residential_unit_id)->first();
+
+        $mailData = [
+            'name' => $record->name,
+            'unit_id' => $unit['unit_id'],
+            'property' => $unit['name'],
+            'date' => Carbon::parse($record->date)->toFormattedDateString(),
+            'time' => Carbon::createFromFormat('H:i:s', $record->time)->format('g:i a'),
+            'status' => 'Approved',
+        ];
+
+        $record->update(['status' => 'Approved']);
+
+        Mail::to($record->email)->send(new ViewingMail($mailData));
+
+        
+    }
+
+    public function decline($id) {
+        $record = Viewing::find($id);
+        $unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $record->residential_unit_id)->first();
+
+        $mailData = [
+            'name' => $record->name,
+            'unit_id' => $unit['unit_id'],
+            'property' => $unit['name'],
+            'date' => Carbon::parse($record->date)->toFormattedDateString(),
+            'time' => Carbon::createFromFormat('H:i:s', $record->time)->format('g:i a'),
+            'status' => 'Declined',
+        ];
+
+        $record->update(['status' => 'Declined']);
+
+        Mail::to($record->email)->send(new ViewingMail($mailData));
+    }
 }
