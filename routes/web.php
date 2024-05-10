@@ -264,8 +264,7 @@ Route::prefix('admin/viewings')->group(function () {
     Route::post('/edit', [ViewingController::class, 'edit']);
     Route::post('/update', [ViewingController::class, 'update']);
     Route::post('/delete', [ViewingController::class, 'delete']);
-    Route::get('/approve/{id}', [ViewingController::class, 'approve']);
-    Route::get('/decline/{id}', [ViewingController::class, 'decline']);
+    Route::get('/{status}/{id}', [ViewingController::class, 'change_status']);
 });
 
 Route::prefix('admin/registered_units')->group(function () {
