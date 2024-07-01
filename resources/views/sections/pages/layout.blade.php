@@ -41,7 +41,7 @@
             <nav class="navbar navbar-expand-lg bg-body-tertiary px-xxl-3 py-xxl-3 fixed-top">
                 <div class="container-fluid navbar_div">
                     <a href="/" class="navbar-brand">
-                        <img src="{{ asset('img/pages/logo.png') }}" alt="" id='logo'>
+                        <img class="logo" src="{{ asset('img/pages/logo.png') }}" alt="">
                     </a>
 
                     <button class="nav_toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,11 +77,11 @@
                             </li>
 
                             <li class="contact_btns d-flex align-items-center justify-content-center">
-                                <a class="fa-solid fa-mobile-screen-button" id='mobile' href=''></a>
-                                <a class="fa-brands fa-facebook-messenger" id='messenger' href='' target='_blank'></a>
-                                <a class="fa-brands fa-telegram" id='telegram' href='' target='_blank'></a>
-                                <a class="fa-brands fa-weixin" id='wechat' href='' target='_blank'></a>
-                                <a class="fa-brands fa-viber" id='viber' href='' target='_blank'></a>
+                                <a class="fa-solid fa-mobile-screen-button mobile" href=''></a>
+                                <a class="fa-brands fa-facebook-messenger messenger" href='' target='_blank'></a>
+                                <a class="fa-brands fa-telegram telegram" href='' target='_blank'></a>
+                                <a class="fa-brands fa-weixin wechat" href='' target='_blank'></a>
+                                <a class="fa-brands fa-viber viber" href='' target='_blank'></a>
                             </li>
                         </ul>
                     </div>
@@ -115,31 +115,31 @@
                     <div class="col-xxl-3 offset-xxl-1 contacts">
                         <h3>Talk to Us</h3>
                         <p>
-                            <b id='office'></b><br>
-                            <span id='address'></span><br>
-                            <span id='email'></span>
+                            <b class='office'></b><br>
+                            <span class='address'></span><br>
+                            <span class='email'></span>
                         </p>
 
                         <div class="row">
                             <div class="col-xxl-6">
-                                <a class="fa-solid fa-phone" id='telephone' href='' target='_blank'></a>
-                                <span id='telephone_text'></span>
+                                <a class="fa-solid fa-phone telephone" href='' target='_blank'></a>
+                                <span class='telephone_text'></span>
                                 <br><br>
-                                <a class="fa-brands fa-facebook-messenger" id='messenger' href='' target='_blank'></a>
-                                <span id='messenger_text'></span>
+                                <a class="fa-brands fa-facebook-messenger messenger" href='' target='_blank'></a>
+                                <span class='messenger_text'></span>
                                 <br><br>
-                                <a class="fa-brands fa-weixin" id='wechat' href='' target='_blank'></a>
-                                <span id='wechat_text'></span>
+                                <a class="fa-brands fa-weixin wechat" href='' target='_blank'></a>
+                                <span class='wechat_text'></span>
                             </div>
                             <div class="col-xxl-6">
-                                <a class="fa-solid fa-mobile-screen-button" id='mobile' href='' ></a>
-                                <span id='mobile_text'></span>
+                                <a class="fa-solid fa-mobile-screen-button mobile" href='' ></a>
+                                <span class='mobile_text'></span>
                                 <br><br>
-                                <a class="fa-brands fa-telegram" id='telegram' href='' target='_blank'></a>
-                                <span id='telegram_text'></span>
+                                <a class="fa-brands fa-telegram telegram" href='' target='_blank'></a>
+                                <span class='telegram_text'></span>
                                 <br><br>
-                                <a class="fa-brands fa-viber" id='viber' href='' target='_blank'></a>
-                                <span id='viber_text'></span>
+                                <a class="fa-brands fa-viber viber" href='' target='_blank'></a>
+                                <span class='viber_text'></span>
                             </div>
                         </div>
                     </div>
@@ -152,10 +152,10 @@
                         </div>
 
                         <div class="text-xxl-start text-center mt-5">
-                            <a class="fa-brands fa-facebook-f fa-2x" href='' target='_blank' id='facebook'></a>
-                            <a class="fa-brands fa-x-twitter fa-2x" href='' target='_blank' id='twitter'></a>
-                            <a class="fa-brands fa-instagram fa-2x" href='' target='_blank' id='instagram'></a>
-                            <a class="fa-brands fa-youtube fa-2x" href='' target='_blank' id='youtube'></a>
+                            <a class="fa-brands fa-facebook-f fa-2x facebbok" href='' target='_blank'></a>
+                            <a class="fa-brands fa-x-twitter fa-2x twitter" href='' target='_blank'></a>
+                            <a class="fa-brands fa-instagram fa-2x instagram" href='' target='_blank'></a>
+                            <a class="fa-brands fa-youtube fa-2x youtube" href='' target='_blank'></a>
                         </div>
                     </div>
                 </div>
