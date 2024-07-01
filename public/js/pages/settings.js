@@ -10,6 +10,7 @@ $(document).ready( function () {
         url:'/get-settings',
         success: function(res) {
           var settings = res.settings
+          console.log(settings)
 
           $('#logo').attr({'src': `/uploads/settings/logos/${settings.logo}`})
 
