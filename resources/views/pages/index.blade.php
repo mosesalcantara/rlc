@@ -150,7 +150,7 @@
     <div class="container-fluid featured">
         <div class="row">
             <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-start">        
-                <h1>Our Featured Properties</h1>
+                <h1>Our Featured Propertie</h1>
             </div>
             <div class="col-xxl-6 d-xxl-flex align-items-center justify-content-xxl-end">
                 <h4>Explored our wide selection of projects to know more.</h4>
