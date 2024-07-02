@@ -20,6 +20,8 @@ use App\Http\Controllers\Admin\UnitVideoController;
 use App\Http\Controllers\Admin\CommercialUnitController;
 use App\Http\Controllers\Admin\ParkingSlotController;
 use App\Http\Controllers\Admin\TermController;
+use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\Admin\ContactItemController;
 use App\Http\Controllers\Admin\InquiryEmailController;
 use App\Http\Controllers\Admin\ViewingController;
@@ -28,6 +30,7 @@ use App\Http\Controllers\Admin\AboutItemController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\AwardController;
 use App\Http\Controllers\Admin\SettingController;
+
 use App\Http\Controllers\Pages\BotManController;
 
 use Illuminate\Support\Facades\Route;
@@ -47,6 +50,7 @@ Route::match(['get', 'post'], '/botman', [BotManController::class, 'botman']);
 
 Route::get('/', [PageController::class, 'index']);
 Route::post('/get-settings', [PageController::class, 'get_settings']);
+Route::post('/subscribe', [PageController::class, 'subscribe']);
 
 Route::get('/contact-us', [PageController::class, 'contact']);
 Route::post('/contact-us', [PageController::class, 'send_inquiry']);
@@ -238,6 +242,24 @@ Route::prefix('admin/terms')->group(function () {
     Route::post('/edit', [TermController::class, 'edit']);
     Route::post('/update', [TermController::class, 'update']);
     Route::post('/delete', [TermController::class, 'delete']);
+});
+
+Route::prefix('admin/announcements')->group(function () {
+    Route::get('/', [AnnouncementController::class, 'index']);
+    Route::post('/', [AnnouncementController::class, 'get_all']);
+    Route::post('/add', [AnnouncementController::class, 'create']);
+    Route::post('/edit', [AnnouncementController::class, 'edit']);
+    Route::post('/update', [AnnouncementController::class, 'update']);
+    Route::post('/delete', [AnnouncementController::class, 'delete']);
+});
+
+Route::prefix('admin/subscribers')->group(function () {
+    Route::get('/', [SubscriberController::class, 'index']);
+    Route::post('/', [SubscriberController::class, 'get_all']);
+    Route::post('/add', [SubscriberController::class, 'create']);
+    Route::post('/edit', [SubscriberController::class, 'edit']);
+    Route::post('/update', [SubscriberController::class, 'update']);
+    Route::post('/delete', [SubscriberController::class, 'delete']);
 });
 
 Route::prefix('admin/contact')->group(function () {

@@ -131,7 +131,7 @@ class ViewingController extends Controller
             $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->residential_unit_id)->get();
             $record = $record[0];
     
-            $mailData = [
+            $mail_data = [
                 'name' => $request->name,
                 'property' => $record['name'],
                 'unit_id' => $record['unit_id'],
@@ -140,7 +140,7 @@ class ViewingController extends Controller
                 'status' => $request->status,
             ];
 
-            Mail::to($request->email)->send(new ViewingMail($mailData));
+            Mail::to($request->email)->send(new ViewingMail($mail_data));
         }
 
         return response(['msg' => 'Updated Viewing']);
@@ -158,7 +158,7 @@ class ViewingController extends Controller
         $record = Viewing::find($id);
         $unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $record->residential_unit_id)->first();
 
-        $mailData = [
+        $mail_data = [
             'name' => $record->name,
             'unit_id' => $unit['unit_id'],
             'property' => $unit['name'],
@@ -169,7 +169,7 @@ class ViewingController extends Controller
 
         $record->update(['status' => $status]);
 
-        Mail::to($record->email)->send(new ViewingMail($mailData));
+        Mail::to($record->email)->send(new ViewingMail($mail_data));
         
         $data = [
             'status' => $status,

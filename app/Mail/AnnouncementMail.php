@@ -9,9 +9,10 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ViewingMail extends Mailable
+class AnnouncementMail extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $mail_data;
 
     /**
@@ -28,7 +29,7 @@ class ViewingMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'RLC Request Viewing',
+            subject: 'RLC Announcement',
         );
     }
 
@@ -38,7 +39,7 @@ class ViewingMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'pages.emails.viewing_email',
+            markdown: 'pages.emails.announcement_email',
         );
     }
 

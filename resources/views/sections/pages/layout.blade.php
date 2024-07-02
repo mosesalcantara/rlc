@@ -148,8 +148,8 @@
                         <h3>Stay Updated</h3>
                         
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email address">
-                            <button class="btn btn-warning text-light">Subscribe Now</button>
+                            <input type="email" class="form-control" name='email' placeholder="Enter your email address">
+                            <button class="btn btn-warning text-light subscribe_btn">Subscribe Now</button>
                         </div>
 
                         <div class="text-xxl-start text-center mt-5">
@@ -183,7 +183,7 @@
         <script>
             var botmanWidget = {
                 aboutText: 'Start the conversation with Hi',
-                introMessage: "Welcome to RLC Residences"
+                introMessage: "Welcome to RLC Residences! What are you looking for? <br> <button class='btn'>For Sale Units</button> <button class='btn'>For Lease Units</button> <button class='btn'>About Us</button>"
             };
         </script>
 
@@ -194,6 +194,7 @@
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
         <script src="{{ asset('js/pages/settings.js') }}"></script>
+        <script src="{{ asset('js/pages/scripts.js') }}"></script>
 
         <script type="text/javascript">
             function googleTranslateElementInit() {

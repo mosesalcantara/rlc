@@ -9,17 +9,16 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ViewingMail extends Mailable
+class SubscribedMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $mail_data;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($mail_data)
+    public function __construct()
     {
-        $this->mail_data = $mail_data;
+        //
     }
 
     /**
@@ -28,7 +27,7 @@ class ViewingMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'RLC Request Viewing',
+            subject: 'RLC Subscribed',
         );
     }
 
@@ -38,7 +37,7 @@ class ViewingMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'pages.emails.viewing_email',
+            markdown: 'pages.emails.subscribed_email',
         );
     }
 

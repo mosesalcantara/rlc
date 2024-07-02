@@ -1,9 +1,9 @@
 @component('mail::message')
-<h1>{{ $mailData['title'] }}</h1>
+<h1>{{ $mail_data['title'] }}</h1>
 
-Fullname: {{ $mailData['name'] }}<br>
-Email: {{ $mailData['email'] }}<br>
-Phone: {{ $mailData['phone'] }}<br>
+Fullname: {{ $mail_data['name'] }}<br>
+Email: {{ $mail_data['email'] }}<br>
+Phone: {{ $mail_data['phone'] }}<br>
 
-{{ $mailData['body'] }}
+{{ $mail_data['body'] }}
 @endcomponent

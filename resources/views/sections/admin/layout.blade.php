@@ -81,7 +81,7 @@
 
                 <!-- Heading -->
                 <div class="sidebar-heading">
-                    Entities
+                    Content
                 </div>
 
                 <!-- Nav Item - Pages Collapse Menu -->
@@ -139,6 +139,20 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="/admin/parking">Slots</a>
                             <a class="collapse-item" href="/admin/terms">Terms</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item {{ in_array(Request::url(), [ url('/admin/announcements'), url('/admin/subscribers') ]) ? 'active' : '' }}">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnnouncements"
+                        aria-expanded="true" aria-controls="collapseAnnouncements">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Announcements</span>
+                    </a>
+                    <div id="collapseAnnouncements" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="/admin/announcements">Announcements</a>
+                            <a class="collapse-item" href="/admin/subscribers">Subscribers</a>
                         </div>
                     </div>
                 </li>

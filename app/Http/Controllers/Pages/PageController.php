@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Mail;
 use App\Mail\InquiryMail;
 use App\Mail\AdminViewingMail;
+use App\Mail\SubscribedMail;
 
 use App\Models\Property;
 use App\Models\Review;
@@ -24,6 +25,7 @@ use App\Models\RegisteredUnit;
 use App\Models\AboutItem;
 use App\Models\Award;
 use App\Models\Setting;
+use App\Models\Subscriber;
 
 class PageController extends Controller
 {
@@ -35,6 +37,19 @@ class PageController extends Controller
         ];
 
         return response()->json($data);
+    }
+
+    public function subscribe(Request $request) {
+        $request->validate([
+            'email'=>'required|email',
+        ]);
+
+        $record = new Subscriber();
+        $record->email = $request->email;
+        $record->save();
+
+        Mail::to($request->email)->send(new SubscribedMail());
+        return response(['msg' => 'Thank You For Subscribing.']);
     }
 
     public function index() {
@@ -104,7 +119,7 @@ class PageController extends Controller
     public function send_inquiry(Request $request) {
         $settings = Setting::all()->sortByDesc('updated_at')->take(1);
 
-        $mailData = [
+        $mail_data = [
             'title' => "{$request['type']} Inquiry",
             'name' => $request['name'],
             'email' => $request['email'],
@@ -112,7 +127,7 @@ class PageController extends Controller
             'body' => $request['message'],
         ];
 
-        Mail::to($settings[0]['email'])->send(new InquiryMail($mailData));
+        Mail::to($settings[0]['email'])->send(new InquiryMail($mail_data));
 
         $record = new InquiryEmail;
 
@@ -151,7 +166,7 @@ class PageController extends Controller
 
         $unit = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where('residential_units.id', $request->residential_unit_id)->first();
 
-        $mailData = [
+        $mail_data = [
             'name' => $request->name,
             'unit_id' => $unit->unit_id,
             'property' => $unit->name,
@@ -162,7 +177,7 @@ class PageController extends Controller
         ];
 
         $settings = Setting::all()->sortByDesc('updated_at')->take(1);
-        Mail::to($settings[0]['email'])->send(new AdminViewingMail($mailData));
+        Mail::to($settings[0]['email'])->send(new AdminViewingMail($mail_data));
 
         return response(['msg' => 'Request Submitted']);
     }
