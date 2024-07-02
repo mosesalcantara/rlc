@@ -13,18 +13,6 @@
 @endsection
  
 @section('content')
-    <div class="container-fluid header">
-        <div class="row">
-            <div class="text-center">
-                <img class="header_pic" src="{{ asset('img/pages/properties/property-header.png') }}" alt="">
-            </div>
-
-            <div class="header_item">
-                <h1>Compare<br>Our Properties</h1>
-            </div>
-        </div>
-    </div>
-
     <div class="container-fluid band" style="background-image: url({{ asset('img/pages/properties/gray-band.png') }})">
         <div class="row">
             <div class="col band_item">

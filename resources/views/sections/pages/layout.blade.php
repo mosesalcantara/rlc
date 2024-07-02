@@ -38,7 +38,7 @@
 
     <div class="content">
         @section('navbar')
-            <nav class="navbar navbar-expand-lg bg-body-tertiary px-xxl-3 py-xxl-3 fixed-top">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary py-xxl-3 fixed-top">
                 <div class="container-fluid navbar_div">
                     <a href="/" class="navbar-brand">
                         <img class="logo" src="{{ asset('img/pages/logo.png') }}" alt="">
@@ -63,14 +63,15 @@
                                 <a class="nav-link {{ Request::url() == url('/compare') ? 'active' : '' }}" href="/compare">Compare Properties</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link {{ in_array(Request::url(), [ url('/contact-us'), url('/submit-review'), url('/unit-registration') ]) ? 'active' : '' }} dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link {{ in_array(Request::url(), [ url('/contact-us'), url('/submit-review') ]) ? 'active' : '' }} dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                   Contact Us
                                 </a>
                                 <ul class="dropdown-menu" id='contact_drop'>
                                   <li><a class="dropdown-item" href="/contact-us">Send Inquiry</a></li>
-                                  <li><a class="dropdown-item" href="/submit-review">Submit Review</a></li>
-                                  <li><a class="dropdown-item" href="/unit-registration">Unit Registration</a></li>
                                 </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::url() == url('/unit-registration') ? 'active' : '' }}" href="/unit-registration">Register Unit</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::url() == url('/about-us') ? 'active' : '' }}" href="/about-us">About Us</a>

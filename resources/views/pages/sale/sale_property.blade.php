@@ -23,7 +23,7 @@
                             <div class="picture" style="background-image: url({{ asset('uploads/properties/pictures') }}//{{ $picture }});"> 
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="logo d-flex justify-content-center align-items-center">
+                                        <div class="property_logo d-flex justify-content-center align-items-center">
                                             <img src="{{ asset('uploads/properties/logos') }}/{{ $data['property']['logo'] }}" alt="">
                                         </div>
                                     </div>
@@ -66,7 +66,7 @@
                 <div class="row rates_types">
                     <div class="col-xxl col-12 rates text-xxl-start text-center">
                         <h5>Price Range</h5>
-                        <h5>PHP{{ $data['property']['min'] }}M - PHP{{ $data['property']['max'] }}M</h5>
+                        <h5>{{ $data['property']['price'] }}</h5>
                     </div>
                     <div class="col-xxl col-12 types text-xxl-start text-center">
                         <h5>Unit Types</h5>

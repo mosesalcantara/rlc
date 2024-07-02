@@ -59,7 +59,7 @@ $(document).ready( function () {
                                                         <div class="col-xxl-4 col-5">
                                                             <h6>Code</h6>
                                                             <h6>Unit Type</h6>
-                                                            <h6>Price</h6>
+                                                            <h6>Selling Price</h6>
                                                             <h6>Area</h6>
                                                         </div>
                                                         <div class="col-xxl col-7 text-dark">

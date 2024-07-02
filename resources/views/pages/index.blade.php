@@ -15,20 +15,34 @@
 @section('content')
     <div class="container-fluid" style="background-image: url({{ asset('img/pages/home/header-bg.png') }})">
         <div class="row gx-0 header d-xxl-flex d-none" style="background-image: url({{ asset('img/pages/home/shape.png') }})">
-            
+            <div class="col" onclick="window.location='/unit-registration'">
+                <div style="background-image: url({{ asset('img/pages/home/family.png') }})">
+                    <h3>Register My Unit</h3>
+                </div>
+            </div>
+            <div class="col" onclick="window.location='/for-lease'">
+                <div style="background-image: url({{ asset('img/pages/home/building.png') }})">
+                    <h3>Check Available Units</h3>
+                </div>
+            </div>
+            <div class="col" onclick="window.location='/contact-us'">
+                <div style="background-image: url({{ asset('img/pages/home/agent.png') }})">
+                    <h3>Connect With Us</h3>
+                </div>
+            </div>
         </div>
 
         <div class="row header_carousel_div">
-            <div class="col d-xxl-none ">
+            <div class="col d-xxl-none">
                 <div id="header_carousel" class="carousel slide">
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
+                      <div class="carousel-item active" onclick="window.location='/unit-registration'">
                         <img src="{{ asset('img/pages/home/header-1.jpg') }}" class="d-block w-100" alt=" ">
                       </div>
-                      <div class="carousel-item">
+                      <div class="carousel-item" onclick="window.location='/for-lease'">
                         <img src="{{ asset('img/pages/home/header-2.jpg') }}" class="d-block w-100" alt=" ">
                       </div>
-                      <div class="carousel-item">
+                      <div class="carousel-item" onclick="window.location='/contact-us'">
                         <img src="{{ asset('img/pages/home/header-3.jpg') }}" class="d-block w-100" alt="">
                       </div>
                     </div>
@@ -162,7 +176,7 @@
                 <div id="properties_carousel" class="carousel slide">
                     <div class="carousel-inner">
 
-                    @forelse ($data['properties'] as $property)
+                    @forelse ($data['properties'] as $property)                        
                         <div class="carousel-item property_carousel_item">
                             <div class="card_front container-fluid">
                                 <div class="d-flex justify-content-center align-items-end" style="background-image: url({{ asset('uploads/properties/pictures') }}/{{ $property['picture'] }})">
@@ -193,7 +207,7 @@
                                             <h5>{{ $property['types'] }}</h5>
                                             <span class="br"></span>
                                             <i class="fa-solid fa-user"></i>
-                                            <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
+                                            <h5>{{ $property['rate'] }}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -219,7 +233,7 @@
                                             <h5>{{ $property['types'] }}</h5>
                                             <span class="br"></span>
                                             <i class="fa-solid fa-user"></i>
-                                            <h5>PHP {{ number_format($property['min'], 2) }} - {{ number_format($property['max'], 2) }} / mo</h5>
+                                            <h5>{{ $property['rate'] }}</h5>
                                         </div>
                                     </div>
                                 </div>

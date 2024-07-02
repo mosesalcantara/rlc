@@ -1,29 +1,3 @@
-.header {
-    margin: 3rem 0 0;
-    color: #000b8c;
-}
-
-.header_pic {
-    width: 100%;
-    height: 77vh;
-    position: relative;
-}
-
-.header_item {
-    position: absolute;
-    top: 8%;
-    left: 27%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-}
-
-.header_item h1 {
-    font-size: 3rem;
-    border-left: 0.2rem solid #CC9900;
-    padding-left: 1vw;
-    margin-left: 3vw;
-}
-
 .band {
     margin-top: 5vh;
     height: 24vh;
@@ -180,27 +154,14 @@
 }
 
 @media (max-width: 1400px) {
-    .header_pic {
-        height: 30vh;
-    }
-
-    .header_item {
-        top: 6%;
-    }
-
-    .header_item h1 {
-        font-size: 2rem;
-        padding-left: 1.5rem;
-    }
-
     .band {
         margin-top: 0vh;
-        height: 9rem;
+        height: 12rem;
         background-position: 30% 100%;
     }
 
     .band_item {
-        margin: 1rem 1rem 1rem;
+        margin: 4.5rem 1rem 1rem;
     }
 
     .search {

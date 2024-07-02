@@ -24,12 +24,6 @@
     padding-left: 1vw;
 }
 
-.header .back img {
-    object-fit: cover;
-    height: 75vh;
-    width: 100%;
-}
-
 .header_carousel_div {
     margin-top: 9vh;
 }

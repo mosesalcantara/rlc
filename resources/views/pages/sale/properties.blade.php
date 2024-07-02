@@ -115,14 +115,14 @@
                             <div class="row table">
                                 <div class="col-xxl-4 col-5">
                                     <h6>Unit Type</h6>
-                                    <h6>Rental Rate</h6>
+                                    <h6>Selling Price</h6>
                                     <h6>Area</h6>
                                     <h6>Unit Status</h6>
                                 </div>
                                 <div class="col-xxl col-7 text-dark">
                                     <h6>{{ $property['types'] }}</h6>
-                                    <h6>PHP {{ $property['min_price'] }} - {{ $property['max_price'] }}M</h6>
-                                    <h6>{{ number_format($property['min_area'], 2) }} - {{ number_format($property['max_area'], 2) }} SQM</h6>
+                                    <h6>{{ $property['price'] }}</h6>
+                                    <h6>{{ $property['area'] }}</h6>
                                     <h6>{{ $property['statuses'] }}</h6>
                                 </div>
                             </div>

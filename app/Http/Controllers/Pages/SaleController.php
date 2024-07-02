@@ -44,8 +44,15 @@ class SaleController extends Controller
             $details['name'] = $record[0]['name'];
             $details['location'] = $record[0]['location'];
 
-            $details['min_price'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
-            $details['max_price'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
+            $min_price = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
+            $max_price = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
+
+            if ($min_price == $max_price) {
+                $details['price'] = "PHP $min_price"."M";
+            }
+            else {
+                $details['price'] = "PHP $min_price"."M"." - $max_price"."M";
+            }
 
             $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where($where)->get();
 
@@ -60,8 +67,15 @@ class SaleController extends Controller
             }
             $details['types'] = $types;
 
-            $details['min_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.area');
-            $details['max_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.area');
+            $min_area = number_format(Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.area'), 2);
+            $max_area = number_format(Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.area'), 2);
+
+            if ($min_area == $max_area) {
+                $details['area'] = "$min_area SQM";
+            }
+            else {
+                $details['area'] = "$min_area - $max_area SQM";
+            }
 
             $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.status')->where($where)->get();
             $statuses_arr = [];
@@ -180,9 +194,14 @@ class SaleController extends Controller
         $property['types'] = $types;
 
         $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
-        $property['min'] = $min;
         $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
-        $property['max'] = $max;
+
+        if ($min == $max) {
+            $property['price'] = "PHP $min"."M";
+        }
+        else {
+            $property['price'] = "PHP $min"."M"." - $max"."M";
+        }
 
         $records = Property::select('amenities.id', 'amenities.name', 'amenities.type', 'amenities.picture')
                     ->join('amenities', 'properties.id', '=', 'amenities.property_id')->where('properties.id', $request->id)->get();

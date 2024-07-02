@@ -106,14 +106,14 @@
                                 <div class="col-xxl-4 col-5">
                                     <h6>Code</h6>
                                     <h6>Unit Type</h6>
-                                    <h6>Price</h6>
+                                    <h6>Selling Price</h6>
                                     <h6>Area</h6>
                                 </div>
                                 <div class="col-xxl col-7 text-dark">
                                     <h6>{{ $sale_unit['unit_id'] }}</h6>
                                     <h6>{{ $sale_unit['type'] }}</h6>
                                     <h6>PHP {{ $sale_unit['price'] }}M</h6>
-                                    <h6>{{ $sale_unit['area'] }} SQM</h6>
+                                    <h6>{{ number_format($sale_unit['area'], 2) }} SQM</h6>
                                 </div>
                             </div>
                         </div>

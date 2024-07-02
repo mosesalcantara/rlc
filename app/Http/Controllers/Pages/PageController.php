@@ -67,10 +67,15 @@ class PageController extends Controller
             }
             $property['types'] = $types;
 
-            $min = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
-            $property['min'] = $min;
-            $max = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
-            $property['max'] = $max;
+            $min = number_format(Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price'), 2);
+            $max = number_format(Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price'), 2);
+
+            if ($min == $max) {
+                $property['rate'] = "PHP $min";
+            }
+            else {
+                $property['rate'] = "PHP $min - $max / mo";
+            }
         }
 
         $videos = Video::all()->sortByDesc('updated_at')->take(3);

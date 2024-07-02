@@ -127,7 +127,7 @@
                         </div>
                         <div class="col-xxl col-5 text-center">
                             <i class="fa-solid fa-piggy-bank fa-xl fa-flip-vertical"></i>
-                            <h6>MONTHLY RATE</h6>
+                            <h6>SELLING PRICE</h6>
                             <h6 class="text-dark">PHP {{ $data['sale_unit']['price'] }}M</h6>
                         </div>
                         <div class="col-xxl col-5 text-center">

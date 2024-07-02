@@ -106,6 +106,11 @@
                 </div>
             </div>
         </div>
+        <div class="row review">
+            <div class="col d-flex justify-content-center align-items-center">
+                <h1 onclick="window.location='/submit-review'">Share Your Experience. <br class="d-xxl-none">Leave a Review.</h1>
+            </div>
+        </div>
         <div class="row awards_div">
             <h1>Awards</h1>
             <div class="row years">

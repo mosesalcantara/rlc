@@ -84,7 +84,7 @@
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <button class="btn btn-warning form_btn">Get In Touch</button>
+                            <button class="btn btn-warning form_btn">Send Inquiry</button>
                         </div>
                     </div>
                 </form>
