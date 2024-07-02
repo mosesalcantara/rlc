@@ -101,7 +101,7 @@
                     <h3>{{ $data['property']['name'] }}</h3>
                     <i class="fa-solid fa-location-dot fa-xl"></i>
                     <h4>{{ $data['property']['location'] }}</h4>
-                    <h6>Monthly Parking Rate(s): <span>PHP {{ number_format($data['property']['min'], 2) }} - {{ number_format($data['property']['max'], 2) }} / mo</span></h6>
+                    <h6>Monthly Parking Rate(s): <span>{{ $data['property']['price'] }}</span></h6>
                 </div>
                 <div class="requirements">
                     <h4>PARKING LEASE REQUIREMENTS & GUIDELINES</h4>

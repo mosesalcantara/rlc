@@ -49,7 +49,7 @@ class PageController extends Controller
         $record->save();
 
         Mail::to($request->email)->send(new SubscribedMail());
-        return response(['msg' => 'Thank You For Subscribing.']);
+        return response(['msg' => 'Thank You For Subscribing']);
     }
 
     public function index() {

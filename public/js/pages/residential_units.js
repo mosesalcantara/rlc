@@ -72,7 +72,7 @@ $(document).ready( function () {
                                                         <h6>${field.unit_id}</h6>
                                                         <h6>${field.type}</h6>
                                                         <h6>${money.format(field.price)} / mo</h6>
-                                                        <h6>${field.area} SQM</h6>
+                                                        <h6>${field.area.toFixed(2)} SQM</h6>
                                                     </div>
                                                 </div>
                                             </div>

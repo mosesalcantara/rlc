@@ -5,5 +5,5 @@ Fullname: {{ $mail_data['name'] }}<br>
 Email: {{ $mail_data['email'] }}<br>
 Phone: {{ $mail_data['phone'] }}<br>
 
-{{ $mail_data['body'] }}
+Message: {{ $mail_data['body'] }}
 @endcomponent

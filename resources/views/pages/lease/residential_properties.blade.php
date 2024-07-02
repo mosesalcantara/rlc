@@ -120,19 +120,8 @@
                                 </div>
                                 <div class="col-xxl col-7 text-dark">
                                     <h6>{{ $property['types'] }}</h6>
-
-                                    @if ($property['min_price'] == $property['max_price'])
-                                    <h6>PHP {{ number_format($property['min_price'], 2) }} / mo</h6>
-                                    @else
-                                    <h6>PHP {{ number_format($property['min_price'], 2) }} - {{ number_format($property['max_price'], 2) }} / mo</h6>
-                                    @endif
-
-                                    @if ($property['min_area'] == $property['max_area'])
-                                    <h6>{{ number_format($property['min_area'], 2) }} SQM</h6>
-                                    @else
-                                    <h6>{{ number_format($property['min_area'], 2) }} - {{ number_format($property['max_area'], 2) }} SQM</h6>
-                                    @endif
-
+                                    <h6>{{ $property['price'] }}</h6>
+                                    <h6>{{ $property['area'] }}</h6>
                                     <h6>{{ $property['statuses'] }}</h6>
                                 </div>
                             </div>

@@ -41,6 +41,18 @@ class AnnouncementController extends Controller
         $record->publish_status = $request->publish_status;
         $record->save();
 
+        if ($request->publish_status == 'Published') {
+            $mail_data = [
+                'title' => $request->title,
+                'body' => $request->body,
+            ];
+
+            $recipients = Subscriber::select('email')->get();
+            foreach ($recipients as $recipient) {
+                Mail::to($recipient['email'])->send(new AnnouncementMail($mail_data));
+            }
+        }
+
         return response(['msg' => 'Added Announcement']);
     }
 

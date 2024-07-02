@@ -86,7 +86,7 @@
                                     <h6>Area</h6>
                                 </div>
                                 <div class="col-xxl col-8 text-dark">
-                                    <h6>{{ number_format($property['min_area'], 2) }} - {{ number_format($property['max_area'], 2) }} SQM</h6>
+                                    <h6>{{$property['area'] }}</h6>
                                 </div>
                             </div>
                         </div>

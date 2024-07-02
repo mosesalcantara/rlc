@@ -40,8 +40,15 @@ class LeaseController extends Controller
             $details['name'] = $record[0]['name'];
             $details['location'] = $record[0]['location'];
 
-            $details['min_price'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price');
-            $details['max_price'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price');
+            $min_price = number_format(Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.price'), 2);
+            $max_price = number_format(Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.price'), 2);
+
+            if ($min_price == $max_price) {
+                $details['price'] = "PHP $min_price / mo";
+            }
+            else {
+                $details['price'] = "PHP $min_price - $max_price / mo";
+            }
 
             $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.type')->where($where)->get();
 
@@ -56,8 +63,15 @@ class LeaseController extends Controller
             }
             $details['types'] = $types;
 
-            $details['min_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.area');
-            $details['max_area'] = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.area');
+            $min_area = number_format(Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->min('residential_units.area'), 2);
+            $max_area = number_format(Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->where($where)->max('residential_units.area'), 2);
+
+            if ($min_area == $max_area) {
+                $details['area'] = "$min_area SQM";
+            }
+            else {
+                $details['area'] = "$min_area - $max_area SQM";
+            }
 
             $record = Property::join('residential_units', 'properties.id', '=', 'residential_units.property_id')->distinct('residential_units.status')->where($where)->get();
             $statuses_arr = [];
@@ -95,8 +109,15 @@ class LeaseController extends Controller
             $details['name'] = $record[0]['name'];
             $details['location'] = $record[0]['location'];
 
-            $details['min_area'] = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('properties.id', $record[0]['property_id'])->min('commercial_units.size');
-            $details['max_area'] = Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('properties.id', $record[0]['property_id'])->max('commercial_units.size');
+            $min_area = number_format(Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('properties.id', $record[0]['property_id'])->min('commercial_units.size'), 2);
+            $max_area = number_format(Property::join('commercial_units', 'properties.id', '=', 'commercial_units.property_id')->where('properties.id', $record[0]['property_id'])->max('commercial_units.size'), 2);
+
+            if ($min_area == $max_area) {
+                $details['area'] = "$min_area SQM";
+            }
+            else {
+                $details['area'] = "$min_area - $max_area SQM";
+            }
 
             array_push($properties, $details);
         }
@@ -151,6 +172,16 @@ class LeaseController extends Controller
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.id', $slot['id'])->get();
             count($record) > 0 ? $slot['picture'] = $record[0]->picture : $slot['picture'] = 'no_image.png';
+
+            $min_price = number_format($slot['min'], 2);
+            $max_price = number_format($slot['max'], 2);
+
+            if ($min_price == $max_price) {
+                $slot['price'] = "PHP $min_price / mo";
+            }
+            else {
+                $slot['price'] = "PHP $min_price - $max_price / mo";
+            }
         }
 
         $data = [
@@ -273,6 +304,16 @@ class LeaseController extends Controller
             $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                         ->where('properties.id', $slot['id'])->get();
             count($record) > 0 ? $slot['picture'] = $record[0]->picture : $slot['picture'] = 'no_image.png';
+
+            $min_price = number_format($slot['min'], 2);
+            $max_price = number_format($slot['max'], 2);
+
+            if ($min_price == $max_price) {
+                $slot['price'] = "PHP $min_price / mo";
+            }
+            else {
+                $slot['price'] = "PHP $min_price - $max_price / mo";
+            }
         }
 
         $data = [
@@ -349,6 +390,16 @@ class LeaseController extends Controller
         $property = Property::selectRaw('properties.id, properties.name, properties.location, properties.logo, Min(parking_slots.rate) as min, Max(parking_slots.rate) as max')
                     ->join('parking_slots', 'properties.id', '=', 'parking_slots.property_id')->groupByRaw('properties.id, properties.name, properties.location, properties.logo')->where('properties.id', $request->id)->get();
         $property = $property[0];
+
+        $min_price = number_format($property['min'], 2);
+        $max_price = number_format($property['max'], 2);
+
+        if ($min_price == $max_price) {
+            $property['price'] = "PHP $min_price / mo";
+        }
+        else {
+            $property['price'] = "PHP $min_price - $max_price / mo";
+        }
 
         $record = Property::join('pictures', 'properties.id', '=', 'pictures.property_id')
                     ->where('properties.id', $property['id'])->get();

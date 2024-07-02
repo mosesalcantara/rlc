@@ -100,7 +100,7 @@
                                     <h6>Rate</h6>
                                 </div>
                                 <div class="col-9 text-dark">
-                                    <h6>PHP {{ number_format($slot['min'], 2) }} - {{ number_format($slot['max'], 2) }} / mo</h6>
+                                    <h6>{{ $slot['price'] }}</h6>
                                 </div>
                             </div>
                         </div>

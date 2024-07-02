@@ -61,7 +61,7 @@ $(document).ready( function () {
                                                     </div>
                                                     <div class="col-xxl col-7 text-dark">
                                                         <h6>${field.building} - ${field.retail_id}</h6>
-                                                        <h6>${field.size} SQM</h6>
+                                                        <h6>${field.size.toFixed(2)} SQM</h6>
                                                     </div>
                                                 </div>
                                             </div>

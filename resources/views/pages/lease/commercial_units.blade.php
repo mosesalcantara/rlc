@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-xxl col-7 text-dark">
                                     <h6>{{ $c_unit['building'] }} - {{ $c_unit['retail_id'] }}</h6>
-                                    <h6>{{ $c_unit['size'] }} SQM</h6>
+                                    <h6>{{ number_format($c_unit['size'], 2) }} SQM</h6>
                                 </div>
                             </div>
                         </div>

@@ -93,7 +93,7 @@ $(document).ready( function () {
                                                         <h6>Rate</h6>
                                                     </div>
                                                     <div class="col-9 text-dark">
-                                                        <h6>${money.format(field.min)} - ${money.format(field.max)} / mo</h6>
+                                                        <h6>${field.price}</h6>
                                                     </div>
                                                 </div>
                                             </div>

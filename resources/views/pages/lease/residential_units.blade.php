@@ -113,7 +113,7 @@
                                     <h6>{{ $r_unit['unit_id'] }}</h6>
                                     <h6>{{ $r_unit['type'] }}</h6>
                                     <h6>PHP {{ number_format($r_unit['price'], 2) }} / mo</h6>
-                                    <h6>{{ $r_unit['area'] }} SQM</h6>
+                                    <h6>{{ number_format($r_unit['area'], 2) }} SQM</h6>
                                 </div>
                             </div>
                         </div>

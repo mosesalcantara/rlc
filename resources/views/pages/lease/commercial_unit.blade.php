@@ -90,7 +90,7 @@
                 <div>
                     <h6>Code: {{ $data['c_unit']['retail_id'] }}</h6>
                     <h6>Building: {{ $data['c_unit']['building'] }}</h6>
-                    <h6>Size: {{ $data['c_unit']['size'] }} SQM</h6>
+                    <h6>Size: {{ number_format($data['c_unit']['size'], 2) }} SQM</h6>
                 </div>
                 <div class="text-center">
                     <a class="btn btn-warning" data-bs-target="#viewingModal" data-bs-toggle="modal">Request Viewing</a>
@@ -123,7 +123,7 @@
                                     @forelse ($data['measurements'] as $measurement)
                                     <tr>
                                         <td><h6>{{ $measurement['retail_id'] }}</h6></td>
-                                        <td><h6>{{ $measurement['size'] }} SQM</h6></td>
+                                        <td><h6>{{ number_format($measurement['size'], 2) }} SQM</h6></td>
                                     </tr>
                                     @empty
                                         <div class="text-center no_data">

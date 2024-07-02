@@ -1,5 +1,4 @@
 @component('mail::message')
-<h1>RLC Announcement</h1>
-<h2>{{ $mail_data['title'] }}</h2>
-{{ $mail_data['body'] }}
+<h1 style="text-align: center">{{ $mail_data['title'] }}</h1>
+<p style="text-align: center">{{ $mail_data['body'] }}</p>
 @endcomponent
